@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>io.nemo.kvd</string>
+	<string>io.nemo.nmd</string>
 	<key>ProgramArguments</key>
 	<array>
 		<!--Assumes user is "nemo"-->
-		<string>/Users/nemo/go/bin/kvd</string>
+		<string>/Users/nemo/go/bin/nmd</string>
     <string>start</string>
 	</array>
 	<key>RunAtLoad</key>

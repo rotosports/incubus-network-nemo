@@ -1,58 +1,58 @@
 version: '3'
 
 services:
-  kvdnode0:
-    container_name: kvdnode0
-    image: "nemo/nemonode"
+  nmdnode0:
+    container_name: nmdnode0
+    image: "fanfury/nemonode"
     ports:
       - "26656-26657:26656-26657"
     environment:
       - ID=0
-      - LOG=${LOG:-kvd.log}
+      - LOG=${LOG:-nmd.log}
     volumes:
-      - ./build:/kvd:Z
+      - ./build:/nmd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.2
 
-  kvdnode1:
-    container_name: kvdnode1
-    image: "nemo/nemonode"
+  nmdnode1:
+    container_name: nmdnode1
+    image: "fanfury/nemonode"
     ports:
       - "26659-26660:26656-26657"
     environment:
       - ID=1
-      - LOG=${LOG:-kvd.log}
+      - LOG=${LOG:-nmd.log}
     volumes:
-      - ./build:/kvd:Z
+      - ./build:/nmd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.3
 
-  kvdnode2:
-    container_name: kvdnode2
-    image: "nemo/nemonode"
+  nmdnode2:
+    container_name: nmdnode2
+    image: "fanfury/nemonode"
     environment:
       - ID=2
-      - LOG=${LOG:-kvd.log}
+      - LOG=${LOG:-nmd.log}
     ports:
       - "26661-26662:26656-26657"
     volumes:
-      - ./build:/kvd:Z
+      - ./build:/nmd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.4
 
-  kvdnode3:
-    container_name: kvdnode3
-    image: "nemo/nemonode"
+  nmdnode3:
+    container_name: nmdnode3
+    image: "fanfury/nemonode"
     environment:
       - ID=3
-      - LOG=${LOG:-kvd.log}
+      - LOG=${LOG:-nmd.log}
     ports:
       - "26663-26664:26656-26657"
     volumes:
-      - ./build:/kvd:Z
+      - ./build:/nmd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.5

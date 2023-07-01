@@ -1,6 +1,6 @@
 Sample configuration files for:
 
 ```
-SystemD: kvd.service
-macOS:  io.nemo.kvd.plist
+SystemD: nmd.service
+macOS:  io.nemo.nmd.plist
 ```

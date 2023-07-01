@@ -24,6 +24,5 @@ The process is:
 On each release we can delete the previous releases migration and old GenesisState type.
 eg nemo-3 migrates `auth.GenesisState` from nemo-2 to `auth.GenesisState` from nemo-3,
 but for nemo-4 we don't need to keep around nemo-2's `auth.GenesisState` type.
-
 */
 package migrate
