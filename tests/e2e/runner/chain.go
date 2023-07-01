@@ -74,7 +74,7 @@ var (
 		GrpcUrl:   "http://localhost:9090",
 		EvmRpcUrl: "http://localhost:8545",
 
-		ChainId:      "nemolocalnet_8888-1",
+		ChainId:      "nemolocalnet_4200-1",
 		StakingDenom: "unemo",
 	}
 	kvtoolIbcChain = ChainDetails{

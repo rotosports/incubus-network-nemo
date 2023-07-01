@@ -27,7 +27,7 @@ rm -rf $DATA
 BINARY=nemo
 
 # Create new data directory, overwriting any that alread existed
-chainID="nemolocalnet_8888-1"
+chainID="nemolocalnet_4200-1"
 $BINARY init validator --chain-id $chainID
 
 # hacky enable of rest api
@@ -41,7 +41,7 @@ sed -in-place='' '/iavl-cache-size/a\
 trace = true' $DATA/config/app.toml
 
 # Set client chain id
-sed -in-place='' 's/chain-id = ""/chain-id = "nemolocalnet_8888-1"/g' $DATA/config/client.toml
+sed -in-place='' 's/chain-id = ""/chain-id = "nemolocalnet_4200-1"/g' $DATA/config/client.toml
 
 # avoid having to use password for keys
 $BINARY config keyring-backend test

@@ -422,6 +422,22 @@
   
     - [Msg](#nemo.issuance.v1beta1.Msg)
   
+- [nemo/liquid/v1beta1/query.proto](#nemo/liquid/v1beta1/query.proto)
+    - [QueryDelegatedBalanceRequest](#nemo.liquid.v1beta1.QueryDelegatedBalanceRequest)
+    - [QueryDelegatedBalanceResponse](#nemo.liquid.v1beta1.QueryDelegatedBalanceResponse)
+    - [QueryTotalSupplyRequest](#nemo.liquid.v1beta1.QueryTotalSupplyRequest)
+    - [QueryTotalSupplyResponse](#nemo.liquid.v1beta1.QueryTotalSupplyResponse)
+  
+    - [Query](#nemo.liquid.v1beta1.Query)
+  
+- [nemo/liquid/v1beta1/tx.proto](#nemo/liquid/v1beta1/tx.proto)
+    - [MsgBurnDerivative](#nemo.liquid.v1beta1.MsgBurnDerivative)
+    - [MsgBurnDerivativeResponse](#nemo.liquid.v1beta1.MsgBurnDerivativeResponse)
+    - [MsgMintDerivative](#nemo.liquid.v1beta1.MsgMintDerivative)
+    - [MsgMintDerivativeResponse](#nemo.liquid.v1beta1.MsgMintDerivativeResponse)
+  
+    - [Msg](#nemo.liquid.v1beta1.Msg)
+  
 - [nemo/nemodist/v1beta1/params.proto](#nemo/nemodist/v1beta1/params.proto)
     - [CoreReward](#nemo.nemodist.v1beta1.CoreReward)
     - [InfrastructureParams](#nemo.nemodist.v1beta1.InfrastructureParams)
@@ -444,22 +460,6 @@
     - [QueryParamsResponse](#nemo.nemodist.v1beta1.QueryParamsResponse)
   
     - [Query](#nemo.nemodist.v1beta1.Query)
-  
-- [nemo/liquid/v1beta1/query.proto](#nemo/liquid/v1beta1/query.proto)
-    - [QueryDelegatedBalanceRequest](#nemo.liquid.v1beta1.QueryDelegatedBalanceRequest)
-    - [QueryDelegatedBalanceResponse](#nemo.liquid.v1beta1.QueryDelegatedBalanceResponse)
-    - [QueryTotalSupplyRequest](#nemo.liquid.v1beta1.QueryTotalSupplyRequest)
-    - [QueryTotalSupplyResponse](#nemo.liquid.v1beta1.QueryTotalSupplyResponse)
-  
-    - [Query](#nemo.liquid.v1beta1.Query)
-  
-- [nemo/liquid/v1beta1/tx.proto](#nemo/liquid/v1beta1/tx.proto)
-    - [MsgBurnDerivative](#nemo.liquid.v1beta1.MsgBurnDerivative)
-    - [MsgBurnDerivativeResponse](#nemo.liquid.v1beta1.MsgBurnDerivativeResponse)
-    - [MsgMintDerivative](#nemo.liquid.v1beta1.MsgMintDerivative)
-    - [MsgMintDerivativeResponse](#nemo.liquid.v1beta1.MsgMintDerivativeResponse)
-  
-    - [Msg](#nemo.liquid.v1beta1.Msg)
   
 - [nemo/pricefeed/v1beta1/store.proto](#nemo/pricefeed/v1beta1/store.proto)
     - [CurrentPrice](#nemo.pricefeed.v1beta1.CurrentPrice)
@@ -5962,6 +5962,181 @@ Msg defines the issuance Msg service.
 
 
 
+<a name="nemo/liquid/v1beta1/query.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## nemo/liquid/v1beta1/query.proto
+
+
+
+<a name="nemo.liquid.v1beta1.QueryDelegatedBalanceRequest"></a>
+
+### QueryDelegatedBalanceRequest
+QueryDelegatedBalanceRequest defines the request type for Query/DelegatedBalance method.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `delegator` | [string](#string) |  | delegator is the address of the account to query |
+
+
+
+
+
+
+<a name="nemo.liquid.v1beta1.QueryDelegatedBalanceResponse"></a>
+
+### QueryDelegatedBalanceResponse
+DelegatedBalanceResponse defines the response type for the Query/DelegatedBalance method.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `vested` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | vested is the amount of all delegated coins that have vested (ie not locked) |
+| `vesting` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | vesting is the amount of all delegated coins that are still vesting (ie locked) |
+
+
+
+
+
+
+<a name="nemo.liquid.v1beta1.QueryTotalSupplyRequest"></a>
+
+### QueryTotalSupplyRequest
+QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
+
+
+
+
+
+
+<a name="nemo.liquid.v1beta1.QueryTotalSupplyResponse"></a>
+
+### QueryTotalSupplyResponse
+TotalSupplyResponse defines the response type for the Query/TotalSupply method.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `height` | [int64](#int64) |  | Height is the block height at which these totals apply |
+| `result` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | Result is a list of coins supplied to liquid |
+
+
+
+
+
+ <!-- end messages -->
+
+ <!-- end enums -->
+
+ <!-- end HasExtensions -->
+
+
+<a name="nemo.liquid.v1beta1.Query"></a>
+
+### Query
+Query defines the gRPC querier service for liquid module
+
+| Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
+| ----------- | ------------ | ------------- | ------------| ------- | -------- |
+| `DelegatedBalance` | [QueryDelegatedBalanceRequest](#nemo.liquid.v1beta1.QueryDelegatedBalanceRequest) | [QueryDelegatedBalanceResponse](#nemo.liquid.v1beta1.QueryDelegatedBalanceResponse) | DelegatedBalance returns an account's vesting and vested coins currently delegated to validators. It ignores coins in unbonding delegations. | GET|/nemo/liquid/v1beta1/delegated_balance/{delegator}|
+| `TotalSupply` | [QueryTotalSupplyRequest](#nemo.liquid.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#nemo.liquid.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the liquid module. | GET|/nemo/liquid/v1beta1/total_supply|
+
+ <!-- end services -->
+
+
+
+<a name="nemo/liquid/v1beta1/tx.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## nemo/liquid/v1beta1/tx.proto
+
+
+
+<a name="nemo.liquid.v1beta1.MsgBurnDerivative"></a>
+
+### MsgBurnDerivative
+MsgBurnDerivative defines the Msg/BurnDerivative request type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `sender` | [string](#string) |  | sender is the owner of the derivatives to be converted |
+| `validator` | [string](#string) |  | validator is the validator of the derivatives to be converted |
+| `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | amount is the quantity of derivatives to be converted |
+
+
+
+
+
+
+<a name="nemo.liquid.v1beta1.MsgBurnDerivativeResponse"></a>
+
+### MsgBurnDerivativeResponse
+MsgBurnDerivativeResponse defines the Msg/BurnDerivative response type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `received` | [string](#string) |  | received is the number of delegation shares sent to the sender |
+
+
+
+
+
+
+<a name="nemo.liquid.v1beta1.MsgMintDerivative"></a>
+
+### MsgMintDerivative
+MsgMintDerivative defines the Msg/MintDerivative request type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `sender` | [string](#string) |  | sender is the owner of the delegation to be converted |
+| `validator` | [string](#string) |  | validator is the validator of the delegation to be converted |
+| `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | amount is the quantity of staked assets to be converted |
+
+
+
+
+
+
+<a name="nemo.liquid.v1beta1.MsgMintDerivativeResponse"></a>
+
+### MsgMintDerivativeResponse
+MsgMintDerivativeResponse defines the Msg/MintDerivative response type.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `received` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | received is the amount of staking derivative minted and sent to the sender |
+
+
+
+
+
+ <!-- end messages -->
+
+ <!-- end enums -->
+
+ <!-- end HasExtensions -->
+
+
+<a name="nemo.liquid.v1beta1.Msg"></a>
+
+### Msg
+Msg defines the liquid Msg service.
+
+| Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
+| ----------- | ------------ | ------------- | ------------| ------- | -------- |
+| `MintDerivative` | [MsgMintDerivative](#nemo.liquid.v1beta1.MsgMintDerivative) | [MsgMintDerivativeResponse](#nemo.liquid.v1beta1.MsgMintDerivativeResponse) | MintDerivative defines a method for converting a delegation into staking deriviatives. | |
+| `BurnDerivative` | [MsgBurnDerivative](#nemo.liquid.v1beta1.MsgBurnDerivative) | [MsgBurnDerivativeResponse](#nemo.liquid.v1beta1.MsgBurnDerivativeResponse) | BurnDerivative defines a method for converting staking deriviatives into a delegation. | |
+
+ <!-- end services -->
+
+
+
 <a name="nemo/nemodist/v1beta1/params.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -6234,181 +6409,6 @@ Query defines the gRPC querier service.
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
 | `Params` | [QueryParamsRequest](#nemo.nemodist.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.nemodist.v1beta1.QueryParamsResponse) | Params queries the parameters of x/nemodist module. | GET|/nemo/nemodist/v1beta1/parameters|
 | `Balance` | [QueryBalanceRequest](#nemo.nemodist.v1beta1.QueryBalanceRequest) | [QueryBalanceResponse](#nemo.nemodist.v1beta1.QueryBalanceResponse) | Balance queries the balance of all coins of x/nemodist module. | GET|/nemo/nemodist/v1beta1/balance|
-
- <!-- end services -->
-
-
-
-<a name="nemo/liquid/v1beta1/query.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## nemo/liquid/v1beta1/query.proto
-
-
-
-<a name="nemo.liquid.v1beta1.QueryDelegatedBalanceRequest"></a>
-
-### QueryDelegatedBalanceRequest
-QueryDelegatedBalanceRequest defines the request type for Query/DelegatedBalance method.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `delegator` | [string](#string) |  | delegator is the address of the account to query |
-
-
-
-
-
-
-<a name="nemo.liquid.v1beta1.QueryDelegatedBalanceResponse"></a>
-
-### QueryDelegatedBalanceResponse
-DelegatedBalanceResponse defines the response type for the Query/DelegatedBalance method.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `vested` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | vested is the amount of all delegated coins that have vested (ie not locked) |
-| `vesting` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | vesting is the amount of all delegated coins that are still vesting (ie locked) |
-
-
-
-
-
-
-<a name="nemo.liquid.v1beta1.QueryTotalSupplyRequest"></a>
-
-### QueryTotalSupplyRequest
-QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
-
-
-
-
-
-
-<a name="nemo.liquid.v1beta1.QueryTotalSupplyResponse"></a>
-
-### QueryTotalSupplyResponse
-TotalSupplyResponse defines the response type for the Query/TotalSupply method.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `height` | [int64](#int64) |  | Height is the block height at which these totals apply |
-| `result` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | Result is a list of coins supplied to liquid |
-
-
-
-
-
- <!-- end messages -->
-
- <!-- end enums -->
-
- <!-- end HasExtensions -->
-
-
-<a name="nemo.liquid.v1beta1.Query"></a>
-
-### Query
-Query defines the gRPC querier service for liquid module
-
-| Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
-| ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `DelegatedBalance` | [QueryDelegatedBalanceRequest](#nemo.liquid.v1beta1.QueryDelegatedBalanceRequest) | [QueryDelegatedBalanceResponse](#nemo.liquid.v1beta1.QueryDelegatedBalanceResponse) | DelegatedBalance returns an account's vesting and vested coins currently delegated to validators. It ignores coins in unbonding delegations. | GET|/nemo/liquid/v1beta1/delegated_balance/{delegator}|
-| `TotalSupply` | [QueryTotalSupplyRequest](#nemo.liquid.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#nemo.liquid.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the liquid module. | GET|/nemo/liquid/v1beta1/total_supply|
-
- <!-- end services -->
-
-
-
-<a name="nemo/liquid/v1beta1/tx.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## nemo/liquid/v1beta1/tx.proto
-
-
-
-<a name="nemo.liquid.v1beta1.MsgBurnDerivative"></a>
-
-### MsgBurnDerivative
-MsgBurnDerivative defines the Msg/BurnDerivative request type.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `sender` | [string](#string) |  | sender is the owner of the derivatives to be converted |
-| `validator` | [string](#string) |  | validator is the validator of the derivatives to be converted |
-| `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | amount is the quantity of derivatives to be converted |
-
-
-
-
-
-
-<a name="nemo.liquid.v1beta1.MsgBurnDerivativeResponse"></a>
-
-### MsgBurnDerivativeResponse
-MsgBurnDerivativeResponse defines the Msg/BurnDerivative response type.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `received` | [string](#string) |  | received is the number of delegation shares sent to the sender |
-
-
-
-
-
-
-<a name="nemo.liquid.v1beta1.MsgMintDerivative"></a>
-
-### MsgMintDerivative
-MsgMintDerivative defines the Msg/MintDerivative request type.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `sender` | [string](#string) |  | sender is the owner of the delegation to be converted |
-| `validator` | [string](#string) |  | validator is the validator of the delegation to be converted |
-| `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | amount is the quantity of staked assets to be converted |
-
-
-
-
-
-
-<a name="nemo.liquid.v1beta1.MsgMintDerivativeResponse"></a>
-
-### MsgMintDerivativeResponse
-MsgMintDerivativeResponse defines the Msg/MintDerivative response type.
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `received` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | received is the amount of staking derivative minted and sent to the sender |
-
-
-
-
-
- <!-- end messages -->
-
- <!-- end enums -->
-
- <!-- end HasExtensions -->
-
-
-<a name="nemo.liquid.v1beta1.Msg"></a>
-
-### Msg
-Msg defines the liquid Msg service.
-
-| Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
-| ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `MintDerivative` | [MsgMintDerivative](#nemo.liquid.v1beta1.MsgMintDerivative) | [MsgMintDerivativeResponse](#nemo.liquid.v1beta1.MsgMintDerivativeResponse) | MintDerivative defines a method for converting a delegation into staking deriviatives. | |
-| `BurnDerivative` | [MsgBurnDerivative](#nemo.liquid.v1beta1.MsgBurnDerivative) | [MsgBurnDerivativeResponse](#nemo.liquid.v1beta1.MsgBurnDerivativeResponse) | BurnDerivative defines a method for converting staking deriviatives into a delegation. | |
 
  <!-- end services -->
 
