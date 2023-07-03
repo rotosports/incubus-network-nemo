@@ -324,8 +324,8 @@ start-remote-sims:
 		-—job-definition nemo-sim-master \
 		-—container-override environment=[{SIM_NAME=master-$(VERSION)}]
 
-update-kvtool:
+update-futool:
 	git submodule update
-	cd tests/e2e/kvtool && make install
+	cd tests/e2e/futool && make install
 
 .PHONY: all build-linux install clean build test test-cli test-all test-rest test-basic start-remote-sims

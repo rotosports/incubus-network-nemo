@@ -1,9 +1,9 @@
 syntax = "proto3";
-package nautilus.types.v1;
+package ethermint.types.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/nautilus/types";
+option go_package = "github.com/evmos/ethermint/types";
 
 // ExtensionOptionDynamicFeeTx is an extension option that specifies the maxPrioPrice for cosmos tx
 message ExtensionOptionDynamicFeeTx {

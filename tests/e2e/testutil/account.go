@@ -19,9 +19,9 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/evmos/nautilus/crypto/ethsecp256k1"
-	emtests "github.com/evmos/nautilus/tests"
-	emtypes "github.com/evmos/nautilus/types"
+	"github.com/evmos/ethermint/crypto/ethsecp256k1"
+	emtests "github.com/evmos/ethermint/tests"
+	emtypes "github.com/evmos/ethermint/types"
 	"github.com/stretchr/testify/require"
 
 	"github.com/incubus-network/nemo/app"
@@ -88,7 +88,7 @@ func (chain *Chain) AddNewSigningAccount(name string, hdPath *hd.BIP44Params, ch
 
 	// Nemo signing account for EVM side
 	evmChainId, err := emtypes.ParseChainID(chainId)
-	require.NoErrorf(chain.t, err, "unable to parse nautilus-compatible chain id from %s", chainId)
+	require.NoErrorf(chain.t, err, "unable to parse ethermint-compatible chain id from %s", chainId)
 	ecdsaPrivKey, err := crypto.HexToECDSA(hex.EncodeToString(privKeyBytes))
 	require.NoError(chain.t, err, "failed to generate ECDSA private key from bytes")
 

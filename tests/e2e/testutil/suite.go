@@ -94,12 +94,12 @@ func (suite *E2eTestSuite) SetupSuite() {
 	}
 
 	// setup the correct NodeRunner for the given config
-	if suiteConfig.Kvtool != nil {
-		suite.runner = suite.SetupKvtoolNodeRunner()
+	if suiteConfig.Futool != nil {
+		suite.runner = suite.SetupFutoolNodeRunner()
 	} else if suiteConfig.LiveNetwork != nil {
 		suite.runner = suite.SetupLiveNetworkNodeRunner()
 	} else {
-		panic("expected either kvtool or live network configs to be defined")
+		panic("expected either futool or live network configs to be defined")
 	}
 
 	chains := suite.runner.StartChains()
@@ -165,27 +165,27 @@ func (suite *E2eTestSuite) TearDownSuite() {
 	suite.runner.Shutdown()
 }
 
-// SetupKvtoolNodeRunner is a helper method for building a KvtoolRunnerConfig from the suite config.
-func (suite *E2eTestSuite) SetupKvtoolNodeRunner() *runner.KvtoolRunner {
-	// upgrade tests are only supported on kvtool networks
-	suite.UpgradeHeight = suite.config.Kvtool.NemoUpgradeHeight
+// SetupFutoolNodeRunner is a helper method for building a FutoolRunnerConfig from the suite config.
+func (suite *E2eTestSuite) SetupFutoolNodeRunner() *runner.FutoolRunner {
+	// upgrade tests are only supported on futool networks
+	suite.UpgradeHeight = suite.config.Futool.NemoUpgradeHeight
 	suite.enableRefunds = false
 
-	runnerConfig := runner.KvtoolRunnerConfig{
-		NemoConfigTemplate: suite.config.Kvtool.NemoConfigTemplate,
+	runnerConfig := runner.FutoolRunnerConfig{
+		NemoConfigTemplate: suite.config.Futool.NemoConfigTemplate,
 
 		IncludeIBC: suite.config.IncludeIbcTests,
 		ImageTag:   "local",
 
-		EnableAutomatedUpgrade:  suite.config.Kvtool.IncludeAutomatedUpgrade,
-		NemoUpgradeName:         suite.config.Kvtool.NemoUpgradeName,
-		NemoUpgradeHeight:       suite.config.Kvtool.NemoUpgradeHeight,
-		NemoUpgradeBaseImageTag: suite.config.Kvtool.NemoUpgradeBaseImageTag,
+		EnableAutomatedUpgrade:  suite.config.Futool.IncludeAutomatedUpgrade,
+		NemoUpgradeName:         suite.config.Futool.NemoUpgradeName,
+		NemoUpgradeHeight:       suite.config.Futool.NemoUpgradeHeight,
+		NemoUpgradeBaseImageTag: suite.config.Futool.NemoUpgradeBaseImageTag,
 
 		SkipShutdown: suite.config.SkipShutdown,
 	}
 
-	return runner.NewKvtoolRunner(runnerConfig)
+	return runner.NewFutoolRunner(runnerConfig)
 }
 
 // SetupLiveNetworkNodeRunner is a helper method for building a LiveNodeRunner from the suite config.
@@ -215,17 +215,17 @@ func (suite *E2eTestSuite) SkipIfIbcDisabled() {
 
 // SkipIfUpgradeDisabled should be called at the start of tests that require automated upgrades.
 // It gracefully skips the current test if upgrades are dissabled.
-// Note: automated upgrade tests are currently only enabled for Kvtool suite runs.
+// Note: automated upgrade tests are currently only enabled for Futool suite runs.
 func (suite *E2eTestSuite) SkipIfUpgradeDisabled() {
-	if suite.config.Kvtool != nil && suite.config.Kvtool.IncludeAutomatedUpgrade {
+	if suite.config.Futool != nil && suite.config.Futool.IncludeAutomatedUpgrade {
 		suite.T().SkipNow()
 	}
 }
 
 // NemoHomePath returns the OS-specific filepath for the nemo home directory
-// Assumes network is running with kvtool installed from the sub-repository in tests/e2e/kvtool
+// Assumes network is running with futool installed from the sub-repository in tests/e2e/futool
 func (suite *E2eTestSuite) NemoHomePath() string {
-	return filepath.Join("kvtool", "full_configs", "generated", "nemo", "initstate", ".nemo")
+	return filepath.Join("futool", "full_configs", "generated", "nemo", "initstate", ".nemo")
 }
 
 // BigIntsEqual is a helper method for comparing the equality of two big ints

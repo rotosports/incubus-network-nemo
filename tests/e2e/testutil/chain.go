@@ -20,7 +20,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 
-	evmtypes "github.com/evmos/nautilus/x/evm/types"
+	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
 	"github.com/incubus-network/nemo/app"
 	nemoparams "github.com/incubus-network/nemo/app/params"

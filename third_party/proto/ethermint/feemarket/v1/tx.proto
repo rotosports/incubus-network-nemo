@@ -1,12 +1,12 @@
 syntax = "proto3";
-package nautilus.feemarket.v1;
+package ethermint.feemarket.v1;
 
 import "cosmos/msg/v1/msg.proto";
 import "cosmos_proto/cosmos.proto";
-import "nautilus/feemarket/v1/feemarket.proto";
+import "ethermint/feemarket/v1/feemarket.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/nautilus/x/feemarket/types";
+option go_package = "github.com/evmos/ethermint/x/feemarket/types";
 
 // Msg defines the erc20 Msg service.
 service Msg {

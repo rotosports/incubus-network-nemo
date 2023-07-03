@@ -18,8 +18,8 @@ type SuiteConfig struct {
 	// A funded account used to fnd all other accounts.
 	FundedAccountMnemonic string
 
-	// A config for using kvtool local networks for the test run
-	Kvtool *KvtoolConfig
+	// A config for using futool local networks for the test run
+	Futool *FutoolConfig
 	// A config for connecting to a running network
 	LiveNetwork *LiveNetworkConfig
 
@@ -33,10 +33,10 @@ type SuiteConfig struct {
 	SkipShutdown bool
 }
 
-// KvtoolConfig wraps configuration options for running the end-to-end test suite against
-// a locally running chain. This config must be defined if E2E_RUN_KVTOOL_NETWORKS is true.
-type KvtoolConfig struct {
-	// The nemo.configTemplate flag to be passed to kvtool, usually "master".
+// FutoolConfig wraps configuration options for running the end-to-end test suite against
+// a locally running chain. This config must be defined if E2E_RUN_FUTOOL_NETWORKS is true.
+type FutoolConfig struct {
+	// The nemo.configTemplate flag to be passed to futool, usually "master".
 	// This allows one to change the base genesis used to start the chain.
 	NemoConfigTemplate string
 
@@ -51,7 +51,7 @@ type KvtoolConfig struct {
 }
 
 // LiveNetworkConfig wraps configuration options for running the end-to-end test suite
-// against a live network. It must be defined if E2E_RUN_KVTOOL_NETWORKS is false.
+// against a live network. It must be defined if E2E_RUN_FUTOOL_NETWORKS is false.
 type LiveNetworkConfig struct {
 	NemoRpcUrl    string
 	NemoGrpcUrl   string
@@ -73,10 +73,10 @@ func ParseSuiteConfig() SuiteConfig {
 		config.SkipShutdown = mustParseBool("E2E_SKIP_SHUTDOWN")
 	}
 
-	useKvtoolNetworks := mustParseBool("E2E_RUN_KVTOOL_NETWORKS")
-	if useKvtoolNetworks {
-		kvtoolConfig := ParseKvtoolConfig()
-		config.Kvtool = &kvtoolConfig
+	useFutoolNetworks := mustParseBool("E2E_RUN_FUTOOL_NETWORKS")
+	if useFutoolNetworks {
+		futoolConfig := ParseFutoolConfig()
+		config.Futool = &futoolConfig
 	} else {
 		liveNetworkConfig := ParseLiveNetworkConfig()
 		config.LiveNetwork = &liveNetworkConfig
@@ -85,10 +85,10 @@ func ParseSuiteConfig() SuiteConfig {
 	return config
 }
 
-// ParseKvtoolConfig builds a KvtoolConfig from environment variables.
-func ParseKvtoolConfig() KvtoolConfig {
-	config := KvtoolConfig{
-		NemoConfigTemplate:      nonemptyStringEnv("E2E_KVTOOL_NEMO_CONFIG_TEMPLATE"),
+// ParseFutoolConfig builds a FutoolConfig from environment variables.
+func ParseFutoolConfig() FutoolConfig {
+	config := FutoolConfig{
+		NemoConfigTemplate:      nonemptyStringEnv("E2E_FUTOOL_NEMO_CONFIG_TEMPLATE"),
 		IncludeAutomatedUpgrade: mustParseBool("E2E_INCLUDE_AUTOMATED_UPGRADE"),
 	}
 

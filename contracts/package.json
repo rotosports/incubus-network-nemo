@@ -8,11 +8,11 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "build": "npm run clean && npm run compile && npm run nautilus-json",
+    "build": "npm run clean && npm run compile && npm run ethermint-json",
     "clean": "hardhat clean",
     "compile": "hardhat compile",
     "coverage": "hardhat coverage",
-    "nautilus-json": "jq '{ abi: .abi | tostring, bin: .bytecode | ltrimstr(\"0x\")}' artifacts/contracts/ERC20NemoWrappedCosmosCoin.sol/ERC20NemoWrappedCosmosCoin.json > ../x/evmutil/types/nautilus_json/ERC20NemoWrappedCosmosCoin.json",
+    "ethermint-json": "jq '{ abi: .abi | tostring, bin: .bytecode | ltrimstr(\"0x\")}' artifacts/contracts/ERC20NemoWrappedCosmosCoin.sol/ERC20NemoWrappedCosmosCoin.json > ../x/evmutil/types/ethermint_json/ERC20NemoWrappedCosmosCoin.json",
     "gen-ts-types": "hardhat typechain",
     "lint": "eslint '**/*.{js,ts}'",
     "lint-fix": "eslint '**/*.{js,ts}' --fix",

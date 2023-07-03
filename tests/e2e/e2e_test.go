@@ -16,7 +16,7 @@ import (
 	ibctypes "github.com/cosmos/ibc-go/v6/modules/apps/transfer/types"
 	ibcclienttypes "github.com/cosmos/ibc-go/v6/modules/core/02-client/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	emtypes "github.com/evmos/nautilus/types"
+	emtypes "github.com/evmos/ethermint/types"
 
 	"github.com/incubus-network/nemo/app"
 	"github.com/incubus-network/nemo/tests/e2e/testutil"

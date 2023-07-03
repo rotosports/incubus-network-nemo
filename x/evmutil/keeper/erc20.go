@@ -9,7 +9,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/core/vm"
 	"github.com/ethereum/go-ethereum/crypto"
-	evmtypes "github.com/evmos/nautilus/x/evm/types"
+	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 

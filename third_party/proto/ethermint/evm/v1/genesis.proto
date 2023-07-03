@@ -1,10 +1,10 @@
 syntax = "proto3";
-package nautilus.evm.v1;
+package ethermint.evm.v1;
 
-import "nautilus/evm/v1/evm.proto";
+import "ethermint/evm/v1/evm.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/nautilus/x/evm/types";
+option go_package = "github.com/evmos/ethermint/x/evm/types";
 
 // GenesisState defines the evm module's genesis state.
 message GenesisState {

@@ -4,7 +4,7 @@ lint:
   ignore:
     - cosmos
     - cosmos_proto
-    - nautilus
+    - ethermint
     - gogoproto
     - google
     - ibc

@@ -13,11 +13,11 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/evmos/nautilus/crypto/hd"
-	"github.com/evmos/nautilus/server/config"
-	nautilustypes "github.com/evmos/nautilus/types"
-	evmtypes "github.com/evmos/nautilus/x/evm/types"
-	feemarkettypes "github.com/evmos/nautilus/x/feemarket/types"
+	"github.com/evmos/ethermint/crypto/hd"
+	"github.com/evmos/ethermint/server/config"
+	etherminttypes "github.com/evmos/ethermint/types"
+	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
 )
 
 // CanSignEthTx returns an error if the signing key algorithm is not eth_secp256k1.
@@ -64,7 +64,7 @@ func CreateEthCallContractTx(
 	evmQueryClient := evmtypes.NewQueryClient(ctx)
 	feemarketQueryClient := feemarkettypes.NewQueryClient(ctx)
 
-	chainID, err := nautilustypes.ParseChainID(ctx.ChainID)
+	chainID, err := etherminttypes.ParseChainID(ctx.ChainID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse chain ID: %w", err)
 	}
@@ -127,7 +127,7 @@ func CreateEthCallContractTx(
 	// Sign Ethereum TX (not the cosmos Msg)
 	signer := ethtypes.LatestSignerForChainID(chainID)
 
-	// Must sign with a `/nautilus.crypto.v1.ethsecp256k1.PubKey` and not
+	// Must sign with a `/ethermint.crypto.v1.ethsecp256k1.PubKey` and not
 	// `/cosmos.crypto.secp256k1.PubKey` or this will panic with the following:
 	// panic: wrong size for signature: got 64, want 65
 	if err := ethTx.Sign(signer, ctx.Keyring); err != nil {

@@ -12,8 +12,8 @@ import (
 	vesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	ibcante "github.com/cosmos/ibc-go/v6/modules/core/ante"
 	ibckeeper "github.com/cosmos/ibc-go/v6/modules/core/keeper"
-	evmante "github.com/evmos/nautilus/app/ante"
-	evmtypes "github.com/evmos/nautilus/x/evm/types"
+	evmante "github.com/evmos/ethermint/app/ante"
+	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	tmlog "github.com/tendermint/tendermint/libs/log"
 )
 
@@ -81,10 +81,10 @@ func NewAnteHandler(options HandlerOptions) (sdk.AnteHandler, error) {
 
 			if len(opts) == 1 {
 				switch typeURL := opts[0].GetTypeUrl(); typeURL {
-				case "/nautilus.evm.v1.ExtensionOptionsEthereumTx":
+				case "/ethermint.evm.v1.ExtensionOptionsEthereumTx":
 					// handle as *evmtypes.MsgEthereumTx
 					anteHandler = newEthAnteHandler(options)
-				case "/nautilus.types.v1.ExtensionOptionsWeb3Tx":
+				case "/ethermint.types.v1.ExtensionOptionsWeb3Tx":
 					// handle as normal Cosmos SDK tx, except signature is checked for EIP712 representation
 					anteHandler = newCosmosAnteHandler(cosmosHandlerOptions{
 						HandlerOptions: options,
@@ -148,7 +148,7 @@ func newCosmosAnteHandler(options cosmosHandlerOptions) sdk.AnteHandler {
 		),
 		authante.NewValidateBasicDecorator(),
 		authante.NewTxTimeoutHeightDecorator(),
-		// If nautilus x/feemarket is enabled, align Cosmos min fee with the EVM
+		// If ethermint x/feemarket is enabled, align Cosmos min fee with the EVM
 		// evmante.NewMinGasPriceDecorator(options.FeeMarketKeeper, options.EvmKeeper),
 		authante.NewValidateMemoDecorator(options.AccountKeeper),
 		authante.NewConsumeGasForTxSizeDecorator(options.AccountKeeper),

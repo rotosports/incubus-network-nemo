@@ -1,4 +1,4 @@
-// Sourced from https://github.com/evmos/nautilus/blob/main/cmd/nautilusd/genaccounts.go
+// Sourced from https://github.com/evmos/ethermint/blob/main/cmd/ethermintd/genaccounts.go
 package cmd
 
 import (
@@ -20,7 +20,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 
-	"github.com/evmos/nautilus/crypto/hd"
+	"github.com/evmos/ethermint/crypto/hd"
 )
 
 const (
