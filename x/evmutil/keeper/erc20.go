@@ -79,7 +79,7 @@ func (k Keeper) DeployNemoWrappedCosmosCoinERC20Contract(
 		return types.InternalEVMAddress{}, errorsmod.Wrapf(err, "failed to deploy erc20 for sdk denom %s", token.CosmosDenom)
 	}
 
-	packedAbi, err := types.ERC20NemoWrappedCosmosCoinContract.ABI.Pack(
+	packedAbi, err := types.ERC20FuryWrappedCosmosCoinContract.ABI.Pack(
 		"", // Empty string for contract constructor
 		token.Name,
 		token.Symbol,
@@ -89,13 +89,13 @@ func (k Keeper) DeployNemoWrappedCosmosCoinERC20Contract(
 		return types.InternalEVMAddress{}, errorsmod.Wrapf(err, "failed to pack token with details %+v", token)
 	}
 
-	data := make([]byte, len(types.ERC20NemoWrappedCosmosCoinContract.Bin)+len(packedAbi))
+	data := make([]byte, len(types.ERC20FuryWrappedCosmosCoinContract.Bin)+len(packedAbi))
 	copy(
-		data[:len(types.ERC20NemoWrappedCosmosCoinContract.Bin)],
-		types.ERC20NemoWrappedCosmosCoinContract.Bin,
+		data[:len(types.ERC20FuryWrappedCosmosCoinContract.Bin)],
+		types.ERC20FuryWrappedCosmosCoinContract.Bin,
 	)
 	copy(
-		data[len(types.ERC20NemoWrappedCosmosCoinContract.Bin):],
+		data[len(types.ERC20FuryWrappedCosmosCoinContract.Bin):],
 		packedAbi,
 	)
 
@@ -170,7 +170,7 @@ func (k Keeper) BurnERC20(
 ) error {
 	_, err := k.CallEVM(
 		ctx,
-		types.ERC20NemoWrappedCosmosCoinContract.ABI,
+		types.ERC20FuryWrappedCosmosCoinContract.ABI,
 		types.ModuleEVMAddress,
 		contractAddr,
 		erc20BurnMethod,
@@ -213,7 +213,7 @@ func (k Keeper) QueryERC20TotalSupply(
 ) (*big.Int, error) {
 	res, err := k.CallEVM(
 		ctx,
-		types.ERC20NemoWrappedCosmosCoinContract.ABI,
+		types.ERC20FuryWrappedCosmosCoinContract.ABI,
 		types.ModuleEVMAddress,
 		contractAddr,
 		erc20TotalSupplyMethod,

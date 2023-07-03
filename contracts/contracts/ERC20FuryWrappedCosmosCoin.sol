@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 ///        Tokens are backed one-for-one by cosmos-sdk coins held in the module account.
 /// @author Nemo Labs, LLC
 /// @custom:security-contact security@nemo.io
-contract ERC20NemoWrappedCosmosCoin is ERC20, Ownable {
+contract ERC20FuryWrappedCosmosCoin is ERC20, Ownable {
     /// @notice The decimals places of the token. For display purposes only.
     uint8 private immutable _decimals;
 

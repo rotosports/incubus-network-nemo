@@ -125,7 +125,7 @@ func (suite *ERC20TestSuite) TestDeployNemoWrappedCosmosCoinERC20Contract() {
 
 		callContract := func(method string, args ...interface{}) ([]interface{}, error) {
 			return suite.QueryContract(
-				types.ERC20NemoWrappedCosmosCoinContract.ABI,
+				types.ERC20FuryWrappedCosmosCoinContract.ABI,
 				caller,
 				privKey,
 				addr,

@@ -5,10 +5,10 @@ async function main() {
   const tokenSymbol = "kATOM";
   const tokenDecimals = 6;
 
-  const ERC20NemoWrappedCosmosCoin = await ethers.getContractFactory(
-    "ERC20NemoWrappedCosmosCoin"
+  const ERC20FuryWrappedCosmosCoin = await ethers.getContractFactory(
+    "ERC20FuryWrappedCosmosCoin"
   );
-  const token = await ERC20NemoWrappedCosmosCoin.deploy(
+  const token = await ERC20FuryWrappedCosmosCoin.deploy(
     tokenName,
     tokenSymbol,
     tokenDecimals

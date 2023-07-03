@@ -499,7 +499,7 @@ func (suite *MsgServerSuite) TestConvertCosmosCoinToERC20_AlreadyDeployedContrac
 	// check total supply
 	caller, key := testutil.RandomEvmAccount()
 	totalSupply, err := suite.QueryContract(
-		types.ERC20NemoWrappedCosmosCoinContract.ABI,
+		types.ERC20FuryWrappedCosmosCoinContract.ABI,
 		caller,
 		key,
 		contractAddress,
@@ -639,7 +639,7 @@ func (suite *MsgServerSuite) TestConvertCosmosCoinFromERC20() {
 			// expect erc20 total supply to reflect new value
 			caller, key := testutil.RandomEvmAccount()
 			totalSupply, err := suite.QueryContract(
-				types.ERC20NemoWrappedCosmosCoinContract.ABI,
+				types.ERC20FuryWrappedCosmosCoinContract.ABI,
 				caller,
 				key,
 				contractAddress,

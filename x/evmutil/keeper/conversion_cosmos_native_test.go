@@ -51,7 +51,7 @@ func (suite *convertCosmosCoinToERC20Suite) TestConvertCosmosCoinToERC20() {
 	caller, key := testutil.RandomEvmAccount()
 	query := func(method string, args ...interface{}) ([]interface{}, error) {
 		return suite.QueryContract(
-			types.ERC20NemoWrappedCosmosCoinContract.ABI,
+			types.ERC20FuryWrappedCosmosCoinContract.ABI,
 			caller,
 			key,
 			contractAddress,
@@ -215,7 +215,7 @@ func (suite *convertCosmosCoinFromERC20Suite) SetupTest() {
 	caller, key := testutil.RandomEvmAccount()
 	suite.query = func(method string, args ...interface{}) ([]interface{}, error) {
 		return suite.QueryContract(
-			types.ERC20NemoWrappedCosmosCoinContract.ABI,
+			types.ERC20FuryWrappedCosmosCoinContract.ABI,
 			caller,
 			key,
 			suite.contractAddress,
