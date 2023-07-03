@@ -20,12 +20,12 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	"github.com/evmos/ethermint/ethereum/eip712"
-	"github.com/evmos/ethermint/tests"
-	etherminttypes "github.com/evmos/ethermint/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/evmos/nautilus/crypto/ethsecp256k1"
+	"github.com/evmos/nautilus/ethereum/eip712"
+	"github.com/evmos/nautilus/tests"
+	nautilustypes "github.com/evmos/nautilus/types"
+	evmtypes "github.com/evmos/nautilus/x/evm/types"
+	feemarkettypes "github.com/evmos/nautilus/x/feemarket/types"
 	"github.com/stretchr/testify/suite"
 	abci "github.com/tendermint/tendermint/abci/types"
 	"github.com/tendermint/tendermint/crypto/tmhash"
@@ -78,7 +78,7 @@ func (suite *EIP712TestSuite) createTestEIP712CosmosTxBuilder(
 	nonce, err := suite.tApp.GetAccountKeeper().GetSequence(suite.ctx, from)
 	suite.Require().NoError(err)
 
-	pc, err := etherminttypes.ParseChainID(chainId)
+	pc, err := nautilustypes.ParseChainID(chainId)
 	suite.Require().NoError(err)
 	ethChainId := pc.Uint64()
 
@@ -102,7 +102,7 @@ func (suite *EIP712TestSuite) createTestEIP712CosmosTxBuilder(
 
 	// Add ExtensionOptionsWeb3Tx extension
 	var option *codectypes.Any
-	option, err = codectypes.NewAnyWithValue(&etherminttypes.ExtensionOptionsWeb3Tx{
+	option, err = codectypes.NewAnyWithValue(&nautilustypes.ExtensionOptionsWeb3Tx{
 		FeePayer:         from.String(),
 		TypedDataChainID: ethChainId,
 		FeePayerSig:      signature,
@@ -311,9 +311,9 @@ func (suite *EIP712TestSuite) SetupTest() {
 	suite.ctx = ctx
 
 	// We need to set the validator as calling the EVM looks up the validator address
-	// https://github.com/evmos/ethermint/blob/f21592ebfe74da7590eb42ed926dae970b2a9a3f/x/evm/keeper/state_transition.go#L487
+	// https://github.com/evmos/nautilus/blob/f21592ebfe74da7590eb42ed926dae970b2a9a3f/x/evm/keeper/state_transition.go#L487
 	// evmkeeper.EVMConfig() will return error "failed to load evm config" if not set
-	valAcc := &etherminttypes.EthAccount{
+	valAcc := &nautilustypes.EthAccount{
 		BaseAccount: authtypes.NewBaseAccount(sdk.AccAddress(consAddress.Bytes()), nil, 0, 0),
 		CodeHash:    common.BytesToHash(crypto.Keccak256(nil)).String(),
 	}
@@ -434,7 +434,7 @@ func (suite *EIP712TestSuite) SetupTest() {
 	)
 	suite.Require().NoError(err)
 
-	// We need to commit so that the ethermint feemarket beginblock runs to set the minfee
+	// We need to commit so that the nautilus feemarket beginblock runs to set the minfee
 	// feeMarketKeeper.GetBaseFee() will return nil otherwise
 	suite.Commit()
 
@@ -539,7 +539,7 @@ func (suite *EIP712TestSuite) TestEIP712Tx() {
 			errMsg:         "tx intended signer does not match the given signer",
 			updateTx: func(txBuilder client.TxBuilder, msgs []sdk.Msg) client.TxBuilder {
 				var option *codectypes.Any
-				option, _ = codectypes.NewAnyWithValue(&etherminttypes.ExtensionOptionsWeb3Tx{
+				option, _ = codectypes.NewAnyWithValue(&nautilustypes.ExtensionOptionsWeb3Tx{
 					FeePayer:         suite.testAddr.String(),
 					TypedDataChainID: 1,
 					FeePayerSig:      []byte("sig"),

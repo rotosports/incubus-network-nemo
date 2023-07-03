@@ -37,9 +37,9 @@ Configuration for various `<network-name>`s above are setup in the [hardhat conf
 
 ## Production compiling & Ethermint JSON
 
-Ethermint uses its own json format that includes the ABI and bytecode in a single file. The bytecode should have no `0x` prefix and should be under the property name `bin`. This structure is built from the compiled code with `npm ethermint-json`.
+Ethermint uses its own json format that includes the ABI and bytecode in a single file. The bytecode should have no `0x` prefix and should be under the property name `bin`. This structure is built from the compiled code with `npm nautilus-json`.
 
-The following compiles the contract, builds the ethermint json and copies the file to the evmutil:
+The following compiles the contract, builds the nautilus json and copies the file to the evmutil:
 ```
 npm build
 ```

@@ -1,7 +1,7 @@
 package app
 
 import (
-	enccodec "github.com/evmos/ethermint/encoding/codec"
+	enccodec "github.com/evmos/nautilus/encoding/codec"
 
 	"github.com/incubus-network/nemo/app/params"
 )

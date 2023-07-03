@@ -16,7 +16,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/crisis"
-	ethermintflags "github.com/evmos/ethermint/server/flags"
+	nautilusflags "github.com/evmos/nautilus/server/flags"
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
 	"github.com/tendermint/tendermint/libs/log"
@@ -97,8 +97,8 @@ func (ac appCreator) newApp(
 			InvariantCheckPeriod:  cast.ToUint(appOpts.Get(server.FlagInvCheckPeriod)),
 			MempoolEnableAuth:     mempoolEnableAuth,
 			MempoolAuthAddresses:  mempoolAuthAddresses,
-			EVMTrace:              cast.ToString(appOpts.Get(ethermintflags.EVMTracer)),
-			EVMMaxGasWanted:       cast.ToUint64(appOpts.Get(ethermintflags.EVMMaxTxGasWanted)),
+			EVMTrace:              cast.ToString(appOpts.Get(nautilusflags.EVMTracer)),
+			EVMMaxGasWanted:       cast.ToUint64(appOpts.Get(nautilusflags.EVMMaxTxGasWanted)),
 		},
 		baseapp.SetPruning(pruningOpts),
 		baseapp.SetMinGasPrices(strings.Replace(cast.ToString(appOpts.Get(server.FlagMinGasPrices)), ";", ",", -1)),

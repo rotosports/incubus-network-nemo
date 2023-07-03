@@ -12,10 +12,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
-	ethermintclient "github.com/evmos/ethermint/client"
-	"github.com/evmos/ethermint/crypto/hd"
-	ethermintserver "github.com/evmos/ethermint/server"
-	servercfg "github.com/evmos/ethermint/server/config"
+	nautilusclient "github.com/evmos/nautilus/client"
+	"github.com/evmos/nautilus/crypto/hd"
+	nautilusserver "github.com/evmos/nautilus/server"
+	servercfg "github.com/evmos/nautilus/server/config"
 	"github.com/spf13/cobra"
 	tmcfg "github.com/tendermint/tendermint/config"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
@@ -87,7 +87,7 @@ func NewRootCmd() *cobra.Command {
 func addSubCmds(rootCmd *cobra.Command, encodingConfig params.EncodingConfig, defaultNodeHome string) {
 	rootCmd.AddCommand(
 		StatusCommand(),
-		ethermintclient.ValidateChainID(
+		nautilusclient.ValidateChainID(
 			genutilcli.InitCmd(app.ModuleBasics, defaultNodeHome),
 		),
 		genutilcli.CollectGenTxsCmd(banktypes.GenesisBalancesIterator{}, defaultNodeHome),
@@ -105,10 +105,10 @@ func addSubCmds(rootCmd *cobra.Command, encodingConfig params.EncodingConfig, de
 		encodingConfig: encodingConfig,
 	}
 
-	// ethermintserver adds additional flags to start the JSON-RPC server for evm support
-	ethermintserver.AddCommands(
+	// nautilusserver adds additional flags to start the JSON-RPC server for evm support
+	nautilusserver.AddCommands(
 		rootCmd,
-		ethermintserver.NewDefaultStartOptions(
+		nautilusserver.NewDefaultStartOptions(
 			ac.newApp,
 			app.DefaultNodeHome,
 		),

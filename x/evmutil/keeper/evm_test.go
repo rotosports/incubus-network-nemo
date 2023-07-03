@@ -12,10 +12,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/evmos/ethermint/tests"
-	etherminttypes "github.com/evmos/ethermint/types"
-	"github.com/evmos/ethermint/x/evm/statedb"
-	"github.com/evmos/ethermint/x/evm/types"
+	"github.com/evmos/nautilus/tests"
+	nautilustypes "github.com/evmos/nautilus/types"
+	"github.com/evmos/nautilus/x/evm/statedb"
+	"github.com/evmos/nautilus/x/evm/types"
 
 	"github.com/incubus-network/nemo/x/evmutil/testutil"
 )
@@ -36,7 +36,7 @@ func (suite *evmKeeperTestSuite) TestEvmKeeper_SetAccount() {
 	baseAddr := tests.GenerateAddress()
 	baseAcc := &authtypes.BaseAccount{Address: sdk.AccAddress(baseAddr.Bytes()).String()}
 	ethAddr := tests.GenerateAddress()
-	ethAcc := &etherminttypes.EthAccount{BaseAccount: &authtypes.BaseAccount{Address: sdk.AccAddress(ethAddr.Bytes()).String()}, CodeHash: common.BytesToHash(types.EmptyCodeHash).String()}
+	ethAcc := &nautilustypes.EthAccount{BaseAccount: &authtypes.BaseAccount{Address: sdk.AccAddress(ethAddr.Bytes()).String()}, CodeHash: common.BytesToHash(types.EmptyCodeHash).String()}
 	vestingAddr := tests.GenerateAddress()
 	vestingAcc := vestingtypes.NewBaseVestingAccount(&authtypes.BaseAccount{Address: sdk.AccAddress(vestingAddr.Bytes()).String()}, sdk.NewCoins(), time.Now().Unix())
 

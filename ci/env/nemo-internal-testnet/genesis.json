@@ -75,7 +75,7 @@
           "permissions": []
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1ak4pa9z2aty94ze2cs06wsdnkg9hsvfkp40r02",
             "pub_key": null,
@@ -85,7 +85,7 @@
           "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo123fxg0l602etulhhcdm0vt7l57qya5wjcrwhzz",
             "pub_key": null,
@@ -95,7 +95,7 @@
           "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo10wlnqzyss4accfqmyxwx5jy5x9nfkwh6qm7n4t",
             "pub_key": null,
@@ -105,7 +105,7 @@
           "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1vtf08rd2z9fm8qwxa54y3el5vues8ty64qcdyr",
             "pub_key": null,
@@ -115,7 +115,7 @@
           "code_hash": "0xefe54230c8a74092194afdcb21c230b4cc4e07d0e6cd22bf0d3721f518df8ef2"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1wrrekcy2h0zs9shkruuwqsvsldq8hm70yad4ke",
             "pub_key": null,
@@ -125,7 +125,7 @@
           "code_hash": "0xd51cf04c1b78bc48b348e8455c4181539ab0b7ff84bb081fed109cd5feafaede"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1g3kdcr8ah7rs07dk00elnkpmk34e6dcj94306a",
             "pub_key": null,
@@ -135,7 +135,7 @@
           "code_hash": "0"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1xg3g4gadzvlgfqwnsfufnsv6r0gmtnhl9f09p5",
             "pub_key": null,
@@ -145,7 +145,7 @@
           "code_hash": "0"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1kq0kfnnffkna9hknzg8kgx89ljczjtjdt8qrv7",
             "pub_key": null,
@@ -155,7 +155,7 @@
           "code_hash": "0"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxw9ehkk",
             "pub_key": null,
@@ -179,7 +179,7 @@
           "sequence": "0"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "address": "nemo1w66m9hdzwgd6uc8g93zqkcumgwzrpcw9e32lf8",
             "pub_key": null,
@@ -189,7 +189,7 @@
           "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
         },
         {
-          "@type": "/ethermint.types.v1.EthAccount",
+          "@type": "/nautilus.types.v1.EthAccount",
           "base_account": {
             "account_number": "23",
             "address": "nemo1seqjrgakfgzasu5g8gwsmgzwacg85e8nnxeqxl",

@@ -11,9 +11,9 @@ import (
 	authtx "github.com/cosmos/cosmos-sdk/x/auth/tx"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/evmos/ethermint/ethereum/eip712"
-	emtypes "github.com/evmos/ethermint/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	"github.com/evmos/nautilus/ethereum/eip712"
+	emtypes "github.com/evmos/nautilus/types"
+	evmtypes "github.com/evmos/nautilus/x/evm/types"
 )
 
 // NewEip712TxBuilder is a helper method for creating an EIP712 signed tx

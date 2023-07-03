@@ -11,9 +11,9 @@ import (
 	"github.com/tendermint/tendermint/libs/cli"
 
 	"github.com/cosmos/cosmos-sdk/crypto/keyring"
-	ethclient "github.com/evmos/ethermint/client"
-	clientkeys "github.com/evmos/ethermint/client/keys"
-	"github.com/evmos/ethermint/crypto/hd"
+	ethclient "github.com/evmos/nautilus/client"
+	clientkeys "github.com/evmos/nautilus/client/keys"
+	"github.com/evmos/nautilus/crypto/hd"
 )
 
 var ethFlag = "eth"

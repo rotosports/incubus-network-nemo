@@ -21,11 +21,11 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	evmtypes "github.com/evmos/nautilus/x/evm/types"
 )
 
 var (
-	//go:embed ethermint_json/ERC20MintableBurnable.json
+	//go:embed nautilus_json/ERC20MintableBurnable.json
 	ERC20MintableBurnableJSON []byte
 
 	// ERC20MintableBurnableContract is the compiled erc20 contract
@@ -34,7 +34,7 @@ var (
 	// ERC20MintableBurnableAddress is the erc20 module address
 	ERC20MintableBurnableAddress common.Address
 
-	//go:embed ethermint_json/ERC20NemoWrappedCosmosCoin.json
+	//go:embed nautilus_json/ERC20NemoWrappedCosmosCoin.json
 	ERC20NemoWrappedCosmosCoinJSON []byte
 
 	// ERC20NemoWrappedCosmosCoinContract is the compiled erc20 contract

@@ -238,12 +238,12 @@ format:
 ###                                Localnet                                 ###
 ###############################################################################
 
-# Build docker image and tag as nemo/nemo:local
+# Build docker image and tag as fanfury/nemo:local
 docker-build:
-	DOCKER_BUILDKIT=1 $(DOCKER) build -t nemo/nemo:local .
+	DOCKER_BUILDKIT=1 $(DOCKER) build -t fanfury/nemo:local .
 
 docker-build-rocksdb:
-	DOCKER_BUILDKIT=1 $(DOCKER) build -f Dockerfile-rocksdb -t nemo/nemo:local .
+	DOCKER_BUILDKIT=1 $(DOCKER) build -f Dockerfile-rocksdb -t fanfury/nemo:local .
 
 build-docker-local-nemo:
 	@$(MAKE) -C networks/local
@@ -313,9 +313,9 @@ test-migrate:
 # This submits an AWS Batch job to run a lot of sims, each within a docker image. Results are uploaded to S3
 start-remote-sims:
 	# build the image used for running sims in, and tag it
-	docker build -f simulations/Dockerfile -t nemo/nemo-sim:master .
+	docker build -f simulations/Dockerfile -t fanfury/nemo-sim:master .
 	# push that image to the hub
-	docker push nemo/nemo-sim:master
+	docker push fanfury/nemo-sim:master
 	# submit an array job on AWS Batch, using 1000 seeds, spot instances
 	aws batch submit-job \
 		-—job-name "master-$(VERSION)" \

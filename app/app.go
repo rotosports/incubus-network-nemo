@@ -82,15 +82,15 @@ import (
 	porttypes "github.com/cosmos/ibc-go/v6/modules/core/05-port/types"
 	ibchost "github.com/cosmos/ibc-go/v6/modules/core/24-host"
 	ibckeeper "github.com/cosmos/ibc-go/v6/modules/core/keeper"
-	evmante "github.com/evmos/ethermint/app/ante"
-	ethermintconfig "github.com/evmos/ethermint/server/config"
-	"github.com/evmos/ethermint/x/evm"
-	evmkeeper "github.com/evmos/ethermint/x/evm/keeper"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
-	"github.com/evmos/ethermint/x/evm/vm/geth"
-	"github.com/evmos/ethermint/x/feemarket"
-	feemarketkeeper "github.com/evmos/ethermint/x/feemarket/keeper"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	evmante "github.com/evmos/nautilus/app/ante"
+	nautilusconfig "github.com/evmos/nautilus/server/config"
+	"github.com/evmos/nautilus/x/evm"
+	evmkeeper "github.com/evmos/nautilus/x/evm/keeper"
+	evmtypes "github.com/evmos/nautilus/x/evm/types"
+	"github.com/evmos/nautilus/x/evm/vm/geth"
+	"github.com/evmos/nautilus/x/feemarket"
+	feemarketkeeper "github.com/evmos/nautilus/x/feemarket/keeper"
+	feemarkettypes "github.com/evmos/nautilus/x/feemarket/types"
 	"github.com/gorilla/mux"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmjson "github.com/tendermint/tendermint/libs/json"
@@ -265,8 +265,8 @@ type Options struct {
 
 // DefaultOptions is a sensible default Options value.
 var DefaultOptions = Options{
-	EVMTrace:        ethermintconfig.DefaultEVMTracer,
-	EVMMaxGasWanted: ethermintconfig.DefaultMaxTxGasWanted,
+	EVMTrace:        nautilusconfig.DefaultEVMTracer,
+	EVMMaxGasWanted: nautilusconfig.DefaultMaxTxGasWanted,
 }
 
 // App is the Nemo ABCI application.
