@@ -3729,7 +3729,7 @@ BalanceAccount defines an account in the evmutil module.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `address` | [bytes](#bytes) |  |  |
-| `balance` | [string](#string) |  | balance indicates the amount of anemo owned by the address. |
+| `balance` | [string](#string) |  | balance indicates the amount of atfury owned by the address. |
 
 
 

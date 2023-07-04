@@ -8,29 +8,29 @@ order: 1
 
 In order to use the EVM and be compatible with existing clients, the gas denom used by the EVM must be in 18 decimals. Since `unemo` has 6 decimals of precision, it cannot be used as the EVM gas denom directly.
 
-To use the Nemo token on the EVM, the evmutil module provides an `EvmBankKeeper` that is responsible for the conversion of `unemo` and `anemo`. A user's excess `anemo` balance is stored in the `x/evmutil` store, while its `unemo` balance remains in the cosmos-sdk `x/bank` module.
+To use the Nemo token on the EVM, the evmutil module provides an `EvmBankKeeper` that is responsible for the conversion of `unemo` and `atfury`. A user's excess `atfury` balance is stored in the `x/evmutil` store, while its `unemo` balance remains in the cosmos-sdk `x/bank` module.
 
 ## `EvmBankKeeper` Overview
 
-The `EvmBankKeeper` provides access to an account's total `anemo` balance and the ability to transfer, mint, and burn `anemo`. If anything other than the `anemo` denom is requested, the `EvmBankKeeper` will panic.
+The `EvmBankKeeper` provides access to an account's total `atfury` balance and the ability to transfer, mint, and burn `atfury`. If anything other than the `atfury` denom is requested, the `EvmBankKeeper` will panic.
 
-This keeper implements the `x/evm` module's `BankKeeper` interface to enable the usage of `anemo` denom on the EVM.
+This keeper implements the `x/evm` module's `BankKeeper` interface to enable the usage of `atfury` denom on the EVM.
 
 ### `x/evm` Parameter Requirements
 
-Since the EVM denom `anemo` is required to use the `EvmBankKeeper`, it is necessary to set the `EVMDenom` param of the `x/evm` module to `anemo`.
+Since the EVM denom `atfury` is required to use the `EvmBankKeeper`, it is necessary to set the `EVMDenom` param of the `x/evm` module to `atfury`.
 
-### Balance Calculation of `anemo`
+### Balance Calculation of `atfury`
 
-The `anemo` balance of an account is derived from an account's **spendable** `unemo` balance times 10^12 (to derive its `anemo` equivalent), plus the account's excess `anemo` balance that can be accessed via the module `Keeper`.
+The `atfury` balance of an account is derived from an account's **spendable** `unemo` balance times 10^12 (to derive its `atfury` equivalent), plus the account's excess `atfury` balance that can be accessed via the module `Keeper`.
 
-### `anemo` <> `unemo` Conversion
+### `atfury` <> `unemo` Conversion
 
-When an account does not have sufficient `anemo` to cover a transfer or burn, the `EvmBankKeeper` will try to swap 1 `unemo` to its equivalent `anemo` amount. It does this by transferring 1 `unemo` from the sender to the `x/evmutil` module account, then adding the equivalent `anemo` amount to the sender's balance in the module state.
+When an account does not have sufficient `atfury` to cover a transfer or burn, the `EvmBankKeeper` will try to swap 1 `unemo` to its equivalent `atfury` amount. It does this by transferring 1 `unemo` from the sender to the `x/evmutil` module account, then adding the equivalent `atfury` amount to the sender's balance in the module state.
 
-In reverse, if an account has enough `anemo` balance for one or more `unemo`, the excess `anemo` balance will be converted to `unemo`. This is done by removing the excess `anemo` balance in the module store, then transferring the equivalent `unemo` coins from the `x/evmutil` module account to the target account.
+In reverse, if an account has enough `atfury` balance for one or more `unemo`, the excess `atfury` balance will be converted to `unemo`. This is done by removing the excess `atfury` balance in the module store, then transferring the equivalent `unemo` coins from the `x/evmutil` module account to the target account.
 
-The swap logic ensures that all `anemo` is backed by the equivalent `unemo` balance stored in the module account.
+The swap logic ensures that all `atfury` is backed by the equivalent `unemo` balance stored in the module account.
 
 ## ERC20 token <> sdk.Coin Conversion
 
@@ -68,4 +68,4 @@ Only ERC20 contract address that are in the `EnabledConversionPairs` param (see 
 
 ## Module Keeper
 
-The module Keeper provides access to an account's excess `anemo` balance and the ability to update the balance.
+The module Keeper provides access to an account's excess `atfury` balance and the ability to update the balance.

@@ -21,8 +21,8 @@ func (suite *IntegrationTestSuite) TestEthGasPriceReturnsMinFee() {
 	minGasPrices, err := getMinFeeFromAppToml(suite.NemoHomePath())
 	suite.NoError(err)
 
-	// evm uses anemo, get anemo min fee
-	evmMinGas := minGasPrices.AmountOf("anemo").TruncateInt().BigInt()
+	// evm uses atfury, get atfury min fee
+	evmMinGas := minGasPrices.AmountOf("atfury").TruncateInt().BigInt()
 
 	// returns eth_gasPrice, units in nemo
 	gasPrice, err := suite.Nemo.EvmClient.SuggestGasPrice(context.Background())
@@ -39,7 +39,7 @@ func (suite *IntegrationTestSuite) TestEvmRespectsMinFee() {
 	// get min gas price for evm (from app.toml)
 	minFees, err := getMinFeeFromAppToml(suite.NemoHomePath())
 	suite.NoError(err)
-	minGasPrice := minFees.AmountOf("anemo").TruncateInt()
+	minGasPrice := minFees.AmountOf("atfury").TruncateInt()
 
 	// attempt tx with less than min gas price (min fee - 1)
 	tooLowGasPrice := minGasPrice.Sub(sdk.OneInt()).BigInt()

@@ -58,9 +58,9 @@ message GenesisState {
 
 ## Account
 
-An `Account` is a struct representing the excess `anemo` balance of an address.
+An `Account` is a struct representing the excess `atfury` balance of an address.
 
-Since an address's total `anemo` balance is derived from its `unemo` balance and the excess `anemo` balance stored by the `Account` struct, the `anemo` balance here should never exceed 1 `unemo` (10^12 `anemo`).
+Since an address's total `atfury` balance is derived from its `unemo` balance and the excess `atfury` balance stored by the `Account` struct, the `atfury` balance here should never exceed 1 `unemo` (10^12 `atfury`).
 
 ```protobuf
 message Account {

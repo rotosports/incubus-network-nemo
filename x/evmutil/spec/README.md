@@ -21,10 +21,10 @@ parent:
 
 The evmutil module provides additional functionalities on top of the evm module.
 
-### EVM `anemo` Usage
+### EVM `atfury` Usage
 
 evmutil stores additional state data for evm accounts and exposes an `EvmBankKeeper` that should be used by the `x/evm` keeper for bank operations.
-The purpose of the `EvmBankKeeper` is to allow the usage of the `anemo` balance on the EVM via an account's existing `unemo` balance. This is needed because the EVM gas token use 18 decimals, and since `unemo` has 6 decimals, it cannot be used as the EVM gas denom directly.
+The purpose of the `EvmBankKeeper` is to allow the usage of the `atfury` balance on the EVM via an account's existing `unemo` balance. This is needed because the EVM gas token use 18 decimals, and since `unemo` has 6 decimals, it cannot be used as the EVM gas denom directly.
 
 For additional details on how balance conversions work, see **[Concepts](01_concepts.md)**.
 

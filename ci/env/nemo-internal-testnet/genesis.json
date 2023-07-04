@@ -1460,7 +1460,7 @@
         }
       ],
       "params": {
-        "evm_denom": "anemo",
+        "evm_denom": "atfury",
         "enable_create": true,
         "enable_call": true,
         "extra_eips": [],

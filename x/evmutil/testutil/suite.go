@@ -81,7 +81,7 @@ func (suite *Suite) SetupTest() {
 	suite.Addrs = addrs
 
 	evmGenesis := evmtypes.DefaultGenesisState()
-	evmGenesis.Params.EvmDenom = "anemo"
+	evmGenesis.Params.EvmDenom = "atfury"
 
 	feemarketGenesis := feemarkettypes.DefaultGenesisState()
 	feemarketGenesis.Params.EnableHeight = 1
@@ -190,9 +190,9 @@ func (suite *Suite) FundAccountWithNemo(addr sdk.AccAddress, coins sdk.Coins) {
 		err := suite.App.FundAccount(suite.Ctx, addr, sdk.NewCoins(sdk.NewCoin("unemo", unemo)))
 		suite.Require().NoError(err)
 	}
-	anemo := coins.AmountOf("anemo")
-	if anemo.IsPositive() {
-		err := suite.Keeper.SetBalance(suite.Ctx, addr, anemo)
+	atfury := coins.AmountOf("atfury")
+	if atfury.IsPositive() {
+		err := suite.Keeper.SetBalance(suite.Ctx, addr, atfury)
 		suite.Require().NoError(err)
 	}
 }
@@ -203,10 +203,10 @@ func (suite *Suite) FundModuleAccountWithNemo(moduleName string, coins sdk.Coins
 		err := suite.App.FundModuleAccount(suite.Ctx, moduleName, sdk.NewCoins(sdk.NewCoin("unemo", unemo)))
 		suite.Require().NoError(err)
 	}
-	anemo := coins.AmountOf("anemo")
-	if anemo.IsPositive() {
+	atfury := coins.AmountOf("atfury")
+	if atfury.IsPositive() {
 		addr := suite.AccountKeeper.GetModuleAddress(moduleName)
-		err := suite.Keeper.SetBalance(suite.Ctx, addr, anemo)
+		err := suite.Keeper.SetBalance(suite.Ctx, addr, atfury)
 		suite.Require().NoError(err)
 	}
 }

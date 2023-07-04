@@ -76,7 +76,7 @@ $BINARY collect-gentxs
 sed -in-place='' 's/stake/unemo/g' $DATA/config/genesis.json
 
 # Replace the default evm denom of avblack with unemo
-sed -in-place='' 's/avblack/anemo/g' $DATA/config/genesis.json
+sed -in-place='' 's/avblack/atfury/g' $DATA/config/genesis.json
 
 # Zero out the total supply so it gets recalculated during InitGenesis
 jq '.app_state.bank.supply = []' $DATA/config/genesis.json|sponge $DATA/config/genesis.json

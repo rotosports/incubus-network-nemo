@@ -30,7 +30,7 @@ func TestEvmMinGasFilter(t *testing.T) {
 
 	ctx := tApp.NewContext(true, tmproto.Header{Height: 1, Time: tmtime.Now()})
 	tApp.GetEvmKeeper().SetParams(ctx, evmtypes.Params{
-		EvmDenom: "anemo",
+		EvmDenom: "atfury",
 	})
 
 	testCases := []struct {
@@ -54,19 +54,19 @@ func TestEvmMinGasFilter(t *testing.T) {
 			mustParseDecCoins("0.001unemo"),
 		},
 		{
-			"zero unemo gas price, min anemo price",
-			mustParseDecCoins("0unemo;100000anemo"),
-			mustParseDecCoins("0unemo"), // anemo is removed
+			"zero unemo gas price, min atfury price",
+			mustParseDecCoins("0unemo;100000atfury"),
+			mustParseDecCoins("0unemo"), // atfury is removed
 		},
 		{
-			"zero unemo gas price, min anemo price, other token",
-			mustParseDecCoins("0unemo;100000anemo;0.001other"),
-			mustParseDecCoins("0unemo;0.001other"), // anemo is removed
+			"zero unemo gas price, min atfury price, other token",
+			mustParseDecCoins("0unemo;100000atfury;0.001other"),
+			mustParseDecCoins("0unemo;0.001other"), // atfury is removed
 		},
 		{
-			"non-zero unemo gas price, min anemo price",
-			mustParseDecCoins("0.25unemo;100000anemo;0.001other"),
-			mustParseDecCoins("0.25unemo;0.001other"), // anemo is removed
+			"non-zero unemo gas price, min atfury price",
+			mustParseDecCoins("0.25unemo;100000atfury;0.001other"),
+			mustParseDecCoins("0.25unemo;0.001other"), // atfury is removed
 		},
 	}
 
