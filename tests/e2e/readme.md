@@ -1,16 +1,16 @@
 # end-2-end tests for nemo
 
-These tests use [`futool`](https://github.com/incubus-network/futool) to spin up a nemo node configuration
+These tests use [`nmtool`](https://github.com/incubus-network/nmtool) to spin up a nemo node configuration
 and then runs tests against the running network. It is a git sub-repository in this directory. If not
 present, you must initialize the subrepo: `git submodule update --init`.
 
 Steps to run
-1. Ensure latest `futool` is installed: `make update-futool`
+1. Ensure latest `nmtool` is installed: `make update-nmtool`
 2. Run the test suite: `make test-e2e`
-   This will build a docker image tagged `nemo/nemo:local` that will be run by futool.
+   This will build a docker image tagged `nemo/nemo:local` that will be run by nmtool.
 
-**Note:** The suite will use your locally installed `futool` if present. If not present, it will be
-installed. If the `futool` repo is updated, you must manually update your existing local binary: `make update-futool`
+**Note:** The suite will use your locally installed `nmtool` if present. If not present, it will be
+installed. If the `nmtool` repo is updated, you must manually update your existing local binary: `make update-nmtool`
 
 ## Configuration
 
@@ -23,12 +23,12 @@ the variable is set in `.env`.
 
 ### Running on Live Network
 
-The end-to-end tests support being run on a live network. The primary toggle for setting up the suite to use a live network is the `E2E_RUN_FUTOOL_NETWORKS` flag. When set exactly to `false`, the configuration requires the following three environment variables:
+The end-to-end tests support being run on a live network. The primary toggle for setting up the suite to use a live network is the `E2E_RUN_NMTOOL_NETWORKS` flag. When set exactly to `false`, the configuration requires the following three environment variables:
 * `E2E_NEMO_RPC_URL`
 * `E2E_NEMO_GRPC_URL`
 * `E2E_NEMO_EVM_RPC_URL`
 
-See an example environment configuration with full description of all supported configurations in [`.env.live-network-example`](./.env.live-network-example). This example expects a local futool network to be running: `futool testnet bootstrap`.
+See an example environment configuration with full description of all supported configurations in [`.env.live-network-example`](./.env.live-network-example). This example expects a local nmtool network to be running: `nmtool testnet bootstrap`.
 
 When run against a live network, the suite will automatically return all the sdk funds sent to `SigningAccount`s on the chain, and will return any ERC20 balance from those accounts if the ERC20 is registered via `Chain.RegisterERC20`. The pre-deployed ERC20 that is required for the tests is registered on setup.
 

@@ -7,7 +7,7 @@ import (
 	"os/exec"
 )
 
-type FutoolRunnerConfig struct {
+type NmtoolRunnerConfig struct {
 	NemoConfigTemplate string
 
 	ImageTag   string
@@ -21,52 +21,52 @@ type FutoolRunnerConfig struct {
 	SkipShutdown bool
 }
 
-// FutoolRunner implements a NodeRunner that spins up local chains with futool.
+// NmtoolRunner implements a NodeRunner that spins up local chains with nmtool.
 // It has support for the following:
 // - running a Nemo node
 // - optionally, running an IBC node with a channel opened to the Nemo node
 // - optionally, start the Nemo node on one version and upgrade to another
-type FutoolRunner struct {
-	config FutoolRunnerConfig
+type NmtoolRunner struct {
+	config NmtoolRunnerConfig
 }
 
-var _ NodeRunner = &FutoolRunner{}
+var _ NodeRunner = &NmtoolRunner{}
 
-// NewFutoolRunner creates a new FutoolRunner.
-func NewFutoolRunner(config FutoolRunnerConfig) *FutoolRunner {
-	return &FutoolRunner{
+// NewNmtoolRunner creates a new NmtoolRunner.
+func NewNmtoolRunner(config NmtoolRunnerConfig) *NmtoolRunner {
+	return &NmtoolRunner{
 		config: config,
 	}
 }
 
 // StartChains implements NodeRunner.
-// For FutoolRunner, it sets up, runs, and connects to a local chain via futool.
-func (k *FutoolRunner) StartChains() Chains {
-	// install futool if not already installed
-	installFutoolCmd := exec.Command("./scripts/install-futool.sh")
-	installFutoolCmd.Stdout = os.Stdout
-	installFutoolCmd.Stderr = os.Stderr
-	if err := installFutoolCmd.Run(); err != nil {
-		panic(fmt.Sprintf("failed to install futool: %s", err.Error()))
+// For NmtoolRunner, it sets up, runs, and connects to a local chain via nmtool.
+func (k *NmtoolRunner) StartChains() Chains {
+	// install nmtool if not already installed
+	installNmtoolCmd := exec.Command("./scripts/install-nmtool.sh")
+	installNmtoolCmd.Stdout = os.Stdout
+	installNmtoolCmd.Stderr = os.Stderr
+	if err := installNmtoolCmd.Run(); err != nil {
+		panic(fmt.Sprintf("failed to install nmtool: %s", err.Error()))
 	}
 
-	// start local test network with futool
+	// start local test network with nmtool
 	log.Println("starting nemo node")
-	futoolArgs := []string{"testnet", "bootstrap", "--nemo.configTemplate", k.config.NemoConfigTemplate}
+	nmtoolArgs := []string{"testnet", "bootstrap", "--nemo.configTemplate", k.config.NemoConfigTemplate}
 	// include an ibc chain if desired
 	if k.config.IncludeIBC {
-		futoolArgs = append(futoolArgs, "--ibc")
+		nmtoolArgs = append(nmtoolArgs, "--ibc")
 	}
 	// handle automated upgrade functionality, if defined
 	if k.config.EnableAutomatedUpgrade {
-		futoolArgs = append(futoolArgs,
+		nmtoolArgs = append(nmtoolArgs,
 			"--upgrade-name", k.config.NemoUpgradeName,
 			"--upgrade-height", fmt.Sprint(k.config.NemoUpgradeHeight),
 			"--upgrade-base-image-tag", k.config.NemoUpgradeBaseImageTag,
 		)
 	}
 	// start the chain
-	startNemoCmd := exec.Command("futool", futoolArgs...)
+	startNemoCmd := exec.Command("nmtool", nmtoolArgs...)
 	startNemoCmd.Env = os.Environ()
 	startNemoCmd.Env = append(startNemoCmd.Env, fmt.Sprintf("NEMO_TAG=%s", k.config.ImageTag))
 	startNemoCmd.Stdout = os.Stdout
@@ -78,34 +78,34 @@ func (k *FutoolRunner) StartChains() Chains {
 
 	// wait for chain to be live.
 	// if an upgrade is defined, this waits for the upgrade to be completed.
-	if err := waitForChainStart(futoolNemoChain); err != nil {
+	if err := waitForChainStart(nmtoolNemoChain); err != nil {
 		k.Shutdown()
 		panic(err)
 	}
 	log.Println("nemo is started!")
 
 	chains := NewChains()
-	chains.Register("nemo", &futoolNemoChain)
+	chains.Register("nemo", &nmtoolNemoChain)
 	if k.config.IncludeIBC {
-		chains.Register("ibc", &futoolIbcChain)
+		chains.Register("ibc", &nmtoolIbcChain)
 	}
 	return chains
 }
 
 // Shutdown implements NodeRunner.
-// For FutoolRunner, it shuts down the local futool network.
+// For NmtoolRunner, it shuts down the local nmtool network.
 // To prevent shutting down the chain (eg. to preserve logs or examine post-test state)
 // use the `SkipShutdown` option on the config.
-func (k *FutoolRunner) Shutdown() {
+func (k *NmtoolRunner) Shutdown() {
 	if k.config.SkipShutdown {
 		log.Printf("would shut down but SkipShutdown is true")
 		return
 	}
 	log.Println("shutting down nemo node")
-	shutdownNemoCmd := exec.Command("futool", "testnet", "down")
+	shutdownNemoCmd := exec.Command("nmtool", "testnet", "down")
 	shutdownNemoCmd.Stdout = os.Stdout
 	shutdownNemoCmd.Stderr = os.Stderr
 	if err := shutdownNemoCmd.Run(); err != nil {
-		panic(fmt.Sprintf("failed to shutdown futool: %s", err.Error()))
+		panic(fmt.Sprintf("failed to shutdown nmtool: %s", err.Error()))
 	}
 }

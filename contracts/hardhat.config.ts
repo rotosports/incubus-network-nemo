@@ -15,7 +15,7 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
-    // futool's local network
+    // nmtool's local network
     nemo: {
       url: "http://127.0.0.1:8545",
       accounts: [

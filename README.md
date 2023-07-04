@@ -34,8 +34,8 @@ git checkout v0.23.0
 make install
 ```
 
-End-to-end tests of Nemo use a tool for generating networks with different configurations: [futool](https://github.com/Incubus-Network/futool).
-This is included as a git submodule at [`tests/e2e/futool`](tests/e2e/futool/).
+End-to-end tests of Nemo use a tool for generating networks with different configurations: [nmtool](https://github.com/Incubus-Network/nmtool).
+This is included as a git submodule at [`tests/e2e/nmtool`](tests/e2e/nmtool/).
 When first cloning the repository, if you intend to run the e2e integration tests, you must also
 clone the submodules:
 ```bash

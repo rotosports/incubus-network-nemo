@@ -18,8 +18,8 @@ type SuiteConfig struct {
 	// A funded account used to fnd all other accounts.
 	FundedAccountMnemonic string
 
-	// A config for using futool local networks for the test run
-	Futool *FutoolConfig
+	// A config for using nmtool local networks for the test run
+	Nmtool *NmtoolConfig
 	// A config for connecting to a running network
 	LiveNetwork *LiveNetworkConfig
 
@@ -33,10 +33,10 @@ type SuiteConfig struct {
 	SkipShutdown bool
 }
 
-// FutoolConfig wraps configuration options for running the end-to-end test suite against
-// a locally running chain. This config must be defined if E2E_RUN_FUTOOL_NETWORKS is true.
-type FutoolConfig struct {
-	// The nemo.configTemplate flag to be passed to futool, usually "master".
+// NmtoolConfig wraps configuration options for running the end-to-end test suite against
+// a locally running chain. This config must be defined if E2E_RUN_NMTOOL_NETWORKS is true.
+type NmtoolConfig struct {
+	// The nemo.configTemplate flag to be passed to nmtool, usually "master".
 	// This allows one to change the base genesis used to start the chain.
 	NemoConfigTemplate string
 
@@ -51,7 +51,7 @@ type FutoolConfig struct {
 }
 
 // LiveNetworkConfig wraps configuration options for running the end-to-end test suite
-// against a live network. It must be defined if E2E_RUN_FUTOOL_NETWORKS is false.
+// against a live network. It must be defined if E2E_RUN_NMTOOL_NETWORKS is false.
 type LiveNetworkConfig struct {
 	NemoRpcUrl    string
 	NemoGrpcUrl   string
@@ -73,10 +73,10 @@ func ParseSuiteConfig() SuiteConfig {
 		config.SkipShutdown = mustParseBool("E2E_SKIP_SHUTDOWN")
 	}
 
-	useFutoolNetworks := mustParseBool("E2E_RUN_FUTOOL_NETWORKS")
-	if useFutoolNetworks {
-		futoolConfig := ParseFutoolConfig()
-		config.Futool = &futoolConfig
+	useNmtoolNetworks := mustParseBool("E2E_RUN_NMTOOL_NETWORKS")
+	if useNmtoolNetworks {
+		nmtoolConfig := ParseNmtoolConfig()
+		config.Nmtool = &nmtoolConfig
 	} else {
 		liveNetworkConfig := ParseLiveNetworkConfig()
 		config.LiveNetwork = &liveNetworkConfig
@@ -85,10 +85,10 @@ func ParseSuiteConfig() SuiteConfig {
 	return config
 }
 
-// ParseFutoolConfig builds a FutoolConfig from environment variables.
-func ParseFutoolConfig() FutoolConfig {
-	config := FutoolConfig{
-		NemoConfigTemplate:      nonemptyStringEnv("E2E_FUTOOL_NEMO_CONFIG_TEMPLATE"),
+// ParseNmtoolConfig builds a NmtoolConfig from environment variables.
+func ParseNmtoolConfig() NmtoolConfig {
+	config := NmtoolConfig{
+		NemoConfigTemplate:      nonemptyStringEnv("E2E_NMTOOL_NEMO_CONFIG_TEMPLATE"),
 		IncludeAutomatedUpgrade: mustParseBool("E2E_INCLUDE_AUTOMATED_UPGRADE"),
 	}
 
