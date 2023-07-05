@@ -46,7 +46,7 @@
   "cdps": [
     {
       "id": "19",
-      "owner": "nemo1u4p6a2yse66ewfndw4j7ppsa777vdcex3m4n9s",
+      "owner": "fury1u4p6a2yse66ewfndw4j7ppsa777vdcexa9gpqc",
       "type": "bnb-a",
       "collateral": { "denom": "bnb", "amount": "40911876" },
       "principal": { "denom": "usdx", "amount": "10016831" },
@@ -56,7 +56,7 @@
     },
     {
       "id": "22",
-      "owner": "nemo1e8xjfylam4nvugcmkxwvuxh22uvvad5vknu4yh",
+      "owner": "fury1e8xjfylam4nvugcmkxwvuxh22uvvad5v6dp8pl",
       "type": "bnb-a",
       "collateral": { "denom": "bnb", "amount": "88268546" },
       "principal": { "denom": "usdx", "amount": "10000000" },
@@ -68,12 +68,12 @@
   "deposits": [
     {
       "cdp_id": "19",
-      "depositor": "nemo1u4p6a2yse66ewfndw4j7ppsa777vdcex3m4n9s",
+      "depositor": "fury1u4p6a2yse66ewfndw4j7ppsa777vdcexa9gpqc",
       "amount": { "denom": "bnb", "amount": "40911876" }
     },
     {
       "cdp_id": "22",
-      "depositor": "nemo1e8xjfylam4nvugcmkxwvuxh22uvvad5vknu4yh",
+      "depositor": "fury1e8xjfylam4nvugcmkxwvuxh22uvvad5v6dp8pl",
       "amount": { "denom": "bnb", "amount": "88268546" }
     }
   ],

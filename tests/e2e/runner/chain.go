@@ -74,7 +74,7 @@ var (
 		GrpcUrl:   "http://localhost:9090",
 		EvmRpcUrl: "http://localhost:8545",
 
-		ChainId:      "nemolocalnet_4200-1",
+		ChainId:      "highbury_710-1",
 		StakingDenom: "ufury",
 	}
 	nmtoolIbcChain = ChainDetails{
@@ -82,7 +82,7 @@ var (
 		GrpcUrl:   "http://localhost:9092",
 		EvmRpcUrl: "http://localhost:8547",
 
-		ChainId:      "nemolocalnet_8889-2",
+		ChainId:      "highbury_8889-2",
 		StakingDenom: "uatom",
 	}
 )

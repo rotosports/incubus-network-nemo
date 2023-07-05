@@ -24,7 +24,7 @@ import (
 )
 
 var (
-	minEvmGasPrice = big.NewInt(1e10) // atfury
+	minEvmGasPrice = big.NewInt(1e10) // afury
 )
 
 func ufury(amt int64) sdk.Coin {
@@ -72,9 +72,9 @@ func (suite *IntegrationTestSuite) TestFundedAccount() {
 	suite.Equal(funds, *res.Balance)
 
 	// check balance via EVM query
-	atfuryBal, err := suite.Nemo.EvmClient.BalanceAt(context.Background(), acc.EvmAddress, nil)
+	afuryBal, err := suite.Nemo.EvmClient.BalanceAt(context.Background(), acc.EvmAddress, nil)
 	suite.NoError(err)
-	suite.Equal(funds.Amount.MulRaw(1e12).BigInt(), atfuryBal)
+	suite.Equal(funds.Amount.MulRaw(1e12).BigInt(), afuryBal)
 }
 
 // example test that signs & broadcasts an EVM tx
@@ -93,7 +93,7 @@ func (suite *IntegrationTestSuite) TestTransferOverEVM() {
 	suite.Equal(uint64(0), nonce) // sanity check. the account should have no prior txs
 
 	// transfer nemo over EVM
-	nemoToTransfer := big.NewInt(1e17) // .1 NEMO; atfury has 18 decimals.
+	nemoToTransfer := big.NewInt(1e17) // .1 NEMO; afury has 18 decimals.
 	req := util.EvmTxRequest{
 		Tx:   ethtypes.NewTransaction(nonce, to, nemoToTransfer, 1e5, minEvmGasPrice, nil),
 		Data: "any ol' data to track this through the system",
@@ -105,7 +105,7 @@ func (suite *IntegrationTestSuite) TestTransferOverEVM() {
 	// evm txs refund unused gas. so to know the expected balance we need to know how much gas was used.
 	ufuryUsedForGas := sdkmath.NewIntFromBigInt(minEvmGasPrice).
 		Mul(sdkmath.NewIntFromUint64(res.Receipt.GasUsed)).
-		QuoRaw(1e12) // convert atfury to ufury
+		QuoRaw(1e12) // convert afury to ufury
 
 	// expect (9 - gas used) NEMO remaining in account.
 	balance := suite.Nemo.QuerySdkForBalances(acc.SdkAddress)

@@ -47,7 +47,7 @@
       "assets_supplies": [],
       "atomic_swaps": [],
       "params": {
-        "bnb_deputy_address": "nemo1tfvn5t8qwngqd2q427za2mel48pcus3z9u73fl",
+        "bnb_deputy_address": "fury1tfvn5t8qwngqd2q427za2mel48pcus3zfzrrvh",
         "bnb_deputy_fixed_fee": "1000",
         "max_block_lock": "600",
         "min_block_lock": "80",
@@ -116,7 +116,7 @@
           "id": "0",
           "description": "This committee is for adjusting parameters of the cdp system.",
           "members": [
-            "nemo109fpwjvq6un86tw8f8emav2l0e0dha924scrj9"
+            "fury109fpwjvq6un86tw8f8emav2l0e0dha92ew93hd"
           ],
           "permissions": [
             {
@@ -231,7 +231,7 @@
           "id": "1",
           "description": "This committee is for testnet",
           "members": [
-            "nemo109fpwjvq6un86tw8f8emav2l0e0dha924scrj9"
+            "fury109fpwjvq6un86tw8f8emav2l0e0dha92ew93hd"
           ],
           "permissions": [
             {
@@ -358,8 +358,8 @@
             "base_asset": "bnb",
             "market_id": "bnb:usd",
             "oracles": [
-              "nemo1nyqy04x3ecpcuss3llmyu4fc2v4ma99h8vffjz",
-              "nemo1znuktqgtjr8g85tetu2wt9wd33gstqr7pad92h"
+              "fury1nyqy04x3ecpcuss3llmyu4fc2v4ma99htj5mh2",
+              "fury1znuktqgtjr8g85tetu2wt9wd33gstqr7drsh0l"
             ],
             "quote_asset": "usd"
           }
@@ -369,7 +369,7 @@
         {
           "expiry": "2021-06-20T00:00:00Z",
           "market_id": "bnb:usd",
-          "oracle_address": "nemo1znuktqgtjr8g85tetu2wt9wd33gstqr7pad92h",
+          "oracle_address": "fury1znuktqgtjr8g85tetu2wt9wd33gstqr7drsh0l",
           "price": "15.929061184"
         }
       ]

@@ -275,7 +275,7 @@
   "delegator_claims": [
     {
       "base_claim": {
-        "owner": "nemo1qqqvdyv8w0xdu7gjdtt598q78gtgqyukct4yz2",
+        "owner": "fury1qqqvdyv8w0xdu7gjdtt598q78gtgqyuk54gk8z",
         "reward": []
       },
       "reward_indexes": [
@@ -298,7 +298,7 @@
   "hard_liquidity_provider_claims": [
     {
       "base_claim": {
-        "owner": "nemo1qqqvdyv8w0xdu7gjdtt598q78gtgqyukct4yz2",
+        "owner": "fury1qqqvdyv8w0xdu7gjdtt598q78gtgqyuk54gk8z",
         "reward": [
           {
             "amount": "1747514",
@@ -340,7 +340,7 @@
     },
     {
       "base_claim": {
-        "owner": "nemo1w2uj6rpejrma47vjx4rcghh3fndhmrvs6pmxph",
+        "owner": "fury1w2uj6rpejrma47vjx4rcghh3fndhmrvsklx5yl",
         "reward": [
           {
             "amount": "1747514",
@@ -355,7 +355,7 @@
   "usdx_minting_claims": [
     {
       "base_claim": {
-        "owner": "nemo1qptt5vu26cmxpmv0hf2tnnmf293x266pjcsjar",
+        "owner": "fury1qptt5vu26cmxpmv0hf2tnnmf293x266p7xdqct",
         "reward": {
           "amount": "550",
           "denom": "ufury"
@@ -376,7 +376,7 @@
   "swap_claims": [
     {
       "base_claim": {
-        "owner": "nemo1qzease8mre5adak7wcc2twh6ryh9evnxpr6caj",
+        "owner": "fury1qzease8mre5adak7wcc2twh6ryh9evnxda82c6",
         "reward": [
           {
             "amount": "1960368",

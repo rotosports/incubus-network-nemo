@@ -23,8 +23,8 @@ import (
 var dep = types.NewDeposit
 
 const (
-	bnemo1 = "bnemo-nemovaloper15gqc744d05xacn4n6w2furuads9fu4pqn6zxlu"
-	bnemo2 = "bnemo-nemovaloper15qdefkmwswysgg4qxgqpqr35k3m49pkx8yhpte"
+	bfury1 = "bfury-furyvaloper15gqc744d05xacn4n6w2furuads9fu4pq7c8fhj"
+	bfury2 = "bfury-furyvaloper15qdefkmwswysgg4qxgqpqr35k3m49pkx2xjwrh"
 )
 
 type grpcQueryTestSuite struct {
@@ -59,7 +59,7 @@ func (suite *grpcQueryTestSuite) SetupTest() {
 	suite.Require().NoError(err)
 
 	savingsGenesis := types.GenesisState{
-		Params: types.NewParams([]string{"bnb", "busd", bnemo1, bnemo2}),
+		Params: types.NewParams([]string{"bnb", "busd", bfury1, bfury2}),
 	}
 	savingsGenState := app.GenesisState{types.ModuleName: suite.tApp.AppCodec().MustMarshalJSON(&savingsGenesis)}
 
@@ -82,7 +82,7 @@ func (suite *grpcQueryTestSuite) TestGrpcQueryParams() {
 
 	var expected types.GenesisState
 	savingsGenesis := types.GenesisState{
-		Params: types.NewParams([]string{"bnb", "busd", bnemo1, bnemo2}),
+		Params: types.NewParams([]string{"bnb", "busd", bfury1, bfury2}),
 	}
 	savingsGenState := app.GenesisState{types.ModuleName: suite.tApp.AppCodec().MustMarshalJSON(&savingsGenesis)}
 	suite.tApp.AppCodec().MustUnmarshalJSON(savingsGenState[types.ModuleName], &expected)
@@ -230,11 +230,11 @@ func (suite *grpcQueryTestSuite) TestGrpcQueryTotalSupply() {
 		})
 	}
 
-	suite.Run("aggregates bnemo denoms, accounting for slashing", func() {
+	suite.Run("aggregates bfury denoms, accounting for slashing", func() {
 		suite.SetupTest()
 
-		address1, derivatives1, _ := suite.createAccountWithDerivatives(bnemo1, sdkmath.NewInt(1e9))
-		address2, derivatives2, _ := suite.createAccountWithDerivatives(bnemo2, sdkmath.NewInt(1e9))
+		address1, derivatives1, _ := suite.createAccountWithDerivatives(bfury1, sdkmath.NewInt(1e9))
+		address2, derivatives2, _ := suite.createAccountWithDerivatives(bfury2, sdkmath.NewInt(1e9))
 
 		// bond validators
 		staking.EndBlocker(suite.ctx, suite.tApp.GetStakingKeeper())
@@ -251,7 +251,7 @@ func (suite *grpcQueryTestSuite) TestGrpcQueryTotalSupply() {
 
 		expectedSupply := sdk.NewCoins(
 			sdk.NewCoin(
-				"bnemo",
+				"bfury",
 				sdkmath.NewIntFromUint64(1e9). // derivative 1
 								Add(sdkmath.NewInt(1e9).MulRaw(80).QuoRaw(100))), // derivative 2: original value * 80%
 		)

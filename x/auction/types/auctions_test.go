@@ -21,8 +21,8 @@ const (
 	TestDebtAmount2         = 15
 	TestExtraEndTime        = 10000
 	TestAuctionID           = 9999123
-	testAccAddress1         = "nemo1qcfdf69js922qrdr4yaww3ax7gjml6pd39p8lj"
-	testAccAddress2         = "nemo1pdfav2cjhry9k79nu6r8kgknnjtq6a7rcr0qlr"
+	testAccAddress1         = "fury1qcfdf69js922qrdr4yaww3ax7gjml6pdamu466"
+	testAccAddress2         = "fury1pdfav2cjhry9k79nu6r8kgknnjtq6a7r5ajj6t"
 )
 
 func init() {

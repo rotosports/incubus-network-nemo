@@ -8,7 +8,7 @@ order: 1
 
 ## Requirements
 Nemo
-- The deputy’s Nemo address on mainnet is **nemo1r4v2zdhdalfj2ydazallqvrus9fkphmglhn6u6**.
+- The deputy’s Nemo address on mainnet is **fury1r4v2zdhdalfj2ydazallqvrus9fkphmgnfwgej**.
 - Nemo's official API endpoint is https://nemo3.data.nemo.io.
 
 Binance Chain

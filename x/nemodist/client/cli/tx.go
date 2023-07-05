@@ -34,7 +34,7 @@ Where proposal.json contains:
   "description": "Pay many users some NEMO!",
   "recipient_list": [
 		{
-			"address": "nemo1mz2003lathm95n5vnlthmtfvrzrjkrr53j4464",
+			"address": "fury1mz2003lathm95n5vnlthmtfvrzrjkrr5avg8la",
 			"amount": [
 				{
 					"denom": "ufury",
@@ -43,7 +43,7 @@ Where proposal.json contains:
 			]
 		},
 		{
-			"address": "nemo1zqezafa0luyetvtj8j67g336vaqtuudnsjq7vm",
+			"address": "fury1zqezafa0luyetvtj8j67g336vaqtuudnuvavfn",
 			"amount": [
 				{
 					"denom": "ufury",

@@ -2,23 +2,23 @@
 set -e
 
 validatorMnemonic="equip town gesture square tomorrow volume nephew minute witness beef rich gadget actress egg sing secret pole winter alarm law today check violin uncover"
-#        nemo1ffv7nhd3z6sych2qpqkk03ec6hzkmufy0r2s4c
-# nemovaloper1ffv7nhd3z6sych2qpqkk03ec6hzkmufyz4scd0
+#        fury1ffv7nhd3z6sych2qpqkk03ec6hzkmufyrahzss
+# furyvaloper1ffv7nhd3z6sych2qpqkk03ec6hzkmufy0h4h9p
 
 faucetMnemonic="crash sort dwarf disease change advice attract clump avoid mobile clump right junior axis book fresh mask tube front require until face effort vault"
-# nemo1adkm6svtzjsxxvg7g6rshg6kj9qwej8gwqadqd
+# fury1adkm6svtzjsxxvg7g6rshg6kj9qwej8gz7ql99
 
 evmFaucetMnemonic="hundred flash cattle inquiry gorilla quick enact lazy galaxy apple bitter liberty print sun hurdle oak town cash because round chalk marriage response success"
 # 0x3C854F92F726A7897C8B23F55B2D6E2C482EF3E0
-# nemo18jz5lyhhy6ncjlyty064kttw93yzaulq7rlptu
+# fury18jz5lyhhy6ncjlyty064kttw93yzaulqjaznw5
 
 userMnemonic="news tornado sponsor drastic dolphin awful plastic select true lizard width idle ability pigeon runway lift oppose isolate maple aspect safe jungle author hole"
 # 0x7Bbf300890857b8c241b219C6a489431669b3aFA
-# nemo10wlnqzyss4accfqmyxwx5jy5x9nfkwh6qm7n4t
+# fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr
 
 relayerMnemonic="never reject sniff east arctic funny twin feed upper series stay shoot vivid adapt defense economy pledge fetch invite approve ceiling admit gloom exit"
 # 0xa2F728F997f62F47D4262a70947F6c36885dF9fa
-# nemo15tmj37vh7ch504px9fcfglmvx6y9m70646ev8t
+# fury15tmj37vh7ch504px9fcfglmvx6y9m706eyy7zr
 
 DATA=~/.nemo
 # remove any old state and config
@@ -27,7 +27,7 @@ rm -rf $DATA
 BINARY=nemo
 
 # Create new data directory, overwriting any that alread existed
-chainID="nemolocalnet_4200-1"
+chainID="highbury_710-1"
 $BINARY init validator --chain-id $chainID
 
 # hacky enable of rest api
@@ -41,7 +41,7 @@ sed -in-place='' '/iavl-cache-size/a\
 trace = true' $DATA/config/app.toml
 
 # Set client chain id
-sed -in-place='' 's/chain-id = ""/chain-id = "nemolocalnet_4200-1"/g' $DATA/config/client.toml
+sed -in-place='' 's/chain-id = ""/chain-id = "highbury_710-1"/g' $DATA/config/client.toml
 
 # avoid having to use password for keys
 $BINARY config keyring-backend test
@@ -76,7 +76,7 @@ $BINARY collect-gentxs
 sed -in-place='' 's/stake/ufury/g' $DATA/config/genesis.json
 
 # Replace the default evm denom of avblack with ufury
-sed -in-place='' 's/avblack/atfury/g' $DATA/config/genesis.json
+sed -in-place='' 's/avblack/afury/g' $DATA/config/genesis.json
 
 # Zero out the total supply so it gets recalculated during InitGenesis
 jq '.app_state.bank.supply = []' $DATA/config/genesis.json|sponge $DATA/config/genesis.json
@@ -99,11 +99,11 @@ jq '.app_state.earn.params.allowed_vaults =  [
         strategies: ["STRATEGY_TYPE_HARD"],
     },
     {
-        denom: "bnemo",
+        denom: "bfury",
         strategies: ["STRATEGY_TYPE_SAVINGS"],
     }]' $DATA/config/genesis.json | sponge $DATA/config/genesis.json
 
-jq '.app_state.savings.params.supported_denoms = ["bnemo-nemovaloper1ffv7nhd3z6sych2qpqkk03ec6hzkmufyz4scd0"]' $DATA/config/genesis.json | sponge $DATA/config/genesis.json
+jq '.app_state.savings.params.supported_denoms = ["bfury-furyvaloper1ffv7nhd3z6sych2qpqkk03ec6hzkmufy0h4h9p"]' $DATA/config/genesis.json | sponge $DATA/config/genesis.json
 
 
 $BINARY config broadcast-mode block

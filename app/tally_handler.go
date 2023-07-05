@@ -104,7 +104,7 @@ func (th TallyHandler) Tally(
 			return false
 		})
 
-		// get voter bnemo and update total voting power and results
+		// get voter bfury and update total voting power and results
 		addrBnemo := th.getAddrBnemo(ctx, voter).toCoins()
 		for _, coin := range addrBnemo {
 			valAddr, err := liquidtypes.ParseLiquidStakingTokenDenom(coin.Denom)
@@ -112,7 +112,7 @@ func (th TallyHandler) Tally(
 				break
 			}
 
-			// reduce delegator shares by the amount of voter bnemo for the validator
+			// reduce delegator shares by the amount of voter bfury for the validator
 			valAddrStr := valAddr.String()
 			if val, ok := currValidators[valAddrStr]; ok {
 				val.DelegatorDeductions = val.DelegatorDeductions.Add(sdk.NewDecFromInt(coin.Amount))
@@ -122,7 +122,7 @@ func (th TallyHandler) Tally(
 			// votingPower = amount of ufury coin
 			stakedCoins, err := th.lk.GetStakedTokensForDerivatives(ctx, sdk.NewCoins(coin))
 			if err != nil {
-				// error is returned only if the bnemo denom is incorrect, which should never happen here.
+				// error is returned only if the bfury denom is incorrect, which should never happen here.
 				panic(err)
 			}
 			votingPower := sdk.NewDecFromInt(stakedCoins.Amount)
@@ -188,60 +188,60 @@ func (th TallyHandler) Tally(
 	return false, false, tallyResults
 }
 
-// bnemoByDenom a map of the bnemo denom and the amount of bnemo for that denom.
-type bnemoByDenom map[string]sdkmath.Int
+// bfuryByDenom a map of the bfury denom and the amount of bfury for that denom.
+type bfuryByDenom map[string]sdkmath.Int
 
-func (bnemoMap bnemoByDenom) add(coin sdk.Coin) {
-	_, found := bnemoMap[coin.Denom]
+func (bfuryMap bfuryByDenom) add(coin sdk.Coin) {
+	_, found := bfuryMap[coin.Denom]
 	if !found {
-		bnemoMap[coin.Denom] = sdk.ZeroInt()
+		bfuryMap[coin.Denom] = sdk.ZeroInt()
 	}
-	bnemoMap[coin.Denom] = bnemoMap[coin.Denom].Add(coin.Amount)
+	bfuryMap[coin.Denom] = bfuryMap[coin.Denom].Add(coin.Amount)
 }
 
-func (bnemoMap bnemoByDenom) toCoins() sdk.Coins {
+func (bfuryMap bfuryByDenom) toCoins() sdk.Coins {
 	coins := sdk.Coins{}
-	for denom, amt := range bnemoMap {
+	for denom, amt := range bfuryMap {
 		coins = coins.Add(sdk.NewCoin(denom, amt))
 	}
 	return coins.Sort()
 }
 
-// getAddrBnemo returns a map of validator address & the amount of bnemo
+// getAddrBnemo returns a map of validator address & the amount of bfury
 // of the addr for each validator.
-func (th TallyHandler) getAddrBnemo(ctx sdk.Context, addr sdk.AccAddress) bnemoByDenom {
-	results := make(bnemoByDenom)
+func (th TallyHandler) getAddrBnemo(ctx sdk.Context, addr sdk.AccAddress) bfuryByDenom {
+	results := make(bfuryByDenom)
 	th.addBnemoFromWallet(ctx, addr, results)
 	th.addBnemoFromSavings(ctx, addr, results)
 	th.addBnemoFromEarn(ctx, addr, results)
 	return results
 }
 
-// addBnemoFromWallet adds all addr balances of bnemo in x/bank.
-func (th TallyHandler) addBnemoFromWallet(ctx sdk.Context, addr sdk.AccAddress, bnemo bnemoByDenom) {
+// addBnemoFromWallet adds all addr balances of bfury in x/bank.
+func (th TallyHandler) addBnemoFromWallet(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
 	coins := th.bk.GetAllBalances(ctx, addr)
 	for _, coin := range coins {
 		if th.lk.IsDerivativeDenom(ctx, coin.Denom) {
-			bnemo.add(coin)
+			bfury.add(coin)
 		}
 	}
 }
 
-// addBnemoFromSavings adds all addr deposits of bnemo in x/savings.
-func (th TallyHandler) addBnemoFromSavings(ctx sdk.Context, addr sdk.AccAddress, bnemo bnemoByDenom) {
+// addBnemoFromSavings adds all addr deposits of bfury in x/savings.
+func (th TallyHandler) addBnemoFromSavings(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
 	deposit, found := th.svk.GetDeposit(ctx, addr)
 	if !found {
 		return
 	}
 	for _, coin := range deposit.Amount {
 		if th.lk.IsDerivativeDenom(ctx, coin.Denom) {
-			bnemo.add(coin)
+			bfury.add(coin)
 		}
 	}
 }
 
-// addBnemoFromEarn adds all addr deposits of bnemo in x/earn.
-func (th TallyHandler) addBnemoFromEarn(ctx sdk.Context, addr sdk.AccAddress, bnemo bnemoByDenom) {
+// addBnemoFromEarn adds all addr deposits of bfury in x/earn.
+func (th TallyHandler) addBnemoFromEarn(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
 	shares, found := th.ek.GetVaultAccountShares(ctx, addr)
 	if !found {
 		return
@@ -249,7 +249,7 @@ func (th TallyHandler) addBnemoFromEarn(ctx sdk.Context, addr sdk.AccAddress, bn
 	for _, share := range shares {
 		if th.lk.IsDerivativeDenom(ctx, share.Denom) {
 			if coin, err := th.ek.ConvertToAssets(ctx, share); err == nil {
-				bnemo.add(coin)
+				bfury.add(coin)
 			}
 		}
 	}

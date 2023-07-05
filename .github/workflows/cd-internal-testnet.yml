@@ -45,7 +45,7 @@ jobs:
       chain-id: highbury_710-17000
       seed-script-filename: seed-internal-testnet.sh
       erc20-deployer-network-name: internal_testnet
-      genesis_validator_addresses: "nemovaloper1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxrnrlwp nemovaloper1w66m9hdzwgd6uc8g93zqkcumgwzrpcw958sh3s"
+      genesis_validator_addresses: "furyvaloper1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxw3xsx0 furyvaloper1w66m9hdzwgd6uc8g93zqkcumgwzrpcw9e94ce7"
       nemo_version_filepath:  ./ci/env/nemo-internal-testnet/NEMO.VERSION
     secrets: inherit
     needs: [start-chain-api]

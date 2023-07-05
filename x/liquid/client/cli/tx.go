@@ -47,7 +47,7 @@ func getCmdMintDerivative() *cobra.Command {
 		Long:  "Mint removes a portion of a user's staking delegation and issues them validator specific staking derivative tokens.",
 		Args:  cobra.ExactArgs(2),
 		Example: fmt.Sprintf(
-			`%s tx %s mint nemovaloper16lnfpgn6llvn4fstg5nfrljj6aaxyee9z59jqd 10000000ufury --from <key>`, version.AppName, types.ModuleName,
+			`%s tx %s mint furyvaloper16lnfpgn6llvn4fstg5nfrljj6aaxyee90kqagr 10000000ufury --from <key>`, version.AppName, types.ModuleName,
 		),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -80,7 +80,7 @@ func getCmdBurnDerivative() *cobra.Command {
 		Short: "burns staking derivative to redeem a delegation",
 		Long:  "Burn removes some staking derivative from a user's account and converts it back to a staking delegation.",
 		Example: fmt.Sprintf(
-			`%s tx %s burn 10000000bnemo-nemovaloper16lnfpgn6llvn4fstg5nfrljj6aaxyee9z59jqd --from <key>`, version.AppName, types.ModuleName,
+			`%s tx %s burn 10000000bfury-furyvaloper16lnfpgn6llvn4fstg5nfrljj6aaxyee90kqagr --from <key>`, version.AppName, types.ModuleName,
 		),
 		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {

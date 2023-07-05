@@ -162,7 +162,7 @@ func (s queryServer) Apy(
 	params := s.keeper.GetParams(sdkCtx)
 	var apys types.APYs
 
-	// bnemo APY (staking + incentive rewards)
+	// bfury APY (staking + incentive rewards)
 	stakingAPR, err := GetStakingAPR(sdkCtx, s.keeper, params)
 	if err != nil {
 		return nil, err
@@ -172,7 +172,7 @@ func (s queryServer) Apy(
 
 	// Incentive only APYs
 	for _, param := range params.EarnRewardPeriods {
-		// Skip bnemo as it's calculated earlier with staking rewards
+		// Skip bfury as it's calculated earlier with staking rewards
 		if param.CollateralType == liquidtypes.DefaultDerivativeDenom {
 			continue
 		}

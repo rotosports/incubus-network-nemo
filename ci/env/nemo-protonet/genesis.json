@@ -46,7 +46,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1g3kdcr8ah7rs07dk00elnkpmk34e6dcj94306a",
+            "address": "fury1g3kdcr8ah7rs07dk00elnkpmk34e6dcjftval4",
             "pub_key": null,
             "account_number": "0",
             "sequence": "1"
@@ -56,7 +56,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1jc92jznsjlvfs6d4l8qjhc4j3gaapvmkypxlln",
+            "address": "fury1jc92jznsjlvfs6d4l8qjhc4j3gaapvmkglmd6m",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -66,7 +66,7 @@
         {
           "@type": "/cosmos.auth.v1beta1.ModuleAccount",
           "base_account": {
-            "address": "nemo1cj7njkw2g9fqx4e768zc75dp9sks8u9znxrf0w",
+            "address": "fury1cj7njkw2g9fqx4e768zc75dp9sks8u9zlc7m2x",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -79,7 +79,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1ak4pa9z2aty94ze2cs06wsdnkg9hsvfkp40r02",
+            "address": "fury1ak4pa9z2aty94ze2cs06wsdnkg9hsvfkdtj32z",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -89,7 +89,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo123fxg0l602etulhhcdm0vt7l57qya5wjcrwhzz",
+            "address": "fury123fxg0l602etulhhcdm0vt7l57qya5wj5an982",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -99,7 +99,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo10wlnqzyss4accfqmyxwx5jy5x9nfkwh6qm7n4t",
+            "address": "fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -109,7 +109,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1vtf08rd2z9fm8qwxa54y3el5vues8ty64qcdyr",
+            "address": "fury1vtf08rd2z9fm8qwxa54y3el5vues8ty6e79lpt",
             "pub_key": null,
             "account_number": "0",
             "sequence": "1"
@@ -119,7 +119,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1wrrekcy2h0zs9shkruuwqsvsldq8hm70yad4ke",
+            "address": "fury1wrrekcy2h0zs9shkruuwqsvsldq8hm70grs8n3",
             "pub_key": null,
             "account_number": "0",
             "sequence": "1"
@@ -129,7 +129,7 @@
         {
           "@type": "/cosmos.auth.v1beta1.ModuleAccount",
           "base_account": {
-            "address": "nemo1mfru9azs5nua2wxcd4sq64g5nt7nn4n8s2w8cu",
+            "address": "fury1mfru9azs5nua2wxcd4sq64g5nt7nn4n8u5n4a5",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -139,7 +139,7 @@
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "nemo1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcpwrjsn",
+          "address": "fury1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcds7q4m",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -147,7 +147,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxw9ehkk",
+            "address": "fury1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxzmy9n7",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -157,7 +157,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1kq0kfnnffkna9hknzg8kgx89ljczjtjdt8qrv7",
+            "address": "fury1kq0kfnnffkna9hknzg8kgx89ljczjtjd8ea3fk",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -166,14 +166,14 @@
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+          "address": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "nemo1krh7k30pc9rteejpl2zycj0vau58y8c69xkzws",
+          "address": "fury1krh7k30pc9rteejpl2zycj0vau58y8c6fctstc",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -181,7 +181,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1w66m9hdzwgd6uc8g93zqkcumgwzrpcw9e32lf8",
+            "address": "fury1w66m9hdzwgd6uc8g93zqkcumgwzrpcw940hdv0",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -191,7 +191,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1xg3g4gadzvlgfqwnsfufnsv6r0gmtnhl9f09p5",
+            "address": "fury1xg3g4gadzvlgfqwnsfufnsv6r0gmtnhlfhjhyu",
             "pub_key": null,
             "account_number": "0",
             "sequence": "0"
@@ -200,21 +200,21 @@
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "nemo10cy05c0j9udypdrp0wy8a5jtshx67v7zk5sdzp",
+          "address": "fury10cy05c0j9udypdrp0wy8a5jtshx67v7z62dl8f",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "nemo1qffzssyckxgrd7qm6g59r7rfjpp047kzaefatc",
+          "address": "fury1qffzssyckxgrd7qm6g59r7rfjpp047kz3850ws",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "nemo14w4avgdvqrlpww6l5dhgj4egfn6ln7gmxhytjv",
+          "address": "fury14w4avgdvqrlpww6l5dhgj4egfn6ln7gm2feehy",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -222,7 +222,7 @@
         {
           "@type": "/ethermint.types.v1.EthAccount",
           "base_account": {
-            "address": "nemo1seqjrgakfgzasu5g8gwsmgzwacg85e8nnxeqxl",
+            "address": "fury1seqjrgakfgzasu5g8gwsmgzwacg85e8nlcyjrh",
             "pub_key": null,
             "account_number": "23",
             "sequence": "1"
@@ -239,8 +239,8 @@
             "msg": "/cosmos.bank.v1beta1.MsgMultiSend"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -248,8 +248,8 @@
             "msg": "/cosmos.bank.v1beta1.MsgSend"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -257,8 +257,8 @@
             "msg": "/cosmos.distribution.v1beta1.MsgFundCommunityPool"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -266,8 +266,8 @@
             "msg": "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -275,8 +275,8 @@
             "msg": "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -284,8 +284,8 @@
             "msg": "/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -293,8 +293,8 @@
             "msg": "/cosmos.staking.v1beta1.MsgBeginRedelegate"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -302,8 +302,8 @@
             "msg": "/cosmos.staking.v1beta1.MsgCancelUnbondingDelegation"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -311,8 +311,8 @@
             "msg": "/cosmos.staking.v1beta1.MsgDelegate"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -320,8 +320,8 @@
             "msg": "/cosmos.staking.v1beta1.MsgUndelegate"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -329,8 +329,8 @@
             "msg": "/nemo.cdp.v1beta1.MsgCreateCDP"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -338,8 +338,8 @@
             "msg": "/nemo.cdp.v1beta1.MsgDeposit"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -347,8 +347,8 @@
             "msg": "/nemo.cdp.v1beta1.MsgDrawDebt"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -356,8 +356,8 @@
             "msg": "/nemo.cdp.v1beta1.MsgRepayDebt"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -365,8 +365,8 @@
             "msg": "/nemo.cdp.v1beta1.MsgWithdraw"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -374,8 +374,8 @@
             "msg": "/nemo.hard.v1beta1.MsgBorrow"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -383,8 +383,8 @@
             "msg": "/nemo.hard.v1beta1.MsgDeposit"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -392,8 +392,8 @@
             "msg": "/nemo.hard.v1beta1.MsgRepay"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -401,8 +401,8 @@
             "msg": "/nemo.hard.v1beta1.MsgWithdraw"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -410,8 +410,8 @@
             "msg": "/nemo.liquid.v1beta1.MsgBurnDerivative"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -419,8 +419,8 @@
             "msg": "/nemo.liquid.v1beta1.MsgMintDerivative"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -428,8 +428,8 @@
             "msg": "/nemo.swap.v1beta1.MsgDeposit"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -437,8 +437,8 @@
             "msg": "/nemo.swap.v1beta1.MsgSwapExactForTokens"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -446,8 +446,8 @@
             "msg": "/nemo.swap.v1beta1.MsgSwapForExactTokens"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         },
         {
           "authorization": {
@@ -455,8 +455,8 @@
             "msg": "/nemo.swap.v1beta1.MsgWithdraw"
           },
           "expiration": null,
-          "grantee": "nemo10d07y265gmmuvt4z0w9aw880jnsr700jxh8cq5",
-          "granter": "nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5"
+          "grantee": "fury10d07y265gmmuvt4z0w9aw880jnsr700j2f629u",
+          "granter": "fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu"
         }
       ]
     },
@@ -467,7 +467,7 @@
       },
       "balances": [
         {
-          "address": "nemo1qffzssyckxgrd7qm6g59r7rfjpp047kzaefatc",
+          "address": "fury1qffzssyckxgrd7qm6g59r7rfjpp047kz3850ws",
           "coins": [
             {
               "denom": "btcb",
@@ -496,7 +496,7 @@
           ]
         },
         {
-          "address": "nemo1xg3g4gadzvlgfqwnsfufnsv6r0gmtnhl9f09p5",
+          "address": "fury1xg3g4gadzvlgfqwnsfufnsv6r0gmtnhlfhjhyu",
           "coins": [
             {
               "denom": "ufury",
@@ -505,7 +505,7 @@
           ]
         },
         {
-          "address": "nemo1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxw9ehkk",
+          "address": "fury1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxzmy9n7",
           "coins": [
             {
               "denom": "ufury",
@@ -514,7 +514,7 @@
           ]
         },
         {
-          "address": "nemo1g3kdcr8ah7rs07dk00elnkpmk34e6dcj94306a",
+          "address": "fury1g3kdcr8ah7rs07dk00elnkpmk34e6dcjftval4",
           "coins": [
             {
               "denom": "ufury",
@@ -523,7 +523,7 @@
           ]
         },
         {
-          "address": "nemo1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcpwrjsn",
+          "address": "fury1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcds7q4m",
           "coins": [
             {
               "denom": "ufury",
@@ -532,7 +532,7 @@
           ]
         },
         {
-          "address": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+          "address": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
           "coins": [
             {
               "denom": "btcb",
@@ -573,7 +573,7 @@
           ]
         },
         {
-          "address": "nemo1w66m9hdzwgd6uc8g93zqkcumgwzrpcw9e32lf8",
+          "address": "fury1w66m9hdzwgd6uc8g93zqkcumgwzrpcw940hdv0",
           "coins": [
             {
               "denom": "ufury",
@@ -582,7 +582,7 @@
           ]
         },
         {
-          "address": "nemo10cy05c0j9udypdrp0wy8a5jtshx67v7zk5sdzp",
+          "address": "fury10cy05c0j9udypdrp0wy8a5jtshx67v7z62dl8f",
           "coins": [
             {
               "denom": "btcb",
@@ -611,7 +611,7 @@
           ]
         },
         {
-          "address": "nemo1jc92jznsjlvfs6d4l8qjhc4j3gaapvmkypxlln",
+          "address": "fury1jc92jznsjlvfs6d4l8qjhc4j3gaapvmkglmd6m",
           "coins": [
             {
               "denom": "ufury",
@@ -620,7 +620,7 @@
           ]
         },
         {
-          "address": "nemo14w4avgdvqrlpww6l5dhgj4egfn6ln7gmxhytjv",
+          "address": "fury14w4avgdvqrlpww6l5dhgj4egfn6ln7gm2feehy",
           "coins": [
             {
               "denom": "ufury",
@@ -629,7 +629,7 @@
           ]
         },
         {
-          "address": "nemo1kq0kfnnffkna9hknzg8kgx89ljczjtjdt8qrv7",
+          "address": "fury1kq0kfnnffkna9hknzg8kgx89ljczjtjd8ea3fk",
           "coins": [
             {
               "denom": "ufury",
@@ -638,7 +638,7 @@
           ]
         },
         {
-          "address": "nemo1krh7k30pc9rteejpl2zycj0vau58y8c69xkzws",
+          "address": "fury1krh7k30pc9rteejpl2zycj0vau58y8c6fctstc",
           "coins": [
             {
               "denom": "btcb",
@@ -679,7 +679,7 @@
           ]
         },
         {
-          "address": "nemo1cj7njkw2g9fqx4e768zc75dp9sks8u9znxrf0w",
+          "address": "fury1cj7njkw2g9fqx4e768zc75dp9sks8u9zlc7m2x",
           "coins": [
             {
               "denom": "hard",
@@ -696,7 +696,7 @@
           ]
         },
         {
-          "address": "nemo1mfru9azs5nua2wxcd4sq64g5nt7nn4n8s2w8cu",
+          "address": "fury1mfru9azs5nua2wxcd4sq64g5nt7nn4n8u5n4a5",
           "coins": [
             {
               "denom": "btcb",
@@ -740,7 +740,7 @@
               "time_based_limit": "0"
             },
             "active": true,
-            "deputy_address": "nemo1kla4wl0ccv7u85cemvs3y987hqk0afcv7vue84",
+            "deputy_address": "fury1kla4wl0ccv7u85cemvs3y987hqk0afcvjjptza",
             "fixed_fee": "2",
             "min_swap_amount": "3",
             "max_swap_amount": "2000000000",
@@ -757,7 +757,7 @@
               "time_based_limit": "0"
             },
             "active": true,
-            "deputy_address": "nemo14q5sawxdxtpap5x5sgzj7v4sp3ucncjlpuk3hs",
+            "deputy_address": "fury14q5sawxdxtpap5x5sgzj7v4sp3ucncjldztrjc",
             "fixed_fee": "100000",
             "min_swap_amount": "100001",
             "max_swap_amount": "250000000000000",
@@ -774,7 +774,7 @@
               "time_based_limit": "0"
             },
             "active": true,
-            "deputy_address": "nemo1agcvt07tcw0tglu0hmwdecsnuxp2yd45f3avgm",
+            "deputy_address": "fury1agcvt07tcw0tglu0hmwdecsnuxp2yd4590q7dn",
             "fixed_fee": "1000",
             "min_swap_amount": "1001",
             "max_swap_amount": "500000000000",
@@ -791,7 +791,7 @@
               "time_based_limit": "0"
             },
             "active": true,
-            "deputy_address": "nemo1j9je7f6s0v6k7dmgv6u5k5ru202f5ffsc7af04",
+            "deputy_address": "fury1j9je7f6s0v6k7dmgv6u5k5ru202f5ffs5qqm2a",
             "fixed_fee": "20000",
             "min_swap_amount": "20001",
             "max_swap_amount": "100000000000000",
@@ -820,7 +820,7 @@
             "minimum_withdraw_amount": "10000000"
           }
         ],
-        "relayer": "nemo15tmj37vh7ch504px9fcfglmvx6y9m70646ev8t",
+        "relayer": "fury15tmj37vh7ch504px9fcfglmvx6y9m706eyy7zr",
         "enabled_conversion_pairs": []
       },
       "erc20_bridge_pairs": [],
@@ -1085,7 +1085,7 @@
             "id": "1",
             "description": "Nemo Stability Committee",
             "members": [
-              "nemo1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcpwrjsn"
+              "fury1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcds7q4m"
             ],
             "permissions": [
               {
@@ -1193,7 +1193,7 @@
             "id": "2",
             "description": "Nemo Safety Committee",
             "members": [
-              "nemo1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcpwrjsn"
+              "fury1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcds7q4m"
             ],
             "permissions": [
               {
@@ -1211,7 +1211,7 @@
             "id": "3",
             "description": "Nemo God Committee (testing only)",
             "members": [
-              "nemo1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcpwrjsn"
+              "fury1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcds7q4m"
             ],
             "permissions": [
               {
@@ -1229,7 +1229,7 @@
             "id": "4",
             "description": "HARD Governance Committee",
             "members": [
-              "nemo1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcpwrjsn"
+              "fury1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcds7q4m"
             ],
             "permissions": [
               {
@@ -1274,7 +1274,7 @@
             "id": "5",
             "description": "SWP Governance Committee",
             "members": [
-              "nemo1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcpwrjsn"
+              "fury1fy5zeuutmxzwcx5hncu5q83ug3zcqmxcds7q4m"
             ],
             "permissions": [
               {
@@ -1366,7 +1366,7 @@
             "allowed_depositors": []
           },
           {
-            "denom": "bnemo",
+            "denom": "bfury",
             "strategies": [
               "STRATEGY_TYPE_SAVINGS"
             ]
@@ -1488,7 +1488,7 @@
         }
       ],
       "params": {
-        "evm_denom": "atfury",
+        "evm_denom": "afury",
         "enable_create": true,
         "enable_call": true,
         "extra_eips": [],
@@ -2102,8 +2102,8 @@
                   "max_change_rate": "0.010000000000000000"
                 },
                 "min_self_delegation": "1",
-                "delegator_address": "nemo14w4avgdvqrlpww6l5dhgj4egfn6ln7gmxhytjv",
-                "validator_address": "nemovaloper14w4avgdvqrlpww6l5dhgj4egfn6ln7gmtp7r2m",
+                "delegator_address": "fury14w4avgdvqrlpww6l5dhgj4egfn6ln7gm2feehy",
+                "validator_address": "furyvaloper14w4avgdvqrlpww6l5dhgj4egfn6ln7gmxrmvz4",
                 "pubkey": {
                   "@type": "/cosmos.crypto.ed25519.PubKey",
                   "key": "SzSj9ej4GZAopruFI2pltVGj4fMq7m0JQePS9lELUiA="
@@ -2668,7 +2668,7 @@
         "earn_reward_periods": [
           {
             "active": true,
-            "collateral_type": "bnemo",
+            "collateral_type": "bfury",
             "start": "2022-10-26T15:00:00Z",
             "end": "2024-10-26T15:00:00Z",
             "rewards_per_second": [
@@ -2791,7 +2791,7 @@
       "swap_claims": [
         {
           "base_claim": {
-            "owner": "nemo1ektgdyy0z23qqnd67ns3qvfzgfgjd5xe82lf5c",
+            "owner": "fury1ektgdyy0z23qqnd67ns3qvfzgfgjd5xet5zm3s",
             "reward": []
           },
           "reward_indexes": [
@@ -2803,7 +2803,7 @@
         },
         {
           "base_claim": {
-            "owner": "nemo173w2zz287s36ewnnkf4mjansnthnnsz7rtrxqc",
+            "owner": "fury173w2zz287s36ewnnkf4mjansnthnnsz704759s",
             "reward": []
           },
           "reward_indexes": [
@@ -2828,7 +2828,7 @@
       "params": {
         "assets": [
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "ufury",
             "blocked_addresses": [],
             "paused": false,
@@ -2840,7 +2840,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "erc20/multichain/usdt",
             "blocked_addresses": [],
             "paused": false,
@@ -2852,7 +2852,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "usdx",
             "blocked_addresses": [],
             "paused": false,
@@ -2864,7 +2864,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "erc20/multichain/usdc",
             "blocked_addresses": [],
             "paused": false,
@@ -2876,7 +2876,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "hard",
             "blocked_addresses": [],
             "paused": false,
@@ -2888,7 +2888,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "swp",
             "blocked_addresses": [],
             "paused": false,
@@ -2900,7 +2900,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "busd",
             "blocked_addresses": [],
             "paused": false,
@@ -2912,7 +2912,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "btcb",
             "blocked_addresses": [],
             "paused": false,
@@ -2924,7 +2924,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "bnb",
             "blocked_addresses": [],
             "paused": false,
@@ -2936,7 +2936,7 @@
             }
           },
           {
-            "owner": "nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq",
+            "owner": "fury1vlpsrmdyuywvaqrv7rx6xga224sqfwz39659tg",
             "denom": "xrpb",
             "blocked_addresses": [],
             "paused": false,
@@ -2982,7 +2982,7 @@
             "base_asset": "bnb",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -2991,7 +2991,7 @@
             "base_asset": "bnb",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3000,7 +3000,7 @@
             "base_asset": "btc",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3009,7 +3009,7 @@
             "base_asset": "btc",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3018,7 +3018,7 @@
             "base_asset": "eth",
             "quote_asset": "eth",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3027,7 +3027,7 @@
             "base_asset": "eth",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3036,7 +3036,7 @@
             "base_asset": "xrp",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3045,7 +3045,7 @@
             "base_asset": "xrp",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3054,7 +3054,7 @@
             "base_asset": "busd",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3063,7 +3063,7 @@
             "base_asset": "busd",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3072,7 +3072,7 @@
             "base_asset": "usdc",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3081,7 +3081,7 @@
             "base_asset": "usdc",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3090,7 +3090,7 @@
             "base_asset": "usdt",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3099,7 +3099,7 @@
             "base_asset": "usdt",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3108,7 +3108,7 @@
             "base_asset": "nemo",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3117,7 +3117,7 @@
             "base_asset": "nemo",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3126,7 +3126,7 @@
             "base_asset": "hard",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3135,7 +3135,7 @@
             "base_asset": "hard",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3144,7 +3144,7 @@
             "base_asset": "atom",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3153,7 +3153,7 @@
             "base_asset": "atom",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3162,7 +3162,7 @@
             "base_asset": "osmo",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3171,7 +3171,7 @@
             "base_asset": "osmo",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3180,7 +3180,7 @@
             "base_asset": "akt",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3189,7 +3189,7 @@
             "base_asset": "akt",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3198,7 +3198,7 @@
             "base_asset": "luna",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3207,7 +3207,7 @@
             "base_asset": "luna",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3216,7 +3216,7 @@
             "base_asset": "usdx",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3225,7 +3225,7 @@
             "base_asset": "usdx",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3234,7 +3234,7 @@
             "base_asset": "usdx",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3243,7 +3243,7 @@
             "base_asset": "swp",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           },
@@ -3252,7 +3252,7 @@
             "base_asset": "swp",
             "quote_asset": "usd",
             "oracles": [
-              "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h"
+              "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll"
             ],
             "active": true
           }
@@ -3262,187 +3262,187 @@
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "bnb:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "215.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "bnb:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "217.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "btc:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "29500.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "btc:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "28500.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "eth:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "16250.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "eth:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "16250.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "akt:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "akt:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "osmo:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "4.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "osmo:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "4.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "luna:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "92.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "luna:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "92.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "atom:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "24.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "atom:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "24.962650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "xrp:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "0.552650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "xrp:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "0.552650000000001782"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "busd:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "busd:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "usdx:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "usdx:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "usdx:usd:720",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "nemo:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "3.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "nemo:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "3.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "hard:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "0.500000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "hard:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "0.500000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "swp:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "2.150000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "swp:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "2.150000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "usdt:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "usdc:usd",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "usdt:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         },
         {
           "expiry": "2050-01-01T00:00:00Z",
           "market_id": "usdc:usd:30",
-          "oracle_address": "nemo1hdn83q3srldcpan4ex2v4npuae8hmnfrps3e6h",
+          "oracle_address": "fury1hdn83q3srldcpan4ex2v4npuae8hmnfrdwvtll",
           "price": "1.000000000000000000"
         }
       ]
@@ -3454,9 +3454,9 @@
           "ufury",
           "hard",
           "swp",
-          "bnemo",
-          "bnemo-nemovaloper1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxrnrlwp",
-          "bnemo-nemovaloper1w66m9hdzwgd6uc8g93zqkcumgwzrpcw958sh3s",
+          "bfury",
+          "bfury-furyvaloper1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxw3xsx0",
+          "bfury-furyvaloper1w66m9hdzwgd6uc8g93zqkcumgwzrpcw9e94ce7",
           "erc20/multichain/usdc"
         ]
       }
@@ -3591,22 +3591,22 @@
       ],
       "share_records": [
         {
-          "depositor": "nemo173w2zz287s36ewnnkf4mjansnthnnsz7rtrxqc",
+          "depositor": "fury173w2zz287s36ewnnkf4mjansnthnnsz704759s",
           "pool_id": "btcb:usdx",
           "shares_owned": "4472135954"
         },
         {
-          "depositor": "nemo173w2zz287s36ewnnkf4mjansnthnnsz7rtrxqc",
+          "depositor": "fury173w2zz287s36ewnnkf4mjansnthnnsz704759s",
           "pool_id": "hard:usdx",
           "shares_owned": "1000000000"
         },
         {
-          "depositor": "nemo173w2zz287s36ewnnkf4mjansnthnnsz7rtrxqc",
+          "depositor": "fury173w2zz287s36ewnnkf4mjansnthnnsz704759s",
           "pool_id": "swp:usdx",
           "shares_owned": "2236067977"
         },
         {
-          "depositor": "nemo173w2zz287s36ewnnkf4mjansnthnnsz7rtrxqc",
+          "depositor": "fury173w2zz287s36ewnnkf4mjansnthnnsz704759s",
           "pool_id": "ufury:usdx",
           "shares_owned": "2236067977"
         }

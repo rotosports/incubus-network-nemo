@@ -5,7 +5,7 @@
       {
         "type": "cdp/MsgCreateCDP",
         "value": {
-          "sender": "nemo12jk3szk45afmvjc3xc6kvj4e40tuy2m8ckgs03",
+          "sender": "fury12jk3szk45afmvjc3xc6kvj4e40tuy2m85g4z2e",
           "collateral": [
             {
               "denom": "xrp",

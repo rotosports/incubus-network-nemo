@@ -61,14 +61,14 @@ func queryRewardsCmd() *cobra.Command {
 
 			Example:
 			$ %[1]s query %[2]s rewards
-			$ %[1]s query %[2]s rewards --owner nemo15qdefkmwswysgg4qxgqpqr35k3m49pkx2jdfnw
+			$ %[1]s query %[2]s rewards --owner fury15qdefkmwswysgg4qxgqpqr35k3m49pkxxvsmkx
 			$ %[1]s query %[2]s rewards --type hard
 			$ %[1]s query %[2]s rewards --type usdx-minting
 			$ %[1]s query %[2]s rewards --type delegator
 			$ %[1]s query %[2]s rewards --type swap
 			$ %[1]s query %[2]s rewards --type savings
 			$ %[1]s query %[2]s rewards --type earn
-			$ %[1]s query %[2]s rewards --type hard --owner nemo15qdefkmwswysgg4qxgqpqr35k3m49pkx2jdfnw
+			$ %[1]s query %[2]s rewards --type hard --owner fury15qdefkmwswysgg4qxgqpqr35k3m49pkxxvsmkx
 			$ %[1]s query %[2]s rewards --type hard --unsynced
 			`,
 				version.AppName, types.ModuleName)),

@@ -48,14 +48,14 @@ func (suite *EarnStakingRewardsIntegrationTestSuite) SetupTest() {
 
 	incentiveBuilder := testutil.NewIncentiveGenesisBuilder().
 		WithGenesisTime(suite.GenesisTime).
-		WithSimpleEarnRewardPeriod("bnemo", cs())
+		WithSimpleEarnRewardPeriod("bfury", cs())
 
 	savingsBuilder := testutil.NewSavingsGenesisBuilder().
-		WithSupportedDenoms("bnemo")
+		WithSupportedDenoms("bfury")
 
 	earnBuilder := testutil.NewEarnGenesisBuilder().
 		WithAllowedVaults(earntypes.AllowedVault{
-			Denom:             "bnemo",
+			Denom:             "bfury",
 			Strategies:        earntypes.StrategyTypes{earntypes.STRATEGY_TYPE_SAVINGS},
 			IsPrivateVault:    false,
 			AllowedDepositors: nil,

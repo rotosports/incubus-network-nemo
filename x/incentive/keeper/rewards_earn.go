@@ -18,7 +18,7 @@ import (
 // AccumulateEarnRewards calculates new rewards to distribute this block and updates the global indexes to reflect this.
 // The provided rewardPeriod must be valid to avoid panics in calculating time durations.
 func (k Keeper) AccumulateEarnRewards(ctx sdk.Context, rewardPeriod types.MultiRewardPeriod) error {
-	if rewardPeriod.CollateralType == "bnemo" {
+	if rewardPeriod.CollateralType == "bfury" {
 		return k.accumulateEarnBnemoRewards(ctx, rewardPeriod)
 	}
 
@@ -38,9 +38,9 @@ func GetProportionalRewardsPerSecond(
 	totalBnemoSupply sdkmath.Int,
 	singleBnemoSupply sdkmath.Int,
 ) sdk.DecCoins {
-	// Rate per bnemo-xxx = rewardsPerSecond * % of bnemo-xxx
-	//                    = rewardsPerSecond * (bnemo-xxx / total bnemo)
-	//                    = (rewardsPerSecond * bnemo-xxx) / total bnemo
+	// Rate per bfury-xxx = rewardsPerSecond * % of bfury-xxx
+	//                    = rewardsPerSecond * (bfury-xxx / total bfury)
+	//                    = (rewardsPerSecond * bfury-xxx) / total bfury
 
 	newRate := sdk.NewDecCoins()
 
@@ -62,25 +62,25 @@ func GetProportionalRewardsPerSecond(
 }
 
 // accumulateEarnBnemoRewards does the same as AccumulateEarnRewards but for
-// *all* bnemo vaults.
+// *all* bfury vaults.
 func (k Keeper) accumulateEarnBnemoRewards(ctx sdk.Context, rewardPeriod types.MultiRewardPeriod) error {
-	// All bnemo vault denoms
-	bnemoVaultsDenoms := make(map[string]bool)
+	// All bfury vault denoms
+	bfuryVaultsDenoms := make(map[string]bool)
 
-	// bnemo vault denoms from earn records (non-empty vaults)
+	// bfury vault denoms from earn records (non-empty vaults)
 	k.earnKeeper.IterateVaultRecords(ctx, func(record earntypes.VaultRecord) (stop bool) {
 		if k.liquidKeeper.IsDerivativeDenom(ctx, record.TotalShares.Denom) {
-			bnemoVaultsDenoms[record.TotalShares.Denom] = true
+			bfuryVaultsDenoms[record.TotalShares.Denom] = true
 		}
 
 		return false
 	})
 
-	// bnemo vault denoms from past incentive indexes, may include vaults
+	// bfury vault denoms from past incentive indexes, may include vaults
 	// that were fully withdrawn.
 	k.IterateEarnRewardIndexes(ctx, func(vaultDenom string, indexes types.RewardIndexes) (stop bool) {
 		if k.liquidKeeper.IsDerivativeDenom(ctx, vaultDenom) {
-			bnemoVaultsDenoms[vaultDenom] = true
+			bfuryVaultsDenoms[vaultDenom] = true
 		}
 
 		return false
@@ -92,8 +92,8 @@ func (k Keeper) accumulateEarnBnemoRewards(ctx sdk.Context, rewardPeriod types.M
 	}
 
 	i := 0
-	sortedBnemoVaultsDenoms := make([]string, len(bnemoVaultsDenoms))
-	for vaultDenom := range bnemoVaultsDenoms {
+	sortedBnemoVaultsDenoms := make([]string, len(bfuryVaultsDenoms))
+	for vaultDenom := range bfuryVaultsDenoms {
 		sortedBnemoVaultsDenoms[i] = vaultDenom
 		i++
 	}
@@ -101,16 +101,16 @@ func (k Keeper) accumulateEarnBnemoRewards(ctx sdk.Context, rewardPeriod types.M
 	// Sort the vault denoms to ensure deterministic iteration order.
 	sort.Strings(sortedBnemoVaultsDenoms)
 
-	// Accumulate rewards for each bnemo vault.
-	for _, bnemoDenom := range sortedBnemoVaultsDenoms {
-		derivativeValue, err := k.liquidKeeper.GetDerivativeValue(ctx, bnemoDenom)
+	// Accumulate rewards for each bfury vault.
+	for _, bfuryDenom := range sortedBnemoVaultsDenoms {
+		derivativeValue, err := k.liquidKeeper.GetDerivativeValue(ctx, bfuryDenom)
 		if err != nil {
 			return err
 		}
 
 		k.accumulateBnemoEarnRewards(
 			ctx,
-			bnemoDenom,
+			bfuryDenom,
 			rewardPeriod.Start,
 			rewardPeriod.End,
 			GetProportionalRewardsPerSecond(

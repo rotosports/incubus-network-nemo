@@ -27,22 +27,22 @@
   ],
   "share_records": [
     {
-      "depositor": "nemo1l77xymdt2ya0rl2mludkny5aqmr67u88ymgdje",
+      "depositor": "fury1l77xymdt2ya0rl2mludkny5aqmr67u88g94lh3",
       "pool_id": "usdx:xrpb",
       "shares_owned": "29034728969"
     },
     {
-      "depositor": "nemo1llqkrdr69wc76cuxpx6j06x9pt63f52f7mlcye",
+      "depositor": "fury1llqkrdr69wc76cuxpx6j06x9pt63f52fj9z2p3",
       "pool_id": "busd:usdx",
       "shares_owned": "24905307583"
     },
     {
-      "depositor": "nemo1ll3ndyv333aet6mzqltu5wdepqhyme8umv34es",
+      "depositor": "fury1ll3ndyv333aet6mzqltu5wdepqhyme8uhjv8uc",
       "pool_id": "hard:usdx",
       "shares_owned": "708138421"
     },
     {
-      "depositor": "nemo1ll3ndyv333aet6mzqltu5wdepqhyme8umv34es",
+      "depositor": "fury1ll3ndyv333aet6mzqltu5wdepqhyme8uhjv8uc",
       "pool_id": "ufury:usdx",
       "shares_owned": "3427014047"
     }

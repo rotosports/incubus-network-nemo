@@ -3395,7 +3395,7 @@ QueryDepositsRequest is the request type for the Query/Deposits RPC method.
 | ----- | ---- | ----- | ----------- |
 | `depositor` | [string](#string) |  | depositor optionally filters deposits by depositor |
 | `denom` | [string](#string) |  | denom optionally filters deposits by vault denom |
-| `value_in_staked_tokens` | [bool](#bool) |  | respond with vault value in ufury for bnemo vaults |
+| `value_in_staked_tokens` | [bool](#bool) |  | respond with vault value in ufury for bfury vaults |
 | `pagination` | [cosmos.base.query.v1beta1.PageRequest](#cosmos.base.query.v1beta1.PageRequest) |  | pagination defines an optional pagination for the request. |
 
 
@@ -3729,7 +3729,7 @@ BalanceAccount defines an account in the evmutil module.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `address` | [bytes](#bytes) |  |  |
-| `balance` | [string](#string) |  | balance indicates the amount of atfury owned by the address. |
+| `balance` | [string](#string) |  | balance indicates the amount of afury owned by the address. |
 
 
 

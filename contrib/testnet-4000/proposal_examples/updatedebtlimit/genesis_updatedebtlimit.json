@@ -137,9 +137,9 @@
                       "max_change_rate": "0.010000000000000000"
                     },
                     "min_self_delegation": "1",
-                    "delegator_address": "nemo15qdefkmwswysgg4qxgqpqr35k3m49pkx2jdfnw",
-                    "validator_address": "nemovaloper15qdefkmwswysgg4qxgqpqr35k3m49pkx8yhpte",
-                    "pubkey": "nemovalconspub1zcjduepq0ykwlzr3guncl5l8npqa5lmq8kc5y2aeqp8zc8e72t3stxujxvxsxqjqwt",
+                    "delegator_address": "fury15qdefkmwswysgg4qxgqpqr35k3m49pkxxvsmkx",
+                    "validator_address": "furyvaloper15qdefkmwswysgg4qxgqpqr35k3m49pkx2xjwrh",
+                    "pubkey": "furyvalconspub1zcjduepq0ykwlzr3guncl5l8npqa5lmq8kc5y2aeqp8zc8e72t3stxujxvxsg2v86p",
                     "value": {
                       "denom": "ufury",
                       "amount": "100000000"
@@ -208,7 +208,7 @@
             "type": "cosmos-sdk/Account",
             "value": {
               "account_number": "0",
-              "address": "nemo15qdefkmwswysgg4qxgqpqr35k3m49pkx2jdfnw",
+              "address": "fury15qdefkmwswysgg4qxgqpqr35k3m49pkxxvsmkx",
               "coins": [
                 {
                   "amount": "10000000000",
@@ -231,7 +231,7 @@
             "type": "cosmos-sdk/Account",
             "value": {
               "account_number": "0",
-              "address": "nemo1xy7hrjy9r0algz9w3gzm8u6mrpq97kwta747gj",
+              "address": "fury1xy7hrjy9r0algz9w3gzm8u6mrpq97kwt3qgvd6",
               "coins": [
                 {
                   "amount": "10000000000",
@@ -254,7 +254,7 @@
             "type": "cosmos-sdk/Account",
             "value": {
               "account_number": "0",
-              "address": "nemo12jk3szk45afmvjc3xc6kvj4e40tuy2m8ckgs03",
+              "address": "fury12jk3szk45afmvjc3xc6kvj4e40tuy2m85g4z2e",
               "coins": [
                 {
                   "amount": "10000000000",
@@ -305,7 +305,7 @@
               "base_asset": "xrp",
               "market_id": "xrp:usd",
               "oracles": [
-                  "nemo15qdefkmwswysgg4qxgqpqr35k3m49pkx2jdfnw"
+                  "fury15qdefkmwswysgg4qxgqpqr35k3m49pkxxvsmkx"
               ],
               "quote_asset": "usd"
             },

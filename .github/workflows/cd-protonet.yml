@@ -45,7 +45,7 @@ jobs:
       chain-id: proto_2221-17000
       seed-script-filename: seed-protonet.sh
       erc20-deployer-network-name: protonet
-      genesis_validator_addresses: "nemovaloper14w4avgdvqrlpww6l5dhgj4egfn6ln7gmtp7r2m"
+      genesis_validator_addresses: "furyvaloper14w4avgdvqrlpww6l5dhgj4egfn6ln7gmxrmvz4"
       nemo_version_filepath:  ./ci/env/nemo-protonet/NEMO.VERSION
     secrets: inherit
     needs: [start-chain-api]

@@ -4,7 +4,7 @@ order: 3
 
 # Messages
 
-`bnemo` is minted using `MsgMintDerivative`.
+`bfury` is minted using `MsgMintDerivative`.
 
 
 ```go
@@ -21,19 +21,19 @@ type MsgMintDerivative struct {
 
 ### Actions
 
-* converts an existing delegation into bnemo tokens
+* converts an existing delegation into bfury tokens
 * delegation is transferred from the sender to a module account
-* validator specific bnemo are minted and sent to the sender
+* validator specific bfury are minted and sent to the sender
 
 ### Example:
 
 ```jsonc
 {
   // user who owns the delegation
-  "sender": "nemo10wlnqzyss4accfqmyxwx5jy5x9nfkwh6qm7n4t",
+  "sender": "fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr",
   // validator the user has delegated to
-  "validator": "nemovaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42",
-  // amount of staked ufury to be converted into bnemo
+  "validator": "furyvaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42",
+  // amount of staked ufury to be converted into bfury
   "amount": {
     "amount": "1000000000",
     "denom": "ufury"
@@ -41,7 +41,7 @@ type MsgMintDerivative struct {
 }
 ```
 
-`bnemo` can be burned using `MsgBurnDerivative`.
+`bfury` can be burned using `MsgBurnDerivative`.
 
 ```go
 // MsgBurnDerivative defines the Msg/BurnDerivative request type.
@@ -57,23 +57,23 @@ type MsgBurnDerivative struct {
 
 ### Actions
 
-* converts bnemo tokens into a delegation
-* bnemo is burned
-* a delegation equal to number of bnemo is transferred to user
+* converts bfury tokens into a delegation
+* bfury is burned
+* a delegation equal to number of bfury is transferred to user
 
 
 ### Example
 
 ```jsonc
 {
-  // user who owns the bnemo
-  "sender": "nemo10wlnqzyss4accfqmyxwx5jy5x9nfkwh6qm7n4t",
-  // the amount of bnemo the user wants to convert back into normal staked nemo
+  // user who owns the bfury
+  "sender": "fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr",
+  // the amount of bfury the user wants to convert back into normal staked nemo
   "amount": {
     "amount": "1234000000",
-    "denom": "bnemo-nemovaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42"
+    "denom": "bfury-furyvaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42"
   },
-  // the validator behind the bnemo, this address must match the one embedded in the bnemo denom above
-  "validator": "nemovaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42"
+  // the validator behind the bfury, this address must match the one embedded in the bfury denom above
+  "validator": "furyvaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42"
 }
 ```

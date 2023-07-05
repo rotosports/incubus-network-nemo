@@ -169,7 +169,7 @@ func (suite *depositTestSuite) TestDeposit_PrivateVault() {
 }
 
 func (suite *depositTestSuite) TestDeposit_bNemo() {
-	vaultDenom := "bnemo"
+	vaultDenom := "bfury"
 	coinDenom := testutil.TestBnemoDenoms[0]
 
 	startBalance := sdk.NewInt64Coin(coinDenom, 1000)
@@ -177,7 +177,7 @@ func (suite *depositTestSuite) TestDeposit_bNemo() {
 
 	acc1 := suite.CreateAccount(sdk.NewCoins(startBalance), 0)
 
-	// vault denom is only "bnemo" which has it's own special handler
+	// vault denom is only "bfury" which has it's own special handler
 	suite.CreateVault(
 		vaultDenom,
 		types.StrategyTypes{types.STRATEGY_TYPE_SAVINGS},
@@ -188,6 +188,6 @@ func (suite *depositTestSuite) TestDeposit_bNemo() {
 	err := suite.Keeper.Deposit(suite.Ctx, acc1.GetAddress(), depositAmount, types.STRATEGY_TYPE_SAVINGS)
 	suite.Require().NoError(
 		err,
-		"should be able to deposit bnemo derivative denom in bnemo vault",
+		"should be able to deposit bfury derivative denom in bfury vault",
 	)
 }

@@ -81,9 +81,9 @@ func (suite *KeeperTestSuite) TestCollectStakingRewards() {
 	})
 
 	suite.Run("collect staking rewards with invalid denom", func() {
-		derivativeDenom := "bnemo"
+		derivativeDenom := "bfury"
 		_, err := suite.Keeper.CollectStakingRewardsByDenom(suite.Ctx, derivativeDenom, types.ModuleName)
 		suite.Require().Error(err)
-		suite.Require().Equal("cannot parse denom bnemo", err.Error())
+		suite.Require().Equal("cannot parse denom bfury", err.Error())
 	})
 }

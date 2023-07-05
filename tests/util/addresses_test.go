@@ -14,7 +14,7 @@ import (
 
 func TestAddressConversion(t *testing.T) {
 	app.SetSDKConfig()
-	bech32Addr := sdk.MustAccAddressFromBech32("nemo17d2wax0zhjrrecvaszuyxdf5wcu5a0p4qlx3t5")
+	bech32Addr := sdk.MustAccAddressFromBech32("fury17d2wax0zhjrrecvaszuyxdf5wcu5a0p4vpmrwu")
 	hexAddr := common.HexToAddress("0xf354ee99e2bc863cE19d80b843353476394EbC35")
 	require.Equal(t, bech32Addr, util.EvmToSdkAddress(hexAddr))
 	require.Equal(t, hexAddr, util.SdkToEvmAddress(bech32Addr))

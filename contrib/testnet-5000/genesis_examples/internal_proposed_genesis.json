@@ -193,7 +193,7 @@
             "active": true,
             "base_asset": "bnb",
             "market_id": "bnb:usd",
-            "oracles": ["nemo15qdefkmwswysgg4qxgqpqr35k3m49pkx2jdfnw"],
+            "oracles": ["fury15qdefkmwswysgg4qxgqpqr35k3m49pkxxvsmkx"],
             "quote_asset": "usd"
           }
         ]
@@ -202,7 +202,7 @@
         {
           "expiry": "2020-04-20T00:00:00Z",
           "market_id": "bnb:usd",
-          "oracle_address": "nemo15qdefkmwswysgg4qxgqpqr35k3m49pkx2jdfnw",
+          "oracle_address": "fury15qdefkmwswysgg4qxgqpqr35k3m49pkxxvsmkx",
           "price": "12.2639061184"
         }
       ]
@@ -220,7 +220,7 @@
     },
     "bep3": {
       "params": {
-        "bnb_deputy_address": "nemo15wmww3chakqllq4n3ksm37lx36qz067gxe6f0k",
+        "bnb_deputy_address": "fury15wmww3chakqllq4n3ksm37lx36qz067g288m27",
         "min_block_lock": "80",
         "max_block_lock": "600",
         "supported_assets": [

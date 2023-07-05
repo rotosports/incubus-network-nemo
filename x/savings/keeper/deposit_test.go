@@ -23,8 +23,8 @@ func (suite *KeeperTestSuite) TestDeposit() {
 	valAddr := sdk.ValAddress(valAccAddr)
 	initialBalance := sdkmath.NewInt(1e9)
 
-	bnemoDenom := fmt.Sprintf("bnemo-%s", valAddr.String())
-	invalidBnemoDenom := fmt.Sprintf("bnemo-%s", sdk.ValAddress(addrs[2]).String())
+	bfuryDenom := fmt.Sprintf("bfury-%s", valAddr.String())
+	invalidBnemoDenom := fmt.Sprintf("bfury-%s", sdk.ValAddress(addrs[2]).String())
 
 	type args struct {
 		allowedDenoms             []string
@@ -81,16 +81,16 @@ func (suite *KeeperTestSuite) TestDeposit() {
 			},
 		},
 		{
-			"valid bnemo",
+			"valid bfury",
 			args{
-				allowedDenoms:             []string{"bnb", "btcb", "ufury", "bnemo"},
+				allowedDenoms:             []string{"bnb", "btcb", "ufury", "bfury"},
 				depositor:                 sdk.AccAddress(crypto.AddressHash([]byte("test"))),
-				initialDepositorBalance:   sdk.NewCoins(sdk.NewCoin(bnemoDenom, sdkmath.NewInt(1000)), sdk.NewCoin("btcb", sdkmath.NewInt(1000))),
-				depositAmount:             sdk.NewCoins(sdk.NewCoin(bnemoDenom, sdkmath.NewInt(100))),
+				initialDepositorBalance:   sdk.NewCoins(sdk.NewCoin(bfuryDenom, sdkmath.NewInt(1000)), sdk.NewCoin("btcb", sdkmath.NewInt(1000))),
+				depositAmount:             sdk.NewCoins(sdk.NewCoin(bfuryDenom, sdkmath.NewInt(100))),
 				numberDeposits:            1,
-				expectedAccountBalance:    sdk.NewCoins(sdk.NewCoin(bnemoDenom, sdkmath.NewInt(900)), sdk.NewCoin("btcb", sdkmath.NewInt(1000))),
-				expectedModAccountBalance: sdk.NewCoins(sdk.NewCoin(bnemoDenom, sdkmath.NewInt(100))),
-				expectedDepositCoins:      sdk.NewCoins(sdk.NewCoin(bnemoDenom, sdkmath.NewInt(100))),
+				expectedAccountBalance:    sdk.NewCoins(sdk.NewCoin(bfuryDenom, sdkmath.NewInt(900)), sdk.NewCoin("btcb", sdkmath.NewInt(1000))),
+				expectedModAccountBalance: sdk.NewCoins(sdk.NewCoin(bfuryDenom, sdkmath.NewInt(100))),
+				expectedDepositCoins:      sdk.NewCoins(sdk.NewCoin(bfuryDenom, sdkmath.NewInt(100))),
 			},
 			errArgs{
 				expectPass: true,
@@ -115,9 +115,9 @@ func (suite *KeeperTestSuite) TestDeposit() {
 			},
 		},
 		{
-			"invalid bnemo",
+			"invalid bfury",
 			args{
-				allowedDenoms:             []string{"bnb", "btcb", "ufury", "bnemo"},
+				allowedDenoms:             []string{"bnb", "btcb", "ufury", "bfury"},
 				depositor:                 sdk.AccAddress(crypto.AddressHash([]byte("test"))),
 				initialDepositorBalance:   sdk.NewCoins(sdk.NewCoin(invalidBnemoDenom, sdkmath.NewInt(1000)), sdk.NewCoin("btcb", sdkmath.NewInt(1000))),
 				depositAmount:             sdk.NewCoins(sdk.NewCoin(invalidBnemoDenom, sdkmath.NewInt(100))),
@@ -178,7 +178,7 @@ func (suite *KeeperTestSuite) TestDeposit() {
 			suite.ctx = ctx
 			suite.keeper = keeper
 
-			// Create validator and delegate for bnemo
+			// Create validator and delegate for bfury
 			suite.CreateAccountWithAddress(valAccAddr, cs(c("ufury", 100e10)))
 			suite.CreateAccountWithAddress(delegator, cs(c("ufury", 100e10)))
 

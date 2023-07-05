@@ -249,7 +249,7 @@ func (suite *SeizeTestSuite) TestKeeperLiquidation() {
 	layout := "2006-01-02T15:04:05.000Z"
 	endTimeStr := "9000-01-01T00:00:00.000Z"
 	endTime, _ := time.Parse(layout, endTimeStr)
-	addr, _ := sdk.AccAddressFromBech32("nemo1ze7y9qwdddejmy7jlw4cymqqlt2wh05yhwmrv2")
+	addr, _ := sdk.AccAddressFromBech32("fury1ze7y9qwdddejmy7jlw4cymqqlt2wh05ymsx3fz")
 
 	testCases := []test{
 		{
@@ -469,7 +469,7 @@ func (suite *SeizeTestSuite) TestBeginBlockerLiquidation() {
 	layout := "2006-01-02T15:04:05.000Z"
 	endTimeStr := "9000-01-01T00:00:00.000Z"
 	endTime, _ := time.Parse(layout, endTimeStr)
-	addr, _ := sdk.AccAddressFromBech32("nemo1ze7y9qwdddejmy7jlw4cymqqlt2wh05yhwmrv2")
+	addr, _ := sdk.AccAddressFromBech32("fury1ze7y9qwdddejmy7jlw4cymqqlt2wh05ymsx3fz")
 
 	testCases := []test{
 		{

@@ -561,10 +561,10 @@ func (suite *IntegrationTester) GetBeginBlockClaimedStakingRewards(
 		//
 		// Event: withdraw_rewards
 		// - amount:
-		// - validator: nemovaloper1em2mlkrkx0qsa6327tgvl3g0fh8a95hjnqvrwh
+		// - validator: furyvaloper1em2mlkrkx0qsa6327tgvl3g0fh8a95hjnqvrwh
 		// Event: withdraw_rewards
 		// - amount: 523909ufury
-		// - validator: nemovaloper1nmgpgr8l4t8pw9zqx9cltuymvz85wmw9sy8kjy
+		// - validator: furyvaloper1nmgpgr8l4t8pw9zqx9cltuymvz85wmw9sy8kjy
 		attrsMap := attrsToMap(event.Attributes)
 
 		validator, found := attrsMap[distributiontypes.AttributeKeyValidator]

@@ -94,7 +94,7 @@ func (suite *grpcQueryTestSuite) TestQueryDelegatedBalance() {
 		{
 			name: "no account returns zeros",
 			setup: func() string {
-				return "nemo10wlnqzyss4accfqmyxwx5jy5x9nfkwh6qm7n4t"
+				return "fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr"
 			},
 			expectedRes: zeroResponse,
 		},
@@ -182,7 +182,7 @@ func (suite *grpcQueryTestSuite) TestQueryTotalSupply() {
 			expectedErr:   nil,
 		},
 		{
-			name: "returns TVL from one bnemo denom",
+			name: "returns TVL from one bfury denom",
 			setup: func() {
 				initBalance := suite.NewBondCoin(i(1e9))
 				valAcc := suite.CreateAccount(sdk.NewCoins(initBalance), 0)
@@ -204,7 +204,7 @@ func (suite *grpcQueryTestSuite) TestQueryTotalSupply() {
 			expectedErr:   nil,
 		},
 		{
-			name: "returns TVL from multiple bnemo denoms",
+			name: "returns TVL from multiple bfury denoms",
 			setup: func() {
 				initBalance := suite.NewBondCoin(i(1e9))
 				val1Acc := suite.CreateAccount(sdk.NewCoins(initBalance), 0)

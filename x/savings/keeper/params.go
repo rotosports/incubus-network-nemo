@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	bnemoDenom  = "bnemo"
-	bnemoPrefix = bnemoDenom + "-"
+	bfuryDenom  = "bfury"
+	bfuryPrefix = bfuryDenom + "-"
 )
 
 // GetParams returns the params from the store

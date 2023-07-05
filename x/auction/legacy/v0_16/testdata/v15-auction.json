@@ -24,7 +24,7 @@
           "denom": "debt"
         },
         "lot_returns": {
-          "addresses": ["nemo1eevfnzkf2mt6feyttyzh6ektclauq7zlayefwf"],
+          "addresses": ["fury1eevfnzkf2mt6feyttyzh6ektclauq7zl36ymtp"],
           "weights": ["100"]
         },
         "max_bid": {
