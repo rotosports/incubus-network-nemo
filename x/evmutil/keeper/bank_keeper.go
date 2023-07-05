@@ -9,14 +9,14 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 const (
 	// EvmDenom is the gas denom used by the evm
 	EvmDenom = "afury"
 
-	// CosmosDenom is the gas denom used by the nemo app
+	// CosmosDenom is the gas denom used by the fury app
 	CosmosDenom = "ufury"
 )
 
@@ -82,7 +82,7 @@ func (k EvmBankKeeper) SendCoinsFromModuleToAccount(ctx sdk.Context, senderModul
 	}
 
 	senderAddr := k.GetModuleAddress(senderModule)
-	if err := k.ConvertOneUnemoToAtfuryIfNeeded(ctx, senderAddr, afury); err != nil {
+	if err := k.ConvertOneUfuryToAtfuryIfNeeded(ctx, senderAddr, afury); err != nil {
 		return err
 	}
 
@@ -90,7 +90,7 @@ func (k EvmBankKeeper) SendCoinsFromModuleToAccount(ctx sdk.Context, senderModul
 		return err
 	}
 
-	return k.ConvertAtfuryToUnemo(ctx, recipientAddr)
+	return k.ConvertAtfuryToUfury(ctx, recipientAddr)
 }
 
 // SendCoinsFromAccountToModule transfers afury coins from an AccAddress to a ModuleAccount.
@@ -107,7 +107,7 @@ func (k EvmBankKeeper) SendCoinsFromAccountToModule(ctx sdk.Context, senderAddr 
 		}
 	}
 
-	if err := k.ConvertOneUnemoToAtfuryIfNeeded(ctx, senderAddr, afuryNeeded); err != nil {
+	if err := k.ConvertOneUfuryToAtfuryIfNeeded(ctx, senderAddr, afuryNeeded); err != nil {
 		return err
 	}
 
@@ -116,7 +116,7 @@ func (k EvmBankKeeper) SendCoinsFromAccountToModule(ctx sdk.Context, senderAddr 
 		return err
 	}
 
-	return k.ConvertAtfuryToUnemo(ctx, recipientAddr)
+	return k.ConvertAtfuryToUfury(ctx, recipientAddr)
 }
 
 // MintCoins mints afury coins by minting the equivalent ufury coins and any remaining afury coins.
@@ -138,7 +138,7 @@ func (k EvmBankKeeper) MintCoins(ctx sdk.Context, moduleName string, amt sdk.Coi
 		return err
 	}
 
-	return k.ConvertAtfuryToUnemo(ctx, recipientAddr)
+	return k.ConvertAtfuryToUfury(ctx, recipientAddr)
 }
 
 // BurnCoins burns afury coins by burning the equivalent ufury coins and any remaining afury coins.
@@ -156,16 +156,16 @@ func (k EvmBankKeeper) BurnCoins(ctx sdk.Context, moduleName string, amt sdk.Coi
 	}
 
 	moduleAddr := k.GetModuleAddress(moduleName)
-	if err := k.ConvertOneUnemoToAtfuryIfNeeded(ctx, moduleAddr, afury); err != nil {
+	if err := k.ConvertOneUfuryToAtfuryIfNeeded(ctx, moduleAddr, afury); err != nil {
 		return err
 	}
 
 	return k.afuryKeeper.RemoveBalance(ctx, moduleAddr, afury)
 }
 
-// ConvertOneUnemoToAtfuryIfNeeded converts 1 ufury to afury for an address if
+// ConvertOneUfuryToAtfuryIfNeeded converts 1 ufury to afury for an address if
 // its afury balance is smaller than the afuryNeeded amount.
-func (k EvmBankKeeper) ConvertOneUnemoToAtfuryIfNeeded(ctx sdk.Context, addr sdk.AccAddress, afuryNeeded sdkmath.Int) error {
+func (k EvmBankKeeper) ConvertOneUfuryToAtfuryIfNeeded(ctx sdk.Context, addr sdk.AccAddress, afuryNeeded sdkmath.Int) error {
 	afuryBal := k.afuryKeeper.GetBalance(ctx, addr)
 	if afuryBal.GTE(afuryNeeded) {
 		return nil
@@ -185,8 +185,8 @@ func (k EvmBankKeeper) ConvertOneUnemoToAtfuryIfNeeded(ctx sdk.Context, addr sdk
 	return nil
 }
 
-// ConvertAtfuryToUnemo converts all available afury to ufury for a given AccAddress.
-func (k EvmBankKeeper) ConvertAtfuryToUnemo(ctx sdk.Context, addr sdk.AccAddress) error {
+// ConvertAtfuryToUfury converts all available afury to ufury for a given AccAddress.
+func (k EvmBankKeeper) ConvertAtfuryToUfury(ctx sdk.Context, addr sdk.AccAddress) error {
 	totalAtfury := k.afuryKeeper.GetBalance(ctx, addr)
 	ufury, _, err := SplitAtfuryCoins(sdk.NewCoins(sdk.NewCoin(EvmDenom, totalAtfury)))
 	if err != nil {

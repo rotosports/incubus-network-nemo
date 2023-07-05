@@ -18,13 +18,13 @@ on:
       genesis_validator_addresses:
         required: true
         type: string
-      nemo_version_filepath:
+      fury_version_filepath:
         required: true
         type: string
     secrets:
-      DEV_WALLET_MNEMONIC:
+      DEV_WALLET_MFURYNIC:
         required: true
-      NEMO_TESTNET_GOD_MNEMONIC:
+      FURY_TESTNET_GOD_MFURYNIC:
         required: true
 
 jobs:
@@ -35,19 +35,19 @@ jobs:
         uses: actions/checkout@v3
         with:
          ref: master
-      - name: checkout version of nemo used by network
+      - name: checkout version of fury used by network
         run: |
           git pull -p
-          git checkout $(cat ${NEMO_VERSION_FILEPATH})
+          git checkout $(cat ${FURY_VERSION_FILEPATH})
         env:
-            NEMO_VERSION_FILEPATH: ${{ inputs.nemo_version_filepath }}
+            FURY_VERSION_FILEPATH: ${{ inputs.fury_version_filepath }}
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: "1.20"
           check-latest: true
           cache: true
-      - name: build nemo binary
+      - name: build fury binary
         run: make install
       - name: checkout go evm tools repo
         uses: actions/checkout@v3
@@ -60,37 +60,37 @@ jobs:
           make
           make devtools
         working-directory: go-ethereum
-      - name: checkout nemo bridge repo for deploying evm contracts
+      - name: checkout fury bridge repo for deploying evm contracts
         uses: actions/checkout@v3
         with:
-          repository: Incubus-Network/nemo-bridge
-          path: nemo-bridge
+          repository: Incubus-Network/fury-bridge
+          path: fury-bridge
           ref: main
       - name: install nodeJS
         uses: actions/setup-node@v3
         with:
           cache: npm
           node-version: 18
-          cache-dependency-path: nemo-bridge/contract/package.json
+          cache-dependency-path: fury-bridge/contract/package.json
       - name: "install ERC20 contract deployment dependencies"
         run: "npm install"
-        working-directory: nemo-bridge/contract
+        working-directory: fury-bridge/contract
       - name: compile default erc20 contracts
         run: make compile-contracts
-        working-directory: nemo-bridge
+        working-directory: fury-bridge
       - name: download seed script from master
-        run: wget https://raw.githubusercontent.com/Incubus-Network/nemo/master/.github/scripts/${SEED_SCRIPT_FILENAME} && chmod +x ${SEED_SCRIPT_FILENAME}
-        working-directory: nemo-bridge/contract
+        run: wget https://raw.githubusercontent.com/Incubus-Network/fury/master/.github/scripts/${SEED_SCRIPT_FILENAME} && chmod +x ${SEED_SCRIPT_FILENAME}
+        working-directory: fury-bridge/contract
         env:
             SEED_SCRIPT_FILENAME: ${{ inputs.seed-script-filename }}
       - name: run seed scripts
         run: bash ./${SEED_SCRIPT_FILENAME}
-        working-directory: nemo-bridge/contract
+        working-directory: fury-bridge/contract
         env:
           CHAIN_API_URL: ${{ inputs.chain-api-url }}
           CHAIN_ID: ${{ inputs.chain-id }}
-          DEV_WALLET_MNEMONIC: ${{ secrets.DEV_WALLET_MNEMONIC }}
-          NEMO_TESTNET_GOD_MNEMONIC: ${{ secrets.NEMO_TESTNET_GOD_MNEMONIC }}
+          DEV_WALLET_MFURYNIC: ${{ secrets.DEV_WALLET_MFURYNIC }}
+          FURY_TESTNET_GOD_MFURYNIC: ${{ secrets.FURY_TESTNET_GOD_MFURYNIC }}
           SEED_SCRIPT_FILENAME: ${{ inputs.seed-script-filename }}
           ERC20_DEPLOYER_NETWORK_NAME: ${{ inputs.erc20-deployer-network-name }}
           GENESIS_VALIDATOR_ADDRESSES: ${{ inputs.genesis_validator_addresses }}

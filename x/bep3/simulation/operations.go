@@ -10,9 +10,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	appparams "github.com/incubus-network/nemo/app/params"
-	"github.com/incubus-network/nemo/x/bep3/keeper"
-	"github.com/incubus-network/nemo/x/bep3/types"
+	appparams "github.com/incubus-network/fury/app/params"
+	"github.com/incubus-network/fury/x/bep3/keeper"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 var (

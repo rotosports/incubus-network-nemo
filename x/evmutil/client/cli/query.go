@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

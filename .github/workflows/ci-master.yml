@@ -1,4 +1,4 @@
-name: Continuous Integration (Nemo Master)
+name: Continuous Integration (Fury Master)
 on:
   push:
     # run CI on any push to the master branch
@@ -11,7 +11,7 @@ jobs:
   # run default ci checks against master branch
   default-checks:
     uses: ./.github/workflows/ci-default.yml
-  # build and upload versions of nemo for use on internal infrastructure
+  # build and upload versions of fury for use on internal infrastructure
   # configurations for databases, cpu architectures and operating systems
   publish-internal:
     # only run if all checks pass
@@ -44,14 +44,14 @@ jobs:
     needs: [lint-checks, default-checks]
     uses: ./.github/workflows/ci-docker.yml
     with:
-      dockerhub-username: nemoops
+      dockerhub-username: furyops
     secrets: inherit
   post-pipeline-metrics:
     uses: ./.github/workflows/metric-pipeline.yml
     if: always() # always run so we metric failures and successes
     with:
       aws-region: us-east-1
-      metric-name: nemo.releases.merge
-      namespace: Nemo/ContinuousIntegration
+      metric-name: fury.releases.merge
+      namespace: Fury/ContinuousIntegration
     secrets: inherit
     needs: [publish-internal]

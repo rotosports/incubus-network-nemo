@@ -3,11 +3,11 @@ proto-lint check-proto-lint: install-build-deps
 	@echo "Linting proto file"
 	@$(BUF) lint
 
-.PHONY: proto-gen
+.PHONY: git proto-gen
 proto-gen: install-build-deps
 	@echo "Generating go proto files"
 	@$(BUF) generate --template proto/buf.gen.gogo.yaml proto
-	@cp -r out/github.com/incubus-network/nemo/* ./
+	@cp -r out/github.com/incubus-network/fury/* ./
 	@rm -rf out/github.com
 
 .PHONY: check-proto-gen

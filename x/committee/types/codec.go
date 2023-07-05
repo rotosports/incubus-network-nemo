@@ -12,8 +12,8 @@ import (
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	proposaltypes "github.com/cosmos/cosmos-sdk/x/params/types/proposal"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
-	communitytypes "github.com/incubus-network/nemo/x/community/types"
-	nemodisttypes "github.com/incubus-network/nemo/x/nemodist/types"
+	communitytypes "github.com/incubus-network/fury/x/community/types"
+	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
 )
 
 var (
@@ -48,38 +48,38 @@ func init() {
 	RegisterProposalTypeCodec(govv1beta1.TextProposal{}, "cosmos-sdk/TextProposal")
 	RegisterProposalTypeCodec(upgradetypes.SoftwareUpgradeProposal{}, "cosmos-sdk/SoftwareUpgradeProposal")
 	RegisterProposalTypeCodec(upgradetypes.CancelSoftwareUpgradeProposal{}, "cosmos-sdk/CancelSoftwareUpgradeProposal")
-	RegisterProposalTypeCodec(communitytypes.CommunityCDPRepayDebtProposal{}, "nemo/CommunityCDPRepayDebtProposal")
-	RegisterProposalTypeCodec(communitytypes.CommunityCDPWithdrawCollateralProposal{}, "nemo/CommunityCDPWithdrawCollateralProposal")
-	RegisterProposalTypeCodec(communitytypes.CommunityPoolLendWithdrawProposal{}, "nemo/CommunityPoolLendWithdrawProposal")
-	RegisterProposalTypeCodec(nemodisttypes.CommunityPoolMultiSpendProposal{}, "nemo/CommunityPoolMultiSpendProposal")
+	RegisterProposalTypeCodec(communitytypes.CommunityCDPRepayDebtProposal{}, "fury/CommunityCDPRepayDebtProposal")
+	RegisterProposalTypeCodec(communitytypes.CommunityCDPWithdrawCollateralProposal{}, "fury/CommunityCDPWithdrawCollateralProposal")
+	RegisterProposalTypeCodec(communitytypes.CommunityPoolLendWithdrawProposal{}, "fury/CommunityPoolLendWithdrawProposal")
+	RegisterProposalTypeCodec(furydisttypes.CommunityPoolMultiSpendProposal{}, "fury/CommunityPoolMultiSpendProposal")
 }
 
 // RegisterLegacyAminoCodec registers all the necessary types and interfaces for the module.
 func RegisterLegacyAminoCodec(cdc *codec.LegacyAmino) {
 	// Proposals
 	cdc.RegisterInterface((*PubProposal)(nil), nil)
-	cdc.RegisterConcrete(CommitteeChangeProposal{}, "nemo/CommitteeChangeProposal", nil)
-	cdc.RegisterConcrete(CommitteeDeleteProposal{}, "nemo/CommitteeDeleteProposal", nil)
+	cdc.RegisterConcrete(CommitteeChangeProposal{}, "fury/CommitteeChangeProposal", nil)
+	cdc.RegisterConcrete(CommitteeDeleteProposal{}, "fury/CommitteeDeleteProposal", nil)
 
 	// Committees
 	cdc.RegisterInterface((*Committee)(nil), nil)
-	cdc.RegisterConcrete(BaseCommittee{}, "nemo/BaseCommittee", nil)
-	cdc.RegisterConcrete(MemberCommittee{}, "nemo/MemberCommittee", nil)
-	cdc.RegisterConcrete(TokenCommittee{}, "nemo/TokenCommittee", nil)
+	cdc.RegisterConcrete(BaseCommittee{}, "fury/BaseCommittee", nil)
+	cdc.RegisterConcrete(MemberCommittee{}, "fury/MemberCommittee", nil)
+	cdc.RegisterConcrete(TokenCommittee{}, "fury/TokenCommittee", nil)
 
 	// Permissions
 	cdc.RegisterInterface((*Permission)(nil), nil)
-	cdc.RegisterConcrete(GodPermission{}, "nemo/GodPermission", nil)
-	cdc.RegisterConcrete(TextPermission{}, "nemo/TextPermission", nil)
-	cdc.RegisterConcrete(SoftwareUpgradePermission{}, "nemo/SoftwareUpgradePermission", nil)
-	cdc.RegisterConcrete(ParamsChangePermission{}, "nemo/ParamsChangePermission", nil)
-	cdc.RegisterConcrete(CommunityCDPRepayDebtPermission{}, "nemo/CommunityCDPRepayDebtPermission", nil)
-	cdc.RegisterConcrete(CommunityCDPWithdrawCollateralPermission{}, "nemo/CommunityCDPWithdrawCollateralPermission", nil)
-	cdc.RegisterConcrete(CommunityPoolLendWithdrawPermission{}, "nemo/CommunityPoolLendWithdrawPermission", nil)
+	cdc.RegisterConcrete(GodPermission{}, "fury/GodPermission", nil)
+	cdc.RegisterConcrete(TextPermission{}, "fury/TextPermission", nil)
+	cdc.RegisterConcrete(SoftwareUpgradePermission{}, "fury/SoftwareUpgradePermission", nil)
+	cdc.RegisterConcrete(ParamsChangePermission{}, "fury/ParamsChangePermission", nil)
+	cdc.RegisterConcrete(CommunityCDPRepayDebtPermission{}, "fury/CommunityCDPRepayDebtPermission", nil)
+	cdc.RegisterConcrete(CommunityCDPWithdrawCollateralPermission{}, "fury/CommunityCDPWithdrawCollateralPermission", nil)
+	cdc.RegisterConcrete(CommunityPoolLendWithdrawPermission{}, "fury/CommunityPoolLendWithdrawPermission", nil)
 
 	// Msgs
-	legacy.RegisterAminoMsg(cdc, &MsgSubmitProposal{}, "nemo/MsgSubmitProposal")
-	legacy.RegisterAminoMsg(cdc, &MsgVote{}, "nemo/MsgVote")
+	legacy.RegisterAminoMsg(cdc, &MsgSubmitProposal{}, "fury/MsgSubmitProposal")
+	legacy.RegisterAminoMsg(cdc, &MsgVote{}, "fury/MsgVote")
 }
 
 // RegisterProposalTypeCodec allows external modules to register their own pubproposal types on the
@@ -97,7 +97,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)
 
 	registry.RegisterInterface(
-		"nemo.committee.v1beta1.Committee",
+		"fury.committee.v1beta1.Committee",
 		(*Committee)(nil),
 		&BaseCommittee{},
 		&TokenCommittee{},
@@ -105,7 +105,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 	)
 
 	registry.RegisterInterface(
-		"nemo.committee.v1beta1.Permission",
+		"fury.committee.v1beta1.Permission",
 		(*Permission)(nil),
 		&GodPermission{},
 		&TextPermission{},
@@ -119,12 +119,12 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 	// Need to register PubProposal here since we use this as alias for the x/gov Content interface for all the proposal implementations used in this module.
 	// Note that all proposals supported by x/committee needed to be registered here, including the proposals from x/gov.
 	registry.RegisterInterface(
-		"nemo.committee.v1beta1.PubProposal",
+		"fury.committee.v1beta1.PubProposal",
 		(*PubProposal)(nil),
 		&Proposal{},
 		&distrtypes.CommunityPoolSpendProposal{},
 		&govv1beta1.TextProposal{},
-		&nemodisttypes.CommunityPoolMultiSpendProposal{},
+		&furydisttypes.CommunityPoolMultiSpendProposal{},
 		&proposaltypes.ParameterChangeProposal{},
 		&upgradetypes.SoftwareUpgradeProposal{},
 		&upgradetypes.CancelSoftwareUpgradeProposal{},

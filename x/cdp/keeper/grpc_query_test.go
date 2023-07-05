@@ -7,9 +7,9 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/cdp/keeper"
-	"github.com/incubus-network/nemo/x/cdp/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/cdp/keeper"
+	"github.com/incubus-network/fury/x/cdp/types"
 	"github.com/stretchr/testify/suite"
 	tmprototypes "github.com/tendermint/tendermint/proto/tendermint/types"
 )
@@ -153,7 +153,7 @@ func (suite *grpcQueryTestSuite) TestGrpcQueryCdps_InvalidCollateralType() {
 	suite.addCdp()
 
 	_, err := suite.queryServer.Cdps(sdk.WrapSDKContext(suite.ctx), &types.QueryCdpsRequest{
-		CollateralType: "nemo-a",
+		CollateralType: "fury-a",
 	})
 	suite.Require().Error(err)
 	suite.Require().Equal("rpc error: code = InvalidArgument desc = invalid collateral type", err.Error())
@@ -180,11 +180,11 @@ func (suite *grpcQueryTestSuite) TestGrpcQueryCdp() {
 		{
 			"invalid collateral",
 			types.QueryCdpRequest{
-				CollateralType: "nemo-a",
+				CollateralType: "fury-a",
 				Owner:          suite.addrs[0].String(),
 			},
 			false,
-			"nemo-a: invalid collateral for input collateral type",
+			"fury-a: invalid collateral for input collateral type",
 		},
 		{
 			"missing owner",
@@ -246,12 +246,12 @@ func (suite *grpcQueryTestSuite) TestGrpcQueryDeposits() {
 		{
 			"invalid collateral type",
 			&types.QueryDepositsRequest{
-				CollateralType: "nemo-a",
+				CollateralType: "fury-a",
 				Owner:          suite.addrs[0].String(),
 			},
 			nil,
 			true,
-			"nemo-a: invalid collateral for input collateral type",
+			"fury-a: invalid collateral for input collateral type",
 		},
 		{
 			"missing owner",

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/earn/types"
 )
 
 func TestVaultRecordValidate(t *testing.T) {

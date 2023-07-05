@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/auction/keeper"
-	"github.com/incubus-network/nemo/x/auction/types"
+	"github.com/incubus-network/fury/x/auction/keeper"
+	"github.com/incubus-network/fury/x/auction/types"
 )
 
 // BeginBlocker closes all expired auctions at the end of each block. It panics if

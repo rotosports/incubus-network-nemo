@@ -7,8 +7,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // SynchronizeHardSupplyRewardTests runs unit tests for the keeper.SynchronizeHardSupplyReward method

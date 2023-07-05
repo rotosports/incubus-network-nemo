@@ -11,10 +11,10 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/evmutil/keeper"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/evmutil/keeper"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type invariantTestSuite struct {
@@ -46,7 +46,7 @@ func (suite *invariantTestSuite) SetupValidState() {
 			keeper.ConversionMultiplier.QuoRaw(2),
 		))
 	}
-	suite.FundModuleAccountWithNemo(
+	suite.FundModuleAccountWithFury(
 		types.ModuleName,
 		sdk.NewCoins(
 			sdk.NewCoin("ufury", sdkmath.NewInt(2)), // ( sum of all minor balances ) / conversion multiplier

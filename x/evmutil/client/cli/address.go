@@ -7,7 +7,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 // ParseAddrFromHexOrBech32 parses a string address that can be either a hex or
@@ -46,12 +46,12 @@ func ParseOrQueryConversionPairAddress(
 
 	if err := sdk.ValidateDenom(addrOrDenom); err != nil {
 		return common.Address{}, fmt.Errorf(
-			"Nemo ERC20 '%s' is not a valid hex address or denom",
+			"Fury ERC20 '%s' is not a valid hex address or denom",
 			addrOrDenom,
 		)
 	}
 
-	// Valid denom, try looking up as denom to get corresponding Nemo ERC20 address
+	// Valid denom, try looking up as denom to get corresponding Fury ERC20 address
 	paramsRes, err := queryClient.Params(
 		context.Background(),
 		&types.QueryParamsRequest{},
@@ -67,7 +67,7 @@ func ParseOrQueryConversionPairAddress(
 	}
 
 	return common.Address{}, fmt.Errorf(
-		"Nemo ERC20 '%s' is not a valid hex address or denom (did not match any denoms in queried enabled conversion pairs)",
+		"Fury ERC20 '%s' is not a valid hex address or denom (did not match any denoms in queried enabled conversion pairs)",
 		addrOrDenom,
 	)
 }

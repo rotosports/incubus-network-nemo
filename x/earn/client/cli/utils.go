@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/codec"
 
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/x/earn/types"
 )
 
 // ParseCommunityPoolDepositProposalJSON reads and parses a CommunityPoolDepositProposalJSON from a file.

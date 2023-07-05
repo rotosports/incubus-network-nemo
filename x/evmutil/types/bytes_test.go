@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/types"
 	"github.com/stretchr/testify/require"
 )
 

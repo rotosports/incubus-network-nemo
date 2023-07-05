@@ -3,8 +3,8 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
-	"github.com/incubus-network/nemo/x/savings/types"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 const (

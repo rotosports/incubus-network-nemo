@@ -5,7 +5,7 @@
       {
         "type": "bep3/MsgRefundAtomicSwap",
         "value": {
-          "from": "fury1vry5lhegzlulehuutcr7nmdlmktw88awd3qrqf",
+          "from": "fury1vry5lhegzlulehuutcr7fudlmktw88awd3qrqf",
           "swap_id": "1B00244021EC239867E5B8C44BCD98E40F3148806A8C0A8FD3418872986BECBA"
         }
       }

@@ -19,7 +19,7 @@ const (
 	Bip44CoinType = 459 // see https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 )
 
-// SetSDKConfig configures the global config with nemo app specific parameters.
+// SetSDKConfig configures the global config with fury app specific parameters.
 // It does not seal the config to allow modification in tests.
 func SetSDKConfig() *sdk.Config {
 	config := sdk.GetConfig()

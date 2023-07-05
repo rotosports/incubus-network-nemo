@@ -8,9 +8,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/pricefeed"
-	"github.com/incubus-network/nemo/x/pricefeed/keeper"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/pricefeed"
+	"github.com/incubus-network/fury/x/pricefeed/keeper"
 
 	"github.com/stretchr/testify/suite"
 )

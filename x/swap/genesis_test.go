@@ -3,10 +3,10 @@ package swap_test
 import (
 	"testing"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/swap"
-	"github.com/incubus-network/nemo/x/swap/testutil"
-	"github.com/incubus-network/nemo/x/swap/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/swap"
+	"github.com/incubus-network/fury/x/swap/testutil"
+	"github.com/incubus-network/fury/x/swap/types"
 	"github.com/stretchr/testify/suite"
 
 	sdkmath "cosmossdk.io/math"

@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/evmutil/keeper"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/keeper"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 // InitGenesis initializes the store state from a genesis state.

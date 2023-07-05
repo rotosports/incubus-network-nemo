@@ -44,4 +44,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: nemo/nemo:${{ steps.commit-hash.outputs.short }},nemo/nemo:master
+          tags: fury/fury:${{ steps.commit-hash.outputs.short }},fury/fury:master

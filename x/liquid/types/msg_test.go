@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/x/liquid/types"
 )
 
 func TestMsgMintDerivative_Signing(t *testing.T) {

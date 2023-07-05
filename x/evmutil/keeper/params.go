@@ -6,7 +6,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 // GetParams returns the total set of evm parameters.
@@ -39,7 +39,7 @@ func (k Keeper) GetEnabledConversionPairFromERC20Address(
 ) (types.ConversionPair, error) {
 	params := k.GetParams(ctx)
 	for _, pair := range params.EnabledConversionPairs {
-		if bytes.Equal(pair.NemoERC20Address, address.Bytes()) {
+		if bytes.Equal(pair.FuryERC20Address, address.Bytes()) {
 			return pair, nil
 		}
 	}

@@ -11,17 +11,17 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	cdpkeeper "github.com/incubus-network/nemo/x/cdp/keeper"
-	"github.com/incubus-network/nemo/x/community/keeper"
-	"github.com/incubus-network/nemo/x/community/testutil"
-	"github.com/incubus-network/nemo/x/community/types"
-	hardkeeper "github.com/incubus-network/nemo/x/hard/keeper"
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/app"
+	cdpkeeper "github.com/incubus-network/fury/x/cdp/keeper"
+	"github.com/incubus-network/fury/x/community/keeper"
+	"github.com/incubus-network/fury/x/community/testutil"
+	"github.com/incubus-network/fury/x/community/types"
+	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
-const chainID = "nemotest_2221-1"
+const chainID = "furytest_2221-1"
 
 func c(denom string, amount int64) sdk.Coin { return sdk.NewInt64Coin(denom, amount) }
 func ufury(amt int64) sdk.Coins {
@@ -56,7 +56,7 @@ func (suite *proposalTestSuite) SetupTest() {
 	genTime := tmtime.Now()
 
 	hardGS, pricefeedGS := testutil.NewLendGenesisBuilder().
-		WithMarket("ufury", "nemo:usd", sdk.OneDec()).
+		WithMarket("ufury", "fury:usd", sdk.OneDec()).
 		WithMarket("usdx", "usdx:usd", sdk.OneDec()).
 		Build()
 
@@ -71,7 +71,7 @@ func (suite *proposalTestSuite) SetupTest() {
 		genTime, chainID,
 		app.GenesisState{hardtypes.ModuleName: tApp.AppCodec().MustMarshalJSON(&hardGS)},
 		app.GenesisState{pricefeedtypes.ModuleName: tApp.AppCodec().MustMarshalJSON(&pricefeedGS)},
-		testutil.NewCDPGenState(tApp.AppCodec(), "ufury", "nemo", sdk.NewDec(2)),
+		testutil.NewCDPGenState(tApp.AppCodec(), "ufury", "fury", sdk.NewDec(2)),
 	)
 
 	suite.App = tApp
@@ -342,7 +342,7 @@ func (suite *proposalTestSuite) TestCommunityLendWithdrawProposal() {
 // if collateral is returned, it stays in the community module.
 func (suite *proposalTestSuite) TestCommunityCDPRepayDebtProposal() {
 	initialModuleFunds := ufury(2e10).Add(otherdenom(1e9)...)
-	collateralType := "nemo-a"
+	collateralType := "fury-a"
 	type debt struct {
 		collateral sdk.Coin
 		principal  sdk.Coin
@@ -445,7 +445,7 @@ func (suite *proposalTestSuite) TestCommunityCDPRepayDebtProposal() {
 // withdrawn and stays in the community module.
 func (suite *proposalTestSuite) TestCommunityCDPWithdrawCollateralProposal() {
 	initialModuleFunds := ufury(2e10).Add(otherdenom(1e9)...)
-	collateralType := "nemo-a"
+	collateralType := "fury-a"
 	type debt struct {
 		collateral sdk.Coin
 		principal  sdk.Coin

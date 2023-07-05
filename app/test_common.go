@@ -39,27 +39,27 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	tmdb "github.com/tendermint/tm-db"
 
-	auctionkeeper "github.com/incubus-network/nemo/x/auction/keeper"
-	bep3keeper "github.com/incubus-network/nemo/x/bep3/keeper"
-	cdpkeeper "github.com/incubus-network/nemo/x/cdp/keeper"
-	committeekeeper "github.com/incubus-network/nemo/x/committee/keeper"
-	communitykeeper "github.com/incubus-network/nemo/x/community/keeper"
-	earnkeeper "github.com/incubus-network/nemo/x/earn/keeper"
-	evmutilkeeper "github.com/incubus-network/nemo/x/evmutil/keeper"
-	hardkeeper "github.com/incubus-network/nemo/x/hard/keeper"
-	incentivekeeper "github.com/incubus-network/nemo/x/incentive/keeper"
-	issuancekeeper "github.com/incubus-network/nemo/x/issuance/keeper"
-	liquidkeeper "github.com/incubus-network/nemo/x/liquid/keeper"
-	nemodistkeeper "github.com/incubus-network/nemo/x/nemodist/keeper"
-	pricefeedkeeper "github.com/incubus-network/nemo/x/pricefeed/keeper"
-	routerkeeper "github.com/incubus-network/nemo/x/router/keeper"
-	savingskeeper "github.com/incubus-network/nemo/x/savings/keeper"
-	swapkeeper "github.com/incubus-network/nemo/x/swap/keeper"
+	auctionkeeper "github.com/incubus-network/fury/x/auction/keeper"
+	bep3keeper "github.com/incubus-network/fury/x/bep3/keeper"
+	cdpkeeper "github.com/incubus-network/fury/x/cdp/keeper"
+	committeekeeper "github.com/incubus-network/fury/x/committee/keeper"
+	communitykeeper "github.com/incubus-network/fury/x/community/keeper"
+	earnkeeper "github.com/incubus-network/fury/x/earn/keeper"
+	evmutilkeeper "github.com/incubus-network/fury/x/evmutil/keeper"
+	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
+	incentivekeeper "github.com/incubus-network/fury/x/incentive/keeper"
+	issuancekeeper "github.com/incubus-network/fury/x/issuance/keeper"
+	liquidkeeper "github.com/incubus-network/fury/x/liquid/keeper"
+	furydistkeeper "github.com/incubus-network/fury/x/furydist/keeper"
+	pricefeedkeeper "github.com/incubus-network/fury/x/pricefeed/keeper"
+	routerkeeper "github.com/incubus-network/fury/x/router/keeper"
+	savingskeeper "github.com/incubus-network/fury/x/savings/keeper"
+	swapkeeper "github.com/incubus-network/fury/x/swap/keeper"
 )
 
 var (
 	emptyTime            time.Time
-	testChainID                = "nemotest_1-1"
+	testChainID                = "furytest_1-1"
 	defaultInitialHeight int64 = 1
 )
 
@@ -112,7 +112,7 @@ func (tApp TestApp) GetGovKeeper() govkeeper.Keeper             { return tApp.go
 func (tApp TestApp) GetCrisisKeeper() crisiskeeper.Keeper       { return tApp.crisisKeeper }
 func (tApp TestApp) GetParamsKeeper() paramskeeper.Keeper       { return tApp.paramsKeeper }
 
-func (tApp TestApp) GetNemodistKeeper() nemodistkeeper.Keeper   { return tApp.nemodistKeeper }
+func (tApp TestApp) GetFurydistKeeper() furydistkeeper.Keeper   { return tApp.furydistKeeper }
 func (tApp TestApp) GetAuctionKeeper() auctionkeeper.Keeper     { return tApp.auctionKeeper }
 func (tApp TestApp) GetIssuanceKeeper() issuancekeeper.Keeper   { return tApp.issuanceKeeper }
 func (tApp TestApp) GetBep3Keeper() bep3keeper.Keeper           { return tApp.bep3Keeper }

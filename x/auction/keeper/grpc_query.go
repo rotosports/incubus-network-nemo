@@ -13,7 +13,7 @@ import (
 
 	proto "github.com/gogo/protobuf/proto"
 
-	"github.com/incubus-network/nemo/x/auction/types"
+	"github.com/incubus-network/fury/x/auction/types"
 )
 
 type queryServer struct {

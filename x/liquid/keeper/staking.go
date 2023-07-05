@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/x/liquid/types"
 )
 
 // TransferDelegation moves some delegation shares between addresses, while keeping the same validator.

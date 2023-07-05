@@ -20,7 +20,7 @@ import (
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	"github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/client/rest"
+	"github.com/incubus-network/fury/client/rest"
 )
 
 func TestBaseReq_Sanitize(t *testing.T) {

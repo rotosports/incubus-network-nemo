@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/nemo/x/incentive/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // InitializeSwapRewardTests runs unit tests for the keeper.InitializeSwapReward method

@@ -12,20 +12,20 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/tests/util"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/tests/util"
 )
 
 func (suite *IntegrationTestSuite) TestEthGasPriceReturnsMinFee() {
 	// read expected min fee from app.toml
-	minGasPrices, err := getMinFeeFromAppToml(suite.NemoHomePath())
+	minGasPrices, err := getMinFeeFromAppToml(suite.FuryHomePath())
 	suite.NoError(err)
 
 	// evm uses afury, get afury min fee
 	evmMinGas := minGasPrices.AmountOf("afury").TruncateInt().BigInt()
 
-	// returns eth_gasPrice, units in nemo
-	gasPrice, err := suite.Nemo.EvmClient.SuggestGasPrice(context.Background())
+	// returns eth_gasPrice, units in fury
+	gasPrice, err := suite.Fury.EvmClient.SuggestGasPrice(context.Background())
 	suite.NoError(err)
 
 	suite.Equal(evmMinGas, gasPrice)
@@ -33,11 +33,11 @@ func (suite *IntegrationTestSuite) TestEthGasPriceReturnsMinFee() {
 
 func (suite *IntegrationTestSuite) TestEvmRespectsMinFee() {
 	// setup sender & receiver
-	sender := suite.Nemo.NewFundedAccount("evm-min-fee-test-sender", sdk.NewCoins(ufury(1e3)))
+	sender := suite.Fury.NewFundedAccount("evm-min-fee-test-sender", sdk.NewCoins(ufury(1e3)))
 	randoReceiver := util.SdkToEvmAddress(app.RandomAddress())
 
 	// get min gas price for evm (from app.toml)
-	minFees, err := getMinFeeFromAppToml(suite.NemoHomePath())
+	minFees, err := getMinFeeFromAppToml(suite.FuryHomePath())
 	suite.NoError(err)
 	minGasPrice := minFees.AmountOf("afury").TruncateInt()
 
@@ -54,12 +54,12 @@ func (suite *IntegrationTestSuite) TestEvmRespectsMinFee() {
 	suite.ErrorContains(res.Err, "insufficient fee")
 }
 
-func getMinFeeFromAppToml(nemoHome string) (sdk.DecCoins, error) {
+func getMinFeeFromAppToml(furyHome string) (sdk.DecCoins, error) {
 	// read the expected min gas price from app.toml
 	parsed := struct {
 		MinGasPrices string `toml:"minimum-gas-prices"`
 	}{}
-	appToml, err := os.ReadFile(filepath.Join(nemoHome, "config", "app.toml"))
+	appToml, err := os.ReadFile(filepath.Join(furyHome, "config", "app.toml"))
 	if err != nil {
 		return nil, err
 	}

@@ -4,10 +4,10 @@ pragma solidity ^0.8.18;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-/// @title An ERC20 token contract owned and deployed by the evmutil module of Nemo.
+/// @title An ERC20 token contract owned and deployed by the evmutil module of Fury.
 ///        Tokens are backed one-for-one by cosmos-sdk coins held in the module account.
-/// @author Nemo Labs, LLC
-/// @custom:security-contact security@nemo.io
+/// @author Fury Labs, LLC
+/// @custom:security-contact security@fury.io
 contract ERC20FuryWrappedCosmosCoin is ERC20, Ownable {
     /// @notice The decimals places of the token. For display purposes only.
     uint8 private immutable _decimals;

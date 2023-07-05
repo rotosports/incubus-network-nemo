@@ -12,8 +12,8 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 func (suite *KeeperTestSuite) TestDeposit() {
@@ -24,7 +24,7 @@ func (suite *KeeperTestSuite) TestDeposit() {
 	initialBalance := sdkmath.NewInt(1e9)
 
 	bfuryDenom := fmt.Sprintf("bfury-%s", valAddr.String())
-	invalidBnemoDenom := fmt.Sprintf("bfury-%s", sdk.ValAddress(addrs[2]).String())
+	invalidBfuryDenom := fmt.Sprintf("bfury-%s", sdk.ValAddress(addrs[2]).String())
 
 	type args struct {
 		allowedDenoms             []string
@@ -119,8 +119,8 @@ func (suite *KeeperTestSuite) TestDeposit() {
 			args{
 				allowedDenoms:             []string{"bnb", "btcb", "ufury", "bfury"},
 				depositor:                 sdk.AccAddress(crypto.AddressHash([]byte("test"))),
-				initialDepositorBalance:   sdk.NewCoins(sdk.NewCoin(invalidBnemoDenom, sdkmath.NewInt(1000)), sdk.NewCoin("btcb", sdkmath.NewInt(1000))),
-				depositAmount:             sdk.NewCoins(sdk.NewCoin(invalidBnemoDenom, sdkmath.NewInt(100))),
+				initialDepositorBalance:   sdk.NewCoins(sdk.NewCoin(invalidBfuryDenom, sdkmath.NewInt(1000)), sdk.NewCoin("btcb", sdkmath.NewInt(1000))),
+				depositAmount:             sdk.NewCoins(sdk.NewCoin(invalidBfuryDenom, sdkmath.NewInt(100))),
 				numberDeposits:            1,
 				expectedAccountBalance:    sdk.Coins{},
 				expectedModAccountBalance: sdk.Coins{},

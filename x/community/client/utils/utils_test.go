@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/community/client/utils"
+	"github.com/incubus-network/fury/x/community/client/utils"
 )
 
 func TestParseDepositProposal(t *testing.T) {
@@ -17,7 +17,7 @@ func TestParseDepositProposal(t *testing.T) {
 	okJSON := testutil.WriteToNewTempFile(t, `
 {
   "title": "Community Pool Lend Deposit",
-  "description": "Deposit some NEMO from community pool to Lend!",
+  "description": "Deposit some FURY from community pool to Lend!",
   "amount": [
     {
       "denom": "ufury",
@@ -33,7 +33,7 @@ func TestParseDepositProposal(t *testing.T) {
 	require.NoError(t, err)
 
 	require.Equal(t, "Community Pool Lend Deposit", proposal.Title)
-	require.Equal(t, "Deposit some NEMO from community pool to Lend!", proposal.Description)
+	require.Equal(t, "Deposit some FURY from community pool to Lend!", proposal.Description)
 	require.Equal(t, expectedAmount, proposal.Amount)
 }
 
@@ -42,7 +42,7 @@ func TestParseWithdrawProposal(t *testing.T) {
 	okJSON := testutil.WriteToNewTempFile(t, `
 {
   "title": "Community Pool Lend Withdraw",
-  "description": "Withdraw some NEMO from community pool to Lend!",
+  "description": "Withdraw some FURY from community pool to Lend!",
   "amount": [
     {
       "denom": "ufury",
@@ -58,7 +58,7 @@ func TestParseWithdrawProposal(t *testing.T) {
 	require.NoError(t, err)
 
 	require.Equal(t, "Community Pool Lend Withdraw", proposal.Title)
-	require.Equal(t, "Withdraw some NEMO from community pool to Lend!", proposal.Description)
+	require.Equal(t, "Withdraw some FURY from community pool to Lend!", proposal.Description)
 	require.Equal(t, expectedAmount, proposal.Amount)
 }
 

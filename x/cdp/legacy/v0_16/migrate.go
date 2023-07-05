@@ -1,8 +1,8 @@
 package v0_16
 
 import (
-	v015cdp "github.com/incubus-network/nemo/x/cdp/legacy/v0_15"
-	v016cdp "github.com/incubus-network/nemo/x/cdp/types"
+	v015cdp "github.com/incubus-network/fury/x/cdp/legacy/v0_15"
+	v016cdp "github.com/incubus-network/fury/x/cdp/types"
 )
 
 func migrateParams(params v015cdp.Params) v016cdp.Params {

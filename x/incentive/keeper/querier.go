@@ -11,9 +11,9 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	"github.com/incubus-network/nemo/x/incentive/types"
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	"github.com/incubus-network/fury/x/incentive/types"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
 )
 
 const (
@@ -446,7 +446,7 @@ func GetStakingAPR(ctx sdk.Context, k Keeper, params types.Params) (sdk.Dec, err
 
 	// Total amount of bfury in earn vaults, this may be lower than total bank
 	// supply of bfury as some bfury may not be deposited in earn vaults
-	totalEarnBnemoDeposited := sdk.ZeroInt()
+	totalEarnBfuryDeposited := sdk.ZeroInt()
 
 	var iterErr error
 	k.earnKeeper.IterateVaultRecords(ctx, func(record earntypes.VaultRecord) (stop bool) {
@@ -460,7 +460,7 @@ func GetStakingAPR(ctx sdk.Context, k Keeper, params types.Params) (sdk.Dec, err
 			return false
 		}
 
-		totalEarnBnemoDeposited = totalEarnBnemoDeposited.Add(vaultValue.Amount)
+		totalEarnBfuryDeposited = totalEarnBfuryDeposited.Add(vaultValue.Amount)
 
 		return false
 	})
@@ -470,8 +470,8 @@ func GetStakingAPR(ctx sdk.Context, k Keeper, params types.Params) (sdk.Dec, err
 	}
 
 	// Incentive APR = rewards per second * seconds per year / total supplied to earn vaults
-	// Override collateral type to use "nemo" instead of "bfury" when fetching
-	incentiveAPY, err := GetAPYFromMultiRewardPeriod(ctx, k, types.BondDenom, bfuryRewardPeriod, totalEarnBnemoDeposited)
+	// Override collateral type to use "fury" instead of "bfury" when fetching
+	incentiveAPY, err := GetAPYFromMultiRewardPeriod(ctx, k, types.BondDenom, bfuryRewardPeriod, totalEarnBfuryDeposited)
 	if err != nil {
 		return sdk.ZeroDec(), err
 	}
@@ -530,7 +530,7 @@ func GetAPYFromMultiRewardPeriod(
 
 func getMarketID(denom string) string {
 	// Rewrite denoms as pricefeed has different names for some assets,
-	// e.g. "ufury" -> "nemo", "erc20/multichain/usdc" -> "usdc"
+	// e.g. "ufury" -> "fury", "erc20/multichain/usdc" -> "usdc"
 	// bfury is not included as it is handled separately
 
 	// TODO: Replace hardcoded conversion with possible params set somewhere
@@ -538,7 +538,7 @@ func getMarketID(denom string) string {
 	// pricefeed params.
 	switch denom {
 	case types.BondDenom:
-		denom = "nemo"
+		denom = "fury"
 	case "erc20/multichain/usdc":
 		denom = "usdc"
 	case "erc20/multichain/usdt":

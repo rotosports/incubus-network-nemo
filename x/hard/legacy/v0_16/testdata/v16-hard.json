@@ -26,7 +26,7 @@
           "maximum_limit": "100000000000.000000000000000000",
           "loan_to_value": "0.800000000000000000"
         },
-        "spot_market_id": "nemo:usd",
+        "spot_market_id": "fury:usd",
         "conversion_factor": "1000000",
         "interest_rate_model": {
           "base_rate_apy": "0.050000000000000000",

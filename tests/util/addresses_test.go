@@ -8,8 +8,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/tests/util"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/tests/util"
 )
 
 func TestAddressConversion(t *testing.T) {

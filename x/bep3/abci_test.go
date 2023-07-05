@@ -11,10 +11,10 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/bep3"
-	"github.com/incubus-network/nemo/x/bep3/keeper"
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/bep3"
+	"github.com/incubus-network/fury/x/bep3/keeper"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 type ABCITestSuite struct {

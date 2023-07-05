@@ -65,7 +65,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Bug Fixes
 
-- (deps) [#1622] Bump tm-db to v0.6.7-nemo.3 to return rocksdb open error
+- (deps) [#1622] Bump tm-db to v0.6.7-fury.3 to return rocksdb open error
 
 ## [v0.23.0]
 
@@ -114,7 +114,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 ## [v0.13.0]
 
 - Hard Protocol - Introduces borrowing functionality to HARD protocol. See full
-  [spec](https://github.com/Incubus-Network/nemo/tree/master/x/hard/spec)
+  [spec](https://github.com/Incubus-Network/fury/tree/master/x/hard/spec)
 
 ### Breaking changes
 
@@ -138,9 +138,9 @@ Ref: https://keepachangelog.com/en/1.0.0/
 - [#596] Add REST client and CLI query to get module account information for the
   CDP module
 
-- [#590] Add CLI query to return nemodist module account balance
+- [#590] Add CLI query to return furydist module account balance
 
-- [#584] Add REST client and CLI queries for `nemodist` module
+- [#584] Add REST client and CLI queries for `furydist` module
 
 - [#578] Add v0.3 compatible REST client that supports
 
@@ -188,12 +188,12 @@ Ref: https://keepachangelog.com/en/1.0.0/
   `pruning=everything` and `pruning=nothing` still work but there are different
   flags for custom pruning configuration.
 
-## [v0.8.1] nemo-3 Patch Release
+## [v0.8.1] fury-3 Patch Release
 
 This version mitigates a memory leak in tendermint that was found prior to
-launching nemo-3. It is fully compatible with v0.8.0 and is intended to replace
-that version as the canonical software version for upgrading the Nemo mainnet
-from nemo-2 to nemo-3. Note that there are no breaking changes between the
+launching fury-3. It is fully compatible with v0.8.0 and is intended to replace
+that version as the canonical software version for upgrading the Fury mainnet
+from fury-2 to fury-3. Note that there are no breaking changes between the
 versions, but a safety check was added to this version to prevent starting the
 node with an unsafe configuration.
 
@@ -201,36 +201,36 @@ node with an unsafe configuration.
 
 The default tendermint pruning strategy, `pruning="syncable"` is currently
 unsafe due to a [memory leak](https://github.com/tendermint/iavl/issues/256)
-that can cause irrecoverable data loss. This patch release prevents `nmd` from
+that can cause irrecoverable data loss. This patch release prevents `fud` from
 being started with the `pruning="syncable"` configuration. Until a patch for
 tendermint is released, the ONLY pruning strategies that are safe to run are
 `everything` (an archival node) or `nothing` (only the most recent state is
 kept). It is strongly recommended that validators use `pruning="nothing"` for
-nemo-3. It is expected that a patch to tendermint will be released in a
+fury-3. It is expected that a patch to tendermint will be released in a
 non-breaking manner and that nodes will be able to update seamlessly after the
-launch of nemo-3.
+launch of fury-3.
 
-The steps for upgrading to nemo-3 can be found
-[here](https://github.com/Incubus-Network/nemo/blob/v0.10.0/contrib/nemo-3/migration.md).
+The steps for upgrading to fury-3 can be found
+[here](https://github.com/Incubus-Network/fury/blob/v0.10.0/contrib/fury-3/migration.md).
 Please note the additional section on
-[pruning](https://github.com/Incubus-Network/nemo/blob/v0.10.0/contrib/nemo-3/migration.md#Pruning).
+[pruning](https://github.com/Incubus-Network/fury/blob/v0.10.0/contrib/fury-3/migration.md#Pruning).
 
-## [v0.8.0] nemo-3 Release
+## [v0.8.0] fury-3 Release
 
 This version is intended to be the canonical software version for upgrading the
-Nemo mainnet from nemo-2 to nemo-3. As a result, no subsequent versions of Nemo
-will be released until nemo-3 launches unless necessary due to critical
+Fury mainnet from fury-2 to fury-3. As a result, no subsequent versions of Fury
+will be released until fury-3 launches unless necessary due to critical
 state-machine faults that require a new version to launch successfully.
 
 ### Migration
 
-The steps for upgrading to nemo-3 can be found
-[here](https://github.com/Incubus-Network/nemo/blob/v0.10.0/contrib/nemo-3/migration.md)
+The steps for upgrading to fury-3 can be found
+[here](https://github.com/Incubus-Network/fury/blob/v0.10.0/contrib/fury-3/migration.md)
 
 ### Features
 
 This is the first release that includes all the modules which comprise the
-[CDP system](https://docs.nemo.io/).
+[CDP system](https://docs.fury.io/).
 
 ### State Machine Breaking Changes
 
@@ -265,60 +265,60 @@ the [changelog](https://github.com/cosmos/cosmos-sdk/blob/v0.38.4/CHANGELOG.md).
 
 ### Improvements
 
-- [#257](https://github.com/Incubus-Network/nemo/pulls/257) Include scripts to run
+- [#257](https://github.com/Incubus-Network/fury/pulls/257) Include scripts to run
   large-scale simulations remotely using aws-batch
 
-[#1624]: https://github.com/Incubus-Network/nemo/pull/1624
-[#1622]: https://github.com/Incubus-Network/nemo/pull/1622
-[#1614]: https://github.com/Incubus-Network/nemo/pull/1614
-[#1610]: https://github.com/Incubus-Network/nemo/pull/1610
-[#1609]: https://github.com/Incubus-Network/nemo/pull/1609
-[#1605]: https://github.com/Incubus-Network/nemo/pull/1605
-[#1604]: https://github.com/Incubus-Network/nemo/pull/1604
-[#1603]: https://github.com/Incubus-Network/nemo/pull/1603
-[#1598]: https://github.com/Incubus-Network/nemo/pull/1598
-[#1596]: https://github.com/Incubus-Network/nemo/pull/1596
-[#1591]: https://github.com/Incubus-Network/nemo/pull/1591
-[#1590]: https://github.com/Incubus-Network/nemo/pull/1590
-[#1568]: https://github.com/Incubus-Network/nemo/pull/1568
-[#1567]: https://github.com/Incubus-Network/nemo/pull/1567
-[#1566]: https://github.com/Incubus-Network/nemo/pull/1566
-[#1565]: https://github.com/Incubus-Network/nemo/pull/1565
-[#1563]: https://github.com/Incubus-Network/nemo/pull/1563
-[#1562]: https://github.com/Incubus-Network/nemo/pull/1562
-[#1550]: https://github.com/Incubus-Network/nemo/pull/1550
-[#1544]: https://github.com/Incubus-Network/nemo/pull/1544
-[#1477]: https://github.com/Incubus-Network/nemo/pull/1477
-[#1512]: https://github.com/Incubus-Network/nemo/pull/1512
-[#1519]: https://github.com/Incubus-Network/nemo/pull/1519
-[#1106]: https://github.com/Incubus-Network/nemo/pull/1106
-[#1152]: https://github.com/Incubus-Network/nemo/pull/1152
-[#1542]: https://github.com/Incubus-Network/nemo/pull/1542
-[#253]: https://github.com/Incubus-Network/nemo/pull/253
-[#260]: https://github.com/Incubus-Network/nemo/pull/260
-[#266]: https://github.com/Incubus-Network/nemo/pull/266
-[#364]: https://github.com/Incubus-Network/nemo/pull/364
-[#590]: https://github.com/Incubus-Network/nemo/pull/590
-[#591]: https://github.com/Incubus-Network/nemo/pull/591
-[#596]: https://github.com/Incubus-Network/nemo/pull/596
-[#598]: https://github.com/Incubus-Network/nemo/pull/598
-[#625]: https://github.com/Incubus-Network/nemo/pull/625
-[#701]: https://github.com/Incubus-Network/nemo/pull/701
-[#750]: https://github.com/Incubus-Network/nemo/pull/750
-[#751]: https://github.com/Incubus-Network/nemo/pull/751
-[#780]: https://github.com/Incubus-Network/nemo/pull/780
-[unreleased]: https://github.com/Incubus-Network/nemo/compare/v0.23.2...HEAD
-[v0.23.2]: https://github.com/Incubus-Network/nemo/compare/v0.23.1...v0.23.2
-[v0.23.1]: https://github.com/Incubus-Network/nemo/compare/v0.23.0...v0.23.1
-[v0.23.0]: https://github.com/Incubus-Network/nemo/compare/v0.21.1...v0.23.0
-[v0.16.1]: https://github.com/Incubus-Network/nemo/compare/v0.16.0...v0.16.1
-[v0.16.0]: https://github.com/Incubus-Network/nemo/compare/v0.15.2...v0.16.0
-[v0.13.0]: https://github.com/Incubus-Network/nemo/compare/v0.12.4...v0.13.0
-[v0.12.0]: https://github.com/Incubus-Network/nemo/compare/v0.11.1...v0.12.0
-[v0.11.0]: https://github.com/Incubus-Network/nemo/compare/v0.10.0...v0.11.0
-[v0.8.1]: https://github.com/Incubus-Network/nemo/compare/v0.8.0...v0.8.1
-[v0.8.0]: https://github.com/Incubus-Network/nemo/compare/v0.7.0...v0.8.0
-[v0.3.5]: https://github.com/Incubus-Network/nemo/compare/v0.3.4...v0.3.5
-[v0.3.2]: https://github.com/Incubus-Network/nemo/compare/v0.3.1...v0.3.2
-[v0.3.1]: https://github.com/Incubus-Network/nemo/compare/v0.3.0...v0.3.1
-[v0.3.0]: https://github.com/Incubus-Network/nemo/compare/v0.2.0...v0.3.0
+[#1624]: https://github.com/Incubus-Network/fury/pull/1624
+[#1622]: https://github.com/Incubus-Network/fury/pull/1622
+[#1614]: https://github.com/Incubus-Network/fury/pull/1614
+[#1610]: https://github.com/Incubus-Network/fury/pull/1610
+[#1609]: https://github.com/Incubus-Network/fury/pull/1609
+[#1605]: https://github.com/Incubus-Network/fury/pull/1605
+[#1604]: https://github.com/Incubus-Network/fury/pull/1604
+[#1603]: https://github.com/Incubus-Network/fury/pull/1603
+[#1598]: https://github.com/Incubus-Network/fury/pull/1598
+[#1596]: https://github.com/Incubus-Network/fury/pull/1596
+[#1591]: https://github.com/Incubus-Network/fury/pull/1591
+[#1590]: https://github.com/Incubus-Network/fury/pull/1590
+[#1568]: https://github.com/Incubus-Network/fury/pull/1568
+[#1567]: https://github.com/Incubus-Network/fury/pull/1567
+[#1566]: https://github.com/Incubus-Network/fury/pull/1566
+[#1565]: https://github.com/Incubus-Network/fury/pull/1565
+[#1563]: https://github.com/Incubus-Network/fury/pull/1563
+[#1562]: https://github.com/Incubus-Network/fury/pull/1562
+[#1550]: https://github.com/Incubus-Network/fury/pull/1550
+[#1544]: https://github.com/Incubus-Network/fury/pull/1544
+[#1477]: https://github.com/Incubus-Network/fury/pull/1477
+[#1512]: https://github.com/Incubus-Network/fury/pull/1512
+[#1519]: https://github.com/Incubus-Network/fury/pull/1519
+[#1106]: https://github.com/Incubus-Network/fury/pull/1106
+[#1152]: https://github.com/Incubus-Network/fury/pull/1152
+[#1542]: https://github.com/Incubus-Network/fury/pull/1542
+[#253]: https://github.com/Incubus-Network/fury/pull/253
+[#260]: https://github.com/Incubus-Network/fury/pull/260
+[#266]: https://github.com/Incubus-Network/fury/pull/266
+[#364]: https://github.com/Incubus-Network/fury/pull/364
+[#590]: https://github.com/Incubus-Network/fury/pull/590
+[#591]: https://github.com/Incubus-Network/fury/pull/591
+[#596]: https://github.com/Incubus-Network/fury/pull/596
+[#598]: https://github.com/Incubus-Network/fury/pull/598
+[#625]: https://github.com/Incubus-Network/fury/pull/625
+[#701]: https://github.com/Incubus-Network/fury/pull/701
+[#750]: https://github.com/Incubus-Network/fury/pull/750
+[#751]: https://github.com/Incubus-Network/fury/pull/751
+[#780]: https://github.com/Incubus-Network/fury/pull/780
+[unreleased]: https://github.com/Incubus-Network/fury/compare/v0.23.2...HEAD
+[v0.23.2]: https://github.com/Incubus-Network/fury/compare/v0.23.1...v0.23.2
+[v0.23.1]: https://github.com/Incubus-Network/fury/compare/v0.23.0...v0.23.1
+[v0.23.0]: https://github.com/Incubus-Network/fury/compare/v0.21.1...v0.23.0
+[v0.16.1]: https://github.com/Incubus-Network/fury/compare/v0.16.0...v0.16.1
+[v0.16.0]: https://github.com/Incubus-Network/fury/compare/v0.15.2...v0.16.0
+[v0.13.0]: https://github.com/Incubus-Network/fury/compare/v0.12.4...v0.13.0
+[v0.12.0]: https://github.com/Incubus-Network/fury/compare/v0.11.1...v0.12.0
+[v0.11.0]: https://github.com/Incubus-Network/fury/compare/v0.10.0...v0.11.0
+[v0.8.1]: https://github.com/Incubus-Network/fury/compare/v0.8.0...v0.8.1
+[v0.8.0]: https://github.com/Incubus-Network/fury/compare/v0.7.0...v0.8.0
+[v0.3.5]: https://github.com/Incubus-Network/fury/compare/v0.3.4...v0.3.5
+[v0.3.2]: https://github.com/Incubus-Network/fury/compare/v0.3.1...v0.3.2
+[v0.3.1]: https://github.com/Incubus-Network/fury/compare/v0.3.0...v0.3.1
+[v0.3.0]: https://github.com/Incubus-Network/fury/compare/v0.2.0...v0.3.0

@@ -16,9 +16,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/nemo/x/pricefeed/client/cli"
-	"github.com/incubus-network/nemo/x/pricefeed/keeper"
-	"github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/x/pricefeed/client/cli"
+	"github.com/incubus-network/fury/x/pricefeed/keeper"
+	"github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 var (

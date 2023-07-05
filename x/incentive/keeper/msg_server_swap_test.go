@@ -9,10 +9,10 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/incentive/testutil"
-	"github.com/incubus-network/nemo/x/incentive/types"
-	nemodisttypes "github.com/incubus-network/nemo/x/nemodist/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/incentive/testutil"
+	"github.com/incubus-network/fury/x/incentive/types"
+	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
 )
 
 const secondsPerDay = 24 * 60 * 60
@@ -65,10 +65,10 @@ func (suite *HandlerTestSuite) SetupWithGenState(builders ...testutil.GenesisBui
 	)
 }
 
-// authBuilder returns a new auth genesis builder with a full nemodist module account.
+// authBuilder returns a new auth genesis builder with a full furydist module account.
 func (suite *HandlerTestSuite) authBuilder() *app.AuthBankGenesisBuilder {
 	return app.NewAuthBankGenesisBuilder().
-		WithSimpleModuleAccount(nemodisttypes.ModuleName, cs(c(types.USDXMintingRewardDenom, 1e18), c("hard", 1e18), c("swap", 1e18)))
+		WithSimpleModuleAccount(furydisttypes.ModuleName, cs(c(types.USDXMintingRewardDenom, 1e18), c("hard", 1e18), c("swap", 1e18)))
 }
 
 // incentiveBuilder returns a new incentive genesis builder with a genesis time and multipliers set

@@ -16,10 +16,10 @@ func init() {
 // SuiteConfig wraps configuration details for running the end-to-end test suite.
 type SuiteConfig struct {
 	// A funded account used to fnd all other accounts.
-	FundedAccountMnemonic string
+	FundedAccountMfurynic string
 
-	// A config for using nmtool local networks for the test run
-	Nmtool *NmtoolConfig
+	// A config for using futool local networks for the test run
+	Futool *FutoolConfig
 	// A config for connecting to a running network
 	LiveNetwork *LiveNetworkConfig
 
@@ -27,44 +27,44 @@ type SuiteConfig struct {
 	IncludeIbcTests bool
 
 	// The contract address of a deployed ERC-20 token
-	NemoErc20Address string
+	FuryErc20Address string
 
 	// When true, the chains will remain running after tests complete (pass or fail)
 	SkipShutdown bool
 }
 
-// NmtoolConfig wraps configuration options for running the end-to-end test suite against
-// a locally running chain. This config must be defined if E2E_RUN_NMTOOL_NETWORKS is true.
-type NmtoolConfig struct {
-	// The nemo.configTemplate flag to be passed to nmtool, usually "master".
+// FutoolConfig wraps configuration options for running the end-to-end test suite against
+// a locally running chain. This config must be defined if E2E_RUN_FUTOOL_NETWORKS is true.
+type FutoolConfig struct {
+	// The fury.configTemplate flag to be passed to futool, usually "master".
 	// This allows one to change the base genesis used to start the chain.
-	NemoConfigTemplate string
+	FuryConfigTemplate string
 
 	// Whether or not to run a chain upgrade & run post-upgrade tests. Use `suite.SkipIfUpgradeDisabled()` in post-upgrade tests.
 	IncludeAutomatedUpgrade bool
 	// Name of the upgrade, if upgrade is enabled.
-	NemoUpgradeName string
+	FuryUpgradeName string
 	// Height upgrade will be applied to the test chain, if upgrade is enabled.
-	NemoUpgradeHeight int64
-	// Tag of nemo docker image that will be upgraded to the current image before tests are run, if upgrade is enabled.
-	NemoUpgradeBaseImageTag string
+	FuryUpgradeHeight int64
+	// Tag of fury docker image that will be upgraded to the current image before tests are run, if upgrade is enabled.
+	FuryUpgradeBaseImageTag string
 }
 
 // LiveNetworkConfig wraps configuration options for running the end-to-end test suite
-// against a live network. It must be defined if E2E_RUN_NMTOOL_NETWORKS is false.
+// against a live network. It must be defined if E2E_RUN_FUTOOL_NETWORKS is false.
 type LiveNetworkConfig struct {
-	NemoRpcUrl    string
-	NemoGrpcUrl   string
-	NemoEvmRpcUrl string
+	FuryRpcUrl    string
+	FuryGrpcUrl   string
+	FuryEvmRpcUrl string
 }
 
 // ParseSuiteConfig builds a SuiteConfig from environment variables.
 func ParseSuiteConfig() SuiteConfig {
 	config := SuiteConfig{
-		// this mnemonic is expected to be a funded account that can seed the funds for all
+		// this mfurynic is expected to be a funded account that can seed the funds for all
 		// new accounts created during tests. it will be available under Accounts["whale"]
-		FundedAccountMnemonic: nonemptyStringEnv("E2E_NEMO_FUNDED_ACCOUNT_MNEMONIC"),
-		NemoErc20Address:      nonemptyStringEnv("E2E_NEMO_ERC20_ADDRESS"),
+		FundedAccountMfurynic: nonemptyStringEnv("E2E_FURY_FUNDED_ACCOUNT_MFURYNIC"),
+		FuryErc20Address:      nonemptyStringEnv("E2E_FURY_ERC20_ADDRESS"),
 		IncludeIbcTests:       mustParseBool("E2E_INCLUDE_IBC_TESTS"),
 	}
 
@@ -73,10 +73,10 @@ func ParseSuiteConfig() SuiteConfig {
 		config.SkipShutdown = mustParseBool("E2E_SKIP_SHUTDOWN")
 	}
 
-	useNmtoolNetworks := mustParseBool("E2E_RUN_NMTOOL_NETWORKS")
-	if useNmtoolNetworks {
-		nmtoolConfig := ParseNmtoolConfig()
-		config.Nmtool = &nmtoolConfig
+	useFutoolNetworks := mustParseBool("E2E_RUN_FUTOOL_NETWORKS")
+	if useFutoolNetworks {
+		futoolConfig := ParseFutoolConfig()
+		config.Futool = &futoolConfig
 	} else {
 		liveNetworkConfig := ParseLiveNetworkConfig()
 		config.LiveNetwork = &liveNetworkConfig
@@ -85,21 +85,21 @@ func ParseSuiteConfig() SuiteConfig {
 	return config
 }
 
-// ParseNmtoolConfig builds a NmtoolConfig from environment variables.
-func ParseNmtoolConfig() NmtoolConfig {
-	config := NmtoolConfig{
-		NemoConfigTemplate:      nonemptyStringEnv("E2E_NMTOOL_NEMO_CONFIG_TEMPLATE"),
+// ParseFutoolConfig builds a FutoolConfig from environment variables.
+func ParseFutoolConfig() FutoolConfig {
+	config := FutoolConfig{
+		FuryConfigTemplate:      nonemptyStringEnv("E2E_FUTOOL_FURY_CONFIG_TEMPLATE"),
 		IncludeAutomatedUpgrade: mustParseBool("E2E_INCLUDE_AUTOMATED_UPGRADE"),
 	}
 
 	if config.IncludeAutomatedUpgrade {
-		config.NemoUpgradeName = nonemptyStringEnv("E2E_NEMO_UPGRADE_NAME")
-		config.NemoUpgradeBaseImageTag = nonemptyStringEnv("E2E_NEMO_UPGRADE_BASE_IMAGE_TAG")
-		upgradeHeight, err := strconv.ParseInt(nonemptyStringEnv("E2E_NEMO_UPGRADE_HEIGHT"), 10, 64)
+		config.FuryUpgradeName = nonemptyStringEnv("E2E_FURY_UPGRADE_NAME")
+		config.FuryUpgradeBaseImageTag = nonemptyStringEnv("E2E_FURY_UPGRADE_BASE_IMAGE_TAG")
+		upgradeHeight, err := strconv.ParseInt(nonemptyStringEnv("E2E_FURY_UPGRADE_HEIGHT"), 10, 64)
 		if err != nil {
-			panic(fmt.Sprintf("E2E_NEMO_UPGRADE_HEIGHT must be a number: %s", err))
+			panic(fmt.Sprintf("E2E_FURY_UPGRADE_HEIGHT must be a number: %s", err))
 		}
-		config.NemoUpgradeHeight = upgradeHeight
+		config.FuryUpgradeHeight = upgradeHeight
 	}
 
 	return config
@@ -108,9 +108,9 @@ func ParseNmtoolConfig() NmtoolConfig {
 // ParseLiveNetworkConfig builds a LiveNetworkConfig from environment variables.
 func ParseLiveNetworkConfig() LiveNetworkConfig {
 	return LiveNetworkConfig{
-		NemoRpcUrl:    nonemptyStringEnv("E2E_NEMO_RPC_URL"),
-		NemoGrpcUrl:   nonemptyStringEnv("E2E_NEMO_GRPC_URL"),
-		NemoEvmRpcUrl: nonemptyStringEnv("E2E_NEMO_EVM_RPC_URL"),
+		FuryRpcUrl:    nonemptyStringEnv("E2E_FURY_RPC_URL"),
+		FuryGrpcUrl:   nonemptyStringEnv("E2E_FURY_GRPC_URL"),
+		FuryEvmRpcUrl: nonemptyStringEnv("E2E_FURY_EVM_RPC_URL"),
 	}
 }
 

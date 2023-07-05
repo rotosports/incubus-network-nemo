@@ -10,8 +10,8 @@ import (
 
 	tmprototypes "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 // TestKeeper_SetGetMarket tests adding markets to the pricefeed, getting markets from the store

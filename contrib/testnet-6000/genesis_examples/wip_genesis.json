@@ -1,6 +1,6 @@
 {
   "genesis_time": "2020-04-23T16:32:31.393515Z",
-  "chain_id": "nemo-testnet-6000",
+  "chain_id": "fury-testnet-6000",
   "consensus_params": {
     "block": {
       "max_bytes": "22020096",
@@ -120,7 +120,7 @@
           ],
           "permissions": [
             {
-              "type": "nemo/SubParamChangePermission",
+              "type": "fury/SubParamChangePermission",
               "value": {
                 "allowed_params": [
                   {
@@ -180,7 +180,7 @@
                     "key": "Active"
                   },
                   {
-                    "subspace": "nemodist",
+                    "subspace": "furydist",
                     "key": "Active"
                   }
                 ],
@@ -235,7 +235,7 @@
           ],
           "permissions": [
             {
-              "type": "nemo/GodPermission",
+              "type": "fury/GodPermission",
               "value": {}
             }
           ],
@@ -322,7 +322,7 @@
       },
       "previous_block_time": "1970-01-01T00:00:00Z"
     },
-    "nemodist": {
+    "furydist": {
       "params": {
         "active": true,
         "periods": [

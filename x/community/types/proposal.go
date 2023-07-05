@@ -32,13 +32,13 @@ var (
 
 func init() {
 	govv1beta1.RegisterProposalType(ProposalTypeCommunityPoolLendDeposit)
-	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolLendDepositProposal{}, "nemo/CommunityPoolLendDepositProposal", nil)
+	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolLendDepositProposal{}, "fury/CommunityPoolLendDepositProposal", nil)
 	govv1beta1.RegisterProposalType(ProposalTypeCommunityPoolLendWithdraw)
-	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolLendWithdrawProposal{}, "nemo/CommunityPoolLendWithdrawProposal", nil)
+	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolLendWithdrawProposal{}, "fury/CommunityPoolLendWithdrawProposal", nil)
 	govv1beta1.RegisterProposalType(ProposalTypeCommunityCDPRepayDebt)
-	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityCDPRepayDebtProposal{}, "nemo/CommunityCDPRepayDebtProposal", nil)
+	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityCDPRepayDebtProposal{}, "fury/CommunityCDPRepayDebtProposal", nil)
 	govv1beta1.RegisterProposalType(ProposalTypeCommunityCDPWithdrawCollateral)
-	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityCDPWithdrawCollateralProposal{}, "nemo/CommunityCDPWithdrawCollateralProposal", nil)
+	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityCDPWithdrawCollateralProposal{}, "fury/CommunityCDPWithdrawCollateralProposal", nil)
 }
 
 //////////////////

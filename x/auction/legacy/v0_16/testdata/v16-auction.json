@@ -9,7 +9,7 @@
   },
   "auctions": [
     {
-      "@type": "/nemo.auction.v1beta1.CollateralAuction",
+      "@type": "/fury.auction.v1beta1.CollateralAuction",
       "base_auction": {
         "id": "3795",
         "initiator": "hard",
@@ -28,7 +28,7 @@
       }
     },
     {
-      "@type": "/nemo.auction.v1beta1.SurplusAuction",
+      "@type": "/fury.auction.v1beta1.SurplusAuction",
       "base_auction": {
         "id": "3796",
         "initiator": "hard",
@@ -41,7 +41,7 @@
       }
     },
     {
-      "@type": "/nemo.auction.v1beta1.DebtAuction",
+      "@type": "/fury.auction.v1beta1.DebtAuction",
       "base_auction": {
         "id": "3895",
         "initiator": "hard",

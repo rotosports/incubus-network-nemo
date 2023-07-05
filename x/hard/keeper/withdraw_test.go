@@ -10,10 +10,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/hard"
-	"github.com/incubus-network/nemo/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/hard"
+	"github.com/incubus-network/fury/x/hard/types"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 func (suite *KeeperTestSuite) TestWithdraw() {
@@ -131,7 +131,7 @@ func (suite *KeeperTestSuite) TestWithdraw() {
 			hardGS := types.NewGenesisState(types.NewParams(
 				types.MoneyMarkets{
 					types.NewMoneyMarket("usdx", types.NewBorrowLimit(false, sdk.NewDec(1000000000000000), loanToValue), "usdx:usd", sdkmath.NewInt(1000000), types.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
-					types.NewMoneyMarket("ufury", types.NewBorrowLimit(false, sdk.NewDec(1000000000000000), loanToValue), "nemo:usd", sdkmath.NewInt(1000000), types.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
+					types.NewMoneyMarket("ufury", types.NewBorrowLimit(false, sdk.NewDec(1000000000000000), loanToValue), "fury:usd", sdkmath.NewInt(1000000), types.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
 					types.NewMoneyMarket("bnb", types.NewBorrowLimit(false, sdk.NewDec(1000000000000000), loanToValue), "bnb:usd", sdkmath.NewInt(100000000), types.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
 				},
 				sdk.NewDec(10),
@@ -144,7 +144,7 @@ func (suite *KeeperTestSuite) TestWithdraw() {
 				Params: pricefeedtypes.Params{
 					Markets: []pricefeedtypes.Market{
 						{MarketID: "usdx:usd", BaseAsset: "usdx", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
-						{MarketID: "nemo:usd", BaseAsset: "nemo", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
+						{MarketID: "fury:usd", BaseAsset: "fury", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 						{MarketID: "bnb:usd", BaseAsset: "bnb", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 					},
 				},
@@ -156,7 +156,7 @@ func (suite *KeeperTestSuite) TestWithdraw() {
 						Expiry:        time.Now().Add(100 * time.Hour),
 					},
 					{
-						MarketID:      "nemo:usd",
+						MarketID:      "fury:usd",
 						OracleAddress: sdk.AccAddress{},
 						Price:         sdk.MustNewDecFromStr("2.00"),
 						Expiry:        time.Now().Add(100 * time.Hour),
@@ -244,11 +244,11 @@ func (suite *KeeperTestSuite) TestLtvWithdraw() {
 			"invalid: withdraw is outside loan-to-value range",
 			args{
 				borrower:             borrower,
-				initialModuleCoins:   sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(100*NEMO_CF))),
-				initialBorrowerCoins: sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(100*NEMO_CF)), sdk.NewCoin("usdx", sdkmath.NewInt(100*NEMO_CF))),
-				depositCoins:         sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(100*NEMO_CF))), // 100 * 2 = $200
-				borrowCoins:          sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(80*NEMO_CF))),  // 80 * 2 = $160
-				repayCoins:           sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(60*NEMO_CF))),  // 60 * 2 = $120
+				initialModuleCoins:   sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(100*FURY_CF))),
+				initialBorrowerCoins: sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(100*FURY_CF)), sdk.NewCoin("usdx", sdkmath.NewInt(100*FURY_CF))),
+				depositCoins:         sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(100*FURY_CF))), // 100 * 2 = $200
+				borrowCoins:          sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(80*FURY_CF))),  // 80 * 2 = $160
+				repayCoins:           sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(60*FURY_CF))),  // 60 * 2 = $120
 				futureTime:           oneMonthInSeconds,
 			},
 			errArgs{
@@ -275,16 +275,16 @@ func (suite *KeeperTestSuite) TestLtvWithdraw() {
 			harvestGS := types.NewGenesisState(types.NewParams(
 				types.MoneyMarkets{
 					types.NewMoneyMarket("ufury",
-						types.NewBorrowLimit(false, sdk.NewDec(100000000*NEMO_CF), sdk.MustNewDecFromStr("0.8")), // Borrow Limit
-						"nemo:usd",                     // Market ID
-						sdkmath.NewInt(NEMO_CF),        // Conversion Factor
+						types.NewBorrowLimit(false, sdk.NewDec(100000000*FURY_CF), sdk.MustNewDecFromStr("0.8")), // Borrow Limit
+						"fury:usd",                     // Market ID
+						sdkmath.NewInt(FURY_CF),        // Conversion Factor
 						model,                          // Interest Rate Model
 						reserveFactor,                  // Reserve Factor
 						sdk.MustNewDecFromStr("0.05")), // Keeper Reward Percent
 					types.NewMoneyMarket("usdx",
-						types.NewBorrowLimit(false, sdk.NewDec(100000000*NEMO_CF), sdk.MustNewDecFromStr("0.8")), // Borrow Limit
+						types.NewBorrowLimit(false, sdk.NewDec(100000000*FURY_CF), sdk.MustNewDecFromStr("0.8")), // Borrow Limit
 						"usdx:usd",                     // Market ID
-						sdkmath.NewInt(NEMO_CF),        // Conversion Factor
+						sdkmath.NewInt(FURY_CF),        // Conversion Factor
 						model,                          // Interest Rate Model
 						reserveFactor,                  // Reserve Factor
 						sdk.MustNewDecFromStr("0.05")), // Keeper Reward Percent
@@ -299,7 +299,7 @@ func (suite *KeeperTestSuite) TestLtvWithdraw() {
 				Params: pricefeedtypes.Params{
 					Markets: []pricefeedtypes.Market{
 						{MarketID: "usdx:usd", BaseAsset: "usdx", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
-						{MarketID: "nemo:usd", BaseAsset: "nemo", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
+						{MarketID: "fury:usd", BaseAsset: "fury", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 					},
 				},
 				PostedPrices: []pricefeedtypes.PostedPrice{
@@ -310,7 +310,7 @@ func (suite *KeeperTestSuite) TestLtvWithdraw() {
 						Expiry:        time.Now().Add(100 * time.Hour),
 					},
 					{
-						MarketID:      "nemo:usd",
+						MarketID:      "fury:usd",
 						OracleAddress: sdk.AccAddress{},
 						Price:         sdk.MustNewDecFromStr("2.00"),
 						Expiry:        time.Now().Add(100 * time.Hour),

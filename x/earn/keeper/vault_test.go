@@ -6,8 +6,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/earn/testutil"
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/x/earn/testutil"
+	"github.com/incubus-network/fury/x/earn/types"
 	"github.com/stretchr/testify/suite"
 )
 

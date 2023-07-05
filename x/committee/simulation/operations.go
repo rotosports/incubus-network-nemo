@@ -12,8 +12,8 @@ import (
 	distsim "github.com/cosmos/cosmos-sdk/x/distribution/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/incubus-network/nemo/x/committee/keeper"
-	"github.com/incubus-network/nemo/x/committee/types"
+	"github.com/incubus-network/fury/x/committee/keeper"
+	"github.com/incubus-network/fury/x/committee/types"
 )
 
 var proposalPassPercentage = 0.9

@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // SynchronizeHardBorrowRewardTests runs unit tests for the keeper.SynchronizeHardBorrowReward method

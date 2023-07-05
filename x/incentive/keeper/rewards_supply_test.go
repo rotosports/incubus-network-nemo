@@ -10,16 +10,16 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/committee"
-	committeekeeper "github.com/incubus-network/nemo/x/committee/keeper"
-	committeetypes "github.com/incubus-network/nemo/x/committee/types"
-	"github.com/incubus-network/nemo/x/hard"
-	hardkeeper "github.com/incubus-network/nemo/x/hard/keeper"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/testutil"
-	"github.com/incubus-network/nemo/x/incentive/types"
-	nemodisttypes "github.com/incubus-network/nemo/x/nemodist/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/committee"
+	committeekeeper "github.com/incubus-network/fury/x/committee/keeper"
+	committeetypes "github.com/incubus-network/fury/x/committee/types"
+	"github.com/incubus-network/fury/x/hard"
+	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/testutil"
+	"github.com/incubus-network/fury/x/incentive/types"
+	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
 )
 
 type SupplyIntegrationTests struct {
@@ -44,7 +44,7 @@ func (suite *SupplyIntegrationTests) TestSingleUserAccumulatesRewardsAfterSyncin
 	userA := suite.addrs[0]
 
 	authBulder := app.NewAuthBankGenesisBuilder().
-		WithSimpleModuleAccount(nemodisttypes.ModuleName, cs(c("hard", 1e18))). // Fill nemodist with enough coins to pay out any reward
+		WithSimpleModuleAccount(furydisttypes.ModuleName, cs(c("hard", 1e18))). // Fill furydist with enough coins to pay out any reward
 		WithSimpleAccount(userA, cs(c("bnb", 1e12)))                            // give the user some coins
 
 	incentBuilder := testutil.NewIncentiveGenesisBuilder().

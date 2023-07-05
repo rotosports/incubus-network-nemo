@@ -3,18 +3,18 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/earn/types"
-	nemodisttypes "github.com/incubus-network/nemo/x/nemodist/types"
+	"github.com/incubus-network/fury/x/earn/types"
+	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
 )
 
 // HandleCommunityPoolDepositProposal is a handler for executing a passed community pool deposit proposal
 func HandleCommunityPoolDepositProposal(ctx sdk.Context, k Keeper, p *types.CommunityPoolDepositProposal) error {
-	fundAcc := k.accountKeeper.GetModuleAccount(ctx, nemodisttypes.FundModuleAccount)
+	fundAcc := k.accountKeeper.GetModuleAccount(ctx, furydisttypes.FundModuleAccount)
 	if err := k.distKeeper.DistributeFromFeePool(ctx, sdk.NewCoins(p.Amount), fundAcc.GetAddress()); err != nil {
 		return err
 	}
 
-	err := k.DepositFromModuleAccount(ctx, nemodisttypes.FundModuleAccount, p.Amount, types.STRATEGY_TYPE_SAVINGS)
+	err := k.DepositFromModuleAccount(ctx, furydisttypes.FundModuleAccount, p.Amount, types.STRATEGY_TYPE_SAVINGS)
 	if err != nil {
 		return err
 	}
@@ -26,7 +26,7 @@ func HandleCommunityPoolDepositProposal(ctx sdk.Context, k Keeper, p *types.Comm
 // HandleCommunityPoolWithdrawProposal is a handler for executing a passed community pool withdraw proposal.
 func HandleCommunityPoolWithdrawProposal(ctx sdk.Context, k Keeper, p *types.CommunityPoolWithdrawProposal) error {
 	// Withdraw to fund module account
-	withdrawAmount, err := k.WithdrawFromModuleAccount(ctx, nemodisttypes.FundModuleAccount, p.Amount, types.STRATEGY_TYPE_SAVINGS)
+	withdrawAmount, err := k.WithdrawFromModuleAccount(ctx, furydisttypes.FundModuleAccount, p.Amount, types.STRATEGY_TYPE_SAVINGS)
 	if err != nil {
 		return err
 	}
@@ -34,7 +34,7 @@ func HandleCommunityPoolWithdrawProposal(ctx sdk.Context, k Keeper, p *types.Com
 	// Move funds to the community pool manually
 	err = k.bankKeeper.SendCoinsFromModuleToModule(
 		ctx,
-		nemodisttypes.FundModuleAccount,
+		furydisttypes.FundModuleAccount,
 		k.distKeeper.GetDistributionAccount(ctx).GetName(),
 		sdk.NewCoins(withdrawAmount),
 	)

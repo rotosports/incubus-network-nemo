@@ -5,8 +5,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/types"
 	disttypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	savingstypes "github.com/incubus-network/nemo/x/savings/types"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	savingstypes "github.com/incubus-network/fury/x/savings/types"
 )
 
 // AccountKeeper defines the expected account keeper

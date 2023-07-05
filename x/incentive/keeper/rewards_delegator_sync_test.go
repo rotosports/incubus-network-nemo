@@ -7,7 +7,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/nemo/x/incentive/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // SynchronizeDelegatorRewardTests runs unit tests for the keeper.SynchronizeDelegatorReward method

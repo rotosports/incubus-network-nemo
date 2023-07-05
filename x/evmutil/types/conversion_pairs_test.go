@@ -3,8 +3,8 @@ package types_test
 import (
 	"testing"
 
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 	"github.com/stretchr/testify/require"
 )
 
@@ -76,7 +76,7 @@ func TestConversionPairValidate_Direct(t *testing.T) {
 		{
 			"valid",
 			types.ConversionPair{
-				NemoERC20Address: testutil.MustNewInternalEVMAddressFromString("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2").Bytes(),
+				FuryERC20Address: testutil.MustNewInternalEVMAddressFromString("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2").Bytes(),
 				Denom:            "weth",
 			},
 			errArgs{
@@ -87,7 +87,7 @@ func TestConversionPairValidate_Direct(t *testing.T) {
 		{
 			"invalid - length",
 			types.ConversionPair{
-				NemoERC20Address: []byte{1},
+				FuryERC20Address: []byte{1},
 				Denom:            "weth",
 			},
 			errArgs{
@@ -119,7 +119,7 @@ func TestConversionPair_GetAddress(t *testing.T) {
 		"weth",
 	)
 
-	require.Equal(t, types.HexBytes(addr.Bytes()), pair.NemoERC20Address, "struct address should match input bytes")
+	require.Equal(t, types.HexBytes(addr.Bytes()), pair.FuryERC20Address, "struct address should match input bytes")
 	require.Equal(t, addr, pair.GetAddress(), "get internal address should match input bytes")
 }
 
@@ -142,7 +142,7 @@ func TestConversionPairs_Validate(t *testing.T) {
 				),
 				types.NewConversionPair(
 					testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000A"),
-					"nemo",
+					"fury",
 				),
 				types.NewConversionPair(
 					testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000B"),
@@ -162,7 +162,7 @@ func TestConversionPairs_Validate(t *testing.T) {
 				),
 				types.NewConversionPair(
 					testutil.MustNewInternalEVMAddressFromString("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"),
-					"nemo",
+					"fury",
 				),
 				types.NewConversionPair(
 					testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000B"),
@@ -183,16 +183,16 @@ func TestConversionPairs_Validate(t *testing.T) {
 				),
 				types.NewConversionPair(
 					testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000A"),
-					"nemo",
+					"fury",
 				),
 				types.NewConversionPair(
 					testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000B"),
-					"nemo",
+					"fury",
 				),
 			),
 			errArgs{
 				expectPass: false,
-				contains:   "found duplicate enabled conversion pair denom nemo",
+				contains:   "found duplicate enabled conversion pair denom fury",
 			},
 		},
 		{
@@ -208,7 +208,7 @@ func TestConversionPairs_Validate(t *testing.T) {
 				),
 				types.NewConversionPair(
 					testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000B"),
-					"nemo",
+					"fury",
 				),
 			),
 			errArgs{
@@ -240,12 +240,12 @@ func TestAllowedCosmosCoinERC20Token_Validate(t *testing.T) {
 	}{
 		{
 			name:   "valid token",
-			token:  types.NewAllowedCosmosCoinERC20Token("uatom", "Nemo-wrapped ATOM", "kATOM", 6),
+			token:  types.NewAllowedCosmosCoinERC20Token("uatom", "Fury-wrapped ATOM", "kATOM", 6),
 			expErr: "",
 		},
 		{
 			name:   "valid - highest allowed decimals",
-			token:  types.NewAllowedCosmosCoinERC20Token("uatom", "Nemo-wrapped ATOM", "kATOM", 255),
+			token:  types.NewAllowedCosmosCoinERC20Token("uatom", "Fury-wrapped ATOM", "kATOM", 255),
 			expErr: "",
 		},
 		{
@@ -280,7 +280,7 @@ func TestAllowedCosmosCoinERC20Token_Validate(t *testing.T) {
 		},
 		{
 			name:   "invalid - decimals higher than uint8",
-			token:  types.NewAllowedCosmosCoinERC20Token("uatom", "Nemo-wrapped ATOM", "kATOM", 256),
+			token:  types.NewAllowedCosmosCoinERC20Token("uatom", "Fury-wrapped ATOM", "kATOM", 256),
 			expErr: "decimals must be less than 256",
 		},
 	}

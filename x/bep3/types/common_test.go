@@ -8,7 +8,7 @@ import (
 
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 func i(in int64) sdkmath.Int                { return sdkmath.NewInt(in) }
@@ -31,8 +31,8 @@ func atomicSwap(index int) types.AtomicSwap {
 	randomNumber, _ := types.GenerateSecureRandomNumber()
 	randomNumberHash := types.CalculateRandomHash(randomNumber[:], timestamp)
 
-	swap := types.NewAtomicSwap(cs(c("bnb", 50000)), randomNumberHash, expireOffset, timestamp, nemoAddrs[0],
-		nemoAddrs[1], binanceAddrs[0].String(), binanceAddrs[1].String(), 1, types.SWAP_STATUS_OPEN, true, types.SWAP_DIRECTION_INCOMING)
+	swap := types.NewAtomicSwap(cs(c("bnb", 50000)), randomNumberHash, expireOffset, timestamp, furyAddrs[0],
+		furyAddrs[1], binanceAddrs[0].String(), binanceAddrs[1].String(), 1, types.SWAP_STATUS_OPEN, true, types.SWAP_DIRECTION_INCOMING)
 
 	return swap
 }

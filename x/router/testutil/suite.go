@@ -18,11 +18,11 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	earnkeeper "github.com/incubus-network/nemo/x/earn/keeper"
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	"github.com/incubus-network/nemo/x/router/keeper"
-	savingstypes "github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/app"
+	earnkeeper "github.com/incubus-network/fury/x/earn/keeper"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	"github.com/incubus-network/fury/x/router/keeper"
+	savingstypes "github.com/incubus-network/fury/x/savings/types"
 )
 
 // Test suite used for all keeper tests

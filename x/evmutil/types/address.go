@@ -9,7 +9,7 @@ import (
 )
 
 // InternalEVMAddress is a type alias of common.Address to represent an address
-// on the Nemo EVM.
+// on the Fury EVM.
 type InternalEVMAddress struct {
 	common.Address
 }

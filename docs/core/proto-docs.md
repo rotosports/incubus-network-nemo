@@ -4,579 +4,579 @@
 
 ## Table of Contents
 
-- [nemo/auction/v1beta1/auction.proto](#nemo/auction/v1beta1/auction.proto)
-    - [BaseAuction](#nemo.auction.v1beta1.BaseAuction)
-    - [CollateralAuction](#nemo.auction.v1beta1.CollateralAuction)
-    - [DebtAuction](#nemo.auction.v1beta1.DebtAuction)
-    - [SurplusAuction](#nemo.auction.v1beta1.SurplusAuction)
-    - [WeightedAddresses](#nemo.auction.v1beta1.WeightedAddresses)
-  
-- [nemo/auction/v1beta1/genesis.proto](#nemo/auction/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.auction.v1beta1.GenesisState)
-    - [Params](#nemo.auction.v1beta1.Params)
-  
-- [nemo/auction/v1beta1/query.proto](#nemo/auction/v1beta1/query.proto)
-    - [QueryAuctionRequest](#nemo.auction.v1beta1.QueryAuctionRequest)
-    - [QueryAuctionResponse](#nemo.auction.v1beta1.QueryAuctionResponse)
-    - [QueryAuctionsRequest](#nemo.auction.v1beta1.QueryAuctionsRequest)
-    - [QueryAuctionsResponse](#nemo.auction.v1beta1.QueryAuctionsResponse)
-    - [QueryNextAuctionIDRequest](#nemo.auction.v1beta1.QueryNextAuctionIDRequest)
-    - [QueryNextAuctionIDResponse](#nemo.auction.v1beta1.QueryNextAuctionIDResponse)
-    - [QueryParamsRequest](#nemo.auction.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.auction.v1beta1.QueryParamsResponse)
-  
-    - [Query](#nemo.auction.v1beta1.Query)
-  
-- [nemo/auction/v1beta1/tx.proto](#nemo/auction/v1beta1/tx.proto)
-    - [MsgPlaceBid](#nemo.auction.v1beta1.MsgPlaceBid)
-    - [MsgPlaceBidResponse](#nemo.auction.v1beta1.MsgPlaceBidResponse)
-  
-    - [Msg](#nemo.auction.v1beta1.Msg)
-  
-- [nemo/bep3/v1beta1/bep3.proto](#nemo/bep3/v1beta1/bep3.proto)
-    - [AssetParam](#nemo.bep3.v1beta1.AssetParam)
-    - [AssetSupply](#nemo.bep3.v1beta1.AssetSupply)
-    - [AtomicSwap](#nemo.bep3.v1beta1.AtomicSwap)
-    - [Params](#nemo.bep3.v1beta1.Params)
-    - [SupplyLimit](#nemo.bep3.v1beta1.SupplyLimit)
-  
-    - [SwapDirection](#nemo.bep3.v1beta1.SwapDirection)
-    - [SwapStatus](#nemo.bep3.v1beta1.SwapStatus)
-  
-- [nemo/bep3/v1beta1/genesis.proto](#nemo/bep3/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.bep3.v1beta1.GenesisState)
-  
-- [nemo/bep3/v1beta1/query.proto](#nemo/bep3/v1beta1/query.proto)
-    - [AssetSupplyResponse](#nemo.bep3.v1beta1.AssetSupplyResponse)
-    - [AtomicSwapResponse](#nemo.bep3.v1beta1.AtomicSwapResponse)
-    - [QueryAssetSuppliesRequest](#nemo.bep3.v1beta1.QueryAssetSuppliesRequest)
-    - [QueryAssetSuppliesResponse](#nemo.bep3.v1beta1.QueryAssetSuppliesResponse)
-    - [QueryAssetSupplyRequest](#nemo.bep3.v1beta1.QueryAssetSupplyRequest)
-    - [QueryAssetSupplyResponse](#nemo.bep3.v1beta1.QueryAssetSupplyResponse)
-    - [QueryAtomicSwapRequest](#nemo.bep3.v1beta1.QueryAtomicSwapRequest)
-    - [QueryAtomicSwapResponse](#nemo.bep3.v1beta1.QueryAtomicSwapResponse)
-    - [QueryAtomicSwapsRequest](#nemo.bep3.v1beta1.QueryAtomicSwapsRequest)
-    - [QueryAtomicSwapsResponse](#nemo.bep3.v1beta1.QueryAtomicSwapsResponse)
-    - [QueryParamsRequest](#nemo.bep3.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.bep3.v1beta1.QueryParamsResponse)
-  
-    - [Query](#nemo.bep3.v1beta1.Query)
-  
-- [nemo/bep3/v1beta1/tx.proto](#nemo/bep3/v1beta1/tx.proto)
-    - [MsgClaimAtomicSwap](#nemo.bep3.v1beta1.MsgClaimAtomicSwap)
-    - [MsgClaimAtomicSwapResponse](#nemo.bep3.v1beta1.MsgClaimAtomicSwapResponse)
-    - [MsgCreateAtomicSwap](#nemo.bep3.v1beta1.MsgCreateAtomicSwap)
-    - [MsgCreateAtomicSwapResponse](#nemo.bep3.v1beta1.MsgCreateAtomicSwapResponse)
-    - [MsgRefundAtomicSwap](#nemo.bep3.v1beta1.MsgRefundAtomicSwap)
-    - [MsgRefundAtomicSwapResponse](#nemo.bep3.v1beta1.MsgRefundAtomicSwapResponse)
-  
-    - [Msg](#nemo.bep3.v1beta1.Msg)
-  
-- [nemo/cdp/v1beta1/cdp.proto](#nemo/cdp/v1beta1/cdp.proto)
-    - [CDP](#nemo.cdp.v1beta1.CDP)
-    - [Deposit](#nemo.cdp.v1beta1.Deposit)
-    - [OwnerCDPIndex](#nemo.cdp.v1beta1.OwnerCDPIndex)
-    - [TotalCollateral](#nemo.cdp.v1beta1.TotalCollateral)
-    - [TotalPrincipal](#nemo.cdp.v1beta1.TotalPrincipal)
-  
-- [nemo/cdp/v1beta1/genesis.proto](#nemo/cdp/v1beta1/genesis.proto)
-    - [CollateralParam](#nemo.cdp.v1beta1.CollateralParam)
-    - [DebtParam](#nemo.cdp.v1beta1.DebtParam)
-    - [GenesisAccumulationTime](#nemo.cdp.v1beta1.GenesisAccumulationTime)
-    - [GenesisState](#nemo.cdp.v1beta1.GenesisState)
-    - [GenesisTotalPrincipal](#nemo.cdp.v1beta1.GenesisTotalPrincipal)
-    - [Params](#nemo.cdp.v1beta1.Params)
-  
-- [nemo/cdp/v1beta1/query.proto](#nemo/cdp/v1beta1/query.proto)
-    - [CDPResponse](#nemo.cdp.v1beta1.CDPResponse)
-    - [QueryAccountsRequest](#nemo.cdp.v1beta1.QueryAccountsRequest)
-    - [QueryAccountsResponse](#nemo.cdp.v1beta1.QueryAccountsResponse)
-    - [QueryCdpRequest](#nemo.cdp.v1beta1.QueryCdpRequest)
-    - [QueryCdpResponse](#nemo.cdp.v1beta1.QueryCdpResponse)
-    - [QueryCdpsRequest](#nemo.cdp.v1beta1.QueryCdpsRequest)
-    - [QueryCdpsResponse](#nemo.cdp.v1beta1.QueryCdpsResponse)
-    - [QueryDepositsRequest](#nemo.cdp.v1beta1.QueryDepositsRequest)
-    - [QueryDepositsResponse](#nemo.cdp.v1beta1.QueryDepositsResponse)
-    - [QueryParamsRequest](#nemo.cdp.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.cdp.v1beta1.QueryParamsResponse)
-    - [QueryTotalCollateralRequest](#nemo.cdp.v1beta1.QueryTotalCollateralRequest)
-    - [QueryTotalCollateralResponse](#nemo.cdp.v1beta1.QueryTotalCollateralResponse)
-    - [QueryTotalPrincipalRequest](#nemo.cdp.v1beta1.QueryTotalPrincipalRequest)
-    - [QueryTotalPrincipalResponse](#nemo.cdp.v1beta1.QueryTotalPrincipalResponse)
-  
-    - [Query](#nemo.cdp.v1beta1.Query)
-  
-- [nemo/cdp/v1beta1/tx.proto](#nemo/cdp/v1beta1/tx.proto)
-    - [MsgCreateCDP](#nemo.cdp.v1beta1.MsgCreateCDP)
-    - [MsgCreateCDPResponse](#nemo.cdp.v1beta1.MsgCreateCDPResponse)
-    - [MsgDeposit](#nemo.cdp.v1beta1.MsgDeposit)
-    - [MsgDepositResponse](#nemo.cdp.v1beta1.MsgDepositResponse)
-    - [MsgDrawDebt](#nemo.cdp.v1beta1.MsgDrawDebt)
-    - [MsgDrawDebtResponse](#nemo.cdp.v1beta1.MsgDrawDebtResponse)
-    - [MsgLiquidate](#nemo.cdp.v1beta1.MsgLiquidate)
-    - [MsgLiquidateResponse](#nemo.cdp.v1beta1.MsgLiquidateResponse)
-    - [MsgRepayDebt](#nemo.cdp.v1beta1.MsgRepayDebt)
-    - [MsgRepayDebtResponse](#nemo.cdp.v1beta1.MsgRepayDebtResponse)
-    - [MsgWithdraw](#nemo.cdp.v1beta1.MsgWithdraw)
-    - [MsgWithdrawResponse](#nemo.cdp.v1beta1.MsgWithdrawResponse)
-  
-    - [Msg](#nemo.cdp.v1beta1.Msg)
-  
-- [nemo/committee/v1beta1/committee.proto](#nemo/committee/v1beta1/committee.proto)
-    - [BaseCommittee](#nemo.committee.v1beta1.BaseCommittee)
-    - [MemberCommittee](#nemo.committee.v1beta1.MemberCommittee)
-    - [TokenCommittee](#nemo.committee.v1beta1.TokenCommittee)
-  
-    - [TallyOption](#nemo.committee.v1beta1.TallyOption)
-  
-- [nemo/committee/v1beta1/genesis.proto](#nemo/committee/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.committee.v1beta1.GenesisState)
-    - [Proposal](#nemo.committee.v1beta1.Proposal)
-    - [Vote](#nemo.committee.v1beta1.Vote)
-  
-    - [VoteType](#nemo.committee.v1beta1.VoteType)
-  
-- [nemo/committee/v1beta1/permissions.proto](#nemo/committee/v1beta1/permissions.proto)
-    - [AllowedParamsChange](#nemo.committee.v1beta1.AllowedParamsChange)
-    - [CommunityCDPRepayDebtPermission](#nemo.committee.v1beta1.CommunityCDPRepayDebtPermission)
-    - [CommunityCDPWithdrawCollateralPermission](#nemo.committee.v1beta1.CommunityCDPWithdrawCollateralPermission)
-    - [CommunityPoolLendWithdrawPermission](#nemo.committee.v1beta1.CommunityPoolLendWithdrawPermission)
-    - [GodPermission](#nemo.committee.v1beta1.GodPermission)
-    - [ParamsChangePermission](#nemo.committee.v1beta1.ParamsChangePermission)
-    - [SoftwareUpgradePermission](#nemo.committee.v1beta1.SoftwareUpgradePermission)
-    - [SubparamRequirement](#nemo.committee.v1beta1.SubparamRequirement)
-    - [TextPermission](#nemo.committee.v1beta1.TextPermission)
-  
-- [nemo/committee/v1beta1/proposal.proto](#nemo/committee/v1beta1/proposal.proto)
-    - [CommitteeChangeProposal](#nemo.committee.v1beta1.CommitteeChangeProposal)
-    - [CommitteeDeleteProposal](#nemo.committee.v1beta1.CommitteeDeleteProposal)
-  
-- [nemo/committee/v1beta1/query.proto](#nemo/committee/v1beta1/query.proto)
-    - [QueryCommitteeRequest](#nemo.committee.v1beta1.QueryCommitteeRequest)
-    - [QueryCommitteeResponse](#nemo.committee.v1beta1.QueryCommitteeResponse)
-    - [QueryCommitteesRequest](#nemo.committee.v1beta1.QueryCommitteesRequest)
-    - [QueryCommitteesResponse](#nemo.committee.v1beta1.QueryCommitteesResponse)
-    - [QueryNextProposalIDRequest](#nemo.committee.v1beta1.QueryNextProposalIDRequest)
-    - [QueryNextProposalIDResponse](#nemo.committee.v1beta1.QueryNextProposalIDResponse)
-    - [QueryProposalRequest](#nemo.committee.v1beta1.QueryProposalRequest)
-    - [QueryProposalResponse](#nemo.committee.v1beta1.QueryProposalResponse)
-    - [QueryProposalsRequest](#nemo.committee.v1beta1.QueryProposalsRequest)
-    - [QueryProposalsResponse](#nemo.committee.v1beta1.QueryProposalsResponse)
-    - [QueryRawParamsRequest](#nemo.committee.v1beta1.QueryRawParamsRequest)
-    - [QueryRawParamsResponse](#nemo.committee.v1beta1.QueryRawParamsResponse)
-    - [QueryTallyRequest](#nemo.committee.v1beta1.QueryTallyRequest)
-    - [QueryTallyResponse](#nemo.committee.v1beta1.QueryTallyResponse)
-    - [QueryVoteRequest](#nemo.committee.v1beta1.QueryVoteRequest)
-    - [QueryVoteResponse](#nemo.committee.v1beta1.QueryVoteResponse)
-    - [QueryVotesRequest](#nemo.committee.v1beta1.QueryVotesRequest)
-    - [QueryVotesResponse](#nemo.committee.v1beta1.QueryVotesResponse)
-  
-    - [Query](#nemo.committee.v1beta1.Query)
-  
-- [nemo/committee/v1beta1/tx.proto](#nemo/committee/v1beta1/tx.proto)
-    - [MsgSubmitProposal](#nemo.committee.v1beta1.MsgSubmitProposal)
-    - [MsgSubmitProposalResponse](#nemo.committee.v1beta1.MsgSubmitProposalResponse)
-    - [MsgVote](#nemo.committee.v1beta1.MsgVote)
-    - [MsgVoteResponse](#nemo.committee.v1beta1.MsgVoteResponse)
-  
-    - [Msg](#nemo.committee.v1beta1.Msg)
-  
-- [nemo/community/v1beta1/proposal.proto](#nemo/community/v1beta1/proposal.proto)
-    - [CommunityCDPRepayDebtProposal](#nemo.community.v1beta1.CommunityCDPRepayDebtProposal)
-    - [CommunityCDPWithdrawCollateralProposal](#nemo.community.v1beta1.CommunityCDPWithdrawCollateralProposal)
-    - [CommunityPoolLendDepositProposal](#nemo.community.v1beta1.CommunityPoolLendDepositProposal)
-    - [CommunityPoolLendWithdrawProposal](#nemo.community.v1beta1.CommunityPoolLendWithdrawProposal)
-  
-- [nemo/community/v1beta1/query.proto](#nemo/community/v1beta1/query.proto)
-    - [QueryBalanceRequest](#nemo.community.v1beta1.QueryBalanceRequest)
-    - [QueryBalanceResponse](#nemo.community.v1beta1.QueryBalanceResponse)
-    - [QueryTotalBalanceRequest](#nemo.community.v1beta1.QueryTotalBalanceRequest)
-    - [QueryTotalBalanceResponse](#nemo.community.v1beta1.QueryTotalBalanceResponse)
-  
-    - [Query](#nemo.community.v1beta1.Query)
-  
-- [nemo/community/v1beta1/tx.proto](#nemo/community/v1beta1/tx.proto)
-    - [MsgFundCommunityPool](#nemo.community.v1beta1.MsgFundCommunityPool)
-    - [MsgFundCommunityPoolResponse](#nemo.community.v1beta1.MsgFundCommunityPoolResponse)
-  
-    - [Msg](#nemo.community.v1beta1.Msg)
-  
-- [nemo/earn/v1beta1/strategy.proto](#nemo/earn/v1beta1/strategy.proto)
-    - [StrategyType](#nemo.earn.v1beta1.StrategyType)
-  
-- [nemo/earn/v1beta1/vault.proto](#nemo/earn/v1beta1/vault.proto)
-    - [AllowedVault](#nemo.earn.v1beta1.AllowedVault)
-    - [VaultRecord](#nemo.earn.v1beta1.VaultRecord)
-    - [VaultShare](#nemo.earn.v1beta1.VaultShare)
-    - [VaultShareRecord](#nemo.earn.v1beta1.VaultShareRecord)
-  
-- [nemo/earn/v1beta1/params.proto](#nemo/earn/v1beta1/params.proto)
-    - [Params](#nemo.earn.v1beta1.Params)
-  
-- [nemo/earn/v1beta1/genesis.proto](#nemo/earn/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.earn.v1beta1.GenesisState)
-  
-- [nemo/earn/v1beta1/proposal.proto](#nemo/earn/v1beta1/proposal.proto)
-    - [CommunityPoolDepositProposal](#nemo.earn.v1beta1.CommunityPoolDepositProposal)
-    - [CommunityPoolDepositProposalJSON](#nemo.earn.v1beta1.CommunityPoolDepositProposalJSON)
-    - [CommunityPoolWithdrawProposal](#nemo.earn.v1beta1.CommunityPoolWithdrawProposal)
-    - [CommunityPoolWithdrawProposalJSON](#nemo.earn.v1beta1.CommunityPoolWithdrawProposalJSON)
-  
-- [nemo/earn/v1beta1/query.proto](#nemo/earn/v1beta1/query.proto)
-    - [DepositResponse](#nemo.earn.v1beta1.DepositResponse)
-    - [QueryDepositsRequest](#nemo.earn.v1beta1.QueryDepositsRequest)
-    - [QueryDepositsResponse](#nemo.earn.v1beta1.QueryDepositsResponse)
-    - [QueryParamsRequest](#nemo.earn.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.earn.v1beta1.QueryParamsResponse)
-    - [QueryTotalSupplyRequest](#nemo.earn.v1beta1.QueryTotalSupplyRequest)
-    - [QueryTotalSupplyResponse](#nemo.earn.v1beta1.QueryTotalSupplyResponse)
-    - [QueryVaultRequest](#nemo.earn.v1beta1.QueryVaultRequest)
-    - [QueryVaultResponse](#nemo.earn.v1beta1.QueryVaultResponse)
-    - [QueryVaultsRequest](#nemo.earn.v1beta1.QueryVaultsRequest)
-    - [QueryVaultsResponse](#nemo.earn.v1beta1.QueryVaultsResponse)
-    - [VaultResponse](#nemo.earn.v1beta1.VaultResponse)
-  
-    - [Query](#nemo.earn.v1beta1.Query)
-  
-- [nemo/earn/v1beta1/tx.proto](#nemo/earn/v1beta1/tx.proto)
-    - [MsgDeposit](#nemo.earn.v1beta1.MsgDeposit)
-    - [MsgDepositResponse](#nemo.earn.v1beta1.MsgDepositResponse)
-    - [MsgWithdraw](#nemo.earn.v1beta1.MsgWithdraw)
-    - [MsgWithdrawResponse](#nemo.earn.v1beta1.MsgWithdrawResponse)
-  
-    - [Msg](#nemo.earn.v1beta1.Msg)
-  
-- [nemo/evmutil/v1beta1/conversion_pair.proto](#nemo/evmutil/v1beta1/conversion_pair.proto)
-    - [AllowedCosmosCoinERC20Token](#nemo.evmutil.v1beta1.AllowedCosmosCoinERC20Token)
-    - [ConversionPair](#nemo.evmutil.v1beta1.ConversionPair)
-  
-- [nemo/evmutil/v1beta1/genesis.proto](#nemo/evmutil/v1beta1/genesis.proto)
-    - [Account](#nemo.evmutil.v1beta1.Account)
-    - [GenesisState](#nemo.evmutil.v1beta1.GenesisState)
-    - [Params](#nemo.evmutil.v1beta1.Params)
-  
-- [nemo/evmutil/v1beta1/query.proto](#nemo/evmutil/v1beta1/query.proto)
-    - [DeployedCosmosCoinContract](#nemo.evmutil.v1beta1.DeployedCosmosCoinContract)
-    - [QueryDeployedCosmosCoinContractsRequest](#nemo.evmutil.v1beta1.QueryDeployedCosmosCoinContractsRequest)
-    - [QueryDeployedCosmosCoinContractsResponse](#nemo.evmutil.v1beta1.QueryDeployedCosmosCoinContractsResponse)
-    - [QueryParamsRequest](#nemo.evmutil.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.evmutil.v1beta1.QueryParamsResponse)
-  
-    - [Query](#nemo.evmutil.v1beta1.Query)
-  
-- [nemo/evmutil/v1beta1/tx.proto](#nemo/evmutil/v1beta1/tx.proto)
-    - [MsgConvertCoinToERC20](#nemo.evmutil.v1beta1.MsgConvertCoinToERC20)
-    - [MsgConvertCoinToERC20Response](#nemo.evmutil.v1beta1.MsgConvertCoinToERC20Response)
-    - [MsgConvertCosmosCoinFromERC20](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20)
-    - [MsgConvertCosmosCoinFromERC20Response](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20Response)
-    - [MsgConvertCosmosCoinToERC20](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinToERC20)
-    - [MsgConvertCosmosCoinToERC20Response](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinToERC20Response)
-    - [MsgConvertERC20ToCoin](#nemo.evmutil.v1beta1.MsgConvertERC20ToCoin)
-    - [MsgConvertERC20ToCoinResponse](#nemo.evmutil.v1beta1.MsgConvertERC20ToCoinResponse)
-  
-    - [Msg](#nemo.evmutil.v1beta1.Msg)
-  
-- [nemo/hard/v1beta1/hard.proto](#nemo/hard/v1beta1/hard.proto)
-    - [Borrow](#nemo.hard.v1beta1.Borrow)
-    - [BorrowInterestFactor](#nemo.hard.v1beta1.BorrowInterestFactor)
-    - [BorrowLimit](#nemo.hard.v1beta1.BorrowLimit)
-    - [CoinsProto](#nemo.hard.v1beta1.CoinsProto)
-    - [Deposit](#nemo.hard.v1beta1.Deposit)
-    - [InterestRateModel](#nemo.hard.v1beta1.InterestRateModel)
-    - [MoneyMarket](#nemo.hard.v1beta1.MoneyMarket)
-    - [Params](#nemo.hard.v1beta1.Params)
-    - [SupplyInterestFactor](#nemo.hard.v1beta1.SupplyInterestFactor)
-  
-- [nemo/hard/v1beta1/genesis.proto](#nemo/hard/v1beta1/genesis.proto)
-    - [GenesisAccumulationTime](#nemo.hard.v1beta1.GenesisAccumulationTime)
-    - [GenesisState](#nemo.hard.v1beta1.GenesisState)
-  
-- [nemo/hard/v1beta1/query.proto](#nemo/hard/v1beta1/query.proto)
-    - [BorrowInterestFactorResponse](#nemo.hard.v1beta1.BorrowInterestFactorResponse)
-    - [BorrowResponse](#nemo.hard.v1beta1.BorrowResponse)
-    - [DepositResponse](#nemo.hard.v1beta1.DepositResponse)
-    - [InterestFactor](#nemo.hard.v1beta1.InterestFactor)
-    - [MoneyMarketInterestRate](#nemo.hard.v1beta1.MoneyMarketInterestRate)
-    - [QueryAccountsRequest](#nemo.hard.v1beta1.QueryAccountsRequest)
-    - [QueryAccountsResponse](#nemo.hard.v1beta1.QueryAccountsResponse)
-    - [QueryBorrowsRequest](#nemo.hard.v1beta1.QueryBorrowsRequest)
-    - [QueryBorrowsResponse](#nemo.hard.v1beta1.QueryBorrowsResponse)
-    - [QueryDepositsRequest](#nemo.hard.v1beta1.QueryDepositsRequest)
-    - [QueryDepositsResponse](#nemo.hard.v1beta1.QueryDepositsResponse)
-    - [QueryInterestFactorsRequest](#nemo.hard.v1beta1.QueryInterestFactorsRequest)
-    - [QueryInterestFactorsResponse](#nemo.hard.v1beta1.QueryInterestFactorsResponse)
-    - [QueryInterestRateRequest](#nemo.hard.v1beta1.QueryInterestRateRequest)
-    - [QueryInterestRateResponse](#nemo.hard.v1beta1.QueryInterestRateResponse)
-    - [QueryParamsRequest](#nemo.hard.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.hard.v1beta1.QueryParamsResponse)
-    - [QueryReservesRequest](#nemo.hard.v1beta1.QueryReservesRequest)
-    - [QueryReservesResponse](#nemo.hard.v1beta1.QueryReservesResponse)
-    - [QueryTotalBorrowedRequest](#nemo.hard.v1beta1.QueryTotalBorrowedRequest)
-    - [QueryTotalBorrowedResponse](#nemo.hard.v1beta1.QueryTotalBorrowedResponse)
-    - [QueryTotalDepositedRequest](#nemo.hard.v1beta1.QueryTotalDepositedRequest)
-    - [QueryTotalDepositedResponse](#nemo.hard.v1beta1.QueryTotalDepositedResponse)
-    - [QueryUnsyncedBorrowsRequest](#nemo.hard.v1beta1.QueryUnsyncedBorrowsRequest)
-    - [QueryUnsyncedBorrowsResponse](#nemo.hard.v1beta1.QueryUnsyncedBorrowsResponse)
-    - [QueryUnsyncedDepositsRequest](#nemo.hard.v1beta1.QueryUnsyncedDepositsRequest)
-    - [QueryUnsyncedDepositsResponse](#nemo.hard.v1beta1.QueryUnsyncedDepositsResponse)
-    - [SupplyInterestFactorResponse](#nemo.hard.v1beta1.SupplyInterestFactorResponse)
-  
-    - [Query](#nemo.hard.v1beta1.Query)
-  
-- [nemo/hard/v1beta1/tx.proto](#nemo/hard/v1beta1/tx.proto)
-    - [MsgBorrow](#nemo.hard.v1beta1.MsgBorrow)
-    - [MsgBorrowResponse](#nemo.hard.v1beta1.MsgBorrowResponse)
-    - [MsgDeposit](#nemo.hard.v1beta1.MsgDeposit)
-    - [MsgDepositResponse](#nemo.hard.v1beta1.MsgDepositResponse)
-    - [MsgLiquidate](#nemo.hard.v1beta1.MsgLiquidate)
-    - [MsgLiquidateResponse](#nemo.hard.v1beta1.MsgLiquidateResponse)
-    - [MsgRepay](#nemo.hard.v1beta1.MsgRepay)
-    - [MsgRepayResponse](#nemo.hard.v1beta1.MsgRepayResponse)
-    - [MsgWithdraw](#nemo.hard.v1beta1.MsgWithdraw)
-    - [MsgWithdrawResponse](#nemo.hard.v1beta1.MsgWithdrawResponse)
-  
-    - [Msg](#nemo.hard.v1beta1.Msg)
-  
-- [nemo/incentive/v1beta1/apy.proto](#nemo/incentive/v1beta1/apy.proto)
-    - [Apy](#nemo.incentive.v1beta1.Apy)
-  
-- [nemo/incentive/v1beta1/claims.proto](#nemo/incentive/v1beta1/claims.proto)
-    - [BaseClaim](#nemo.incentive.v1beta1.BaseClaim)
-    - [BaseMultiClaim](#nemo.incentive.v1beta1.BaseMultiClaim)
-    - [DelegatorClaim](#nemo.incentive.v1beta1.DelegatorClaim)
-    - [EarnClaim](#nemo.incentive.v1beta1.EarnClaim)
-    - [HardLiquidityProviderClaim](#nemo.incentive.v1beta1.HardLiquidityProviderClaim)
-    - [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex)
-    - [MultiRewardIndexesProto](#nemo.incentive.v1beta1.MultiRewardIndexesProto)
-    - [RewardIndex](#nemo.incentive.v1beta1.RewardIndex)
-    - [RewardIndexesProto](#nemo.incentive.v1beta1.RewardIndexesProto)
-    - [SavingsClaim](#nemo.incentive.v1beta1.SavingsClaim)
-    - [SwapClaim](#nemo.incentive.v1beta1.SwapClaim)
-    - [USDXMintingClaim](#nemo.incentive.v1beta1.USDXMintingClaim)
-  
-- [nemo/incentive/v1beta1/params.proto](#nemo/incentive/v1beta1/params.proto)
-    - [MultiRewardPeriod](#nemo.incentive.v1beta1.MultiRewardPeriod)
-    - [Multiplier](#nemo.incentive.v1beta1.Multiplier)
-    - [MultipliersPerDenom](#nemo.incentive.v1beta1.MultipliersPerDenom)
-    - [Params](#nemo.incentive.v1beta1.Params)
-    - [RewardPeriod](#nemo.incentive.v1beta1.RewardPeriod)
-  
-- [nemo/incentive/v1beta1/genesis.proto](#nemo/incentive/v1beta1/genesis.proto)
-    - [AccumulationTime](#nemo.incentive.v1beta1.AccumulationTime)
-    - [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState)
-    - [GenesisState](#nemo.incentive.v1beta1.GenesisState)
-  
-- [nemo/incentive/v1beta1/query.proto](#nemo/incentive/v1beta1/query.proto)
-    - [QueryApyRequest](#nemo.incentive.v1beta1.QueryApyRequest)
-    - [QueryApyResponse](#nemo.incentive.v1beta1.QueryApyResponse)
-    - [QueryParamsRequest](#nemo.incentive.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.incentive.v1beta1.QueryParamsResponse)
-    - [QueryRewardFactorsRequest](#nemo.incentive.v1beta1.QueryRewardFactorsRequest)
-    - [QueryRewardFactorsResponse](#nemo.incentive.v1beta1.QueryRewardFactorsResponse)
-    - [QueryRewardsRequest](#nemo.incentive.v1beta1.QueryRewardsRequest)
-    - [QueryRewardsResponse](#nemo.incentive.v1beta1.QueryRewardsResponse)
-  
-    - [Query](#nemo.incentive.v1beta1.Query)
-  
-- [nemo/incentive/v1beta1/tx.proto](#nemo/incentive/v1beta1/tx.proto)
-    - [MsgClaimDelegatorReward](#nemo.incentive.v1beta1.MsgClaimDelegatorReward)
-    - [MsgClaimDelegatorRewardResponse](#nemo.incentive.v1beta1.MsgClaimDelegatorRewardResponse)
-    - [MsgClaimEarnReward](#nemo.incentive.v1beta1.MsgClaimEarnReward)
-    - [MsgClaimEarnRewardResponse](#nemo.incentive.v1beta1.MsgClaimEarnRewardResponse)
-    - [MsgClaimHardReward](#nemo.incentive.v1beta1.MsgClaimHardReward)
-    - [MsgClaimHardRewardResponse](#nemo.incentive.v1beta1.MsgClaimHardRewardResponse)
-    - [MsgClaimSavingsReward](#nemo.incentive.v1beta1.MsgClaimSavingsReward)
-    - [MsgClaimSavingsRewardResponse](#nemo.incentive.v1beta1.MsgClaimSavingsRewardResponse)
-    - [MsgClaimSwapReward](#nemo.incentive.v1beta1.MsgClaimSwapReward)
-    - [MsgClaimSwapRewardResponse](#nemo.incentive.v1beta1.MsgClaimSwapRewardResponse)
-    - [MsgClaimUSDXMintingReward](#nemo.incentive.v1beta1.MsgClaimUSDXMintingReward)
-    - [MsgClaimUSDXMintingRewardResponse](#nemo.incentive.v1beta1.MsgClaimUSDXMintingRewardResponse)
-    - [Selection](#nemo.incentive.v1beta1.Selection)
-  
-    - [Msg](#nemo.incentive.v1beta1.Msg)
-  
-- [nemo/issuance/v1beta1/genesis.proto](#nemo/issuance/v1beta1/genesis.proto)
-    - [Asset](#nemo.issuance.v1beta1.Asset)
-    - [AssetSupply](#nemo.issuance.v1beta1.AssetSupply)
-    - [GenesisState](#nemo.issuance.v1beta1.GenesisState)
-    - [Params](#nemo.issuance.v1beta1.Params)
-    - [RateLimit](#nemo.issuance.v1beta1.RateLimit)
-  
-- [nemo/issuance/v1beta1/query.proto](#nemo/issuance/v1beta1/query.proto)
-    - [QueryParamsRequest](#nemo.issuance.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.issuance.v1beta1.QueryParamsResponse)
-  
-    - [Query](#nemo.issuance.v1beta1.Query)
-  
-- [nemo/issuance/v1beta1/tx.proto](#nemo/issuance/v1beta1/tx.proto)
-    - [MsgBlockAddress](#nemo.issuance.v1beta1.MsgBlockAddress)
-    - [MsgBlockAddressResponse](#nemo.issuance.v1beta1.MsgBlockAddressResponse)
-    - [MsgIssueTokens](#nemo.issuance.v1beta1.MsgIssueTokens)
-    - [MsgIssueTokensResponse](#nemo.issuance.v1beta1.MsgIssueTokensResponse)
-    - [MsgRedeemTokens](#nemo.issuance.v1beta1.MsgRedeemTokens)
-    - [MsgRedeemTokensResponse](#nemo.issuance.v1beta1.MsgRedeemTokensResponse)
-    - [MsgSetPauseStatus](#nemo.issuance.v1beta1.MsgSetPauseStatus)
-    - [MsgSetPauseStatusResponse](#nemo.issuance.v1beta1.MsgSetPauseStatusResponse)
-    - [MsgUnblockAddress](#nemo.issuance.v1beta1.MsgUnblockAddress)
-    - [MsgUnblockAddressResponse](#nemo.issuance.v1beta1.MsgUnblockAddressResponse)
-  
-    - [Msg](#nemo.issuance.v1beta1.Msg)
-  
-- [nemo/liquid/v1beta1/query.proto](#nemo/liquid/v1beta1/query.proto)
-    - [QueryDelegatedBalanceRequest](#nemo.liquid.v1beta1.QueryDelegatedBalanceRequest)
-    - [QueryDelegatedBalanceResponse](#nemo.liquid.v1beta1.QueryDelegatedBalanceResponse)
-    - [QueryTotalSupplyRequest](#nemo.liquid.v1beta1.QueryTotalSupplyRequest)
-    - [QueryTotalSupplyResponse](#nemo.liquid.v1beta1.QueryTotalSupplyResponse)
-  
-    - [Query](#nemo.liquid.v1beta1.Query)
-  
-- [nemo/liquid/v1beta1/tx.proto](#nemo/liquid/v1beta1/tx.proto)
-    - [MsgBurnDerivative](#nemo.liquid.v1beta1.MsgBurnDerivative)
-    - [MsgBurnDerivativeResponse](#nemo.liquid.v1beta1.MsgBurnDerivativeResponse)
-    - [MsgMintDerivative](#nemo.liquid.v1beta1.MsgMintDerivative)
-    - [MsgMintDerivativeResponse](#nemo.liquid.v1beta1.MsgMintDerivativeResponse)
-  
-    - [Msg](#nemo.liquid.v1beta1.Msg)
-  
-- [nemo/nemodist/v1beta1/params.proto](#nemo/nemodist/v1beta1/params.proto)
-    - [CoreReward](#nemo.nemodist.v1beta1.CoreReward)
-    - [InfrastructureParams](#nemo.nemodist.v1beta1.InfrastructureParams)
-    - [Params](#nemo.nemodist.v1beta1.Params)
-    - [PartnerReward](#nemo.nemodist.v1beta1.PartnerReward)
-    - [Period](#nemo.nemodist.v1beta1.Period)
-  
-- [nemo/nemodist/v1beta1/genesis.proto](#nemo/nemodist/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.nemodist.v1beta1.GenesisState)
-  
-- [nemo/nemodist/v1beta1/proposal.proto](#nemo/nemodist/v1beta1/proposal.proto)
-    - [CommunityPoolMultiSpendProposal](#nemo.nemodist.v1beta1.CommunityPoolMultiSpendProposal)
-    - [CommunityPoolMultiSpendProposalJSON](#nemo.nemodist.v1beta1.CommunityPoolMultiSpendProposalJSON)
-    - [MultiSpendRecipient](#nemo.nemodist.v1beta1.MultiSpendRecipient)
-  
-- [nemo/nemodist/v1beta1/query.proto](#nemo/nemodist/v1beta1/query.proto)
-    - [QueryBalanceRequest](#nemo.nemodist.v1beta1.QueryBalanceRequest)
-    - [QueryBalanceResponse](#nemo.nemodist.v1beta1.QueryBalanceResponse)
-    - [QueryParamsRequest](#nemo.nemodist.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.nemodist.v1beta1.QueryParamsResponse)
-  
-    - [Query](#nemo.nemodist.v1beta1.Query)
-  
-- [nemo/pricefeed/v1beta1/store.proto](#nemo/pricefeed/v1beta1/store.proto)
-    - [CurrentPrice](#nemo.pricefeed.v1beta1.CurrentPrice)
-    - [Market](#nemo.pricefeed.v1beta1.Market)
-    - [Params](#nemo.pricefeed.v1beta1.Params)
-    - [PostedPrice](#nemo.pricefeed.v1beta1.PostedPrice)
-  
-- [nemo/pricefeed/v1beta1/genesis.proto](#nemo/pricefeed/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.pricefeed.v1beta1.GenesisState)
-  
-- [nemo/pricefeed/v1beta1/query.proto](#nemo/pricefeed/v1beta1/query.proto)
-    - [CurrentPriceResponse](#nemo.pricefeed.v1beta1.CurrentPriceResponse)
-    - [MarketResponse](#nemo.pricefeed.v1beta1.MarketResponse)
-    - [PostedPriceResponse](#nemo.pricefeed.v1beta1.PostedPriceResponse)
-    - [QueryMarketsRequest](#nemo.pricefeed.v1beta1.QueryMarketsRequest)
-    - [QueryMarketsResponse](#nemo.pricefeed.v1beta1.QueryMarketsResponse)
-    - [QueryOraclesRequest](#nemo.pricefeed.v1beta1.QueryOraclesRequest)
-    - [QueryOraclesResponse](#nemo.pricefeed.v1beta1.QueryOraclesResponse)
-    - [QueryParamsRequest](#nemo.pricefeed.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.pricefeed.v1beta1.QueryParamsResponse)
-    - [QueryPriceRequest](#nemo.pricefeed.v1beta1.QueryPriceRequest)
-    - [QueryPriceResponse](#nemo.pricefeed.v1beta1.QueryPriceResponse)
-    - [QueryPricesRequest](#nemo.pricefeed.v1beta1.QueryPricesRequest)
-    - [QueryPricesResponse](#nemo.pricefeed.v1beta1.QueryPricesResponse)
-    - [QueryRawPricesRequest](#nemo.pricefeed.v1beta1.QueryRawPricesRequest)
-    - [QueryRawPricesResponse](#nemo.pricefeed.v1beta1.QueryRawPricesResponse)
-  
-    - [Query](#nemo.pricefeed.v1beta1.Query)
-  
-- [nemo/pricefeed/v1beta1/tx.proto](#nemo/pricefeed/v1beta1/tx.proto)
-    - [MsgPostPrice](#nemo.pricefeed.v1beta1.MsgPostPrice)
-    - [MsgPostPriceResponse](#nemo.pricefeed.v1beta1.MsgPostPriceResponse)
-  
-    - [Msg](#nemo.pricefeed.v1beta1.Msg)
-  
-- [nemo/router/v1beta1/tx.proto](#nemo/router/v1beta1/tx.proto)
-    - [MsgDelegateMintDeposit](#nemo.router.v1beta1.MsgDelegateMintDeposit)
-    - [MsgDelegateMintDepositResponse](#nemo.router.v1beta1.MsgDelegateMintDepositResponse)
-    - [MsgMintDeposit](#nemo.router.v1beta1.MsgMintDeposit)
-    - [MsgMintDepositResponse](#nemo.router.v1beta1.MsgMintDepositResponse)
-    - [MsgWithdrawBurn](#nemo.router.v1beta1.MsgWithdrawBurn)
-    - [MsgWithdrawBurnResponse](#nemo.router.v1beta1.MsgWithdrawBurnResponse)
-    - [MsgWithdrawBurnUndelegate](#nemo.router.v1beta1.MsgWithdrawBurnUndelegate)
-    - [MsgWithdrawBurnUndelegateResponse](#nemo.router.v1beta1.MsgWithdrawBurnUndelegateResponse)
-  
-    - [Msg](#nemo.router.v1beta1.Msg)
-  
-- [nemo/savings/v1beta1/store.proto](#nemo/savings/v1beta1/store.proto)
-    - [Deposit](#nemo.savings.v1beta1.Deposit)
-    - [Params](#nemo.savings.v1beta1.Params)
-  
-- [nemo/savings/v1beta1/genesis.proto](#nemo/savings/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.savings.v1beta1.GenesisState)
-  
-- [nemo/savings/v1beta1/query.proto](#nemo/savings/v1beta1/query.proto)
-    - [QueryDepositsRequest](#nemo.savings.v1beta1.QueryDepositsRequest)
-    - [QueryDepositsResponse](#nemo.savings.v1beta1.QueryDepositsResponse)
-    - [QueryParamsRequest](#nemo.savings.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.savings.v1beta1.QueryParamsResponse)
-    - [QueryTotalSupplyRequest](#nemo.savings.v1beta1.QueryTotalSupplyRequest)
-    - [QueryTotalSupplyResponse](#nemo.savings.v1beta1.QueryTotalSupplyResponse)
-  
-    - [Query](#nemo.savings.v1beta1.Query)
-  
-- [nemo/savings/v1beta1/tx.proto](#nemo/savings/v1beta1/tx.proto)
-    - [MsgDeposit](#nemo.savings.v1beta1.MsgDeposit)
-    - [MsgDepositResponse](#nemo.savings.v1beta1.MsgDepositResponse)
-    - [MsgWithdraw](#nemo.savings.v1beta1.MsgWithdraw)
-    - [MsgWithdrawResponse](#nemo.savings.v1beta1.MsgWithdrawResponse)
-  
-    - [Msg](#nemo.savings.v1beta1.Msg)
-  
-- [nemo/swap/v1beta1/swap.proto](#nemo/swap/v1beta1/swap.proto)
-    - [AllowedPool](#nemo.swap.v1beta1.AllowedPool)
-    - [Params](#nemo.swap.v1beta1.Params)
-    - [PoolRecord](#nemo.swap.v1beta1.PoolRecord)
-    - [ShareRecord](#nemo.swap.v1beta1.ShareRecord)
-  
-- [nemo/swap/v1beta1/genesis.proto](#nemo/swap/v1beta1/genesis.proto)
-    - [GenesisState](#nemo.swap.v1beta1.GenesisState)
-  
-- [nemo/swap/v1beta1/query.proto](#nemo/swap/v1beta1/query.proto)
-    - [DepositResponse](#nemo.swap.v1beta1.DepositResponse)
-    - [PoolResponse](#nemo.swap.v1beta1.PoolResponse)
-    - [QueryDepositsRequest](#nemo.swap.v1beta1.QueryDepositsRequest)
-    - [QueryDepositsResponse](#nemo.swap.v1beta1.QueryDepositsResponse)
-    - [QueryParamsRequest](#nemo.swap.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#nemo.swap.v1beta1.QueryParamsResponse)
-    - [QueryPoolsRequest](#nemo.swap.v1beta1.QueryPoolsRequest)
-    - [QueryPoolsResponse](#nemo.swap.v1beta1.QueryPoolsResponse)
-  
-    - [Query](#nemo.swap.v1beta1.Query)
-  
-- [nemo/swap/v1beta1/tx.proto](#nemo/swap/v1beta1/tx.proto)
-    - [MsgDeposit](#nemo.swap.v1beta1.MsgDeposit)
-    - [MsgDepositResponse](#nemo.swap.v1beta1.MsgDepositResponse)
-    - [MsgSwapExactForTokens](#nemo.swap.v1beta1.MsgSwapExactForTokens)
-    - [MsgSwapExactForTokensResponse](#nemo.swap.v1beta1.MsgSwapExactForTokensResponse)
-    - [MsgSwapForExactTokens](#nemo.swap.v1beta1.MsgSwapForExactTokens)
-    - [MsgSwapForExactTokensResponse](#nemo.swap.v1beta1.MsgSwapForExactTokensResponse)
-    - [MsgWithdraw](#nemo.swap.v1beta1.MsgWithdraw)
-    - [MsgWithdrawResponse](#nemo.swap.v1beta1.MsgWithdrawResponse)
-  
-    - [Msg](#nemo.swap.v1beta1.Msg)
+- [fury/auction/v1beta1/auction.proto](#fury/auction/v1beta1/auction.proto)
+    - [BaseAuction](#fury.auction.v1beta1.BaseAuction)
+    - [CollateralAuction](#fury.auction.v1beta1.CollateralAuction)
+    - [DebtAuction](#fury.auction.v1beta1.DebtAuction)
+    - [SurplusAuction](#fury.auction.v1beta1.SurplusAuction)
+    - [WeightedAddresses](#fury.auction.v1beta1.WeightedAddresses)
+  
+- [fury/auction/v1beta1/genesis.proto](#fury/auction/v1beta1/genesis.proto)
+    - [GenesisState](#fury.auction.v1beta1.GenesisState)
+    - [Params](#fury.auction.v1beta1.Params)
+  
+- [fury/auction/v1beta1/query.proto](#fury/auction/v1beta1/query.proto)
+    - [QueryAuctionRequest](#fury.auction.v1beta1.QueryAuctionRequest)
+    - [QueryAuctionResponse](#fury.auction.v1beta1.QueryAuctionResponse)
+    - [QueryAuctionsRequest](#fury.auction.v1beta1.QueryAuctionsRequest)
+    - [QueryAuctionsResponse](#fury.auction.v1beta1.QueryAuctionsResponse)
+    - [QueryNextAuctionIDRequest](#fury.auction.v1beta1.QueryNextAuctionIDRequest)
+    - [QueryNextAuctionIDResponse](#fury.auction.v1beta1.QueryNextAuctionIDResponse)
+    - [QueryParamsRequest](#fury.auction.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.auction.v1beta1.QueryParamsResponse)
+  
+    - [Query](#fury.auction.v1beta1.Query)
+  
+- [fury/auction/v1beta1/tx.proto](#fury/auction/v1beta1/tx.proto)
+    - [MsgPlaceBid](#fury.auction.v1beta1.MsgPlaceBid)
+    - [MsgPlaceBidResponse](#fury.auction.v1beta1.MsgPlaceBidResponse)
+  
+    - [Msg](#fury.auction.v1beta1.Msg)
+  
+- [fury/bep3/v1beta1/bep3.proto](#fury/bep3/v1beta1/bep3.proto)
+    - [AssetParam](#fury.bep3.v1beta1.AssetParam)
+    - [AssetSupply](#fury.bep3.v1beta1.AssetSupply)
+    - [AtomicSwap](#fury.bep3.v1beta1.AtomicSwap)
+    - [Params](#fury.bep3.v1beta1.Params)
+    - [SupplyLimit](#fury.bep3.v1beta1.SupplyLimit)
+  
+    - [SwapDirection](#fury.bep3.v1beta1.SwapDirection)
+    - [SwapStatus](#fury.bep3.v1beta1.SwapStatus)
+  
+- [fury/bep3/v1beta1/genesis.proto](#fury/bep3/v1beta1/genesis.proto)
+    - [GenesisState](#fury.bep3.v1beta1.GenesisState)
+  
+- [fury/bep3/v1beta1/query.proto](#fury/bep3/v1beta1/query.proto)
+    - [AssetSupplyResponse](#fury.bep3.v1beta1.AssetSupplyResponse)
+    - [AtomicSwapResponse](#fury.bep3.v1beta1.AtomicSwapResponse)
+    - [QueryAssetSuppliesRequest](#fury.bep3.v1beta1.QueryAssetSuppliesRequest)
+    - [QueryAssetSuppliesResponse](#fury.bep3.v1beta1.QueryAssetSuppliesResponse)
+    - [QueryAssetSupplyRequest](#fury.bep3.v1beta1.QueryAssetSupplyRequest)
+    - [QueryAssetSupplyResponse](#fury.bep3.v1beta1.QueryAssetSupplyResponse)
+    - [QueryAtomicSwapRequest](#fury.bep3.v1beta1.QueryAtomicSwapRequest)
+    - [QueryAtomicSwapResponse](#fury.bep3.v1beta1.QueryAtomicSwapResponse)
+    - [QueryAtomicSwapsRequest](#fury.bep3.v1beta1.QueryAtomicSwapsRequest)
+    - [QueryAtomicSwapsResponse](#fury.bep3.v1beta1.QueryAtomicSwapsResponse)
+    - [QueryParamsRequest](#fury.bep3.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.bep3.v1beta1.QueryParamsResponse)
+  
+    - [Query](#fury.bep3.v1beta1.Query)
+  
+- [fury/bep3/v1beta1/tx.proto](#fury/bep3/v1beta1/tx.proto)
+    - [MsgClaimAtomicSwap](#fury.bep3.v1beta1.MsgClaimAtomicSwap)
+    - [MsgClaimAtomicSwapResponse](#fury.bep3.v1beta1.MsgClaimAtomicSwapResponse)
+    - [MsgCreateAtomicSwap](#fury.bep3.v1beta1.MsgCreateAtomicSwap)
+    - [MsgCreateAtomicSwapResponse](#fury.bep3.v1beta1.MsgCreateAtomicSwapResponse)
+    - [MsgRefundAtomicSwap](#fury.bep3.v1beta1.MsgRefundAtomicSwap)
+    - [MsgRefundAtomicSwapResponse](#fury.bep3.v1beta1.MsgRefundAtomicSwapResponse)
+  
+    - [Msg](#fury.bep3.v1beta1.Msg)
+  
+- [fury/cdp/v1beta1/cdp.proto](#fury/cdp/v1beta1/cdp.proto)
+    - [CDP](#fury.cdp.v1beta1.CDP)
+    - [Deposit](#fury.cdp.v1beta1.Deposit)
+    - [OwnerCDPIndex](#fury.cdp.v1beta1.OwnerCDPIndex)
+    - [TotalCollateral](#fury.cdp.v1beta1.TotalCollateral)
+    - [TotalPrincipal](#fury.cdp.v1beta1.TotalPrincipal)
+  
+- [fury/cdp/v1beta1/genesis.proto](#fury/cdp/v1beta1/genesis.proto)
+    - [CollateralParam](#fury.cdp.v1beta1.CollateralParam)
+    - [DebtParam](#fury.cdp.v1beta1.DebtParam)
+    - [GenesisAccumulationTime](#fury.cdp.v1beta1.GenesisAccumulationTime)
+    - [GenesisState](#fury.cdp.v1beta1.GenesisState)
+    - [GenesisTotalPrincipal](#fury.cdp.v1beta1.GenesisTotalPrincipal)
+    - [Params](#fury.cdp.v1beta1.Params)
+  
+- [fury/cdp/v1beta1/query.proto](#fury/cdp/v1beta1/query.proto)
+    - [CDPResponse](#fury.cdp.v1beta1.CDPResponse)
+    - [QueryAccountsRequest](#fury.cdp.v1beta1.QueryAccountsRequest)
+    - [QueryAccountsResponse](#fury.cdp.v1beta1.QueryAccountsResponse)
+    - [QueryCdpRequest](#fury.cdp.v1beta1.QueryCdpRequest)
+    - [QueryCdpResponse](#fury.cdp.v1beta1.QueryCdpResponse)
+    - [QueryCdpsRequest](#fury.cdp.v1beta1.QueryCdpsRequest)
+    - [QueryCdpsResponse](#fury.cdp.v1beta1.QueryCdpsResponse)
+    - [QueryDepositsRequest](#fury.cdp.v1beta1.QueryDepositsRequest)
+    - [QueryDepositsResponse](#fury.cdp.v1beta1.QueryDepositsResponse)
+    - [QueryParamsRequest](#fury.cdp.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.cdp.v1beta1.QueryParamsResponse)
+    - [QueryTotalCollateralRequest](#fury.cdp.v1beta1.QueryTotalCollateralRequest)
+    - [QueryTotalCollateralResponse](#fury.cdp.v1beta1.QueryTotalCollateralResponse)
+    - [QueryTotalPrincipalRequest](#fury.cdp.v1beta1.QueryTotalPrincipalRequest)
+    - [QueryTotalPrincipalResponse](#fury.cdp.v1beta1.QueryTotalPrincipalResponse)
+  
+    - [Query](#fury.cdp.v1beta1.Query)
+  
+- [fury/cdp/v1beta1/tx.proto](#fury/cdp/v1beta1/tx.proto)
+    - [MsgCreateCDP](#fury.cdp.v1beta1.MsgCreateCDP)
+    - [MsgCreateCDPResponse](#fury.cdp.v1beta1.MsgCreateCDPResponse)
+    - [MsgDeposit](#fury.cdp.v1beta1.MsgDeposit)
+    - [MsgDepositResponse](#fury.cdp.v1beta1.MsgDepositResponse)
+    - [MsgDrawDebt](#fury.cdp.v1beta1.MsgDrawDebt)
+    - [MsgDrawDebtResponse](#fury.cdp.v1beta1.MsgDrawDebtResponse)
+    - [MsgLiquidate](#fury.cdp.v1beta1.MsgLiquidate)
+    - [MsgLiquidateResponse](#fury.cdp.v1beta1.MsgLiquidateResponse)
+    - [MsgRepayDebt](#fury.cdp.v1beta1.MsgRepayDebt)
+    - [MsgRepayDebtResponse](#fury.cdp.v1beta1.MsgRepayDebtResponse)
+    - [MsgWithdraw](#fury.cdp.v1beta1.MsgWithdraw)
+    - [MsgWithdrawResponse](#fury.cdp.v1beta1.MsgWithdrawResponse)
+  
+    - [Msg](#fury.cdp.v1beta1.Msg)
+  
+- [fury/committee/v1beta1/committee.proto](#fury/committee/v1beta1/committee.proto)
+    - [BaseCommittee](#fury.committee.v1beta1.BaseCommittee)
+    - [MemberCommittee](#fury.committee.v1beta1.MemberCommittee)
+    - [TokenCommittee](#fury.committee.v1beta1.TokenCommittee)
+  
+    - [TallyOption](#fury.committee.v1beta1.TallyOption)
+  
+- [fury/committee/v1beta1/genesis.proto](#fury/committee/v1beta1/genesis.proto)
+    - [GenesisState](#fury.committee.v1beta1.GenesisState)
+    - [Proposal](#fury.committee.v1beta1.Proposal)
+    - [Vote](#fury.committee.v1beta1.Vote)
+  
+    - [VoteType](#fury.committee.v1beta1.VoteType)
+  
+- [fury/committee/v1beta1/permissions.proto](#fury/committee/v1beta1/permissions.proto)
+    - [AllowedParamsChange](#fury.committee.v1beta1.AllowedParamsChange)
+    - [CommunityCDPRepayDebtPermission](#fury.committee.v1beta1.CommunityCDPRepayDebtPermission)
+    - [CommunityCDPWithdrawCollateralPermission](#fury.committee.v1beta1.CommunityCDPWithdrawCollateralPermission)
+    - [CommunityPoolLendWithdrawPermission](#fury.committee.v1beta1.CommunityPoolLendWithdrawPermission)
+    - [GodPermission](#fury.committee.v1beta1.GodPermission)
+    - [ParamsChangePermission](#fury.committee.v1beta1.ParamsChangePermission)
+    - [SoftwareUpgradePermission](#fury.committee.v1beta1.SoftwareUpgradePermission)
+    - [SubparamRequirement](#fury.committee.v1beta1.SubparamRequirement)
+    - [TextPermission](#fury.committee.v1beta1.TextPermission)
+  
+- [fury/committee/v1beta1/proposal.proto](#fury/committee/v1beta1/proposal.proto)
+    - [CommitteeChangeProposal](#fury.committee.v1beta1.CommitteeChangeProposal)
+    - [CommitteeDeleteProposal](#fury.committee.v1beta1.CommitteeDeleteProposal)
+  
+- [fury/committee/v1beta1/query.proto](#fury/committee/v1beta1/query.proto)
+    - [QueryCommitteeRequest](#fury.committee.v1beta1.QueryCommitteeRequest)
+    - [QueryCommitteeResponse](#fury.committee.v1beta1.QueryCommitteeResponse)
+    - [QueryCommitteesRequest](#fury.committee.v1beta1.QueryCommitteesRequest)
+    - [QueryCommitteesResponse](#fury.committee.v1beta1.QueryCommitteesResponse)
+    - [QueryNextProposalIDRequest](#fury.committee.v1beta1.QueryNextProposalIDRequest)
+    - [QueryNextProposalIDResponse](#fury.committee.v1beta1.QueryNextProposalIDResponse)
+    - [QueryProposalRequest](#fury.committee.v1beta1.QueryProposalRequest)
+    - [QueryProposalResponse](#fury.committee.v1beta1.QueryProposalResponse)
+    - [QueryProposalsRequest](#fury.committee.v1beta1.QueryProposalsRequest)
+    - [QueryProposalsResponse](#fury.committee.v1beta1.QueryProposalsResponse)
+    - [QueryRawParamsRequest](#fury.committee.v1beta1.QueryRawParamsRequest)
+    - [QueryRawParamsResponse](#fury.committee.v1beta1.QueryRawParamsResponse)
+    - [QueryTallyRequest](#fury.committee.v1beta1.QueryTallyRequest)
+    - [QueryTallyResponse](#fury.committee.v1beta1.QueryTallyResponse)
+    - [QueryVoteRequest](#fury.committee.v1beta1.QueryVoteRequest)
+    - [QueryVoteResponse](#fury.committee.v1beta1.QueryVoteResponse)
+    - [QueryVotesRequest](#fury.committee.v1beta1.QueryVotesRequest)
+    - [QueryVotesResponse](#fury.committee.v1beta1.QueryVotesResponse)
+  
+    - [Query](#fury.committee.v1beta1.Query)
+  
+- [fury/committee/v1beta1/tx.proto](#fury/committee/v1beta1/tx.proto)
+    - [MsgSubmitProposal](#fury.committee.v1beta1.MsgSubmitProposal)
+    - [MsgSubmitProposalResponse](#fury.committee.v1beta1.MsgSubmitProposalResponse)
+    - [MsgVote](#fury.committee.v1beta1.MsgVote)
+    - [MsgVoteResponse](#fury.committee.v1beta1.MsgVoteResponse)
+  
+    - [Msg](#fury.committee.v1beta1.Msg)
+  
+- [fury/community/v1beta1/proposal.proto](#fury/community/v1beta1/proposal.proto)
+    - [CommunityCDPRepayDebtProposal](#fury.community.v1beta1.CommunityCDPRepayDebtProposal)
+    - [CommunityCDPWithdrawCollateralProposal](#fury.community.v1beta1.CommunityCDPWithdrawCollateralProposal)
+    - [CommunityPoolLendDepositProposal](#fury.community.v1beta1.CommunityPoolLendDepositProposal)
+    - [CommunityPoolLendWithdrawProposal](#fury.community.v1beta1.CommunityPoolLendWithdrawProposal)
+  
+- [fury/community/v1beta1/query.proto](#fury/community/v1beta1/query.proto)
+    - [QueryBalanceRequest](#fury.community.v1beta1.QueryBalanceRequest)
+    - [QueryBalanceResponse](#fury.community.v1beta1.QueryBalanceResponse)
+    - [QueryTotalBalanceRequest](#fury.community.v1beta1.QueryTotalBalanceRequest)
+    - [QueryTotalBalanceResponse](#fury.community.v1beta1.QueryTotalBalanceResponse)
+  
+    - [Query](#fury.community.v1beta1.Query)
+  
+- [fury/community/v1beta1/tx.proto](#fury/community/v1beta1/tx.proto)
+    - [MsgFundCommunityPool](#fury.community.v1beta1.MsgFundCommunityPool)
+    - [MsgFundCommunityPoolResponse](#fury.community.v1beta1.MsgFundCommunityPoolResponse)
+  
+    - [Msg](#fury.community.v1beta1.Msg)
+  
+- [fury/earn/v1beta1/strategy.proto](#fury/earn/v1beta1/strategy.proto)
+    - [StrategyType](#fury.earn.v1beta1.StrategyType)
+  
+- [fury/earn/v1beta1/vault.proto](#fury/earn/v1beta1/vault.proto)
+    - [AllowedVault](#fury.earn.v1beta1.AllowedVault)
+    - [VaultRecord](#fury.earn.v1beta1.VaultRecord)
+    - [VaultShare](#fury.earn.v1beta1.VaultShare)
+    - [VaultShareRecord](#fury.earn.v1beta1.VaultShareRecord)
+  
+- [fury/earn/v1beta1/params.proto](#fury/earn/v1beta1/params.proto)
+    - [Params](#fury.earn.v1beta1.Params)
+  
+- [fury/earn/v1beta1/genesis.proto](#fury/earn/v1beta1/genesis.proto)
+    - [GenesisState](#fury.earn.v1beta1.GenesisState)
+  
+- [fury/earn/v1beta1/proposal.proto](#fury/earn/v1beta1/proposal.proto)
+    - [CommunityPoolDepositProposal](#fury.earn.v1beta1.CommunityPoolDepositProposal)
+    - [CommunityPoolDepositProposalJSON](#fury.earn.v1beta1.CommunityPoolDepositProposalJSON)
+    - [CommunityPoolWithdrawProposal](#fury.earn.v1beta1.CommunityPoolWithdrawProposal)
+    - [CommunityPoolWithdrawProposalJSON](#fury.earn.v1beta1.CommunityPoolWithdrawProposalJSON)
+  
+- [fury/earn/v1beta1/query.proto](#fury/earn/v1beta1/query.proto)
+    - [DepositResponse](#fury.earn.v1beta1.DepositResponse)
+    - [QueryDepositsRequest](#fury.earn.v1beta1.QueryDepositsRequest)
+    - [QueryDepositsResponse](#fury.earn.v1beta1.QueryDepositsResponse)
+    - [QueryParamsRequest](#fury.earn.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.earn.v1beta1.QueryParamsResponse)
+    - [QueryTotalSupplyRequest](#fury.earn.v1beta1.QueryTotalSupplyRequest)
+    - [QueryTotalSupplyResponse](#fury.earn.v1beta1.QueryTotalSupplyResponse)
+    - [QueryVaultRequest](#fury.earn.v1beta1.QueryVaultRequest)
+    - [QueryVaultResponse](#fury.earn.v1beta1.QueryVaultResponse)
+    - [QueryVaultsRequest](#fury.earn.v1beta1.QueryVaultsRequest)
+    - [QueryVaultsResponse](#fury.earn.v1beta1.QueryVaultsResponse)
+    - [VaultResponse](#fury.earn.v1beta1.VaultResponse)
+  
+    - [Query](#fury.earn.v1beta1.Query)
+  
+- [fury/earn/v1beta1/tx.proto](#fury/earn/v1beta1/tx.proto)
+    - [MsgDeposit](#fury.earn.v1beta1.MsgDeposit)
+    - [MsgDepositResponse](#fury.earn.v1beta1.MsgDepositResponse)
+    - [MsgWithdraw](#fury.earn.v1beta1.MsgWithdraw)
+    - [MsgWithdrawResponse](#fury.earn.v1beta1.MsgWithdrawResponse)
+  
+    - [Msg](#fury.earn.v1beta1.Msg)
+  
+- [fury/evmutil/v1beta1/conversion_pair.proto](#fury/evmutil/v1beta1/conversion_pair.proto)
+    - [AllowedCosmosCoinERC20Token](#fury.evmutil.v1beta1.AllowedCosmosCoinERC20Token)
+    - [ConversionPair](#fury.evmutil.v1beta1.ConversionPair)
+  
+- [fury/evmutil/v1beta1/genesis.proto](#fury/evmutil/v1beta1/genesis.proto)
+    - [Account](#fury.evmutil.v1beta1.Account)
+    - [GenesisState](#fury.evmutil.v1beta1.GenesisState)
+    - [Params](#fury.evmutil.v1beta1.Params)
+  
+- [fury/evmutil/v1beta1/query.proto](#fury/evmutil/v1beta1/query.proto)
+    - [DeployedCosmosCoinContract](#fury.evmutil.v1beta1.DeployedCosmosCoinContract)
+    - [QueryDeployedCosmosCoinContractsRequest](#fury.evmutil.v1beta1.QueryDeployedCosmosCoinContractsRequest)
+    - [QueryDeployedCosmosCoinContractsResponse](#fury.evmutil.v1beta1.QueryDeployedCosmosCoinContractsResponse)
+    - [QueryParamsRequest](#fury.evmutil.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.evmutil.v1beta1.QueryParamsResponse)
+  
+    - [Query](#fury.evmutil.v1beta1.Query)
+  
+- [fury/evmutil/v1beta1/tx.proto](#fury/evmutil/v1beta1/tx.proto)
+    - [MsgConvertCoinToERC20](#fury.evmutil.v1beta1.MsgConvertCoinToERC20)
+    - [MsgConvertCoinToERC20Response](#fury.evmutil.v1beta1.MsgConvertCoinToERC20Response)
+    - [MsgConvertCosmosCoinFromERC20](#fury.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20)
+    - [MsgConvertCosmosCoinFromERC20Response](#fury.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20Response)
+    - [MsgConvertCosmosCoinToERC20](#fury.evmutil.v1beta1.MsgConvertCosmosCoinToERC20)
+    - [MsgConvertCosmosCoinToERC20Response](#fury.evmutil.v1beta1.MsgConvertCosmosCoinToERC20Response)
+    - [MsgConvertERC20ToCoin](#fury.evmutil.v1beta1.MsgConvertERC20ToCoin)
+    - [MsgConvertERC20ToCoinResponse](#fury.evmutil.v1beta1.MsgConvertERC20ToCoinResponse)
+  
+    - [Msg](#fury.evmutil.v1beta1.Msg)
+  
+- [fury/hard/v1beta1/hard.proto](#fury/hard/v1beta1/hard.proto)
+    - [Borrow](#fury.hard.v1beta1.Borrow)
+    - [BorrowInterestFactor](#fury.hard.v1beta1.BorrowInterestFactor)
+    - [BorrowLimit](#fury.hard.v1beta1.BorrowLimit)
+    - [CoinsProto](#fury.hard.v1beta1.CoinsProto)
+    - [Deposit](#fury.hard.v1beta1.Deposit)
+    - [InterestRateModel](#fury.hard.v1beta1.InterestRateModel)
+    - [MoneyMarket](#fury.hard.v1beta1.MoneyMarket)
+    - [Params](#fury.hard.v1beta1.Params)
+    - [SupplyInterestFactor](#fury.hard.v1beta1.SupplyInterestFactor)
+  
+- [fury/hard/v1beta1/genesis.proto](#fury/hard/v1beta1/genesis.proto)
+    - [GenesisAccumulationTime](#fury.hard.v1beta1.GenesisAccumulationTime)
+    - [GenesisState](#fury.hard.v1beta1.GenesisState)
+  
+- [fury/hard/v1beta1/query.proto](#fury/hard/v1beta1/query.proto)
+    - [BorrowInterestFactorResponse](#fury.hard.v1beta1.BorrowInterestFactorResponse)
+    - [BorrowResponse](#fury.hard.v1beta1.BorrowResponse)
+    - [DepositResponse](#fury.hard.v1beta1.DepositResponse)
+    - [InterestFactor](#fury.hard.v1beta1.InterestFactor)
+    - [MoneyMarketInterestRate](#fury.hard.v1beta1.MoneyMarketInterestRate)
+    - [QueryAccountsRequest](#fury.hard.v1beta1.QueryAccountsRequest)
+    - [QueryAccountsResponse](#fury.hard.v1beta1.QueryAccountsResponse)
+    - [QueryBorrowsRequest](#fury.hard.v1beta1.QueryBorrowsRequest)
+    - [QueryBorrowsResponse](#fury.hard.v1beta1.QueryBorrowsResponse)
+    - [QueryDepositsRequest](#fury.hard.v1beta1.QueryDepositsRequest)
+    - [QueryDepositsResponse](#fury.hard.v1beta1.QueryDepositsResponse)
+    - [QueryInterestFactorsRequest](#fury.hard.v1beta1.QueryInterestFactorsRequest)
+    - [QueryInterestFactorsResponse](#fury.hard.v1beta1.QueryInterestFactorsResponse)
+    - [QueryInterestRateRequest](#fury.hard.v1beta1.QueryInterestRateRequest)
+    - [QueryInterestRateResponse](#fury.hard.v1beta1.QueryInterestRateResponse)
+    - [QueryParamsRequest](#fury.hard.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.hard.v1beta1.QueryParamsResponse)
+    - [QueryReservesRequest](#fury.hard.v1beta1.QueryReservesRequest)
+    - [QueryReservesResponse](#fury.hard.v1beta1.QueryReservesResponse)
+    - [QueryTotalBorrowedRequest](#fury.hard.v1beta1.QueryTotalBorrowedRequest)
+    - [QueryTotalBorrowedResponse](#fury.hard.v1beta1.QueryTotalBorrowedResponse)
+    - [QueryTotalDepositedRequest](#fury.hard.v1beta1.QueryTotalDepositedRequest)
+    - [QueryTotalDepositedResponse](#fury.hard.v1beta1.QueryTotalDepositedResponse)
+    - [QueryUnsyncedBorrowsRequest](#fury.hard.v1beta1.QueryUnsyncedBorrowsRequest)
+    - [QueryUnsyncedBorrowsResponse](#fury.hard.v1beta1.QueryUnsyncedBorrowsResponse)
+    - [QueryUnsyncedDepositsRequest](#fury.hard.v1beta1.QueryUnsyncedDepositsRequest)
+    - [QueryUnsyncedDepositsResponse](#fury.hard.v1beta1.QueryUnsyncedDepositsResponse)
+    - [SupplyInterestFactorResponse](#fury.hard.v1beta1.SupplyInterestFactorResponse)
+  
+    - [Query](#fury.hard.v1beta1.Query)
+  
+- [fury/hard/v1beta1/tx.proto](#fury/hard/v1beta1/tx.proto)
+    - [MsgBorrow](#fury.hard.v1beta1.MsgBorrow)
+    - [MsgBorrowResponse](#fury.hard.v1beta1.MsgBorrowResponse)
+    - [MsgDeposit](#fury.hard.v1beta1.MsgDeposit)
+    - [MsgDepositResponse](#fury.hard.v1beta1.MsgDepositResponse)
+    - [MsgLiquidate](#fury.hard.v1beta1.MsgLiquidate)
+    - [MsgLiquidateResponse](#fury.hard.v1beta1.MsgLiquidateResponse)
+    - [MsgRepay](#fury.hard.v1beta1.MsgRepay)
+    - [MsgRepayResponse](#fury.hard.v1beta1.MsgRepayResponse)
+    - [MsgWithdraw](#fury.hard.v1beta1.MsgWithdraw)
+    - [MsgWithdrawResponse](#fury.hard.v1beta1.MsgWithdrawResponse)
+  
+    - [Msg](#fury.hard.v1beta1.Msg)
+  
+- [fury/incentive/v1beta1/apy.proto](#fury/incentive/v1beta1/apy.proto)
+    - [Apy](#fury.incentive.v1beta1.Apy)
+  
+- [fury/incentive/v1beta1/claims.proto](#fury/incentive/v1beta1/claims.proto)
+    - [BaseClaim](#fury.incentive.v1beta1.BaseClaim)
+    - [BaseMultiClaim](#fury.incentive.v1beta1.BaseMultiClaim)
+    - [DelegatorClaim](#fury.incentive.v1beta1.DelegatorClaim)
+    - [EarnClaim](#fury.incentive.v1beta1.EarnClaim)
+    - [HardLiquidityProviderClaim](#fury.incentive.v1beta1.HardLiquidityProviderClaim)
+    - [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex)
+    - [MultiRewardIndexesProto](#fury.incentive.v1beta1.MultiRewardIndexesProto)
+    - [RewardIndex](#fury.incentive.v1beta1.RewardIndex)
+    - [RewardIndexesProto](#fury.incentive.v1beta1.RewardIndexesProto)
+    - [SavingsClaim](#fury.incentive.v1beta1.SavingsClaim)
+    - [SwapClaim](#fury.incentive.v1beta1.SwapClaim)
+    - [USDXMintingClaim](#fury.incentive.v1beta1.USDXMintingClaim)
+  
+- [fury/incentive/v1beta1/params.proto](#fury/incentive/v1beta1/params.proto)
+    - [MultiRewardPeriod](#fury.incentive.v1beta1.MultiRewardPeriod)
+    - [Multiplier](#fury.incentive.v1beta1.Multiplier)
+    - [MultipliersPerDenom](#fury.incentive.v1beta1.MultipliersPerDenom)
+    - [Params](#fury.incentive.v1beta1.Params)
+    - [RewardPeriod](#fury.incentive.v1beta1.RewardPeriod)
+  
+- [fury/incentive/v1beta1/genesis.proto](#fury/incentive/v1beta1/genesis.proto)
+    - [AccumulationTime](#fury.incentive.v1beta1.AccumulationTime)
+    - [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState)
+    - [GenesisState](#fury.incentive.v1beta1.GenesisState)
+  
+- [fury/incentive/v1beta1/query.proto](#fury/incentive/v1beta1/query.proto)
+    - [QueryApyRequest](#fury.incentive.v1beta1.QueryApyRequest)
+    - [QueryApyResponse](#fury.incentive.v1beta1.QueryApyResponse)
+    - [QueryParamsRequest](#fury.incentive.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.incentive.v1beta1.QueryParamsResponse)
+    - [QueryRewardFactorsRequest](#fury.incentive.v1beta1.QueryRewardFactorsRequest)
+    - [QueryRewardFactorsResponse](#fury.incentive.v1beta1.QueryRewardFactorsResponse)
+    - [QueryRewardsRequest](#fury.incentive.v1beta1.QueryRewardsRequest)
+    - [QueryRewardsResponse](#fury.incentive.v1beta1.QueryRewardsResponse)
+  
+    - [Query](#fury.incentive.v1beta1.Query)
+  
+- [fury/incentive/v1beta1/tx.proto](#fury/incentive/v1beta1/tx.proto)
+    - [MsgClaimDelegatorReward](#fury.incentive.v1beta1.MsgClaimDelegatorReward)
+    - [MsgClaimDelegatorRewardResponse](#fury.incentive.v1beta1.MsgClaimDelegatorRewardResponse)
+    - [MsgClaimEarnReward](#fury.incentive.v1beta1.MsgClaimEarnReward)
+    - [MsgClaimEarnRewardResponse](#fury.incentive.v1beta1.MsgClaimEarnRewardResponse)
+    - [MsgClaimHardReward](#fury.incentive.v1beta1.MsgClaimHardReward)
+    - [MsgClaimHardRewardResponse](#fury.incentive.v1beta1.MsgClaimHardRewardResponse)
+    - [MsgClaimSavingsReward](#fury.incentive.v1beta1.MsgClaimSavingsReward)
+    - [MsgClaimSavingsRewardResponse](#fury.incentive.v1beta1.MsgClaimSavingsRewardResponse)
+    - [MsgClaimSwapReward](#fury.incentive.v1beta1.MsgClaimSwapReward)
+    - [MsgClaimSwapRewardResponse](#fury.incentive.v1beta1.MsgClaimSwapRewardResponse)
+    - [MsgClaimUSDXMintingReward](#fury.incentive.v1beta1.MsgClaimUSDXMintingReward)
+    - [MsgClaimUSDXMintingRewardResponse](#fury.incentive.v1beta1.MsgClaimUSDXMintingRewardResponse)
+    - [Selection](#fury.incentive.v1beta1.Selection)
+  
+    - [Msg](#fury.incentive.v1beta1.Msg)
+  
+- [fury/issuance/v1beta1/genesis.proto](#fury/issuance/v1beta1/genesis.proto)
+    - [Asset](#fury.issuance.v1beta1.Asset)
+    - [AssetSupply](#fury.issuance.v1beta1.AssetSupply)
+    - [GenesisState](#fury.issuance.v1beta1.GenesisState)
+    - [Params](#fury.issuance.v1beta1.Params)
+    - [RateLimit](#fury.issuance.v1beta1.RateLimit)
+  
+- [fury/issuance/v1beta1/query.proto](#fury/issuance/v1beta1/query.proto)
+    - [QueryParamsRequest](#fury.issuance.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.issuance.v1beta1.QueryParamsResponse)
+  
+    - [Query](#fury.issuance.v1beta1.Query)
+  
+- [fury/issuance/v1beta1/tx.proto](#fury/issuance/v1beta1/tx.proto)
+    - [MsgBlockAddress](#fury.issuance.v1beta1.MsgBlockAddress)
+    - [MsgBlockAddressResponse](#fury.issuance.v1beta1.MsgBlockAddressResponse)
+    - [MsgIssueTokens](#fury.issuance.v1beta1.MsgIssueTokens)
+    - [MsgIssueTokensResponse](#fury.issuance.v1beta1.MsgIssueTokensResponse)
+    - [MsgRedeemTokens](#fury.issuance.v1beta1.MsgRedeemTokens)
+    - [MsgRedeemTokensResponse](#fury.issuance.v1beta1.MsgRedeemTokensResponse)
+    - [MsgSetPauseStatus](#fury.issuance.v1beta1.MsgSetPauseStatus)
+    - [MsgSetPauseStatusResponse](#fury.issuance.v1beta1.MsgSetPauseStatusResponse)
+    - [MsgUnblockAddress](#fury.issuance.v1beta1.MsgUnblockAddress)
+    - [MsgUnblockAddressResponse](#fury.issuance.v1beta1.MsgUnblockAddressResponse)
+  
+    - [Msg](#fury.issuance.v1beta1.Msg)
+  
+- [fury/liquid/v1beta1/query.proto](#fury/liquid/v1beta1/query.proto)
+    - [QueryDelegatedBalanceRequest](#fury.liquid.v1beta1.QueryDelegatedBalanceRequest)
+    - [QueryDelegatedBalanceResponse](#fury.liquid.v1beta1.QueryDelegatedBalanceResponse)
+    - [QueryTotalSupplyRequest](#fury.liquid.v1beta1.QueryTotalSupplyRequest)
+    - [QueryTotalSupplyResponse](#fury.liquid.v1beta1.QueryTotalSupplyResponse)
+  
+    - [Query](#fury.liquid.v1beta1.Query)
+  
+- [fury/liquid/v1beta1/tx.proto](#fury/liquid/v1beta1/tx.proto)
+    - [MsgBurnDerivative](#fury.liquid.v1beta1.MsgBurnDerivative)
+    - [MsgBurnDerivativeResponse](#fury.liquid.v1beta1.MsgBurnDerivativeResponse)
+    - [MsgMintDerivative](#fury.liquid.v1beta1.MsgMintDerivative)
+    - [MsgMintDerivativeResponse](#fury.liquid.v1beta1.MsgMintDerivativeResponse)
+  
+    - [Msg](#fury.liquid.v1beta1.Msg)
+  
+- [fury/furydist/v1beta1/params.proto](#fury/furydist/v1beta1/params.proto)
+    - [CoreReward](#fury.furydist.v1beta1.CoreReward)
+    - [InfrastructureParams](#fury.furydist.v1beta1.InfrastructureParams)
+    - [Params](#fury.furydist.v1beta1.Params)
+    - [PartnerReward](#fury.furydist.v1beta1.PartnerReward)
+    - [Period](#fury.furydist.v1beta1.Period)
+  
+- [fury/furydist/v1beta1/genesis.proto](#fury/furydist/v1beta1/genesis.proto)
+    - [GenesisState](#fury.furydist.v1beta1.GenesisState)
+  
+- [fury/furydist/v1beta1/proposal.proto](#fury/furydist/v1beta1/proposal.proto)
+    - [CommunityPoolMultiSpendProposal](#fury.furydist.v1beta1.CommunityPoolMultiSpendProposal)
+    - [CommunityPoolMultiSpendProposalJSON](#fury.furydist.v1beta1.CommunityPoolMultiSpendProposalJSON)
+    - [MultiSpendRecipient](#fury.furydist.v1beta1.MultiSpendRecipient)
+  
+- [fury/furydist/v1beta1/query.proto](#fury/furydist/v1beta1/query.proto)
+    - [QueryBalanceRequest](#fury.furydist.v1beta1.QueryBalanceRequest)
+    - [QueryBalanceResponse](#fury.furydist.v1beta1.QueryBalanceResponse)
+    - [QueryParamsRequest](#fury.furydist.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.furydist.v1beta1.QueryParamsResponse)
+  
+    - [Query](#fury.furydist.v1beta1.Query)
+  
+- [fury/pricefeed/v1beta1/store.proto](#fury/pricefeed/v1beta1/store.proto)
+    - [CurrentPrice](#fury.pricefeed.v1beta1.CurrentPrice)
+    - [Market](#fury.pricefeed.v1beta1.Market)
+    - [Params](#fury.pricefeed.v1beta1.Params)
+    - [PostedPrice](#fury.pricefeed.v1beta1.PostedPrice)
+  
+- [fury/pricefeed/v1beta1/genesis.proto](#fury/pricefeed/v1beta1/genesis.proto)
+    - [GenesisState](#fury.pricefeed.v1beta1.GenesisState)
+  
+- [fury/pricefeed/v1beta1/query.proto](#fury/pricefeed/v1beta1/query.proto)
+    - [CurrentPriceResponse](#fury.pricefeed.v1beta1.CurrentPriceResponse)
+    - [MarketResponse](#fury.pricefeed.v1beta1.MarketResponse)
+    - [PostedPriceResponse](#fury.pricefeed.v1beta1.PostedPriceResponse)
+    - [QueryMarketsRequest](#fury.pricefeed.v1beta1.QueryMarketsRequest)
+    - [QueryMarketsResponse](#fury.pricefeed.v1beta1.QueryMarketsResponse)
+    - [QueryOraclesRequest](#fury.pricefeed.v1beta1.QueryOraclesRequest)
+    - [QueryOraclesResponse](#fury.pricefeed.v1beta1.QueryOraclesResponse)
+    - [QueryParamsRequest](#fury.pricefeed.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.pricefeed.v1beta1.QueryParamsResponse)
+    - [QueryPriceRequest](#fury.pricefeed.v1beta1.QueryPriceRequest)
+    - [QueryPriceResponse](#fury.pricefeed.v1beta1.QueryPriceResponse)
+    - [QueryPricesRequest](#fury.pricefeed.v1beta1.QueryPricesRequest)
+    - [QueryPricesResponse](#fury.pricefeed.v1beta1.QueryPricesResponse)
+    - [QueryRawPricesRequest](#fury.pricefeed.v1beta1.QueryRawPricesRequest)
+    - [QueryRawPricesResponse](#fury.pricefeed.v1beta1.QueryRawPricesResponse)
+  
+    - [Query](#fury.pricefeed.v1beta1.Query)
+  
+- [fury/pricefeed/v1beta1/tx.proto](#fury/pricefeed/v1beta1/tx.proto)
+    - [MsgPostPrice](#fury.pricefeed.v1beta1.MsgPostPrice)
+    - [MsgPostPriceResponse](#fury.pricefeed.v1beta1.MsgPostPriceResponse)
+  
+    - [Msg](#fury.pricefeed.v1beta1.Msg)
+  
+- [fury/router/v1beta1/tx.proto](#fury/router/v1beta1/tx.proto)
+    - [MsgDelegateMintDeposit](#fury.router.v1beta1.MsgDelegateMintDeposit)
+    - [MsgDelegateMintDepositResponse](#fury.router.v1beta1.MsgDelegateMintDepositResponse)
+    - [MsgMintDeposit](#fury.router.v1beta1.MsgMintDeposit)
+    - [MsgMintDepositResponse](#fury.router.v1beta1.MsgMintDepositResponse)
+    - [MsgWithdrawBurn](#fury.router.v1beta1.MsgWithdrawBurn)
+    - [MsgWithdrawBurnResponse](#fury.router.v1beta1.MsgWithdrawBurnResponse)
+    - [MsgWithdrawBurnUndelegate](#fury.router.v1beta1.MsgWithdrawBurnUndelegate)
+    - [MsgWithdrawBurnUndelegateResponse](#fury.router.v1beta1.MsgWithdrawBurnUndelegateResponse)
+  
+    - [Msg](#fury.router.v1beta1.Msg)
+  
+- [fury/savings/v1beta1/store.proto](#fury/savings/v1beta1/store.proto)
+    - [Deposit](#fury.savings.v1beta1.Deposit)
+    - [Params](#fury.savings.v1beta1.Params)
+  
+- [fury/savings/v1beta1/genesis.proto](#fury/savings/v1beta1/genesis.proto)
+    - [GenesisState](#fury.savings.v1beta1.GenesisState)
+  
+- [fury/savings/v1beta1/query.proto](#fury/savings/v1beta1/query.proto)
+    - [QueryDepositsRequest](#fury.savings.v1beta1.QueryDepositsRequest)
+    - [QueryDepositsResponse](#fury.savings.v1beta1.QueryDepositsResponse)
+    - [QueryParamsRequest](#fury.savings.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.savings.v1beta1.QueryParamsResponse)
+    - [QueryTotalSupplyRequest](#fury.savings.v1beta1.QueryTotalSupplyRequest)
+    - [QueryTotalSupplyResponse](#fury.savings.v1beta1.QueryTotalSupplyResponse)
+  
+    - [Query](#fury.savings.v1beta1.Query)
+  
+- [fury/savings/v1beta1/tx.proto](#fury/savings/v1beta1/tx.proto)
+    - [MsgDeposit](#fury.savings.v1beta1.MsgDeposit)
+    - [MsgDepositResponse](#fury.savings.v1beta1.MsgDepositResponse)
+    - [MsgWithdraw](#fury.savings.v1beta1.MsgWithdraw)
+    - [MsgWithdrawResponse](#fury.savings.v1beta1.MsgWithdrawResponse)
+  
+    - [Msg](#fury.savings.v1beta1.Msg)
+  
+- [fury/swap/v1beta1/swap.proto](#fury/swap/v1beta1/swap.proto)
+    - [AllowedPool](#fury.swap.v1beta1.AllowedPool)
+    - [Params](#fury.swap.v1beta1.Params)
+    - [PoolRecord](#fury.swap.v1beta1.PoolRecord)
+    - [ShareRecord](#fury.swap.v1beta1.ShareRecord)
+  
+- [fury/swap/v1beta1/genesis.proto](#fury/swap/v1beta1/genesis.proto)
+    - [GenesisState](#fury.swap.v1beta1.GenesisState)
+  
+- [fury/swap/v1beta1/query.proto](#fury/swap/v1beta1/query.proto)
+    - [DepositResponse](#fury.swap.v1beta1.DepositResponse)
+    - [PoolResponse](#fury.swap.v1beta1.PoolResponse)
+    - [QueryDepositsRequest](#fury.swap.v1beta1.QueryDepositsRequest)
+    - [QueryDepositsResponse](#fury.swap.v1beta1.QueryDepositsResponse)
+    - [QueryParamsRequest](#fury.swap.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.swap.v1beta1.QueryParamsResponse)
+    - [QueryPoolsRequest](#fury.swap.v1beta1.QueryPoolsRequest)
+    - [QueryPoolsResponse](#fury.swap.v1beta1.QueryPoolsResponse)
+  
+    - [Query](#fury.swap.v1beta1.Query)
+  
+- [fury/swap/v1beta1/tx.proto](#fury/swap/v1beta1/tx.proto)
+    - [MsgDeposit](#fury.swap.v1beta1.MsgDeposit)
+    - [MsgDepositResponse](#fury.swap.v1beta1.MsgDepositResponse)
+    - [MsgSwapExactForTokens](#fury.swap.v1beta1.MsgSwapExactForTokens)
+    - [MsgSwapExactForTokensResponse](#fury.swap.v1beta1.MsgSwapExactForTokensResponse)
+    - [MsgSwapForExactTokens](#fury.swap.v1beta1.MsgSwapForExactTokens)
+    - [MsgSwapForExactTokensResponse](#fury.swap.v1beta1.MsgSwapForExactTokensResponse)
+    - [MsgWithdraw](#fury.swap.v1beta1.MsgWithdraw)
+    - [MsgWithdrawResponse](#fury.swap.v1beta1.MsgWithdrawResponse)
+  
+    - [Msg](#fury.swap.v1beta1.Msg)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="nemo/auction/v1beta1/auction.proto"></a>
+<a name="fury/auction/v1beta1/auction.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/auction/v1beta1/auction.proto
+## fury/auction/v1beta1/auction.proto
 
 
 
-<a name="nemo.auction.v1beta1.BaseAuction"></a>
+<a name="fury.auction.v1beta1.BaseAuction"></a>
 
 ### BaseAuction
 BaseAuction defines common attributes of all auctions
@@ -598,7 +598,7 @@ BaseAuction defines common attributes of all auctions
 
 
 
-<a name="nemo.auction.v1beta1.CollateralAuction"></a>
+<a name="fury.auction.v1beta1.CollateralAuction"></a>
 
 ### CollateralAuction
 CollateralAuction is a two phase auction.
@@ -610,17 +610,17 @@ Collateral auctions are normally used to sell off collateral seized from CDPs.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_auction` | [BaseAuction](#nemo.auction.v1beta1.BaseAuction) |  |  |
+| `base_auction` | [BaseAuction](#fury.auction.v1beta1.BaseAuction) |  |  |
 | `corresponding_debt` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  |  |
 | `max_bid` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  |  |
-| `lot_returns` | [WeightedAddresses](#nemo.auction.v1beta1.WeightedAddresses) |  |  |
+| `lot_returns` | [WeightedAddresses](#fury.auction.v1beta1.WeightedAddresses) |  |  |
 
 
 
 
 
 
-<a name="nemo.auction.v1beta1.DebtAuction"></a>
+<a name="fury.auction.v1beta1.DebtAuction"></a>
 
 ### DebtAuction
 DebtAuction is a reverse auction that mints what it pays out.
@@ -630,7 +630,7 @@ collateral.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_auction` | [BaseAuction](#nemo.auction.v1beta1.BaseAuction) |  |  |
+| `base_auction` | [BaseAuction](#fury.auction.v1beta1.BaseAuction) |  |  |
 | `corresponding_debt` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  |  |
 
 
@@ -638,7 +638,7 @@ collateral.
 
 
 
-<a name="nemo.auction.v1beta1.SurplusAuction"></a>
+<a name="fury.auction.v1beta1.SurplusAuction"></a>
 
 ### SurplusAuction
 SurplusAuction is a forward auction that burns what it receives from bids.
@@ -647,14 +647,14 @@ It is normally used to sell off excess pegged asset acquired by the CDP system.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_auction` | [BaseAuction](#nemo.auction.v1beta1.BaseAuction) |  |  |
+| `base_auction` | [BaseAuction](#fury.auction.v1beta1.BaseAuction) |  |  |
 
 
 
 
 
 
-<a name="nemo.auction.v1beta1.WeightedAddresses"></a>
+<a name="fury.auction.v1beta1.WeightedAddresses"></a>
 
 ### WeightedAddresses
 WeightedAddresses is a type for storing some addresses and associated weights.
@@ -679,14 +679,14 @@ WeightedAddresses is a type for storing some addresses and associated weights.
 
 
 
-<a name="nemo/auction/v1beta1/genesis.proto"></a>
+<a name="fury/auction/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/auction/v1beta1/genesis.proto
+## fury/auction/v1beta1/genesis.proto
 
 
 
-<a name="nemo.auction.v1beta1.GenesisState"></a>
+<a name="fury.auction.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the auction module's genesis state.
@@ -695,7 +695,7 @@ GenesisState defines the auction module's genesis state.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `next_auction_id` | [uint64](#uint64) |  |  |
-| `params` | [Params](#nemo.auction.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.auction.v1beta1.Params) |  |  |
 | `auctions` | [google.protobuf.Any](#google.protobuf.Any) | repeated | Genesis auctions |
 
 
@@ -703,7 +703,7 @@ GenesisState defines the auction module's genesis state.
 
 
 
-<a name="nemo.auction.v1beta1.Params"></a>
+<a name="fury.auction.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the issuance module.
@@ -732,14 +732,14 @@ Params defines the parameters for the issuance module.
 
 
 
-<a name="nemo/auction/v1beta1/query.proto"></a>
+<a name="fury/auction/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/auction/v1beta1/query.proto
+## fury/auction/v1beta1/query.proto
 
 
 
-<a name="nemo.auction.v1beta1.QueryAuctionRequest"></a>
+<a name="fury.auction.v1beta1.QueryAuctionRequest"></a>
 
 ### QueryAuctionRequest
 QueryAuctionRequest is the request type for the Query/Auction RPC method.
@@ -754,7 +754,7 @@ QueryAuctionRequest is the request type for the Query/Auction RPC method.
 
 
 
-<a name="nemo.auction.v1beta1.QueryAuctionResponse"></a>
+<a name="fury.auction.v1beta1.QueryAuctionResponse"></a>
 
 ### QueryAuctionResponse
 QueryAuctionResponse is the response type for the Query/Auction RPC method.
@@ -769,7 +769,7 @@ QueryAuctionResponse is the response type for the Query/Auction RPC method.
 
 
 
-<a name="nemo.auction.v1beta1.QueryAuctionsRequest"></a>
+<a name="fury.auction.v1beta1.QueryAuctionsRequest"></a>
 
 ### QueryAuctionsRequest
 QueryAuctionsRequest is the request type for the Query/Auctions RPC method.
@@ -788,7 +788,7 @@ QueryAuctionsRequest is the request type for the Query/Auctions RPC method.
 
 
 
-<a name="nemo.auction.v1beta1.QueryAuctionsResponse"></a>
+<a name="fury.auction.v1beta1.QueryAuctionsResponse"></a>
 
 ### QueryAuctionsResponse
 QueryAuctionsResponse is the response type for the Query/Auctions RPC method.
@@ -804,7 +804,7 @@ QueryAuctionsResponse is the response type for the Query/Auctions RPC method.
 
 
 
-<a name="nemo.auction.v1beta1.QueryNextAuctionIDRequest"></a>
+<a name="fury.auction.v1beta1.QueryNextAuctionIDRequest"></a>
 
 ### QueryNextAuctionIDRequest
 QueryNextAuctionIDRequest defines the request type for querying x/auction next auction ID.
@@ -814,7 +814,7 @@ QueryNextAuctionIDRequest defines the request type for querying x/auction next a
 
 
 
-<a name="nemo.auction.v1beta1.QueryNextAuctionIDResponse"></a>
+<a name="fury.auction.v1beta1.QueryNextAuctionIDResponse"></a>
 
 ### QueryNextAuctionIDResponse
 QueryNextAuctionIDResponse defines the response type for querying x/auction next auction ID.
@@ -829,7 +829,7 @@ QueryNextAuctionIDResponse defines the response type for querying x/auction next
 
 
 
-<a name="nemo.auction.v1beta1.QueryParamsRequest"></a>
+<a name="fury.auction.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/auction parameters.
@@ -839,7 +839,7 @@ QueryParamsRequest defines the request type for querying x/auction parameters.
 
 
 
-<a name="nemo.auction.v1beta1.QueryParamsResponse"></a>
+<a name="fury.auction.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/auction parameters.
@@ -847,7 +847,7 @@ QueryParamsResponse defines the response type for querying x/auction parameters.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.auction.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.auction.v1beta1.Params) |  |  |
 
 
 
@@ -860,30 +860,30 @@ QueryParamsResponse defines the response type for querying x/auction parameters.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.auction.v1beta1.Query"></a>
+<a name="fury.auction.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for auction module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.auction.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.auction.v1beta1.QueryParamsResponse) | Params queries all parameters of the auction module. | GET|/nemo/auction/v1beta1/params|
-| `Auction` | [QueryAuctionRequest](#nemo.auction.v1beta1.QueryAuctionRequest) | [QueryAuctionResponse](#nemo.auction.v1beta1.QueryAuctionResponse) | Auction queries an individual Auction by auction ID | GET|/nemo/auction/v1beta1/auctions/{auction_id}|
-| `Auctions` | [QueryAuctionsRequest](#nemo.auction.v1beta1.QueryAuctionsRequest) | [QueryAuctionsResponse](#nemo.auction.v1beta1.QueryAuctionsResponse) | Auctions queries auctions filtered by asset denom, owner address, phase, and auction type | GET|/nemo/auction/v1beta1/auctions|
-| `NextAuctionID` | [QueryNextAuctionIDRequest](#nemo.auction.v1beta1.QueryNextAuctionIDRequest) | [QueryNextAuctionIDResponse](#nemo.auction.v1beta1.QueryNextAuctionIDResponse) | NextAuctionID queries the next auction ID | GET|/nemo/auction/v1beta1/next-auction-id|
+| `Params` | [QueryParamsRequest](#fury.auction.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.auction.v1beta1.QueryParamsResponse) | Params queries all parameters of the auction module. | GET|/fury/auction/v1beta1/params|
+| `Auction` | [QueryAuctionRequest](#fury.auction.v1beta1.QueryAuctionRequest) | [QueryAuctionResponse](#fury.auction.v1beta1.QueryAuctionResponse) | Auction queries an individual Auction by auction ID | GET|/fury/auction/v1beta1/auctions/{auction_id}|
+| `Auctions` | [QueryAuctionsRequest](#fury.auction.v1beta1.QueryAuctionsRequest) | [QueryAuctionsResponse](#fury.auction.v1beta1.QueryAuctionsResponse) | Auctions queries auctions filtered by asset denom, owner address, phase, and auction type | GET|/fury/auction/v1beta1/auctions|
+| `NextAuctionID` | [QueryNextAuctionIDRequest](#fury.auction.v1beta1.QueryNextAuctionIDRequest) | [QueryNextAuctionIDResponse](#fury.auction.v1beta1.QueryNextAuctionIDResponse) | NextAuctionID queries the next auction ID | GET|/fury/auction/v1beta1/next-auction-id|
 
  <!-- end services -->
 
 
 
-<a name="nemo/auction/v1beta1/tx.proto"></a>
+<a name="fury/auction/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/auction/v1beta1/tx.proto
+## fury/auction/v1beta1/tx.proto
 
 
 
-<a name="nemo.auction.v1beta1.MsgPlaceBid"></a>
+<a name="fury.auction.v1beta1.MsgPlaceBid"></a>
 
 ### MsgPlaceBid
 MsgPlaceBid represents a message used by bidders to place bids on auctions
@@ -900,7 +900,7 @@ MsgPlaceBid represents a message used by bidders to place bids on auctions
 
 
 
-<a name="nemo.auction.v1beta1.MsgPlaceBidResponse"></a>
+<a name="fury.auction.v1beta1.MsgPlaceBidResponse"></a>
 
 ### MsgPlaceBidResponse
 MsgPlaceBidResponse defines the Msg/PlaceBid response type.
@@ -916,27 +916,27 @@ MsgPlaceBidResponse defines the Msg/PlaceBid response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.auction.v1beta1.Msg"></a>
+<a name="fury.auction.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the auction Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `PlaceBid` | [MsgPlaceBid](#nemo.auction.v1beta1.MsgPlaceBid) | [MsgPlaceBidResponse](#nemo.auction.v1beta1.MsgPlaceBidResponse) | PlaceBid message type used by bidders to place bids on auctions | |
+| `PlaceBid` | [MsgPlaceBid](#fury.auction.v1beta1.MsgPlaceBid) | [MsgPlaceBidResponse](#fury.auction.v1beta1.MsgPlaceBidResponse) | PlaceBid message type used by bidders to place bids on auctions | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/bep3/v1beta1/bep3.proto"></a>
+<a name="fury/bep3/v1beta1/bep3.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/bep3/v1beta1/bep3.proto
+## fury/bep3/v1beta1/bep3.proto
 
 
 
-<a name="nemo.bep3.v1beta1.AssetParam"></a>
+<a name="fury.bep3.v1beta1.AssetParam"></a>
 
 ### AssetParam
 AssetParam defines parameters for each bep3 asset.
@@ -946,9 +946,9 @@ AssetParam defines parameters for each bep3 asset.
 | ----- | ---- | ----- | ----------- |
 | `denom` | [string](#string) |  | denom represents the denominatin for this asset |
 | `coin_id` | [int64](#int64) |  | coin_id represents the registered coin type to use (https://github.com/satoshilabs/slips/blob/master/slip-0044.md) |
-| `supply_limit` | [SupplyLimit](#nemo.bep3.v1beta1.SupplyLimit) |  | supply_limit defines the maximum supply allowed for the asset - a total or time based rate limit |
+| `supply_limit` | [SupplyLimit](#fury.bep3.v1beta1.SupplyLimit) |  | supply_limit defines the maximum supply allowed for the asset - a total or time based rate limit |
 | `active` | [bool](#bool) |  | active specifies if the asset is live or paused |
-| `deputy_address` | [bytes](#bytes) |  | deputy_address the nemo address of the deputy |
+| `deputy_address` | [bytes](#bytes) |  | deputy_address the fury address of the deputy |
 | `fixed_fee` | [string](#string) |  | fixed_fee defines the fee for incoming swaps |
 | `min_swap_amount` | [string](#string) |  | min_swap_amount defines the minimum amount able to be swapped in a single message |
 | `max_swap_amount` | [string](#string) |  | max_swap_amount defines the maximum amount able to be swapped in a single message |
@@ -960,7 +960,7 @@ AssetParam defines parameters for each bep3 asset.
 
 
 
-<a name="nemo.bep3.v1beta1.AssetSupply"></a>
+<a name="fury.bep3.v1beta1.AssetSupply"></a>
 
 ### AssetSupply
 AssetSupply defines information about an asset's supply.
@@ -979,7 +979,7 @@ AssetSupply defines information about an asset's supply.
 
 
 
-<a name="nemo.bep3.v1beta1.AtomicSwap"></a>
+<a name="fury.bep3.v1beta1.AtomicSwap"></a>
 
 ### AtomicSwap
 AtomicSwap defines an atomic swap between chains for the pricefeed module.
@@ -991,21 +991,21 @@ AtomicSwap defines an atomic swap between chains for the pricefeed module.
 | `random_number_hash` | [bytes](#bytes) |  | random_number_hash represents the hash of the random number |
 | `expire_height` | [uint64](#uint64) |  | expire_height represents the height when the swap expires |
 | `timestamp` | [int64](#int64) |  | timestamp represents the timestamp of the swap |
-| `sender` | [bytes](#bytes) |  | sender is the nemo chain sender of the swap |
-| `recipient` | [bytes](#bytes) |  | recipient is the nemo chain recipient of the swap |
+| `sender` | [bytes](#bytes) |  | sender is the fury chain sender of the swap |
+| `recipient` | [bytes](#bytes) |  | recipient is the fury chain recipient of the swap |
 | `sender_other_chain` | [string](#string) |  | sender_other_chain is the sender on the other chain |
 | `recipient_other_chain` | [string](#string) |  | recipient_other_chain is the recipient on the other chain |
 | `closed_block` | [int64](#int64) |  | closed_block is the block when the swap is closed |
-| `status` | [SwapStatus](#nemo.bep3.v1beta1.SwapStatus) |  | status represents the current status of the swap |
+| `status` | [SwapStatus](#fury.bep3.v1beta1.SwapStatus) |  | status represents the current status of the swap |
 | `cross_chain` | [bool](#bool) |  | cross_chain identifies whether the atomic swap is cross chain |
-| `direction` | [SwapDirection](#nemo.bep3.v1beta1.SwapDirection) |  | direction identifies if the swap is incoming or outgoing |
+| `direction` | [SwapDirection](#fury.bep3.v1beta1.SwapDirection) |  | direction identifies if the swap is incoming or outgoing |
 
 
 
 
 
 
-<a name="nemo.bep3.v1beta1.Params"></a>
+<a name="fury.bep3.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the bep3 module.
@@ -1013,14 +1013,14 @@ Params defines the parameters for the bep3 module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `asset_params` | [AssetParam](#nemo.bep3.v1beta1.AssetParam) | repeated | asset_params define the parameters for each bep3 asset |
+| `asset_params` | [AssetParam](#fury.bep3.v1beta1.AssetParam) | repeated | asset_params define the parameters for each bep3 asset |
 
 
 
 
 
 
-<a name="nemo.bep3.v1beta1.SupplyLimit"></a>
+<a name="fury.bep3.v1beta1.SupplyLimit"></a>
 
 ### SupplyLimit
 SupplyLimit define the absolute and time-based limits for an assets's supply.
@@ -1040,7 +1040,7 @@ SupplyLimit define the absolute and time-based limits for an assets's supply.
  <!-- end messages -->
 
 
-<a name="nemo.bep3.v1beta1.SwapDirection"></a>
+<a name="fury.bep3.v1beta1.SwapDirection"></a>
 
 ### SwapDirection
 SwapDirection is the direction of an AtomicSwap
@@ -1048,12 +1048,12 @@ SwapDirection is the direction of an AtomicSwap
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | SWAP_DIRECTION_UNSPECIFIED | 0 | SWAP_DIRECTION_UNSPECIFIED represents unspecified or invalid swap direcation |
-| SWAP_DIRECTION_INCOMING | 1 | SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain) |
-| SWAP_DIRECTION_OUTGOING | 2 | SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain) |
+| SWAP_DIRECTION_INCOMING | 1 | SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain) |
+| SWAP_DIRECTION_OUTGOING | 2 | SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain) |
 
 
 
-<a name="nemo.bep3.v1beta1.SwapStatus"></a>
+<a name="fury.bep3.v1beta1.SwapStatus"></a>
 
 ### SwapStatus
 SwapStatus is the status of an AtomicSwap
@@ -1074,14 +1074,14 @@ SwapStatus is the status of an AtomicSwap
 
 
 
-<a name="nemo/bep3/v1beta1/genesis.proto"></a>
+<a name="fury/bep3/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/bep3/v1beta1/genesis.proto
+## fury/bep3/v1beta1/genesis.proto
 
 
 
-<a name="nemo.bep3.v1beta1.GenesisState"></a>
+<a name="fury.bep3.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the pricefeed module's genesis state.
@@ -1089,9 +1089,9 @@ GenesisState defines the pricefeed module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.bep3.v1beta1.Params) |  | params defines all the paramaters of the module. |
-| `atomic_swaps` | [AtomicSwap](#nemo.bep3.v1beta1.AtomicSwap) | repeated | atomic_swaps represents the state of stored atomic swaps |
-| `supplies` | [AssetSupply](#nemo.bep3.v1beta1.AssetSupply) | repeated | supplies represents the supply information of each atomic swap |
+| `params` | [Params](#fury.bep3.v1beta1.Params) |  | params defines all the paramaters of the module. |
+| `atomic_swaps` | [AtomicSwap](#fury.bep3.v1beta1.AtomicSwap) | repeated | atomic_swaps represents the state of stored atomic swaps |
+| `supplies` | [AssetSupply](#fury.bep3.v1beta1.AssetSupply) | repeated | supplies represents the supply information of each atomic swap |
 | `previous_block_time` | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | previous_block_time represents the time of the previous block |
 
 
@@ -1108,14 +1108,14 @@ GenesisState defines the pricefeed module's genesis state.
 
 
 
-<a name="nemo/bep3/v1beta1/query.proto"></a>
+<a name="fury/bep3/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/bep3/v1beta1/query.proto
+## fury/bep3/v1beta1/query.proto
 
 
 
-<a name="nemo.bep3.v1beta1.AssetSupplyResponse"></a>
+<a name="fury.bep3.v1beta1.AssetSupplyResponse"></a>
 
 ### AssetSupplyResponse
 AssetSupplyResponse defines information about an asset's supply.
@@ -1134,7 +1134,7 @@ AssetSupplyResponse defines information about an asset's supply.
 
 
 
-<a name="nemo.bep3.v1beta1.AtomicSwapResponse"></a>
+<a name="fury.bep3.v1beta1.AtomicSwapResponse"></a>
 
 ### AtomicSwapResponse
 AtomicSwapResponse represents the returned atomic swap properties
@@ -1147,21 +1147,21 @@ AtomicSwapResponse represents the returned atomic swap properties
 | `random_number_hash` | [string](#string) |  | random_number_hash represents the hash of the random number |
 | `expire_height` | [uint64](#uint64) |  | expire_height represents the height when the swap expires |
 | `timestamp` | [int64](#int64) |  | timestamp represents the timestamp of the swap |
-| `sender` | [string](#string) |  | sender is the nemo chain sender of the swap |
-| `recipient` | [string](#string) |  | recipient is the nemo chain recipient of the swap |
+| `sender` | [string](#string) |  | sender is the fury chain sender of the swap |
+| `recipient` | [string](#string) |  | recipient is the fury chain recipient of the swap |
 | `sender_other_chain` | [string](#string) |  | sender_other_chain is the sender on the other chain |
 | `recipient_other_chain` | [string](#string) |  | recipient_other_chain is the recipient on the other chain |
 | `closed_block` | [int64](#int64) |  | closed_block is the block when the swap is closed |
-| `status` | [SwapStatus](#nemo.bep3.v1beta1.SwapStatus) |  | status represents the current status of the swap |
+| `status` | [SwapStatus](#fury.bep3.v1beta1.SwapStatus) |  | status represents the current status of the swap |
 | `cross_chain` | [bool](#bool) |  | cross_chain identifies whether the atomic swap is cross chain |
-| `direction` | [SwapDirection](#nemo.bep3.v1beta1.SwapDirection) |  | direction identifies if the swap is incoming or outgoing |
+| `direction` | [SwapDirection](#fury.bep3.v1beta1.SwapDirection) |  | direction identifies if the swap is incoming or outgoing |
 
 
 
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAssetSuppliesRequest"></a>
+<a name="fury.bep3.v1beta1.QueryAssetSuppliesRequest"></a>
 
 ### QueryAssetSuppliesRequest
 QueryAssetSuppliesRequest is the request type for the Query/AssetSupplies RPC method.
@@ -1171,7 +1171,7 @@ QueryAssetSuppliesRequest is the request type for the Query/AssetSupplies RPC me
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAssetSuppliesResponse"></a>
+<a name="fury.bep3.v1beta1.QueryAssetSuppliesResponse"></a>
 
 ### QueryAssetSuppliesResponse
 QueryAssetSuppliesResponse is the response type for the Query/AssetSupplies RPC method.
@@ -1179,14 +1179,14 @@ QueryAssetSuppliesResponse is the response type for the Query/AssetSupplies RPC 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `asset_supplies` | [AssetSupplyResponse](#nemo.bep3.v1beta1.AssetSupplyResponse) | repeated | asset_supplies represents the supplies of returned assets |
+| `asset_supplies` | [AssetSupplyResponse](#fury.bep3.v1beta1.AssetSupplyResponse) | repeated | asset_supplies represents the supplies of returned assets |
 
 
 
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAssetSupplyRequest"></a>
+<a name="fury.bep3.v1beta1.QueryAssetSupplyRequest"></a>
 
 ### QueryAssetSupplyRequest
 QueryAssetSupplyRequest is the request type for the Query/AssetSupply RPC method.
@@ -1201,7 +1201,7 @@ QueryAssetSupplyRequest is the request type for the Query/AssetSupply RPC method
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAssetSupplyResponse"></a>
+<a name="fury.bep3.v1beta1.QueryAssetSupplyResponse"></a>
 
 ### QueryAssetSupplyResponse
 QueryAssetSupplyResponse is the response type for the Query/AssetSupply RPC method.
@@ -1209,14 +1209,14 @@ QueryAssetSupplyResponse is the response type for the Query/AssetSupply RPC meth
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `asset_supply` | [AssetSupplyResponse](#nemo.bep3.v1beta1.AssetSupplyResponse) |  | asset_supply represents the supply of the asset |
+| `asset_supply` | [AssetSupplyResponse](#fury.bep3.v1beta1.AssetSupplyResponse) |  | asset_supply represents the supply of the asset |
 
 
 
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAtomicSwapRequest"></a>
+<a name="fury.bep3.v1beta1.QueryAtomicSwapRequest"></a>
 
 ### QueryAtomicSwapRequest
 QueryAtomicSwapRequest is the request type for the Query/AtomicSwap RPC method.
@@ -1231,7 +1231,7 @@ QueryAtomicSwapRequest is the request type for the Query/AtomicSwap RPC method.
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAtomicSwapResponse"></a>
+<a name="fury.bep3.v1beta1.QueryAtomicSwapResponse"></a>
 
 ### QueryAtomicSwapResponse
 QueryAtomicSwapResponse is the response type for the Query/AtomicSwap RPC method.
@@ -1239,14 +1239,14 @@ QueryAtomicSwapResponse is the response type for the Query/AtomicSwap RPC method
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `atomic_swap` | [AtomicSwapResponse](#nemo.bep3.v1beta1.AtomicSwapResponse) |  |  |
+| `atomic_swap` | [AtomicSwapResponse](#fury.bep3.v1beta1.AtomicSwapResponse) |  |  |
 
 
 
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAtomicSwapsRequest"></a>
+<a name="fury.bep3.v1beta1.QueryAtomicSwapsRequest"></a>
 
 ### QueryAtomicSwapsRequest
 QueryAtomicSwapsRequest is the request type for the Query/AtomicSwaps RPC method.
@@ -1256,8 +1256,8 @@ QueryAtomicSwapsRequest is the request type for the Query/AtomicSwaps RPC method
 | ----- | ---- | ----- | ----------- |
 | `involve` | [string](#string) |  | involve filters by address |
 | `expiration` | [uint64](#uint64) |  | expiration filters by expiration block height |
-| `status` | [SwapStatus](#nemo.bep3.v1beta1.SwapStatus) |  | status filters by swap status |
-| `direction` | [SwapDirection](#nemo.bep3.v1beta1.SwapDirection) |  | direction fitlers by swap direction |
+| `status` | [SwapStatus](#fury.bep3.v1beta1.SwapStatus) |  | status filters by swap status |
+| `direction` | [SwapDirection](#fury.bep3.v1beta1.SwapDirection) |  | direction fitlers by swap direction |
 | `pagination` | [cosmos.base.query.v1beta1.PageRequest](#cosmos.base.query.v1beta1.PageRequest) |  |  |
 
 
@@ -1265,7 +1265,7 @@ QueryAtomicSwapsRequest is the request type for the Query/AtomicSwaps RPC method
 
 
 
-<a name="nemo.bep3.v1beta1.QueryAtomicSwapsResponse"></a>
+<a name="fury.bep3.v1beta1.QueryAtomicSwapsResponse"></a>
 
 ### QueryAtomicSwapsResponse
 QueryAtomicSwapsResponse is the response type for the Query/AtomicSwaps RPC method.
@@ -1273,7 +1273,7 @@ QueryAtomicSwapsResponse is the response type for the Query/AtomicSwaps RPC meth
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `atomic_swaps` | [AtomicSwapResponse](#nemo.bep3.v1beta1.AtomicSwapResponse) | repeated | atomic_swap represents the returned atomic swaps for the request |
+| `atomic_swaps` | [AtomicSwapResponse](#fury.bep3.v1beta1.AtomicSwapResponse) | repeated | atomic_swap represents the returned atomic swaps for the request |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -1281,7 +1281,7 @@ QueryAtomicSwapsResponse is the response type for the Query/AtomicSwaps RPC meth
 
 
 
-<a name="nemo.bep3.v1beta1.QueryParamsRequest"></a>
+<a name="fury.bep3.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/bep3 parameters.
@@ -1291,7 +1291,7 @@ QueryParamsRequest defines the request type for querying x/bep3 parameters.
 
 
 
-<a name="nemo.bep3.v1beta1.QueryParamsResponse"></a>
+<a name="fury.bep3.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/bep3 parameters.
@@ -1299,7 +1299,7 @@ QueryParamsResponse defines the response type for querying x/bep3 parameters.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.bep3.v1beta1.Params) |  | params represents the parameters of the module |
+| `params` | [Params](#fury.bep3.v1beta1.Params) |  | params represents the parameters of the module |
 
 
 
@@ -1312,31 +1312,31 @@ QueryParamsResponse defines the response type for querying x/bep3 parameters.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.bep3.v1beta1.Query"></a>
+<a name="fury.bep3.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for bep3 module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.bep3.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.bep3.v1beta1.QueryParamsResponse) | Params queries module params | GET|/nemo/bep3/v1beta1/params|
-| `AssetSupply` | [QueryAssetSupplyRequest](#nemo.bep3.v1beta1.QueryAssetSupplyRequest) | [QueryAssetSupplyResponse](#nemo.bep3.v1beta1.QueryAssetSupplyResponse) | AssetSupply queries info about an asset's supply | GET|/nemo/bep3/v1beta1/assetsupply/{denom}|
-| `AssetSupplies` | [QueryAssetSuppliesRequest](#nemo.bep3.v1beta1.QueryAssetSuppliesRequest) | [QueryAssetSuppliesResponse](#nemo.bep3.v1beta1.QueryAssetSuppliesResponse) | AssetSupplies queries a list of asset supplies | GET|/nemo/bep3/v1beta1/assetsupplies|
-| `AtomicSwap` | [QueryAtomicSwapRequest](#nemo.bep3.v1beta1.QueryAtomicSwapRequest) | [QueryAtomicSwapResponse](#nemo.bep3.v1beta1.QueryAtomicSwapResponse) | AtomicSwap queries info about an atomic swap | GET|/nemo/bep3/v1beta1/atomicswap/{swap_id}|
-| `AtomicSwaps` | [QueryAtomicSwapsRequest](#nemo.bep3.v1beta1.QueryAtomicSwapsRequest) | [QueryAtomicSwapsResponse](#nemo.bep3.v1beta1.QueryAtomicSwapsResponse) | AtomicSwaps queries a list of atomic swaps | GET|/nemo/bep3/v1beta1/atomicswaps|
+| `Params` | [QueryParamsRequest](#fury.bep3.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.bep3.v1beta1.QueryParamsResponse) | Params queries module params | GET|/fury/bep3/v1beta1/params|
+| `AssetSupply` | [QueryAssetSupplyRequest](#fury.bep3.v1beta1.QueryAssetSupplyRequest) | [QueryAssetSupplyResponse](#fury.bep3.v1beta1.QueryAssetSupplyResponse) | AssetSupply queries info about an asset's supply | GET|/fury/bep3/v1beta1/assetsupply/{denom}|
+| `AssetSupplies` | [QueryAssetSuppliesRequest](#fury.bep3.v1beta1.QueryAssetSuppliesRequest) | [QueryAssetSuppliesResponse](#fury.bep3.v1beta1.QueryAssetSuppliesResponse) | AssetSupplies queries a list of asset supplies | GET|/fury/bep3/v1beta1/assetsupplies|
+| `AtomicSwap` | [QueryAtomicSwapRequest](#fury.bep3.v1beta1.QueryAtomicSwapRequest) | [QueryAtomicSwapResponse](#fury.bep3.v1beta1.QueryAtomicSwapResponse) | AtomicSwap queries info about an atomic swap | GET|/fury/bep3/v1beta1/atomicswap/{swap_id}|
+| `AtomicSwaps` | [QueryAtomicSwapsRequest](#fury.bep3.v1beta1.QueryAtomicSwapsRequest) | [QueryAtomicSwapsResponse](#fury.bep3.v1beta1.QueryAtomicSwapsResponse) | AtomicSwaps queries a list of atomic swaps | GET|/fury/bep3/v1beta1/atomicswaps|
 
  <!-- end services -->
 
 
 
-<a name="nemo/bep3/v1beta1/tx.proto"></a>
+<a name="fury/bep3/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/bep3/v1beta1/tx.proto
+## fury/bep3/v1beta1/tx.proto
 
 
 
-<a name="nemo.bep3.v1beta1.MsgClaimAtomicSwap"></a>
+<a name="fury.bep3.v1beta1.MsgClaimAtomicSwap"></a>
 
 ### MsgClaimAtomicSwap
 MsgClaimAtomicSwap defines the Msg/ClaimAtomicSwap request type.
@@ -1353,7 +1353,7 @@ MsgClaimAtomicSwap defines the Msg/ClaimAtomicSwap request type.
 
 
 
-<a name="nemo.bep3.v1beta1.MsgClaimAtomicSwapResponse"></a>
+<a name="fury.bep3.v1beta1.MsgClaimAtomicSwapResponse"></a>
 
 ### MsgClaimAtomicSwapResponse
 MsgClaimAtomicSwapResponse defines the Msg/ClaimAtomicSwap response type.
@@ -1363,7 +1363,7 @@ MsgClaimAtomicSwapResponse defines the Msg/ClaimAtomicSwap response type.
 
 
 
-<a name="nemo.bep3.v1beta1.MsgCreateAtomicSwap"></a>
+<a name="fury.bep3.v1beta1.MsgCreateAtomicSwap"></a>
 
 ### MsgCreateAtomicSwap
 MsgCreateAtomicSwap defines the Msg/CreateAtomicSwap request type.
@@ -1385,7 +1385,7 @@ MsgCreateAtomicSwap defines the Msg/CreateAtomicSwap request type.
 
 
 
-<a name="nemo.bep3.v1beta1.MsgCreateAtomicSwapResponse"></a>
+<a name="fury.bep3.v1beta1.MsgCreateAtomicSwapResponse"></a>
 
 ### MsgCreateAtomicSwapResponse
 MsgCreateAtomicSwapResponse defines the Msg/CreateAtomicSwap response type.
@@ -1395,7 +1395,7 @@ MsgCreateAtomicSwapResponse defines the Msg/CreateAtomicSwap response type.
 
 
 
-<a name="nemo.bep3.v1beta1.MsgRefundAtomicSwap"></a>
+<a name="fury.bep3.v1beta1.MsgRefundAtomicSwap"></a>
 
 ### MsgRefundAtomicSwap
 MsgRefundAtomicSwap defines the Msg/RefundAtomicSwap request type.
@@ -1411,7 +1411,7 @@ MsgRefundAtomicSwap defines the Msg/RefundAtomicSwap request type.
 
 
 
-<a name="nemo.bep3.v1beta1.MsgRefundAtomicSwapResponse"></a>
+<a name="fury.bep3.v1beta1.MsgRefundAtomicSwapResponse"></a>
 
 ### MsgRefundAtomicSwapResponse
 MsgRefundAtomicSwapResponse defines the Msg/RefundAtomicSwap response type.
@@ -1427,29 +1427,29 @@ MsgRefundAtomicSwapResponse defines the Msg/RefundAtomicSwap response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.bep3.v1beta1.Msg"></a>
+<a name="fury.bep3.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the bep3 Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `CreateAtomicSwap` | [MsgCreateAtomicSwap](#nemo.bep3.v1beta1.MsgCreateAtomicSwap) | [MsgCreateAtomicSwapResponse](#nemo.bep3.v1beta1.MsgCreateAtomicSwapResponse) | CreateAtomicSwap defines a method for creating an atomic swap | |
-| `ClaimAtomicSwap` | [MsgClaimAtomicSwap](#nemo.bep3.v1beta1.MsgClaimAtomicSwap) | [MsgClaimAtomicSwapResponse](#nemo.bep3.v1beta1.MsgClaimAtomicSwapResponse) | ClaimAtomicSwap defines a method for claiming an atomic swap | |
-| `RefundAtomicSwap` | [MsgRefundAtomicSwap](#nemo.bep3.v1beta1.MsgRefundAtomicSwap) | [MsgRefundAtomicSwapResponse](#nemo.bep3.v1beta1.MsgRefundAtomicSwapResponse) | RefundAtomicSwap defines a method for refunding an atomic swap | |
+| `CreateAtomicSwap` | [MsgCreateAtomicSwap](#fury.bep3.v1beta1.MsgCreateAtomicSwap) | [MsgCreateAtomicSwapResponse](#fury.bep3.v1beta1.MsgCreateAtomicSwapResponse) | CreateAtomicSwap defines a method for creating an atomic swap | |
+| `ClaimAtomicSwap` | [MsgClaimAtomicSwap](#fury.bep3.v1beta1.MsgClaimAtomicSwap) | [MsgClaimAtomicSwapResponse](#fury.bep3.v1beta1.MsgClaimAtomicSwapResponse) | ClaimAtomicSwap defines a method for claiming an atomic swap | |
+| `RefundAtomicSwap` | [MsgRefundAtomicSwap](#fury.bep3.v1beta1.MsgRefundAtomicSwap) | [MsgRefundAtomicSwapResponse](#fury.bep3.v1beta1.MsgRefundAtomicSwapResponse) | RefundAtomicSwap defines a method for refunding an atomic swap | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/cdp/v1beta1/cdp.proto"></a>
+<a name="fury/cdp/v1beta1/cdp.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/cdp/v1beta1/cdp.proto
+## fury/cdp/v1beta1/cdp.proto
 
 
 
-<a name="nemo.cdp.v1beta1.CDP"></a>
+<a name="fury.cdp.v1beta1.CDP"></a>
 
 ### CDP
 CDP defines the state of a single collateralized debt position.
@@ -1471,7 +1471,7 @@ CDP defines the state of a single collateralized debt position.
 
 
 
-<a name="nemo.cdp.v1beta1.Deposit"></a>
+<a name="fury.cdp.v1beta1.Deposit"></a>
 
 ### Deposit
 Deposit defines an amount of coins deposited by an account to a cdp
@@ -1488,7 +1488,7 @@ Deposit defines an amount of coins deposited by an account to a cdp
 
 
 
-<a name="nemo.cdp.v1beta1.OwnerCDPIndex"></a>
+<a name="fury.cdp.v1beta1.OwnerCDPIndex"></a>
 
 ### OwnerCDPIndex
 OwnerCDPIndex defines the cdp ids for a single cdp owner
@@ -1503,7 +1503,7 @@ OwnerCDPIndex defines the cdp ids for a single cdp owner
 
 
 
-<a name="nemo.cdp.v1beta1.TotalCollateral"></a>
+<a name="fury.cdp.v1beta1.TotalCollateral"></a>
 
 ### TotalCollateral
 TotalCollateral defines the total collateral of a given collateral type
@@ -1519,7 +1519,7 @@ TotalCollateral defines the total collateral of a given collateral type
 
 
 
-<a name="nemo.cdp.v1beta1.TotalPrincipal"></a>
+<a name="fury.cdp.v1beta1.TotalPrincipal"></a>
 
 ### TotalPrincipal
 TotalPrincipal defines the total principal of a given collateral type
@@ -1544,14 +1544,14 @@ TotalPrincipal defines the total principal of a given collateral type
 
 
 
-<a name="nemo/cdp/v1beta1/genesis.proto"></a>
+<a name="fury/cdp/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/cdp/v1beta1/genesis.proto
+## fury/cdp/v1beta1/genesis.proto
 
 
 
-<a name="nemo.cdp.v1beta1.CollateralParam"></a>
+<a name="fury.cdp.v1beta1.CollateralParam"></a>
 
 ### CollateralParam
 CollateralParam defines governance parameters for each collateral type within the cdp module
@@ -1577,7 +1577,7 @@ CollateralParam defines governance parameters for each collateral type within th
 
 
 
-<a name="nemo.cdp.v1beta1.DebtParam"></a>
+<a name="fury.cdp.v1beta1.DebtParam"></a>
 
 ### DebtParam
 DebtParam defines governance params for debt assets
@@ -1595,7 +1595,7 @@ DebtParam defines governance params for debt assets
 
 
 
-<a name="nemo.cdp.v1beta1.GenesisAccumulationTime"></a>
+<a name="fury.cdp.v1beta1.GenesisAccumulationTime"></a>
 
 ### GenesisAccumulationTime
 GenesisAccumulationTime defines the previous distribution time and its corresponding denom
@@ -1612,7 +1612,7 @@ GenesisAccumulationTime defines the previous distribution time and its correspon
 
 
 
-<a name="nemo.cdp.v1beta1.GenesisState"></a>
+<a name="fury.cdp.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the cdp module's genesis state.
@@ -1620,21 +1620,21 @@ GenesisState defines the cdp module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.cdp.v1beta1.Params) |  | params defines all the paramaters of the module. |
-| `cdps` | [CDP](#nemo.cdp.v1beta1.CDP) | repeated |  |
-| `deposits` | [Deposit](#nemo.cdp.v1beta1.Deposit) | repeated |  |
+| `params` | [Params](#fury.cdp.v1beta1.Params) |  | params defines all the paramaters of the module. |
+| `cdps` | [CDP](#fury.cdp.v1beta1.CDP) | repeated |  |
+| `deposits` | [Deposit](#fury.cdp.v1beta1.Deposit) | repeated |  |
 | `starting_cdp_id` | [uint64](#uint64) |  |  |
 | `debt_denom` | [string](#string) |  |  |
 | `gov_denom` | [string](#string) |  |  |
-| `previous_accumulation_times` | [GenesisAccumulationTime](#nemo.cdp.v1beta1.GenesisAccumulationTime) | repeated |  |
-| `total_principals` | [GenesisTotalPrincipal](#nemo.cdp.v1beta1.GenesisTotalPrincipal) | repeated |  |
+| `previous_accumulation_times` | [GenesisAccumulationTime](#fury.cdp.v1beta1.GenesisAccumulationTime) | repeated |  |
+| `total_principals` | [GenesisTotalPrincipal](#fury.cdp.v1beta1.GenesisTotalPrincipal) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.cdp.v1beta1.GenesisTotalPrincipal"></a>
+<a name="fury.cdp.v1beta1.GenesisTotalPrincipal"></a>
 
 ### GenesisTotalPrincipal
 GenesisTotalPrincipal defines the total principal and its corresponding collateral type
@@ -1650,7 +1650,7 @@ GenesisTotalPrincipal defines the total principal and its corresponding collater
 
 
 
-<a name="nemo.cdp.v1beta1.Params"></a>
+<a name="fury.cdp.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the cdp module.
@@ -1658,8 +1658,8 @@ Params defines the parameters for the cdp module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `collateral_params` | [CollateralParam](#nemo.cdp.v1beta1.CollateralParam) | repeated |  |
-| `debt_param` | [DebtParam](#nemo.cdp.v1beta1.DebtParam) |  |  |
+| `collateral_params` | [CollateralParam](#fury.cdp.v1beta1.CollateralParam) | repeated |  |
+| `debt_param` | [DebtParam](#fury.cdp.v1beta1.DebtParam) |  |  |
 | `global_debt_limit` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  |  |
 | `surplus_auction_threshold` | [string](#string) |  |  |
 | `surplus_auction_lot` | [string](#string) |  |  |
@@ -1681,14 +1681,14 @@ Params defines the parameters for the cdp module.
 
 
 
-<a name="nemo/cdp/v1beta1/query.proto"></a>
+<a name="fury/cdp/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/cdp/v1beta1/query.proto
+## fury/cdp/v1beta1/query.proto
 
 
 
-<a name="nemo.cdp.v1beta1.CDPResponse"></a>
+<a name="fury.cdp.v1beta1.CDPResponse"></a>
 
 ### CDPResponse
 CDPResponse defines the state of a single collateralized debt position.
@@ -1712,7 +1712,7 @@ CDPResponse defines the state of a single collateralized debt position.
 
 
 
-<a name="nemo.cdp.v1beta1.QueryAccountsRequest"></a>
+<a name="fury.cdp.v1beta1.QueryAccountsRequest"></a>
 
 ### QueryAccountsRequest
 QueryAccountsRequest defines the request type for the Query/Accounts RPC method.
@@ -1722,7 +1722,7 @@ QueryAccountsRequest defines the request type for the Query/Accounts RPC method.
 
 
 
-<a name="nemo.cdp.v1beta1.QueryAccountsResponse"></a>
+<a name="fury.cdp.v1beta1.QueryAccountsResponse"></a>
 
 ### QueryAccountsResponse
 QueryAccountsResponse defines the response type for the Query/Accounts RPC method.
@@ -1737,7 +1737,7 @@ QueryAccountsResponse defines the response type for the Query/Accounts RPC metho
 
 
 
-<a name="nemo.cdp.v1beta1.QueryCdpRequest"></a>
+<a name="fury.cdp.v1beta1.QueryCdpRequest"></a>
 
 ### QueryCdpRequest
 QueryCdpRequest defines the request type for the Query/Cdp RPC method.
@@ -1753,7 +1753,7 @@ QueryCdpRequest defines the request type for the Query/Cdp RPC method.
 
 
 
-<a name="nemo.cdp.v1beta1.QueryCdpResponse"></a>
+<a name="fury.cdp.v1beta1.QueryCdpResponse"></a>
 
 ### QueryCdpResponse
 QueryCdpResponse defines the response type for the Query/Cdp RPC method.
@@ -1761,14 +1761,14 @@ QueryCdpResponse defines the response type for the Query/Cdp RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `cdp` | [CDPResponse](#nemo.cdp.v1beta1.CDPResponse) |  |  |
+| `cdp` | [CDPResponse](#fury.cdp.v1beta1.CDPResponse) |  |  |
 
 
 
 
 
 
-<a name="nemo.cdp.v1beta1.QueryCdpsRequest"></a>
+<a name="fury.cdp.v1beta1.QueryCdpsRequest"></a>
 
 ### QueryCdpsRequest
 QueryCdpsRequest is the params for a filtered CDP query, the request type for the Query/Cdps RPC method.
@@ -1787,7 +1787,7 @@ QueryCdpsRequest is the params for a filtered CDP query, the request type for th
 
 
 
-<a name="nemo.cdp.v1beta1.QueryCdpsResponse"></a>
+<a name="fury.cdp.v1beta1.QueryCdpsResponse"></a>
 
 ### QueryCdpsResponse
 QueryCdpsResponse defines the response type for the Query/Cdps RPC method.
@@ -1795,7 +1795,7 @@ QueryCdpsResponse defines the response type for the Query/Cdps RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `cdps` | [CDPResponse](#nemo.cdp.v1beta1.CDPResponse) | repeated |  |
+| `cdps` | [CDPResponse](#fury.cdp.v1beta1.CDPResponse) | repeated |  |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -1803,7 +1803,7 @@ QueryCdpsResponse defines the response type for the Query/Cdps RPC method.
 
 
 
-<a name="nemo.cdp.v1beta1.QueryDepositsRequest"></a>
+<a name="fury.cdp.v1beta1.QueryDepositsRequest"></a>
 
 ### QueryDepositsRequest
 QueryDepositsRequest defines the request type for the Query/Deposits RPC method.
@@ -1819,7 +1819,7 @@ QueryDepositsRequest defines the request type for the Query/Deposits RPC method.
 
 
 
-<a name="nemo.cdp.v1beta1.QueryDepositsResponse"></a>
+<a name="fury.cdp.v1beta1.QueryDepositsResponse"></a>
 
 ### QueryDepositsResponse
 QueryDepositsResponse defines the response type for the Query/Deposits RPC method.
@@ -1827,14 +1827,14 @@ QueryDepositsResponse defines the response type for the Query/Deposits RPC metho
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `deposits` | [Deposit](#nemo.cdp.v1beta1.Deposit) | repeated |  |
+| `deposits` | [Deposit](#fury.cdp.v1beta1.Deposit) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.cdp.v1beta1.QueryParamsRequest"></a>
+<a name="fury.cdp.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for the Query/Params RPC method.
@@ -1844,7 +1844,7 @@ QueryParamsRequest defines the request type for the Query/Params RPC method.
 
 
 
-<a name="nemo.cdp.v1beta1.QueryParamsResponse"></a>
+<a name="fury.cdp.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for the Query/Params RPC method.
@@ -1852,14 +1852,14 @@ QueryParamsResponse defines the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.cdp.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.cdp.v1beta1.Params) |  |  |
 
 
 
 
 
 
-<a name="nemo.cdp.v1beta1.QueryTotalCollateralRequest"></a>
+<a name="fury.cdp.v1beta1.QueryTotalCollateralRequest"></a>
 
 ### QueryTotalCollateralRequest
 QueryTotalCollateralRequest defines the request type for the Query/TotalCollateral RPC method.
@@ -1874,7 +1874,7 @@ QueryTotalCollateralRequest defines the request type for the Query/TotalCollater
 
 
 
-<a name="nemo.cdp.v1beta1.QueryTotalCollateralResponse"></a>
+<a name="fury.cdp.v1beta1.QueryTotalCollateralResponse"></a>
 
 ### QueryTotalCollateralResponse
 QueryTotalCollateralResponse defines the response type for the Query/TotalCollateral RPC method.
@@ -1882,14 +1882,14 @@ QueryTotalCollateralResponse defines the response type for the Query/TotalCollat
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `total_collateral` | [TotalCollateral](#nemo.cdp.v1beta1.TotalCollateral) | repeated |  |
+| `total_collateral` | [TotalCollateral](#fury.cdp.v1beta1.TotalCollateral) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.cdp.v1beta1.QueryTotalPrincipalRequest"></a>
+<a name="fury.cdp.v1beta1.QueryTotalPrincipalRequest"></a>
 
 ### QueryTotalPrincipalRequest
 QueryTotalPrincipalRequest defines the request type for the Query/TotalPrincipal RPC method.
@@ -1904,7 +1904,7 @@ QueryTotalPrincipalRequest defines the request type for the Query/TotalPrincipal
 
 
 
-<a name="nemo.cdp.v1beta1.QueryTotalPrincipalResponse"></a>
+<a name="fury.cdp.v1beta1.QueryTotalPrincipalResponse"></a>
 
 ### QueryTotalPrincipalResponse
 QueryTotalPrincipalResponse defines the response type for the Query/TotalPrincipal RPC method.
@@ -1912,7 +1912,7 @@ QueryTotalPrincipalResponse defines the response type for the Query/TotalPrincip
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `total_principal` | [TotalPrincipal](#nemo.cdp.v1beta1.TotalPrincipal) | repeated |  |
+| `total_principal` | [TotalPrincipal](#fury.cdp.v1beta1.TotalPrincipal) | repeated |  |
 
 
 
@@ -1925,33 +1925,33 @@ QueryTotalPrincipalResponse defines the response type for the Query/TotalPrincip
  <!-- end HasExtensions -->
 
 
-<a name="nemo.cdp.v1beta1.Query"></a>
+<a name="fury.cdp.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for cdp module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.cdp.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.cdp.v1beta1.QueryParamsResponse) | Params queries all parameters of the cdp module. | GET|/nemo/cdp/v1beta1/params|
-| `Accounts` | [QueryAccountsRequest](#nemo.cdp.v1beta1.QueryAccountsRequest) | [QueryAccountsResponse](#nemo.cdp.v1beta1.QueryAccountsResponse) | Accounts queries the CDP module accounts. | GET|/nemo/cdp/v1beta1/accounts|
-| `TotalPrincipal` | [QueryTotalPrincipalRequest](#nemo.cdp.v1beta1.QueryTotalPrincipalRequest) | [QueryTotalPrincipalResponse](#nemo.cdp.v1beta1.QueryTotalPrincipalResponse) | TotalPrincipal queries the total principal of a given collateral type. | GET|/nemo/cdp/v1beta1/totalPrincipal|
-| `TotalCollateral` | [QueryTotalCollateralRequest](#nemo.cdp.v1beta1.QueryTotalCollateralRequest) | [QueryTotalCollateralResponse](#nemo.cdp.v1beta1.QueryTotalCollateralResponse) | TotalCollateral queries the total collateral of a given collateral type. | GET|/nemo/cdp/v1beta1/totalCollateral|
-| `Cdps` | [QueryCdpsRequest](#nemo.cdp.v1beta1.QueryCdpsRequest) | [QueryCdpsResponse](#nemo.cdp.v1beta1.QueryCdpsResponse) | Cdps queries all active CDPs. | GET|/nemo/cdp/v1beta1/cdps|
-| `Cdp` | [QueryCdpRequest](#nemo.cdp.v1beta1.QueryCdpRequest) | [QueryCdpResponse](#nemo.cdp.v1beta1.QueryCdpResponse) | Cdp queries a CDP with the input owner address and collateral type. | GET|/nemo/cdp/v1beta1/cdps/{owner}/{collateral_type}|
-| `Deposits` | [QueryDepositsRequest](#nemo.cdp.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#nemo.cdp.v1beta1.QueryDepositsResponse) | Deposits queries deposits associated with the CDP owned by an address for a collateral type. | GET|/nemo/cdp/v1beta1/cdps/deposits/{owner}/{collateral_type}|
+| `Params` | [QueryParamsRequest](#fury.cdp.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.cdp.v1beta1.QueryParamsResponse) | Params queries all parameters of the cdp module. | GET|/fury/cdp/v1beta1/params|
+| `Accounts` | [QueryAccountsRequest](#fury.cdp.v1beta1.QueryAccountsRequest) | [QueryAccountsResponse](#fury.cdp.v1beta1.QueryAccountsResponse) | Accounts queries the CDP module accounts. | GET|/fury/cdp/v1beta1/accounts|
+| `TotalPrincipal` | [QueryTotalPrincipalRequest](#fury.cdp.v1beta1.QueryTotalPrincipalRequest) | [QueryTotalPrincipalResponse](#fury.cdp.v1beta1.QueryTotalPrincipalResponse) | TotalPrincipal queries the total principal of a given collateral type. | GET|/fury/cdp/v1beta1/totalPrincipal|
+| `TotalCollateral` | [QueryTotalCollateralRequest](#fury.cdp.v1beta1.QueryTotalCollateralRequest) | [QueryTotalCollateralResponse](#fury.cdp.v1beta1.QueryTotalCollateralResponse) | TotalCollateral queries the total collateral of a given collateral type. | GET|/fury/cdp/v1beta1/totalCollateral|
+| `Cdps` | [QueryCdpsRequest](#fury.cdp.v1beta1.QueryCdpsRequest) | [QueryCdpsResponse](#fury.cdp.v1beta1.QueryCdpsResponse) | Cdps queries all active CDPs. | GET|/fury/cdp/v1beta1/cdps|
+| `Cdp` | [QueryCdpRequest](#fury.cdp.v1beta1.QueryCdpRequest) | [QueryCdpResponse](#fury.cdp.v1beta1.QueryCdpResponse) | Cdp queries a CDP with the input owner address and collateral type. | GET|/fury/cdp/v1beta1/cdps/{owner}/{collateral_type}|
+| `Deposits` | [QueryDepositsRequest](#fury.cdp.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#fury.cdp.v1beta1.QueryDepositsResponse) | Deposits queries deposits associated with the CDP owned by an address for a collateral type. | GET|/fury/cdp/v1beta1/cdps/deposits/{owner}/{collateral_type}|
 
  <!-- end services -->
 
 
 
-<a name="nemo/cdp/v1beta1/tx.proto"></a>
+<a name="fury/cdp/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/cdp/v1beta1/tx.proto
+## fury/cdp/v1beta1/tx.proto
 
 
 
-<a name="nemo.cdp.v1beta1.MsgCreateCDP"></a>
+<a name="fury.cdp.v1beta1.MsgCreateCDP"></a>
 
 ### MsgCreateCDP
 MsgCreateCDP defines a message to create a new CDP.
@@ -1969,7 +1969,7 @@ MsgCreateCDP defines a message to create a new CDP.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgCreateCDPResponse"></a>
+<a name="fury.cdp.v1beta1.MsgCreateCDPResponse"></a>
 
 ### MsgCreateCDPResponse
 MsgCreateCDPResponse defines the Msg/CreateCDP response type.
@@ -1984,7 +1984,7 @@ MsgCreateCDPResponse defines the Msg/CreateCDP response type.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgDeposit"></a>
+<a name="fury.cdp.v1beta1.MsgDeposit"></a>
 
 ### MsgDeposit
 MsgDeposit defines a message to deposit to a CDP.
@@ -2002,7 +2002,7 @@ MsgDeposit defines a message to deposit to a CDP.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgDepositResponse"></a>
+<a name="fury.cdp.v1beta1.MsgDepositResponse"></a>
 
 ### MsgDepositResponse
 MsgDepositResponse defines the Msg/Deposit response type.
@@ -2012,7 +2012,7 @@ MsgDepositResponse defines the Msg/Deposit response type.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgDrawDebt"></a>
+<a name="fury.cdp.v1beta1.MsgDrawDebt"></a>
 
 ### MsgDrawDebt
 MsgDrawDebt defines a message to draw debt from a CDP.
@@ -2029,7 +2029,7 @@ MsgDrawDebt defines a message to draw debt from a CDP.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgDrawDebtResponse"></a>
+<a name="fury.cdp.v1beta1.MsgDrawDebtResponse"></a>
 
 ### MsgDrawDebtResponse
 MsgDrawDebtResponse defines the Msg/DrawDebt response type.
@@ -2039,7 +2039,7 @@ MsgDrawDebtResponse defines the Msg/DrawDebt response type.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgLiquidate"></a>
+<a name="fury.cdp.v1beta1.MsgLiquidate"></a>
 
 ### MsgLiquidate
 MsgLiquidate defines a message to attempt to liquidate a CDP whos
@@ -2057,7 +2057,7 @@ collateralization ratio is under its liquidation ratio.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgLiquidateResponse"></a>
+<a name="fury.cdp.v1beta1.MsgLiquidateResponse"></a>
 
 ### MsgLiquidateResponse
 MsgLiquidateResponse defines the Msg/Liquidate response type.
@@ -2067,7 +2067,7 @@ MsgLiquidateResponse defines the Msg/Liquidate response type.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgRepayDebt"></a>
+<a name="fury.cdp.v1beta1.MsgRepayDebt"></a>
 
 ### MsgRepayDebt
 MsgRepayDebt defines a message to repay debt from a CDP.
@@ -2084,7 +2084,7 @@ MsgRepayDebt defines a message to repay debt from a CDP.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgRepayDebtResponse"></a>
+<a name="fury.cdp.v1beta1.MsgRepayDebtResponse"></a>
 
 ### MsgRepayDebtResponse
 MsgRepayDebtResponse defines the Msg/RepayDebt response type.
@@ -2094,7 +2094,7 @@ MsgRepayDebtResponse defines the Msg/RepayDebt response type.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgWithdraw"></a>
+<a name="fury.cdp.v1beta1.MsgWithdraw"></a>
 
 ### MsgWithdraw
 MsgWithdraw defines a message to withdraw collateral from a CDP.
@@ -2112,7 +2112,7 @@ MsgWithdraw defines a message to withdraw collateral from a CDP.
 
 
 
-<a name="nemo.cdp.v1beta1.MsgWithdrawResponse"></a>
+<a name="fury.cdp.v1beta1.MsgWithdrawResponse"></a>
 
 ### MsgWithdrawResponse
 MsgWithdrawResponse defines the Msg/Withdraw response type.
@@ -2128,32 +2128,32 @@ MsgWithdrawResponse defines the Msg/Withdraw response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.cdp.v1beta1.Msg"></a>
+<a name="fury.cdp.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the cdp Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `CreateCDP` | [MsgCreateCDP](#nemo.cdp.v1beta1.MsgCreateCDP) | [MsgCreateCDPResponse](#nemo.cdp.v1beta1.MsgCreateCDPResponse) | CreateCDP defines a method to create a new CDP. | |
-| `Deposit` | [MsgDeposit](#nemo.cdp.v1beta1.MsgDeposit) | [MsgDepositResponse](#nemo.cdp.v1beta1.MsgDepositResponse) | Deposit defines a method to deposit to a CDP. | |
-| `Withdraw` | [MsgWithdraw](#nemo.cdp.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#nemo.cdp.v1beta1.MsgWithdrawResponse) | Withdraw defines a method to withdraw collateral from a CDP. | |
-| `DrawDebt` | [MsgDrawDebt](#nemo.cdp.v1beta1.MsgDrawDebt) | [MsgDrawDebtResponse](#nemo.cdp.v1beta1.MsgDrawDebtResponse) | DrawDebt defines a method to draw debt from a CDP. | |
-| `RepayDebt` | [MsgRepayDebt](#nemo.cdp.v1beta1.MsgRepayDebt) | [MsgRepayDebtResponse](#nemo.cdp.v1beta1.MsgRepayDebtResponse) | RepayDebt defines a method to repay debt from a CDP. | |
-| `Liquidate` | [MsgLiquidate](#nemo.cdp.v1beta1.MsgLiquidate) | [MsgLiquidateResponse](#nemo.cdp.v1beta1.MsgLiquidateResponse) | Liquidate defines a method to attempt to liquidate a CDP whos collateralization ratio is under its liquidation ratio. | |
+| `CreateCDP` | [MsgCreateCDP](#fury.cdp.v1beta1.MsgCreateCDP) | [MsgCreateCDPResponse](#fury.cdp.v1beta1.MsgCreateCDPResponse) | CreateCDP defines a method to create a new CDP. | |
+| `Deposit` | [MsgDeposit](#fury.cdp.v1beta1.MsgDeposit) | [MsgDepositResponse](#fury.cdp.v1beta1.MsgDepositResponse) | Deposit defines a method to deposit to a CDP. | |
+| `Withdraw` | [MsgWithdraw](#fury.cdp.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#fury.cdp.v1beta1.MsgWithdrawResponse) | Withdraw defines a method to withdraw collateral from a CDP. | |
+| `DrawDebt` | [MsgDrawDebt](#fury.cdp.v1beta1.MsgDrawDebt) | [MsgDrawDebtResponse](#fury.cdp.v1beta1.MsgDrawDebtResponse) | DrawDebt defines a method to draw debt from a CDP. | |
+| `RepayDebt` | [MsgRepayDebt](#fury.cdp.v1beta1.MsgRepayDebt) | [MsgRepayDebtResponse](#fury.cdp.v1beta1.MsgRepayDebtResponse) | RepayDebt defines a method to repay debt from a CDP. | |
+| `Liquidate` | [MsgLiquidate](#fury.cdp.v1beta1.MsgLiquidate) | [MsgLiquidateResponse](#fury.cdp.v1beta1.MsgLiquidateResponse) | Liquidate defines a method to attempt to liquidate a CDP whos collateralization ratio is under its liquidation ratio. | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/committee/v1beta1/committee.proto"></a>
+<a name="fury/committee/v1beta1/committee.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/committee/v1beta1/committee.proto
+## fury/committee/v1beta1/committee.proto
 
 
 
-<a name="nemo.committee.v1beta1.BaseCommittee"></a>
+<a name="fury.committee.v1beta1.BaseCommittee"></a>
 
 ### BaseCommittee
 BaseCommittee is a common type shared by all Committees
@@ -2167,14 +2167,14 @@ BaseCommittee is a common type shared by all Committees
 | `permissions` | [google.protobuf.Any](#google.protobuf.Any) | repeated |  |
 | `vote_threshold` | [string](#string) |  | Smallest percentage that must vote for a proposal to pass |
 | `proposal_duration` | [google.protobuf.Duration](#google.protobuf.Duration) |  | The length of time a proposal remains active for. Proposals will close earlier if they get enough votes. |
-| `tally_option` | [TallyOption](#nemo.committee.v1beta1.TallyOption) |  |  |
+| `tally_option` | [TallyOption](#fury.committee.v1beta1.TallyOption) |  |  |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.MemberCommittee"></a>
+<a name="fury.committee.v1beta1.MemberCommittee"></a>
 
 ### MemberCommittee
 MemberCommittee is an alias of BaseCommittee
@@ -2182,14 +2182,14 @@ MemberCommittee is an alias of BaseCommittee
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_committee` | [BaseCommittee](#nemo.committee.v1beta1.BaseCommittee) |  |  |
+| `base_committee` | [BaseCommittee](#fury.committee.v1beta1.BaseCommittee) |  |  |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.TokenCommittee"></a>
+<a name="fury.committee.v1beta1.TokenCommittee"></a>
 
 ### TokenCommittee
 TokenCommittee supports voting on proposals by token holders
@@ -2197,7 +2197,7 @@ TokenCommittee supports voting on proposals by token holders
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_committee` | [BaseCommittee](#nemo.committee.v1beta1.BaseCommittee) |  |  |
+| `base_committee` | [BaseCommittee](#fury.committee.v1beta1.BaseCommittee) |  |  |
 | `quorum` | [string](#string) |  |  |
 | `tally_denom` | [string](#string) |  |  |
 
@@ -2208,7 +2208,7 @@ TokenCommittee supports voting on proposals by token holders
  <!-- end messages -->
 
 
-<a name="nemo.committee.v1beta1.TallyOption"></a>
+<a name="fury.committee.v1beta1.TallyOption"></a>
 
 ### TallyOption
 TallyOption enumerates the valid types of a tally.
@@ -2228,14 +2228,14 @@ TallyOption enumerates the valid types of a tally.
 
 
 
-<a name="nemo/committee/v1beta1/genesis.proto"></a>
+<a name="fury/committee/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/committee/v1beta1/genesis.proto
+## fury/committee/v1beta1/genesis.proto
 
 
 
-<a name="nemo.committee.v1beta1.GenesisState"></a>
+<a name="fury.committee.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the committee module's genesis state.
@@ -2245,15 +2245,15 @@ GenesisState defines the committee module's genesis state.
 | ----- | ---- | ----- | ----------- |
 | `next_proposal_id` | [uint64](#uint64) |  |  |
 | `committees` | [google.protobuf.Any](#google.protobuf.Any) | repeated |  |
-| `proposals` | [Proposal](#nemo.committee.v1beta1.Proposal) | repeated |  |
-| `votes` | [Vote](#nemo.committee.v1beta1.Vote) | repeated |  |
+| `proposals` | [Proposal](#fury.committee.v1beta1.Proposal) | repeated |  |
+| `votes` | [Vote](#fury.committee.v1beta1.Vote) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.Proposal"></a>
+<a name="fury.committee.v1beta1.Proposal"></a>
 
 ### Proposal
 Proposal is an internal record of a governance proposal submitted to a committee.
@@ -2271,7 +2271,7 @@ Proposal is an internal record of a governance proposal submitted to a committee
 
 
 
-<a name="nemo.committee.v1beta1.Vote"></a>
+<a name="fury.committee.v1beta1.Vote"></a>
 
 ### Vote
 Vote is an internal record of a single governance vote.
@@ -2281,7 +2281,7 @@ Vote is an internal record of a single governance vote.
 | ----- | ---- | ----- | ----------- |
 | `proposal_id` | [uint64](#uint64) |  |  |
 | `voter` | [bytes](#bytes) |  |  |
-| `vote_type` | [VoteType](#nemo.committee.v1beta1.VoteType) |  |  |
+| `vote_type` | [VoteType](#fury.committee.v1beta1.VoteType) |  |  |
 
 
 
@@ -2290,7 +2290,7 @@ Vote is an internal record of a single governance vote.
  <!-- end messages -->
 
 
-<a name="nemo.committee.v1beta1.VoteType"></a>
+<a name="fury.committee.v1beta1.VoteType"></a>
 
 ### VoteType
 VoteType enumerates the valid types of a vote.
@@ -2311,14 +2311,14 @@ VoteType enumerates the valid types of a vote.
 
 
 
-<a name="nemo/committee/v1beta1/permissions.proto"></a>
+<a name="fury/committee/v1beta1/permissions.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/committee/v1beta1/permissions.proto
+## fury/committee/v1beta1/permissions.proto
 
 
 
-<a name="nemo.committee.v1beta1.AllowedParamsChange"></a>
+<a name="fury.committee.v1beta1.AllowedParamsChange"></a>
 
 ### AllowedParamsChange
 AllowedParamsChange contains data on the allowed parameter changes for subspace, key, and sub params requirements.
@@ -2329,14 +2329,14 @@ AllowedParamsChange contains data on the allowed parameter changes for subspace,
 | `subspace` | [string](#string) |  |  |
 | `key` | [string](#string) |  |  |
 | `single_subparam_allowed_attrs` | [string](#string) | repeated | Requirements for when the subparam value is a single record. This contains list of allowed attribute keys that can be changed on the subparam record. |
-| `multi_subparams_requirements` | [SubparamRequirement](#nemo.committee.v1beta1.SubparamRequirement) | repeated | Requirements for when the subparam value is a list of records. The requirements contains requirements for each record in the list. |
+| `multi_subparams_requirements` | [SubparamRequirement](#fury.committee.v1beta1.SubparamRequirement) | repeated | Requirements for when the subparam value is a list of records. The requirements contains requirements for each record in the list. |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.CommunityCDPRepayDebtPermission"></a>
+<a name="fury.committee.v1beta1.CommunityCDPRepayDebtPermission"></a>
 
 ### CommunityCDPRepayDebtPermission
 CommunityCDPRepayDebtPermission allows submission of CommunityCDPRepayDebtProposal
@@ -2346,7 +2346,7 @@ CommunityCDPRepayDebtPermission allows submission of CommunityCDPRepayDebtPropos
 
 
 
-<a name="nemo.committee.v1beta1.CommunityCDPWithdrawCollateralPermission"></a>
+<a name="fury.committee.v1beta1.CommunityCDPWithdrawCollateralPermission"></a>
 
 ### CommunityCDPWithdrawCollateralPermission
 CommunityCDPWithdrawCollateralPermission allows submission of CommunityCDPWithdrawCollateralProposal
@@ -2356,7 +2356,7 @@ CommunityCDPWithdrawCollateralPermission allows submission of CommunityCDPWithdr
 
 
 
-<a name="nemo.committee.v1beta1.CommunityPoolLendWithdrawPermission"></a>
+<a name="fury.committee.v1beta1.CommunityPoolLendWithdrawPermission"></a>
 
 ### CommunityPoolLendWithdrawPermission
 CommunityPoolLendWithdrawPermission allows submission of CommunityPoolLendWithdrawProposal
@@ -2366,7 +2366,7 @@ CommunityPoolLendWithdrawPermission allows submission of CommunityPoolLendWithdr
 
 
 
-<a name="nemo.committee.v1beta1.GodPermission"></a>
+<a name="fury.committee.v1beta1.GodPermission"></a>
 
 ### GodPermission
 GodPermission allows any governance proposal. It is used mainly for testing.
@@ -2376,7 +2376,7 @@ GodPermission allows any governance proposal. It is used mainly for testing.
 
 
 
-<a name="nemo.committee.v1beta1.ParamsChangePermission"></a>
+<a name="fury.committee.v1beta1.ParamsChangePermission"></a>
 
 ### ParamsChangePermission
 ParamsChangePermission allows any parameter or sub parameter change proposal.
@@ -2384,14 +2384,14 @@ ParamsChangePermission allows any parameter or sub parameter change proposal.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `allowed_params_changes` | [AllowedParamsChange](#nemo.committee.v1beta1.AllowedParamsChange) | repeated |  |
+| `allowed_params_changes` | [AllowedParamsChange](#fury.committee.v1beta1.AllowedParamsChange) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.SoftwareUpgradePermission"></a>
+<a name="fury.committee.v1beta1.SoftwareUpgradePermission"></a>
 
 ### SoftwareUpgradePermission
 SoftwareUpgradePermission permission type for software upgrade proposals
@@ -2401,7 +2401,7 @@ SoftwareUpgradePermission permission type for software upgrade proposals
 
 
 
-<a name="nemo.committee.v1beta1.SubparamRequirement"></a>
+<a name="fury.committee.v1beta1.SubparamRequirement"></a>
 
 ### SubparamRequirement
 SubparamRequirement contains requirements for a single record in a subparam value list
@@ -2418,7 +2418,7 @@ SubparamRequirement contains requirements for a single record in a subparam valu
 
 
 
-<a name="nemo.committee.v1beta1.TextPermission"></a>
+<a name="fury.committee.v1beta1.TextPermission"></a>
 
 ### TextPermission
 TextPermission allows any text governance proposal.
@@ -2437,14 +2437,14 @@ TextPermission allows any text governance proposal.
 
 
 
-<a name="nemo/committee/v1beta1/proposal.proto"></a>
+<a name="fury/committee/v1beta1/proposal.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/committee/v1beta1/proposal.proto
+## fury/committee/v1beta1/proposal.proto
 
 
 
-<a name="nemo.committee.v1beta1.CommitteeChangeProposal"></a>
+<a name="fury.committee.v1beta1.CommitteeChangeProposal"></a>
 
 ### CommitteeChangeProposal
 CommitteeChangeProposal is a gov proposal for creating a new committee or modifying an existing one.
@@ -2461,7 +2461,7 @@ CommitteeChangeProposal is a gov proposal for creating a new committee or modify
 
 
 
-<a name="nemo.committee.v1beta1.CommitteeDeleteProposal"></a>
+<a name="fury.committee.v1beta1.CommitteeDeleteProposal"></a>
 
 ### CommitteeDeleteProposal
 CommitteeDeleteProposal is a gov proposal for removing a committee.
@@ -2487,14 +2487,14 @@ CommitteeDeleteProposal is a gov proposal for removing a committee.
 
 
 
-<a name="nemo/committee/v1beta1/query.proto"></a>
+<a name="fury/committee/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/committee/v1beta1/query.proto
+## fury/committee/v1beta1/query.proto
 
 
 
-<a name="nemo.committee.v1beta1.QueryCommitteeRequest"></a>
+<a name="fury.committee.v1beta1.QueryCommitteeRequest"></a>
 
 ### QueryCommitteeRequest
 QueryCommitteeRequest defines the request type for querying x/committee committee.
@@ -2509,7 +2509,7 @@ QueryCommitteeRequest defines the request type for querying x/committee committe
 
 
 
-<a name="nemo.committee.v1beta1.QueryCommitteeResponse"></a>
+<a name="fury.committee.v1beta1.QueryCommitteeResponse"></a>
 
 ### QueryCommitteeResponse
 QueryCommitteeResponse defines the response type for querying x/committee committee.
@@ -2524,7 +2524,7 @@ QueryCommitteeResponse defines the response type for querying x/committee commit
 
 
 
-<a name="nemo.committee.v1beta1.QueryCommitteesRequest"></a>
+<a name="fury.committee.v1beta1.QueryCommitteesRequest"></a>
 
 ### QueryCommitteesRequest
 QueryCommitteesRequest defines the request type for querying x/committee committees.
@@ -2534,7 +2534,7 @@ QueryCommitteesRequest defines the request type for querying x/committee committ
 
 
 
-<a name="nemo.committee.v1beta1.QueryCommitteesResponse"></a>
+<a name="fury.committee.v1beta1.QueryCommitteesResponse"></a>
 
 ### QueryCommitteesResponse
 QueryCommitteesResponse defines the response type for querying x/committee committees.
@@ -2549,7 +2549,7 @@ QueryCommitteesResponse defines the response type for querying x/committee commi
 
 
 
-<a name="nemo.committee.v1beta1.QueryNextProposalIDRequest"></a>
+<a name="fury.committee.v1beta1.QueryNextProposalIDRequest"></a>
 
 ### QueryNextProposalIDRequest
 QueryNextProposalIDRequest defines the request type for querying x/committee NextProposalID.
@@ -2559,7 +2559,7 @@ QueryNextProposalIDRequest defines the request type for querying x/committee Nex
 
 
 
-<a name="nemo.committee.v1beta1.QueryNextProposalIDResponse"></a>
+<a name="fury.committee.v1beta1.QueryNextProposalIDResponse"></a>
 
 ### QueryNextProposalIDResponse
 QueryNextProposalIDRequest defines the response type for querying x/committee NextProposalID.
@@ -2574,7 +2574,7 @@ QueryNextProposalIDRequest defines the response type for querying x/committee Ne
 
 
 
-<a name="nemo.committee.v1beta1.QueryProposalRequest"></a>
+<a name="fury.committee.v1beta1.QueryProposalRequest"></a>
 
 ### QueryProposalRequest
 QueryProposalRequest defines the request type for querying x/committee proposal.
@@ -2589,7 +2589,7 @@ QueryProposalRequest defines the request type for querying x/committee proposal.
 
 
 
-<a name="nemo.committee.v1beta1.QueryProposalResponse"></a>
+<a name="fury.committee.v1beta1.QueryProposalResponse"></a>
 
 ### QueryProposalResponse
 QueryProposalResponse defines the response type for querying x/committee proposal.
@@ -2607,7 +2607,7 @@ QueryProposalResponse defines the response type for querying x/committee proposa
 
 
 
-<a name="nemo.committee.v1beta1.QueryProposalsRequest"></a>
+<a name="fury.committee.v1beta1.QueryProposalsRequest"></a>
 
 ### QueryProposalsRequest
 QueryProposalsRequest defines the request type for querying x/committee proposals.
@@ -2622,7 +2622,7 @@ QueryProposalsRequest defines the request type for querying x/committee proposal
 
 
 
-<a name="nemo.committee.v1beta1.QueryProposalsResponse"></a>
+<a name="fury.committee.v1beta1.QueryProposalsResponse"></a>
 
 ### QueryProposalsResponse
 QueryProposalsResponse defines the response type for querying x/committee proposals.
@@ -2630,14 +2630,14 @@ QueryProposalsResponse defines the response type for querying x/committee propos
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `proposals` | [QueryProposalResponse](#nemo.committee.v1beta1.QueryProposalResponse) | repeated |  |
+| `proposals` | [QueryProposalResponse](#fury.committee.v1beta1.QueryProposalResponse) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.QueryRawParamsRequest"></a>
+<a name="fury.committee.v1beta1.QueryRawParamsRequest"></a>
 
 ### QueryRawParamsRequest
 QueryRawParamsRequest defines the request type for querying x/committee raw params.
@@ -2653,7 +2653,7 @@ QueryRawParamsRequest defines the request type for querying x/committee raw para
 
 
 
-<a name="nemo.committee.v1beta1.QueryRawParamsResponse"></a>
+<a name="fury.committee.v1beta1.QueryRawParamsResponse"></a>
 
 ### QueryRawParamsResponse
 QueryRawParamsResponse defines the response type for querying x/committee raw params.
@@ -2668,7 +2668,7 @@ QueryRawParamsResponse defines the response type for querying x/committee raw pa
 
 
 
-<a name="nemo.committee.v1beta1.QueryTallyRequest"></a>
+<a name="fury.committee.v1beta1.QueryTallyRequest"></a>
 
 ### QueryTallyRequest
 QueryTallyRequest defines the request type for querying x/committee tally.
@@ -2683,7 +2683,7 @@ QueryTallyRequest defines the request type for querying x/committee tally.
 
 
 
-<a name="nemo.committee.v1beta1.QueryTallyResponse"></a>
+<a name="fury.committee.v1beta1.QueryTallyResponse"></a>
 
 ### QueryTallyResponse
 QueryTallyResponse defines the response type for querying x/committee tally.
@@ -2704,7 +2704,7 @@ QueryTallyResponse defines the response type for querying x/committee tally.
 
 
 
-<a name="nemo.committee.v1beta1.QueryVoteRequest"></a>
+<a name="fury.committee.v1beta1.QueryVoteRequest"></a>
 
 ### QueryVoteRequest
 QueryVoteRequest defines the request type for querying x/committee vote.
@@ -2720,7 +2720,7 @@ QueryVoteRequest defines the request type for querying x/committee vote.
 
 
 
-<a name="nemo.committee.v1beta1.QueryVoteResponse"></a>
+<a name="fury.committee.v1beta1.QueryVoteResponse"></a>
 
 ### QueryVoteResponse
 QueryVoteResponse defines the response type for querying x/committee vote.
@@ -2730,14 +2730,14 @@ QueryVoteResponse defines the response type for querying x/committee vote.
 | ----- | ---- | ----- | ----------- |
 | `proposal_id` | [uint64](#uint64) |  |  |
 | `voter` | [string](#string) |  |  |
-| `vote_type` | [VoteType](#nemo.committee.v1beta1.VoteType) |  |  |
+| `vote_type` | [VoteType](#fury.committee.v1beta1.VoteType) |  |  |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.QueryVotesRequest"></a>
+<a name="fury.committee.v1beta1.QueryVotesRequest"></a>
 
 ### QueryVotesRequest
 QueryVotesRequest defines the request type for querying x/committee votes.
@@ -2753,7 +2753,7 @@ QueryVotesRequest defines the request type for querying x/committee votes.
 
 
 
-<a name="nemo.committee.v1beta1.QueryVotesResponse"></a>
+<a name="fury.committee.v1beta1.QueryVotesResponse"></a>
 
 ### QueryVotesResponse
 QueryVotesResponse defines the response type for querying x/committee votes.
@@ -2761,7 +2761,7 @@ QueryVotesResponse defines the response type for querying x/committee votes.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `votes` | [QueryVoteResponse](#nemo.committee.v1beta1.QueryVoteResponse) | repeated | votes defined the queried votes. |
+| `votes` | [QueryVoteResponse](#fury.committee.v1beta1.QueryVoteResponse) | repeated | votes defined the queried votes. |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  | pagination defines the pagination in the response. |
 
 
@@ -2775,35 +2775,35 @@ QueryVotesResponse defines the response type for querying x/committee votes.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.committee.v1beta1.Query"></a>
+<a name="fury.committee.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for committee module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Committees` | [QueryCommitteesRequest](#nemo.committee.v1beta1.QueryCommitteesRequest) | [QueryCommitteesResponse](#nemo.committee.v1beta1.QueryCommitteesResponse) | Committees queries all committess of the committee module. | GET|/nemo/committee/v1beta1/committees|
-| `Committee` | [QueryCommitteeRequest](#nemo.committee.v1beta1.QueryCommitteeRequest) | [QueryCommitteeResponse](#nemo.committee.v1beta1.QueryCommitteeResponse) | Committee queries a committee based on committee ID. | GET|/nemo/committee/v1beta1/committees/{committee_id}|
-| `Proposals` | [QueryProposalsRequest](#nemo.committee.v1beta1.QueryProposalsRequest) | [QueryProposalsResponse](#nemo.committee.v1beta1.QueryProposalsResponse) | Proposals queries proposals based on committee ID. | GET|/nemo/committee/v1beta1/proposals|
-| `Proposal` | [QueryProposalRequest](#nemo.committee.v1beta1.QueryProposalRequest) | [QueryProposalResponse](#nemo.committee.v1beta1.QueryProposalResponse) | Deposits queries a proposal based on proposal ID. | GET|/nemo/committee/v1beta1/proposals/{proposal_id}|
-| `NextProposalID` | [QueryNextProposalIDRequest](#nemo.committee.v1beta1.QueryNextProposalIDRequest) | [QueryNextProposalIDResponse](#nemo.committee.v1beta1.QueryNextProposalIDResponse) | NextProposalID queries the next proposal ID of the committee module. | GET|/nemo/committee/v1beta1/next-proposal-id|
-| `Votes` | [QueryVotesRequest](#nemo.committee.v1beta1.QueryVotesRequest) | [QueryVotesResponse](#nemo.committee.v1beta1.QueryVotesResponse) | Votes queries all votes for a single proposal ID. | GET|/nemo/committee/v1beta1/proposals/{proposal_id}/votes|
-| `Vote` | [QueryVoteRequest](#nemo.committee.v1beta1.QueryVoteRequest) | [QueryVoteResponse](#nemo.committee.v1beta1.QueryVoteResponse) | Vote queries the vote of a single voter for a single proposal ID. | GET|/nemo/committee/v1beta1/proposals/{proposal_id}/votes/{voter}|
-| `Tally` | [QueryTallyRequest](#nemo.committee.v1beta1.QueryTallyRequest) | [QueryTallyResponse](#nemo.committee.v1beta1.QueryTallyResponse) | Tally queries the tally of a single proposal ID. | GET|/nemo/committee/v1beta1/proposals/{proposal_id}/tally|
-| `RawParams` | [QueryRawParamsRequest](#nemo.committee.v1beta1.QueryRawParamsRequest) | [QueryRawParamsResponse](#nemo.committee.v1beta1.QueryRawParamsResponse) | RawParams queries the raw params data of any subspace and key. | GET|/nemo/committee/v1beta1/raw-params|
+| `Committees` | [QueryCommitteesRequest](#fury.committee.v1beta1.QueryCommitteesRequest) | [QueryCommitteesResponse](#fury.committee.v1beta1.QueryCommitteesResponse) | Committees queries all committess of the committee module. | GET|/fury/committee/v1beta1/committees|
+| `Committee` | [QueryCommitteeRequest](#fury.committee.v1beta1.QueryCommitteeRequest) | [QueryCommitteeResponse](#fury.committee.v1beta1.QueryCommitteeResponse) | Committee queries a committee based on committee ID. | GET|/fury/committee/v1beta1/committees/{committee_id}|
+| `Proposals` | [QueryProposalsRequest](#fury.committee.v1beta1.QueryProposalsRequest) | [QueryProposalsResponse](#fury.committee.v1beta1.QueryProposalsResponse) | Proposals queries proposals based on committee ID. | GET|/fury/committee/v1beta1/proposals|
+| `Proposal` | [QueryProposalRequest](#fury.committee.v1beta1.QueryProposalRequest) | [QueryProposalResponse](#fury.committee.v1beta1.QueryProposalResponse) | Deposits queries a proposal based on proposal ID. | GET|/fury/committee/v1beta1/proposals/{proposal_id}|
+| `NextProposalID` | [QueryNextProposalIDRequest](#fury.committee.v1beta1.QueryNextProposalIDRequest) | [QueryNextProposalIDResponse](#fury.committee.v1beta1.QueryNextProposalIDResponse) | NextProposalID queries the next proposal ID of the committee module. | GET|/fury/committee/v1beta1/next-proposal-id|
+| `Votes` | [QueryVotesRequest](#fury.committee.v1beta1.QueryVotesRequest) | [QueryVotesResponse](#fury.committee.v1beta1.QueryVotesResponse) | Votes queries all votes for a single proposal ID. | GET|/fury/committee/v1beta1/proposals/{proposal_id}/votes|
+| `Vote` | [QueryVoteRequest](#fury.committee.v1beta1.QueryVoteRequest) | [QueryVoteResponse](#fury.committee.v1beta1.QueryVoteResponse) | Vote queries the vote of a single voter for a single proposal ID. | GET|/fury/committee/v1beta1/proposals/{proposal_id}/votes/{voter}|
+| `Tally` | [QueryTallyRequest](#fury.committee.v1beta1.QueryTallyRequest) | [QueryTallyResponse](#fury.committee.v1beta1.QueryTallyResponse) | Tally queries the tally of a single proposal ID. | GET|/fury/committee/v1beta1/proposals/{proposal_id}/tally|
+| `RawParams` | [QueryRawParamsRequest](#fury.committee.v1beta1.QueryRawParamsRequest) | [QueryRawParamsResponse](#fury.committee.v1beta1.QueryRawParamsResponse) | RawParams queries the raw params data of any subspace and key. | GET|/fury/committee/v1beta1/raw-params|
 
  <!-- end services -->
 
 
 
-<a name="nemo/committee/v1beta1/tx.proto"></a>
+<a name="fury/committee/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/committee/v1beta1/tx.proto
+## fury/committee/v1beta1/tx.proto
 
 
 
-<a name="nemo.committee.v1beta1.MsgSubmitProposal"></a>
+<a name="fury.committee.v1beta1.MsgSubmitProposal"></a>
 
 ### MsgSubmitProposal
 MsgSubmitProposal is used by committee members to create a new proposal that they can vote on.
@@ -2820,7 +2820,7 @@ MsgSubmitProposal is used by committee members to create a new proposal that the
 
 
 
-<a name="nemo.committee.v1beta1.MsgSubmitProposalResponse"></a>
+<a name="fury.committee.v1beta1.MsgSubmitProposalResponse"></a>
 
 ### MsgSubmitProposalResponse
 MsgSubmitProposalResponse defines the SubmitProposal response type
@@ -2835,7 +2835,7 @@ MsgSubmitProposalResponse defines the SubmitProposal response type
 
 
 
-<a name="nemo.committee.v1beta1.MsgVote"></a>
+<a name="fury.committee.v1beta1.MsgVote"></a>
 
 ### MsgVote
 MsgVote is submitted by committee members to vote on proposals.
@@ -2845,14 +2845,14 @@ MsgVote is submitted by committee members to vote on proposals.
 | ----- | ---- | ----- | ----------- |
 | `proposal_id` | [uint64](#uint64) |  |  |
 | `voter` | [string](#string) |  |  |
-| `vote_type` | [VoteType](#nemo.committee.v1beta1.VoteType) |  |  |
+| `vote_type` | [VoteType](#fury.committee.v1beta1.VoteType) |  |  |
 
 
 
 
 
 
-<a name="nemo.committee.v1beta1.MsgVoteResponse"></a>
+<a name="fury.committee.v1beta1.MsgVoteResponse"></a>
 
 ### MsgVoteResponse
 MsgVoteResponse defines the Vote response type
@@ -2868,28 +2868,28 @@ MsgVoteResponse defines the Vote response type
  <!-- end HasExtensions -->
 
 
-<a name="nemo.committee.v1beta1.Msg"></a>
+<a name="fury.committee.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the committee Msg service
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `SubmitProposal` | [MsgSubmitProposal](#nemo.committee.v1beta1.MsgSubmitProposal) | [MsgSubmitProposalResponse](#nemo.committee.v1beta1.MsgSubmitProposalResponse) | SubmitProposal defines a method for submitting a committee proposal | |
-| `Vote` | [MsgVote](#nemo.committee.v1beta1.MsgVote) | [MsgVoteResponse](#nemo.committee.v1beta1.MsgVoteResponse) | Vote defines a method for voting on a proposal | |
+| `SubmitProposal` | [MsgSubmitProposal](#fury.committee.v1beta1.MsgSubmitProposal) | [MsgSubmitProposalResponse](#fury.committee.v1beta1.MsgSubmitProposalResponse) | SubmitProposal defines a method for submitting a committee proposal | |
+| `Vote` | [MsgVote](#fury.committee.v1beta1.MsgVote) | [MsgVoteResponse](#fury.committee.v1beta1.MsgVoteResponse) | Vote defines a method for voting on a proposal | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/community/v1beta1/proposal.proto"></a>
+<a name="fury/community/v1beta1/proposal.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/community/v1beta1/proposal.proto
+## fury/community/v1beta1/proposal.proto
 
 
 
-<a name="nemo.community.v1beta1.CommunityCDPRepayDebtProposal"></a>
+<a name="fury.community.v1beta1.CommunityCDPRepayDebtProposal"></a>
 
 ### CommunityCDPRepayDebtProposal
 CommunityCDPRepayDebtProposal repays a cdp debt position owned by the community module
@@ -2908,7 +2908,7 @@ This proposal exists primarily to allow committees to repay community module cdp
 
 
 
-<a name="nemo.community.v1beta1.CommunityCDPWithdrawCollateralProposal"></a>
+<a name="fury.community.v1beta1.CommunityCDPWithdrawCollateralProposal"></a>
 
 ### CommunityCDPWithdrawCollateralProposal
 CommunityCDPWithdrawCollateralProposal withdraws cdp collateral owned by the community module
@@ -2927,7 +2927,7 @@ This proposal exists primarily to allow committees to withdraw community module 
 
 
 
-<a name="nemo.community.v1beta1.CommunityPoolLendDepositProposal"></a>
+<a name="fury.community.v1beta1.CommunityPoolLendDepositProposal"></a>
 
 ### CommunityPoolLendDepositProposal
 CommunityPoolLendDepositProposal deposits from the community pool into lend
@@ -2944,7 +2944,7 @@ CommunityPoolLendDepositProposal deposits from the community pool into lend
 
 
 
-<a name="nemo.community.v1beta1.CommunityPoolLendWithdrawProposal"></a>
+<a name="fury.community.v1beta1.CommunityPoolLendWithdrawProposal"></a>
 
 ### CommunityPoolLendWithdrawProposal
 CommunityPoolLendWithdrawProposal withdraws a lend position back to the community pool
@@ -2970,14 +2970,14 @@ CommunityPoolLendWithdrawProposal withdraws a lend position back to the communit
 
 
 
-<a name="nemo/community/v1beta1/query.proto"></a>
+<a name="fury/community/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/community/v1beta1/query.proto
+## fury/community/v1beta1/query.proto
 
 
 
-<a name="nemo.community.v1beta1.QueryBalanceRequest"></a>
+<a name="fury.community.v1beta1.QueryBalanceRequest"></a>
 
 ### QueryBalanceRequest
 QueryBalanceRequest defines the request type for querying x/community balance.
@@ -2987,7 +2987,7 @@ QueryBalanceRequest defines the request type for querying x/community balance.
 
 
 
-<a name="nemo.community.v1beta1.QueryBalanceResponse"></a>
+<a name="fury.community.v1beta1.QueryBalanceResponse"></a>
 
 ### QueryBalanceResponse
 QueryBalanceResponse defines the response type for querying x/community balance.
@@ -3002,7 +3002,7 @@ QueryBalanceResponse defines the response type for querying x/community balance.
 
 
 
-<a name="nemo.community.v1beta1.QueryTotalBalanceRequest"></a>
+<a name="fury.community.v1beta1.QueryTotalBalanceRequest"></a>
 
 ### QueryTotalBalanceRequest
 QueryTotalBalanceRequest defines the request type for querying total community pool balance.
@@ -3012,7 +3012,7 @@ QueryTotalBalanceRequest defines the request type for querying total community p
 
 
 
-<a name="nemo.community.v1beta1.QueryTotalBalanceResponse"></a>
+<a name="fury.community.v1beta1.QueryTotalBalanceResponse"></a>
 
 ### QueryTotalBalanceResponse
 QueryTotalBalanceResponse defines the response type for querying total
@@ -3034,28 +3034,28 @@ community pool balance. This matches the x/distribution CommunityPool query resp
  <!-- end HasExtensions -->
 
 
-<a name="nemo.community.v1beta1.Query"></a>
+<a name="fury.community.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for x/community.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Balance` | [QueryBalanceRequest](#nemo.community.v1beta1.QueryBalanceRequest) | [QueryBalanceResponse](#nemo.community.v1beta1.QueryBalanceResponse) | Balance queries the balance of all coins of x/community module. | GET|/nemo/community/v1beta1/balance|
-| `TotalBalance` | [QueryTotalBalanceRequest](#nemo.community.v1beta1.QueryTotalBalanceRequest) | [QueryTotalBalanceResponse](#nemo.community.v1beta1.QueryTotalBalanceResponse) | TotalBalance queries the balance of all coins, including x/distribution, x/community, and supplied balances. | GET|/nemo/community/v1beta1/total_balance|
+| `Balance` | [QueryBalanceRequest](#fury.community.v1beta1.QueryBalanceRequest) | [QueryBalanceResponse](#fury.community.v1beta1.QueryBalanceResponse) | Balance queries the balance of all coins of x/community module. | GET|/fury/community/v1beta1/balance|
+| `TotalBalance` | [QueryTotalBalanceRequest](#fury.community.v1beta1.QueryTotalBalanceRequest) | [QueryTotalBalanceResponse](#fury.community.v1beta1.QueryTotalBalanceResponse) | TotalBalance queries the balance of all coins, including x/distribution, x/community, and supplied balances. | GET|/fury/community/v1beta1/total_balance|
 
  <!-- end services -->
 
 
 
-<a name="nemo/community/v1beta1/tx.proto"></a>
+<a name="fury/community/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/community/v1beta1/tx.proto
+## fury/community/v1beta1/tx.proto
 
 
 
-<a name="nemo.community.v1beta1.MsgFundCommunityPool"></a>
+<a name="fury.community.v1beta1.MsgFundCommunityPool"></a>
 
 ### MsgFundCommunityPool
 MsgFundCommunityPool allows an account to directly fund the community module account.
@@ -3071,7 +3071,7 @@ MsgFundCommunityPool allows an account to directly fund the community module acc
 
 
 
-<a name="nemo.community.v1beta1.MsgFundCommunityPoolResponse"></a>
+<a name="fury.community.v1beta1.MsgFundCommunityPoolResponse"></a>
 
 ### MsgFundCommunityPoolResponse
 MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
@@ -3087,29 +3087,29 @@ MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.community.v1beta1.Msg"></a>
+<a name="fury.community.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the community Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `FundCommunityPool` | [MsgFundCommunityPool](#nemo.community.v1beta1.MsgFundCommunityPool) | [MsgFundCommunityPoolResponse](#nemo.community.v1beta1.MsgFundCommunityPoolResponse) | FundCommunityPool defines a method to allow an account to directly fund the community module account. | |
+| `FundCommunityPool` | [MsgFundCommunityPool](#fury.community.v1beta1.MsgFundCommunityPool) | [MsgFundCommunityPoolResponse](#fury.community.v1beta1.MsgFundCommunityPoolResponse) | FundCommunityPool defines a method to allow an account to directly fund the community module account. | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/earn/v1beta1/strategy.proto"></a>
+<a name="fury/earn/v1beta1/strategy.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/earn/v1beta1/strategy.proto
+## fury/earn/v1beta1/strategy.proto
 
 
  <!-- end messages -->
 
 
-<a name="nemo.earn.v1beta1.StrategyType"></a>
+<a name="fury.earn.v1beta1.StrategyType"></a>
 
 ### StrategyType
 StrategyType is the type of strategy that a vault uses to optimize yields.
@@ -3129,14 +3129,14 @@ StrategyType is the type of strategy that a vault uses to optimize yields.
 
 
 
-<a name="nemo/earn/v1beta1/vault.proto"></a>
+<a name="fury/earn/v1beta1/vault.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/earn/v1beta1/vault.proto
+## fury/earn/v1beta1/vault.proto
 
 
 
-<a name="nemo.earn.v1beta1.AllowedVault"></a>
+<a name="fury.earn.v1beta1.AllowedVault"></a>
 
 ### AllowedVault
 AllowedVault is a vault that is allowed to be created. These can be
@@ -3146,7 +3146,7 @@ modified via parameter governance.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `denom` | [string](#string) |  | Denom is the only supported denomination of the vault for deposits and withdrawals. |
-| `strategies` | [StrategyType](#nemo.earn.v1beta1.StrategyType) | repeated | VaultStrategy is the strategy used for this vault. |
+| `strategies` | [StrategyType](#fury.earn.v1beta1.StrategyType) | repeated | VaultStrategy is the strategy used for this vault. |
 | `is_private_vault` | [bool](#bool) |  | IsPrivateVault is true if the vault only allows depositors contained in AllowedDepositors. |
 | `allowed_depositors` | [bytes](#bytes) | repeated | AllowedDepositors is a list of addresses that are allowed to deposit to this vault if IsPrivateVault is true. Addresses not contained in this list are not allowed to deposit into this vault. If IsPrivateVault is false, this should be empty and ignored. |
 
@@ -3155,7 +3155,7 @@ modified via parameter governance.
 
 
 
-<a name="nemo.earn.v1beta1.VaultRecord"></a>
+<a name="fury.earn.v1beta1.VaultRecord"></a>
 
 ### VaultRecord
 VaultRecord is the state of a vault.
@@ -3163,14 +3163,14 @@ VaultRecord is the state of a vault.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `total_shares` | [VaultShare](#nemo.earn.v1beta1.VaultShare) |  | TotalShares is the total distributed number of shares in the vault. |
+| `total_shares` | [VaultShare](#fury.earn.v1beta1.VaultShare) |  | TotalShares is the total distributed number of shares in the vault. |
 
 
 
 
 
 
-<a name="nemo.earn.v1beta1.VaultShare"></a>
+<a name="fury.earn.v1beta1.VaultShare"></a>
 
 ### VaultShare
 VaultShare defines shares of a vault owned by a depositor.
@@ -3186,7 +3186,7 @@ VaultShare defines shares of a vault owned by a depositor.
 
 
 
-<a name="nemo.earn.v1beta1.VaultShareRecord"></a>
+<a name="fury.earn.v1beta1.VaultShareRecord"></a>
 
 ### VaultShareRecord
 VaultShareRecord defines the vault shares owned by a depositor.
@@ -3195,7 +3195,7 @@ VaultShareRecord defines the vault shares owned by a depositor.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `depositor` | [bytes](#bytes) |  | Depositor represents the owner of the shares |
-| `shares` | [VaultShare](#nemo.earn.v1beta1.VaultShare) | repeated | Shares represent the vault shares owned by the depositor. |
+| `shares` | [VaultShare](#fury.earn.v1beta1.VaultShare) | repeated | Shares represent the vault shares owned by the depositor. |
 
 
 
@@ -3211,14 +3211,14 @@ VaultShareRecord defines the vault shares owned by a depositor.
 
 
 
-<a name="nemo/earn/v1beta1/params.proto"></a>
+<a name="fury/earn/v1beta1/params.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/earn/v1beta1/params.proto
+## fury/earn/v1beta1/params.proto
 
 
 
-<a name="nemo.earn.v1beta1.Params"></a>
+<a name="fury.earn.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters of the earn module.
@@ -3226,7 +3226,7 @@ Params defines the parameters of the earn module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `allowed_vaults` | [AllowedVault](#nemo.earn.v1beta1.AllowedVault) | repeated |  |
+| `allowed_vaults` | [AllowedVault](#fury.earn.v1beta1.AllowedVault) | repeated |  |
 
 
 
@@ -3242,14 +3242,14 @@ Params defines the parameters of the earn module.
 
 
 
-<a name="nemo/earn/v1beta1/genesis.proto"></a>
+<a name="fury/earn/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/earn/v1beta1/genesis.proto
+## fury/earn/v1beta1/genesis.proto
 
 
 
-<a name="nemo.earn.v1beta1.GenesisState"></a>
+<a name="fury.earn.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the earn module's genesis state.
@@ -3257,9 +3257,9 @@ GenesisState defines the earn module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.earn.v1beta1.Params) |  | params defines all the paramaters related to earn |
-| `vault_records` | [VaultRecord](#nemo.earn.v1beta1.VaultRecord) | repeated | vault_records defines the available vaults |
-| `vault_share_records` | [VaultShareRecord](#nemo.earn.v1beta1.VaultShareRecord) | repeated | share_records defines the owned shares of each vault |
+| `params` | [Params](#fury.earn.v1beta1.Params) |  | params defines all the paramaters related to earn |
+| `vault_records` | [VaultRecord](#fury.earn.v1beta1.VaultRecord) | repeated | vault_records defines the available vaults |
+| `vault_share_records` | [VaultShareRecord](#fury.earn.v1beta1.VaultShareRecord) | repeated | share_records defines the owned shares of each vault |
 
 
 
@@ -3275,14 +3275,14 @@ GenesisState defines the earn module's genesis state.
 
 
 
-<a name="nemo/earn/v1beta1/proposal.proto"></a>
+<a name="fury/earn/v1beta1/proposal.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/earn/v1beta1/proposal.proto
+## fury/earn/v1beta1/proposal.proto
 
 
 
-<a name="nemo.earn.v1beta1.CommunityPoolDepositProposal"></a>
+<a name="fury.earn.v1beta1.CommunityPoolDepositProposal"></a>
 
 ### CommunityPoolDepositProposal
 CommunityPoolDepositProposal deposits from the community pool into an earn vault
@@ -3299,7 +3299,7 @@ CommunityPoolDepositProposal deposits from the community pool into an earn vault
 
 
 
-<a name="nemo.earn.v1beta1.CommunityPoolDepositProposalJSON"></a>
+<a name="fury.earn.v1beta1.CommunityPoolDepositProposalJSON"></a>
 
 ### CommunityPoolDepositProposalJSON
 CommunityPoolDepositProposalJSON defines a CommunityPoolDepositProposal with a deposit
@@ -3317,7 +3317,7 @@ CommunityPoolDepositProposalJSON defines a CommunityPoolDepositProposal with a d
 
 
 
-<a name="nemo.earn.v1beta1.CommunityPoolWithdrawProposal"></a>
+<a name="fury.earn.v1beta1.CommunityPoolWithdrawProposal"></a>
 
 ### CommunityPoolWithdrawProposal
 CommunityPoolWithdrawProposal withdraws from an earn vault back to community pool
@@ -3334,7 +3334,7 @@ CommunityPoolWithdrawProposal withdraws from an earn vault back to community poo
 
 
 
-<a name="nemo.earn.v1beta1.CommunityPoolWithdrawProposalJSON"></a>
+<a name="fury.earn.v1beta1.CommunityPoolWithdrawProposalJSON"></a>
 
 ### CommunityPoolWithdrawProposalJSON
 CommunityPoolWithdrawProposalJSON defines a CommunityPoolWithdrawProposal with a deposit
@@ -3361,14 +3361,14 @@ CommunityPoolWithdrawProposalJSON defines a CommunityPoolWithdrawProposal with a
 
 
 
-<a name="nemo/earn/v1beta1/query.proto"></a>
+<a name="fury/earn/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/earn/v1beta1/query.proto
+## fury/earn/v1beta1/query.proto
 
 
 
-<a name="nemo.earn.v1beta1.DepositResponse"></a>
+<a name="fury.earn.v1beta1.DepositResponse"></a>
 
 ### DepositResponse
 DepositResponse defines a deposit query response type.
@@ -3377,7 +3377,7 @@ DepositResponse defines a deposit query response type.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `depositor` | [string](#string) |  | depositor represents the owner of the deposit. |
-| `shares` | [VaultShare](#nemo.earn.v1beta1.VaultShare) | repeated | Shares represent the issued shares from their corresponding vaults. |
+| `shares` | [VaultShare](#fury.earn.v1beta1.VaultShare) | repeated | Shares represent the issued shares from their corresponding vaults. |
 | `value` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | Value represents the total accumulated value of denom coins supplied to vaults. This may be greater than or equal to amount_supplied depending on the strategy. |
 
 
@@ -3385,7 +3385,7 @@ DepositResponse defines a deposit query response type.
 
 
 
-<a name="nemo.earn.v1beta1.QueryDepositsRequest"></a>
+<a name="fury.earn.v1beta1.QueryDepositsRequest"></a>
 
 ### QueryDepositsRequest
 QueryDepositsRequest is the request type for the Query/Deposits RPC method.
@@ -3403,7 +3403,7 @@ QueryDepositsRequest is the request type for the Query/Deposits RPC method.
 
 
 
-<a name="nemo.earn.v1beta1.QueryDepositsResponse"></a>
+<a name="fury.earn.v1beta1.QueryDepositsResponse"></a>
 
 ### QueryDepositsResponse
 QueryDepositsResponse is the response type for the Query/Deposits RPC method.
@@ -3411,7 +3411,7 @@ QueryDepositsResponse is the response type for the Query/Deposits RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `deposits` | [DepositResponse](#nemo.earn.v1beta1.DepositResponse) | repeated | deposits returns the deposits matching the requested parameters |
+| `deposits` | [DepositResponse](#fury.earn.v1beta1.DepositResponse) | repeated | deposits returns the deposits matching the requested parameters |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  | pagination defines the pagination in the response. |
 
 
@@ -3419,7 +3419,7 @@ QueryDepositsResponse is the response type for the Query/Deposits RPC method.
 
 
 
-<a name="nemo.earn.v1beta1.QueryParamsRequest"></a>
+<a name="fury.earn.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/earn parameters.
@@ -3429,7 +3429,7 @@ QueryParamsRequest defines the request type for querying x/earn parameters.
 
 
 
-<a name="nemo.earn.v1beta1.QueryParamsResponse"></a>
+<a name="fury.earn.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/earn parameters.
@@ -3437,14 +3437,14 @@ QueryParamsResponse defines the response type for querying x/earn parameters.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.earn.v1beta1.Params) |  | params represents the earn module parameters |
+| `params` | [Params](#fury.earn.v1beta1.Params) |  | params represents the earn module parameters |
 
 
 
 
 
 
-<a name="nemo.earn.v1beta1.QueryTotalSupplyRequest"></a>
+<a name="fury.earn.v1beta1.QueryTotalSupplyRequest"></a>
 
 ### QueryTotalSupplyRequest
 QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
@@ -3454,7 +3454,7 @@ QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
 
 
 
-<a name="nemo.earn.v1beta1.QueryTotalSupplyResponse"></a>
+<a name="fury.earn.v1beta1.QueryTotalSupplyResponse"></a>
 
 ### QueryTotalSupplyResponse
 TotalSupplyResponse defines the response type for the Query/TotalSupply method.
@@ -3470,7 +3470,7 @@ TotalSupplyResponse defines the response type for the Query/TotalSupply method.
 
 
 
-<a name="nemo.earn.v1beta1.QueryVaultRequest"></a>
+<a name="fury.earn.v1beta1.QueryVaultRequest"></a>
 
 ### QueryVaultRequest
 QueryVaultRequest is the request type for the Query/Vault RPC method.
@@ -3485,7 +3485,7 @@ QueryVaultRequest is the request type for the Query/Vault RPC method.
 
 
 
-<a name="nemo.earn.v1beta1.QueryVaultResponse"></a>
+<a name="fury.earn.v1beta1.QueryVaultResponse"></a>
 
 ### QueryVaultResponse
 QueryVaultResponse is the response type for the Query/Vault RPC method.
@@ -3493,14 +3493,14 @@ QueryVaultResponse is the response type for the Query/Vault RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `vault` | [VaultResponse](#nemo.earn.v1beta1.VaultResponse) |  | vault represents the queried earn module vault |
+| `vault` | [VaultResponse](#fury.earn.v1beta1.VaultResponse) |  | vault represents the queried earn module vault |
 
 
 
 
 
 
-<a name="nemo.earn.v1beta1.QueryVaultsRequest"></a>
+<a name="fury.earn.v1beta1.QueryVaultsRequest"></a>
 
 ### QueryVaultsRequest
 QueryVaultsRequest is the request type for the Query/Vaults RPC method.
@@ -3510,7 +3510,7 @@ QueryVaultsRequest is the request type for the Query/Vaults RPC method.
 
 
 
-<a name="nemo.earn.v1beta1.QueryVaultsResponse"></a>
+<a name="fury.earn.v1beta1.QueryVaultsResponse"></a>
 
 ### QueryVaultsResponse
 QueryVaultsResponse is the response type for the Query/Vaults RPC method.
@@ -3518,14 +3518,14 @@ QueryVaultsResponse is the response type for the Query/Vaults RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `vaults` | [VaultResponse](#nemo.earn.v1beta1.VaultResponse) | repeated | vaults represents the earn module vaults |
+| `vaults` | [VaultResponse](#fury.earn.v1beta1.VaultResponse) | repeated | vaults represents the earn module vaults |
 
 
 
 
 
 
-<a name="nemo.earn.v1beta1.VaultResponse"></a>
+<a name="fury.earn.v1beta1.VaultResponse"></a>
 
 ### VaultResponse
 VaultResponse is the response type for a vault.
@@ -3534,7 +3534,7 @@ VaultResponse is the response type for a vault.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `denom` | [string](#string) |  | denom represents the denom of the vault |
-| `strategies` | [StrategyType](#nemo.earn.v1beta1.StrategyType) | repeated | VaultStrategy is the strategy used for this vault. |
+| `strategies` | [StrategyType](#fury.earn.v1beta1.StrategyType) | repeated | VaultStrategy is the strategy used for this vault. |
 | `is_private_vault` | [bool](#bool) |  | IsPrivateVault is true if the vault only allows depositors contained in AllowedDepositors. |
 | `allowed_depositors` | [string](#string) | repeated | AllowedDepositors is a list of addresses that are allowed to deposit to this vault if IsPrivateVault is true. Addresses not contained in this list are not allowed to deposit into this vault. If IsPrivateVault is false, this should be empty and ignored. |
 | `total_shares` | [string](#string) |  | TotalShares is the total amount of shares issued to depositors. |
@@ -3551,31 +3551,31 @@ VaultResponse is the response type for a vault.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.earn.v1beta1.Query"></a>
+<a name="fury.earn.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for earn module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.earn.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.earn.v1beta1.QueryParamsResponse) | Params queries all parameters of the earn module. | GET|/nemo/earn/v1beta1/params|
-| `Vaults` | [QueryVaultsRequest](#nemo.earn.v1beta1.QueryVaultsRequest) | [QueryVaultsResponse](#nemo.earn.v1beta1.QueryVaultsResponse) | Vaults queries all vaults | GET|/nemo/earn/v1beta1/vaults|
-| `Vault` | [QueryVaultRequest](#nemo.earn.v1beta1.QueryVaultRequest) | [QueryVaultResponse](#nemo.earn.v1beta1.QueryVaultResponse) | Vault queries a single vault based on the vault denom | GET|/nemo/earn/v1beta1/vaults/{denom=**}|
-| `Deposits` | [QueryDepositsRequest](#nemo.earn.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#nemo.earn.v1beta1.QueryDepositsResponse) | Deposits queries deposit details based on depositor address and vault | GET|/nemo/earn/v1beta1/deposits|
-| `TotalSupply` | [QueryTotalSupplyRequest](#nemo.earn.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#nemo.earn.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the earn module. | GET|/nemo/earn/v1beta1/total_supply|
+| `Params` | [QueryParamsRequest](#fury.earn.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.earn.v1beta1.QueryParamsResponse) | Params queries all parameters of the earn module. | GET|/fury/earn/v1beta1/params|
+| `Vaults` | [QueryVaultsRequest](#fury.earn.v1beta1.QueryVaultsRequest) | [QueryVaultsResponse](#fury.earn.v1beta1.QueryVaultsResponse) | Vaults queries all vaults | GET|/fury/earn/v1beta1/vaults|
+| `Vault` | [QueryVaultRequest](#fury.earn.v1beta1.QueryVaultRequest) | [QueryVaultResponse](#fury.earn.v1beta1.QueryVaultResponse) | Vault queries a single vault based on the vault denom | GET|/fury/earn/v1beta1/vaults/{denom=**}|
+| `Deposits` | [QueryDepositsRequest](#fury.earn.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#fury.earn.v1beta1.QueryDepositsResponse) | Deposits queries deposit details based on depositor address and vault | GET|/fury/earn/v1beta1/deposits|
+| `TotalSupply` | [QueryTotalSupplyRequest](#fury.earn.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#fury.earn.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the earn module. | GET|/fury/earn/v1beta1/total_supply|
 
  <!-- end services -->
 
 
 
-<a name="nemo/earn/v1beta1/tx.proto"></a>
+<a name="fury/earn/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/earn/v1beta1/tx.proto
+## fury/earn/v1beta1/tx.proto
 
 
 
-<a name="nemo.earn.v1beta1.MsgDeposit"></a>
+<a name="fury.earn.v1beta1.MsgDeposit"></a>
 
 ### MsgDeposit
 MsgDeposit represents a message for depositing assedts into a vault
@@ -3585,14 +3585,14 @@ MsgDeposit represents a message for depositing assedts into a vault
 | ----- | ---- | ----- | ----------- |
 | `depositor` | [string](#string) |  | depositor represents the address to deposit funds from |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | Amount represents the token to deposit. The vault corresponds to the denom of the amount coin. |
-| `strategy` | [StrategyType](#nemo.earn.v1beta1.StrategyType) |  | Strategy is the vault strategy to use. |
+| `strategy` | [StrategyType](#fury.earn.v1beta1.StrategyType) |  | Strategy is the vault strategy to use. |
 
 
 
 
 
 
-<a name="nemo.earn.v1beta1.MsgDepositResponse"></a>
+<a name="fury.earn.v1beta1.MsgDepositResponse"></a>
 
 ### MsgDepositResponse
 MsgDepositResponse defines the Msg/Deposit response type.
@@ -3600,14 +3600,14 @@ MsgDepositResponse defines the Msg/Deposit response type.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `shares` | [VaultShare](#nemo.earn.v1beta1.VaultShare) |  |  |
+| `shares` | [VaultShare](#fury.earn.v1beta1.VaultShare) |  |  |
 
 
 
 
 
 
-<a name="nemo.earn.v1beta1.MsgWithdraw"></a>
+<a name="fury.earn.v1beta1.MsgWithdraw"></a>
 
 ### MsgWithdraw
 MsgWithdraw represents a message for withdrawing liquidity from a vault
@@ -3617,14 +3617,14 @@ MsgWithdraw represents a message for withdrawing liquidity from a vault
 | ----- | ---- | ----- | ----------- |
 | `from` | [string](#string) |  | from represents the address we are withdrawing for |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | Amount represents the token to withdraw. The vault corresponds to the denom of the amount coin. |
-| `strategy` | [StrategyType](#nemo.earn.v1beta1.StrategyType) |  | Strategy is the vault strategy to use. |
+| `strategy` | [StrategyType](#fury.earn.v1beta1.StrategyType) |  | Strategy is the vault strategy to use. |
 
 
 
 
 
 
-<a name="nemo.earn.v1beta1.MsgWithdrawResponse"></a>
+<a name="fury.earn.v1beta1.MsgWithdrawResponse"></a>
 
 ### MsgWithdrawResponse
 MsgWithdrawResponse defines the Msg/Withdraw response type.
@@ -3632,7 +3632,7 @@ MsgWithdrawResponse defines the Msg/Withdraw response type.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `shares` | [VaultShare](#nemo.earn.v1beta1.VaultShare) |  |  |
+| `shares` | [VaultShare](#fury.earn.v1beta1.VaultShare) |  |  |
 
 
 
@@ -3645,28 +3645,28 @@ MsgWithdrawResponse defines the Msg/Withdraw response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.earn.v1beta1.Msg"></a>
+<a name="fury.earn.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the earn Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Deposit` | [MsgDeposit](#nemo.earn.v1beta1.MsgDeposit) | [MsgDepositResponse](#nemo.earn.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing assets into a vault | |
-| `Withdraw` | [MsgWithdraw](#nemo.earn.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#nemo.earn.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing assets into a vault | |
+| `Deposit` | [MsgDeposit](#fury.earn.v1beta1.MsgDeposit) | [MsgDepositResponse](#fury.earn.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing assets into a vault | |
+| `Withdraw` | [MsgWithdraw](#fury.earn.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#fury.earn.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing assets into a vault | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/evmutil/v1beta1/conversion_pair.proto"></a>
+<a name="fury/evmutil/v1beta1/conversion_pair.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/evmutil/v1beta1/conversion_pair.proto
+## fury/evmutil/v1beta1/conversion_pair.proto
 
 
 
-<a name="nemo.evmutil.v1beta1.AllowedCosmosCoinERC20Token"></a>
+<a name="fury.evmutil.v1beta1.AllowedCosmosCoinERC20Token"></a>
 
 ### AllowedCosmosCoinERC20Token
 AllowedCosmosCoinERC20Token defines allowed cosmos-sdk denom & metadata
@@ -3687,16 +3687,16 @@ cosmos_denom will not change metadata of deployed contract.
 
 
 
-<a name="nemo.evmutil.v1beta1.ConversionPair"></a>
+<a name="fury.evmutil.v1beta1.ConversionPair"></a>
 
 ### ConversionPair
-ConversionPair defines a Nemo ERC20 address and corresponding denom that is
+ConversionPair defines a Fury ERC20 address and corresponding denom that is
 allowed to be converted between ERC20 and sdk.Coin
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `nemo_erc20_address` | [bytes](#bytes) |  | ERC20 address of the token on the Nemo EVM |
+| `fury_erc20_address` | [bytes](#bytes) |  | ERC20 address of the token on the Fury EVM |
 | `denom` | [string](#string) |  | Denom of the corresponding sdk.Coin |
 
 
@@ -3713,14 +3713,14 @@ allowed to be converted between ERC20 and sdk.Coin
 
 
 
-<a name="nemo/evmutil/v1beta1/genesis.proto"></a>
+<a name="fury/evmutil/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/evmutil/v1beta1/genesis.proto
+## fury/evmutil/v1beta1/genesis.proto
 
 
 
-<a name="nemo.evmutil.v1beta1.Account"></a>
+<a name="fury.evmutil.v1beta1.Account"></a>
 
 ### Account
 BalanceAccount defines an account in the evmutil module.
@@ -3736,7 +3736,7 @@ BalanceAccount defines an account in the evmutil module.
 
 
 
-<a name="nemo.evmutil.v1beta1.GenesisState"></a>
+<a name="fury.evmutil.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the evmutil module's genesis state.
@@ -3744,15 +3744,15 @@ GenesisState defines the evmutil module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `accounts` | [Account](#nemo.evmutil.v1beta1.Account) | repeated |  |
-| `params` | [Params](#nemo.evmutil.v1beta1.Params) |  | params defines all the parameters of the module. |
+| `accounts` | [Account](#fury.evmutil.v1beta1.Account) | repeated |  |
+| `params` | [Params](#fury.evmutil.v1beta1.Params) |  | params defines all the parameters of the module. |
 
 
 
 
 
 
-<a name="nemo.evmutil.v1beta1.Params"></a>
+<a name="fury.evmutil.v1beta1.Params"></a>
 
 ### Params
 Params defines the evmutil module params
@@ -3760,8 +3760,8 @@ Params defines the evmutil module params
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `enabled_conversion_pairs` | [ConversionPair](#nemo.evmutil.v1beta1.ConversionPair) | repeated | enabled_conversion_pairs defines the list of conversion pairs allowed to be converted between Nemo ERC20 and sdk.Coin |
-| `allowed_cosmos_denoms` | [AllowedCosmosCoinERC20Token](#nemo.evmutil.v1beta1.AllowedCosmosCoinERC20Token) | repeated | allowed_cosmos_denoms is a list of denom & erc20 token metadata pairs. if a denom is in the list, it is allowed to be converted to an erc20 in the evm. |
+| `enabled_conversion_pairs` | [ConversionPair](#fury.evmutil.v1beta1.ConversionPair) | repeated | enabled_conversion_pairs defines the list of conversion pairs allowed to be converted between Fury ERC20 and sdk.Coin |
+| `allowed_cosmos_denoms` | [AllowedCosmosCoinERC20Token](#fury.evmutil.v1beta1.AllowedCosmosCoinERC20Token) | repeated | allowed_cosmos_denoms is a list of denom & erc20 token metadata pairs. if a denom is in the list, it is allowed to be converted to an erc20 in the evm. |
 
 
 
@@ -3777,14 +3777,14 @@ Params defines the evmutil module params
 
 
 
-<a name="nemo/evmutil/v1beta1/query.proto"></a>
+<a name="fury/evmutil/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/evmutil/v1beta1/query.proto
+## fury/evmutil/v1beta1/query.proto
 
 
 
-<a name="nemo.evmutil.v1beta1.DeployedCosmosCoinContract"></a>
+<a name="fury.evmutil.v1beta1.DeployedCosmosCoinContract"></a>
 
 ### DeployedCosmosCoinContract
 DeployedCosmosCoinContract defines a deployed token contract to the evm representing a native cosmos-sdk coin
@@ -3800,7 +3800,7 @@ DeployedCosmosCoinContract defines a deployed token contract to the evm represen
 
 
 
-<a name="nemo.evmutil.v1beta1.QueryDeployedCosmosCoinContractsRequest"></a>
+<a name="fury.evmutil.v1beta1.QueryDeployedCosmosCoinContractsRequest"></a>
 
 ### QueryDeployedCosmosCoinContractsRequest
 QueryDeployedCosmosCoinContractsRequest defines the request type for Query/DeployedCosmosCoinContracts method.
@@ -3816,7 +3816,7 @@ QueryDeployedCosmosCoinContractsRequest defines the request type for Query/Deplo
 
 
 
-<a name="nemo.evmutil.v1beta1.QueryDeployedCosmosCoinContractsResponse"></a>
+<a name="fury.evmutil.v1beta1.QueryDeployedCosmosCoinContractsResponse"></a>
 
 ### QueryDeployedCosmosCoinContractsResponse
 QueryDeployedCosmosCoinContractsResponse defines the response type for the Query/DeployedCosmosCoinContracts method.
@@ -3824,7 +3824,7 @@ QueryDeployedCosmosCoinContractsResponse defines the response type for the Query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `deployed_cosmos_coin_contracts` | [DeployedCosmosCoinContract](#nemo.evmutil.v1beta1.DeployedCosmosCoinContract) | repeated | deployed_cosmos_coin_contracts is a list of cosmos-sdk coin denom and its deployed contract address |
+| `deployed_cosmos_coin_contracts` | [DeployedCosmosCoinContract](#fury.evmutil.v1beta1.DeployedCosmosCoinContract) | repeated | deployed_cosmos_coin_contracts is a list of cosmos-sdk coin denom and its deployed contract address |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  | pagination defines the pagination in the response. |
 
 
@@ -3832,7 +3832,7 @@ QueryDeployedCosmosCoinContractsResponse defines the response type for the Query
 
 
 
-<a name="nemo.evmutil.v1beta1.QueryParamsRequest"></a>
+<a name="fury.evmutil.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/evmutil parameters.
@@ -3842,7 +3842,7 @@ QueryParamsRequest defines the request type for querying x/evmutil parameters.
 
 
 
-<a name="nemo.evmutil.v1beta1.QueryParamsResponse"></a>
+<a name="fury.evmutil.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/evmutil parameters.
@@ -3850,7 +3850,7 @@ QueryParamsResponse defines the response type for querying x/evmutil parameters.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.evmutil.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.evmutil.v1beta1.Params) |  |  |
 
 
 
@@ -3863,37 +3863,37 @@ QueryParamsResponse defines the response type for querying x/evmutil parameters.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.evmutil.v1beta1.Query"></a>
+<a name="fury.evmutil.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for evmutil module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.evmutil.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.evmutil.v1beta1.QueryParamsResponse) | Params queries all parameters of the evmutil module. | GET|/nemo/evmutil/v1beta1/params|
-| `DeployedCosmosCoinContracts` | [QueryDeployedCosmosCoinContractsRequest](#nemo.evmutil.v1beta1.QueryDeployedCosmosCoinContractsRequest) | [QueryDeployedCosmosCoinContractsResponse](#nemo.evmutil.v1beta1.QueryDeployedCosmosCoinContractsResponse) | DeployedCosmosCoinContracts queries a list cosmos coin denom and their deployed erc20 address | GET|/nemo/evmutil/v1beta1/deployed_cosmos_coin_contracts|
+| `Params` | [QueryParamsRequest](#fury.evmutil.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.evmutil.v1beta1.QueryParamsResponse) | Params queries all parameters of the evmutil module. | GET|/fury/evmutil/v1beta1/params|
+| `DeployedCosmosCoinContracts` | [QueryDeployedCosmosCoinContractsRequest](#fury.evmutil.v1beta1.QueryDeployedCosmosCoinContractsRequest) | [QueryDeployedCosmosCoinContractsResponse](#fury.evmutil.v1beta1.QueryDeployedCosmosCoinContractsResponse) | DeployedCosmosCoinContracts queries a list cosmos coin denom and their deployed erc20 address | GET|/fury/evmutil/v1beta1/deployed_cosmos_coin_contracts|
 
  <!-- end services -->
 
 
 
-<a name="nemo/evmutil/v1beta1/tx.proto"></a>
+<a name="fury/evmutil/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/evmutil/v1beta1/tx.proto
+## fury/evmutil/v1beta1/tx.proto
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertCoinToERC20"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertCoinToERC20"></a>
 
 ### MsgConvertCoinToERC20
-MsgConvertCoinToERC20 defines a conversion from sdk.Coin to Nemo ERC20 for EVM-native assets.
+MsgConvertCoinToERC20 defines a conversion from sdk.Coin to Fury ERC20 for EVM-native assets.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `initiator` | [string](#string) |  | Nemo bech32 address initiating the conversion. |
-| `receiver` | [string](#string) |  | EVM 0x hex address that will receive the converted Nemo ERC20 tokens. |
+| `initiator` | [string](#string) |  | Fury bech32 address initiating the conversion. |
+| `receiver` | [string](#string) |  | EVM 0x hex address that will receive the converted Fury ERC20 tokens. |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | Amount is the sdk.Coin amount to convert. |
 
 
@@ -3901,7 +3901,7 @@ MsgConvertCoinToERC20 defines a conversion from sdk.Coin to Nemo ERC20 for EVM-n
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertCoinToERC20Response"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertCoinToERC20Response"></a>
 
 ### MsgConvertCoinToERC20Response
 MsgConvertCoinToERC20Response defines the response value from Msg/ConvertCoinToERC20.
@@ -3911,7 +3911,7 @@ MsgConvertCoinToERC20Response defines the response value from Msg/ConvertCoinToE
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20"></a>
 
 ### MsgConvertCosmosCoinFromERC20
 MsgConvertCosmosCoinFromERC20 defines a conversion from ERC20 to cosmos coins for cosmos-native assets.
@@ -3920,7 +3920,7 @@ MsgConvertCosmosCoinFromERC20 defines a conversion from ERC20 to cosmos coins fo
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `initiator` | [string](#string) |  | EVM hex address initiating the conversion. |
-| `receiver` | [string](#string) |  | Nemo bech32 address that will receive the cosmos coins. |
+| `receiver` | [string](#string) |  | Fury bech32 address that will receive the cosmos coins. |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | Amount is the amount to convert, expressed as a Cosmos coin. |
 
 
@@ -3928,7 +3928,7 @@ MsgConvertCosmosCoinFromERC20 defines a conversion from ERC20 to cosmos coins fo
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20Response"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20Response"></a>
 
 ### MsgConvertCosmosCoinFromERC20Response
 MsgConvertCosmosCoinFromERC20Response defines the response value from Msg/MsgConvertCosmosCoinFromERC20.
@@ -3938,7 +3938,7 @@ MsgConvertCosmosCoinFromERC20Response defines the response value from Msg/MsgCon
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertCosmosCoinToERC20"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertCosmosCoinToERC20"></a>
 
 ### MsgConvertCosmosCoinToERC20
 MsgConvertCosmosCoinToERC20 defines a conversion from cosmos sdk.Coin to ERC20 for cosmos-native assets.
@@ -3946,7 +3946,7 @@ MsgConvertCosmosCoinToERC20 defines a conversion from cosmos sdk.Coin to ERC20 f
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `initiator` | [string](#string) |  | Nemo bech32 address initiating the conversion. |
+| `initiator` | [string](#string) |  | Fury bech32 address initiating the conversion. |
 | `receiver` | [string](#string) |  | EVM hex address that will receive the ERC20 tokens. |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | Amount is the sdk.Coin amount to convert. |
 
@@ -3955,7 +3955,7 @@ MsgConvertCosmosCoinToERC20 defines a conversion from cosmos sdk.Coin to ERC20 f
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertCosmosCoinToERC20Response"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertCosmosCoinToERC20Response"></a>
 
 ### MsgConvertCosmosCoinToERC20Response
 MsgConvertCosmosCoinToERC20Response defines the response value from Msg/MsgConvertCosmosCoinToERC20.
@@ -3965,17 +3965,17 @@ MsgConvertCosmosCoinToERC20Response defines the response value from Msg/MsgConve
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertERC20ToCoin"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertERC20ToCoin"></a>
 
 ### MsgConvertERC20ToCoin
-MsgConvertERC20ToCoin defines a conversion from Nemo ERC20 to sdk.Coin for EVM-native assets.
+MsgConvertERC20ToCoin defines a conversion from Fury ERC20 to sdk.Coin for EVM-native assets.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `initiator` | [string](#string) |  | EVM 0x hex address initiating the conversion. |
-| `receiver` | [string](#string) |  | Nemo bech32 address that will receive the converted sdk.Coin. |
-| `nemo_erc20_address` | [string](#string) |  | EVM 0x hex address of the ERC20 contract. |
+| `receiver` | [string](#string) |  | Fury bech32 address that will receive the converted sdk.Coin. |
+| `fury_erc20_address` | [string](#string) |  | EVM 0x hex address of the ERC20 contract. |
 | `amount` | [string](#string) |  | ERC20 token amount to convert. |
 
 
@@ -3983,7 +3983,7 @@ MsgConvertERC20ToCoin defines a conversion from Nemo ERC20 to sdk.Coin for EVM-n
 
 
 
-<a name="nemo.evmutil.v1beta1.MsgConvertERC20ToCoinResponse"></a>
+<a name="fury.evmutil.v1beta1.MsgConvertERC20ToCoinResponse"></a>
 
 ### MsgConvertERC20ToCoinResponse
 MsgConvertERC20ToCoinResponse defines the response value from
@@ -4000,30 +4000,30 @@ Msg/MsgConvertERC20ToCoin.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.evmutil.v1beta1.Msg"></a>
+<a name="fury.evmutil.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the evmutil Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `ConvertCoinToERC20` | [MsgConvertCoinToERC20](#nemo.evmutil.v1beta1.MsgConvertCoinToERC20) | [MsgConvertCoinToERC20Response](#nemo.evmutil.v1beta1.MsgConvertCoinToERC20Response) | ConvertCoinToERC20 defines a method for converting sdk.Coin to Nemo ERC20. | |
-| `ConvertERC20ToCoin` | [MsgConvertERC20ToCoin](#nemo.evmutil.v1beta1.MsgConvertERC20ToCoin) | [MsgConvertERC20ToCoinResponse](#nemo.evmutil.v1beta1.MsgConvertERC20ToCoinResponse) | ConvertERC20ToCoin defines a method for converting Nemo ERC20 to sdk.Coin. | |
-| `ConvertCosmosCoinToERC20` | [MsgConvertCosmosCoinToERC20](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinToERC20) | [MsgConvertCosmosCoinToERC20Response](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinToERC20Response) | ConvertCosmosCoinToERC20 defines a method for converting a cosmos sdk.Coin to an ERC20. | |
-| `ConvertCosmosCoinFromERC20` | [MsgConvertCosmosCoinFromERC20](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20) | [MsgConvertCosmosCoinFromERC20Response](#nemo.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20Response) | ConvertCosmosCoinFromERC20 defines a method for converting a cosmos sdk.Coin to an ERC20. | |
+| `ConvertCoinToERC20` | [MsgConvertCoinToERC20](#fury.evmutil.v1beta1.MsgConvertCoinToERC20) | [MsgConvertCoinToERC20Response](#fury.evmutil.v1beta1.MsgConvertCoinToERC20Response) | ConvertCoinToERC20 defines a method for converting sdk.Coin to Fury ERC20. | |
+| `ConvertERC20ToCoin` | [MsgConvertERC20ToCoin](#fury.evmutil.v1beta1.MsgConvertERC20ToCoin) | [MsgConvertERC20ToCoinResponse](#fury.evmutil.v1beta1.MsgConvertERC20ToCoinResponse) | ConvertERC20ToCoin defines a method for converting Fury ERC20 to sdk.Coin. | |
+| `ConvertCosmosCoinToERC20` | [MsgConvertCosmosCoinToERC20](#fury.evmutil.v1beta1.MsgConvertCosmosCoinToERC20) | [MsgConvertCosmosCoinToERC20Response](#fury.evmutil.v1beta1.MsgConvertCosmosCoinToERC20Response) | ConvertCosmosCoinToERC20 defines a method for converting a cosmos sdk.Coin to an ERC20. | |
+| `ConvertCosmosCoinFromERC20` | [MsgConvertCosmosCoinFromERC20](#fury.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20) | [MsgConvertCosmosCoinFromERC20Response](#fury.evmutil.v1beta1.MsgConvertCosmosCoinFromERC20Response) | ConvertCosmosCoinFromERC20 defines a method for converting a cosmos sdk.Coin to an ERC20. | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/hard/v1beta1/hard.proto"></a>
+<a name="fury/hard/v1beta1/hard.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/hard/v1beta1/hard.proto
+## fury/hard/v1beta1/hard.proto
 
 
 
-<a name="nemo.hard.v1beta1.Borrow"></a>
+<a name="fury.hard.v1beta1.Borrow"></a>
 
 ### Borrow
 Borrow defines an amount of coins borrowed from a hard module account.
@@ -4033,14 +4033,14 @@ Borrow defines an amount of coins borrowed from a hard module account.
 | ----- | ---- | ----- | ----------- |
 | `borrower` | [string](#string) |  |  |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
-| `index` | [BorrowInterestFactor](#nemo.hard.v1beta1.BorrowInterestFactor) | repeated |  |
+| `index` | [BorrowInterestFactor](#fury.hard.v1beta1.BorrowInterestFactor) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.hard.v1beta1.BorrowInterestFactor"></a>
+<a name="fury.hard.v1beta1.BorrowInterestFactor"></a>
 
 ### BorrowInterestFactor
 BorrowInterestFactor defines an individual borrow interest factor.
@@ -4056,7 +4056,7 @@ BorrowInterestFactor defines an individual borrow interest factor.
 
 
 
-<a name="nemo.hard.v1beta1.BorrowLimit"></a>
+<a name="fury.hard.v1beta1.BorrowLimit"></a>
 
 ### BorrowLimit
 BorrowLimit enforces restrictions on a money market.
@@ -4073,7 +4073,7 @@ BorrowLimit enforces restrictions on a money market.
 
 
 
-<a name="nemo.hard.v1beta1.CoinsProto"></a>
+<a name="fury.hard.v1beta1.CoinsProto"></a>
 
 ### CoinsProto
 CoinsProto defines a Protobuf wrapper around a Coins slice
@@ -4088,7 +4088,7 @@ CoinsProto defines a Protobuf wrapper around a Coins slice
 
 
 
-<a name="nemo.hard.v1beta1.Deposit"></a>
+<a name="fury.hard.v1beta1.Deposit"></a>
 
 ### Deposit
 Deposit defines an amount of coins deposited into a hard module account.
@@ -4098,14 +4098,14 @@ Deposit defines an amount of coins deposited into a hard module account.
 | ----- | ---- | ----- | ----------- |
 | `depositor` | [string](#string) |  |  |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
-| `index` | [SupplyInterestFactor](#nemo.hard.v1beta1.SupplyInterestFactor) | repeated |  |
+| `index` | [SupplyInterestFactor](#fury.hard.v1beta1.SupplyInterestFactor) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.hard.v1beta1.InterestRateModel"></a>
+<a name="fury.hard.v1beta1.InterestRateModel"></a>
 
 ### InterestRateModel
 InterestRateModel contains information about an asset's interest rate.
@@ -4123,7 +4123,7 @@ InterestRateModel contains information about an asset's interest rate.
 
 
 
-<a name="nemo.hard.v1beta1.MoneyMarket"></a>
+<a name="fury.hard.v1beta1.MoneyMarket"></a>
 
 ### MoneyMarket
 MoneyMarket is a money market for an individual asset.
@@ -4132,10 +4132,10 @@ MoneyMarket is a money market for an individual asset.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `denom` | [string](#string) |  |  |
-| `borrow_limit` | [BorrowLimit](#nemo.hard.v1beta1.BorrowLimit) |  |  |
+| `borrow_limit` | [BorrowLimit](#fury.hard.v1beta1.BorrowLimit) |  |  |
 | `spot_market_id` | [string](#string) |  |  |
 | `conversion_factor` | [string](#string) |  |  |
-| `interest_rate_model` | [InterestRateModel](#nemo.hard.v1beta1.InterestRateModel) |  |  |
+| `interest_rate_model` | [InterestRateModel](#fury.hard.v1beta1.InterestRateModel) |  |  |
 | `reserve_factor` | [string](#string) |  |  |
 | `keeper_reward_percentage` | [string](#string) |  |  |
 
@@ -4144,7 +4144,7 @@ MoneyMarket is a money market for an individual asset.
 
 
 
-<a name="nemo.hard.v1beta1.Params"></a>
+<a name="fury.hard.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the hard module.
@@ -4152,7 +4152,7 @@ Params defines the parameters for the hard module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `money_markets` | [MoneyMarket](#nemo.hard.v1beta1.MoneyMarket) | repeated |  |
+| `money_markets` | [MoneyMarket](#fury.hard.v1beta1.MoneyMarket) | repeated |  |
 | `minimum_borrow_usd_value` | [string](#string) |  |  |
 
 
@@ -4160,7 +4160,7 @@ Params defines the parameters for the hard module.
 
 
 
-<a name="nemo.hard.v1beta1.SupplyInterestFactor"></a>
+<a name="fury.hard.v1beta1.SupplyInterestFactor"></a>
 
 ### SupplyInterestFactor
 SupplyInterestFactor defines an individual borrow interest factor.
@@ -4185,14 +4185,14 @@ SupplyInterestFactor defines an individual borrow interest factor.
 
 
 
-<a name="nemo/hard/v1beta1/genesis.proto"></a>
+<a name="fury/hard/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/hard/v1beta1/genesis.proto
+## fury/hard/v1beta1/genesis.proto
 
 
 
-<a name="nemo.hard.v1beta1.GenesisAccumulationTime"></a>
+<a name="fury.hard.v1beta1.GenesisAccumulationTime"></a>
 
 ### GenesisAccumulationTime
 GenesisAccumulationTime stores the previous distribution time and its corresponding denom.
@@ -4210,7 +4210,7 @@ GenesisAccumulationTime stores the previous distribution time and its correspond
 
 
 
-<a name="nemo.hard.v1beta1.GenesisState"></a>
+<a name="fury.hard.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the hard module's genesis state.
@@ -4218,10 +4218,10 @@ GenesisState defines the hard module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.hard.v1beta1.Params) |  |  |
-| `previous_accumulation_times` | [GenesisAccumulationTime](#nemo.hard.v1beta1.GenesisAccumulationTime) | repeated |  |
-| `deposits` | [Deposit](#nemo.hard.v1beta1.Deposit) | repeated |  |
-| `borrows` | [Borrow](#nemo.hard.v1beta1.Borrow) | repeated |  |
+| `params` | [Params](#fury.hard.v1beta1.Params) |  |  |
+| `previous_accumulation_times` | [GenesisAccumulationTime](#fury.hard.v1beta1.GenesisAccumulationTime) | repeated |  |
+| `deposits` | [Deposit](#fury.hard.v1beta1.Deposit) | repeated |  |
+| `borrows` | [Borrow](#fury.hard.v1beta1.Borrow) | repeated |  |
 | `total_supplied` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
 | `total_borrowed` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
 | `total_reserves` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
@@ -4240,14 +4240,14 @@ GenesisState defines the hard module's genesis state.
 
 
 
-<a name="nemo/hard/v1beta1/query.proto"></a>
+<a name="fury/hard/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/hard/v1beta1/query.proto
+## fury/hard/v1beta1/query.proto
 
 
 
-<a name="nemo.hard.v1beta1.BorrowInterestFactorResponse"></a>
+<a name="fury.hard.v1beta1.BorrowInterestFactorResponse"></a>
 
 ### BorrowInterestFactorResponse
 BorrowInterestFactorResponse defines an individual borrow interest factor.
@@ -4263,7 +4263,7 @@ BorrowInterestFactorResponse defines an individual borrow interest factor.
 
 
 
-<a name="nemo.hard.v1beta1.BorrowResponse"></a>
+<a name="fury.hard.v1beta1.BorrowResponse"></a>
 
 ### BorrowResponse
 BorrowResponse defines an amount of coins borrowed from a hard module account.
@@ -4273,14 +4273,14 @@ BorrowResponse defines an amount of coins borrowed from a hard module account.
 | ----- | ---- | ----- | ----------- |
 | `borrower` | [string](#string) |  |  |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
-| `index` | [BorrowInterestFactorResponse](#nemo.hard.v1beta1.BorrowInterestFactorResponse) | repeated |  |
+| `index` | [BorrowInterestFactorResponse](#fury.hard.v1beta1.BorrowInterestFactorResponse) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.hard.v1beta1.DepositResponse"></a>
+<a name="fury.hard.v1beta1.DepositResponse"></a>
 
 ### DepositResponse
 DepositResponse defines an amount of coins deposited into a hard module account.
@@ -4290,14 +4290,14 @@ DepositResponse defines an amount of coins deposited into a hard module account.
 | ----- | ---- | ----- | ----------- |
 | `depositor` | [string](#string) |  |  |
 | `amount` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
-| `index` | [SupplyInterestFactorResponse](#nemo.hard.v1beta1.SupplyInterestFactorResponse) | repeated |  |
+| `index` | [SupplyInterestFactorResponse](#fury.hard.v1beta1.SupplyInterestFactorResponse) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.hard.v1beta1.InterestFactor"></a>
+<a name="fury.hard.v1beta1.InterestFactor"></a>
 
 ### InterestFactor
 InterestFactor is a unique type returned by interest factor queries
@@ -4314,7 +4314,7 @@ InterestFactor is a unique type returned by interest factor queries
 
 
 
-<a name="nemo.hard.v1beta1.MoneyMarketInterestRate"></a>
+<a name="fury.hard.v1beta1.MoneyMarketInterestRate"></a>
 
 ### MoneyMarketInterestRate
 MoneyMarketInterestRate is a unique type returned by interest rate queries
@@ -4331,7 +4331,7 @@ MoneyMarketInterestRate is a unique type returned by interest rate queries
 
 
 
-<a name="nemo.hard.v1beta1.QueryAccountsRequest"></a>
+<a name="fury.hard.v1beta1.QueryAccountsRequest"></a>
 
 ### QueryAccountsRequest
 QueryAccountsRequest is the request type for the Query/Accounts RPC method.
@@ -4341,7 +4341,7 @@ QueryAccountsRequest is the request type for the Query/Accounts RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryAccountsResponse"></a>
+<a name="fury.hard.v1beta1.QueryAccountsResponse"></a>
 
 ### QueryAccountsResponse
 QueryAccountsResponse is the response type for the Query/Accounts RPC method.
@@ -4356,7 +4356,7 @@ QueryAccountsResponse is the response type for the Query/Accounts RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryBorrowsRequest"></a>
+<a name="fury.hard.v1beta1.QueryBorrowsRequest"></a>
 
 ### QueryBorrowsRequest
 QueryBorrowsRequest is the request type for the Query/Borrows RPC method.
@@ -4373,7 +4373,7 @@ QueryBorrowsRequest is the request type for the Query/Borrows RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryBorrowsResponse"></a>
+<a name="fury.hard.v1beta1.QueryBorrowsResponse"></a>
 
 ### QueryBorrowsResponse
 QueryBorrowsResponse is the response type for the Query/Borrows RPC method.
@@ -4381,7 +4381,7 @@ QueryBorrowsResponse is the response type for the Query/Borrows RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `borrows` | [BorrowResponse](#nemo.hard.v1beta1.BorrowResponse) | repeated |  |
+| `borrows` | [BorrowResponse](#fury.hard.v1beta1.BorrowResponse) | repeated |  |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -4389,7 +4389,7 @@ QueryBorrowsResponse is the response type for the Query/Borrows RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryDepositsRequest"></a>
+<a name="fury.hard.v1beta1.QueryDepositsRequest"></a>
 
 ### QueryDepositsRequest
 QueryDepositsRequest is the request type for the Query/Deposits RPC method.
@@ -4406,7 +4406,7 @@ QueryDepositsRequest is the request type for the Query/Deposits RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryDepositsResponse"></a>
+<a name="fury.hard.v1beta1.QueryDepositsResponse"></a>
 
 ### QueryDepositsResponse
 QueryDepositsResponse is the response type for the Query/Deposits RPC method.
@@ -4414,7 +4414,7 @@ QueryDepositsResponse is the response type for the Query/Deposits RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `deposits` | [DepositResponse](#nemo.hard.v1beta1.DepositResponse) | repeated |  |
+| `deposits` | [DepositResponse](#fury.hard.v1beta1.DepositResponse) | repeated |  |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -4422,7 +4422,7 @@ QueryDepositsResponse is the response type for the Query/Deposits RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryInterestFactorsRequest"></a>
+<a name="fury.hard.v1beta1.QueryInterestFactorsRequest"></a>
 
 ### QueryInterestFactorsRequest
 QueryInterestFactorsRequest is the request type for the Query/InterestFactors RPC method.
@@ -4437,7 +4437,7 @@ QueryInterestFactorsRequest is the request type for the Query/InterestFactors RP
 
 
 
-<a name="nemo.hard.v1beta1.QueryInterestFactorsResponse"></a>
+<a name="fury.hard.v1beta1.QueryInterestFactorsResponse"></a>
 
 ### QueryInterestFactorsResponse
 QueryInterestFactorsResponse is the response type for the Query/InterestFactors RPC method.
@@ -4445,14 +4445,14 @@ QueryInterestFactorsResponse is the response type for the Query/InterestFactors 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `interest_factors` | [InterestFactor](#nemo.hard.v1beta1.InterestFactor) | repeated |  |
+| `interest_factors` | [InterestFactor](#fury.hard.v1beta1.InterestFactor) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.hard.v1beta1.QueryInterestRateRequest"></a>
+<a name="fury.hard.v1beta1.QueryInterestRateRequest"></a>
 
 ### QueryInterestRateRequest
 QueryInterestRateRequest is the request type for the Query/InterestRate RPC method.
@@ -4467,7 +4467,7 @@ QueryInterestRateRequest is the request type for the Query/InterestRate RPC meth
 
 
 
-<a name="nemo.hard.v1beta1.QueryInterestRateResponse"></a>
+<a name="fury.hard.v1beta1.QueryInterestRateResponse"></a>
 
 ### QueryInterestRateResponse
 QueryInterestRateResponse is the response type for the Query/InterestRate RPC method.
@@ -4475,14 +4475,14 @@ QueryInterestRateResponse is the response type for the Query/InterestRate RPC me
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `interest_rates` | [MoneyMarketInterestRate](#nemo.hard.v1beta1.MoneyMarketInterestRate) | repeated |  |
+| `interest_rates` | [MoneyMarketInterestRate](#fury.hard.v1beta1.MoneyMarketInterestRate) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.hard.v1beta1.QueryParamsRequest"></a>
+<a name="fury.hard.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -4492,7 +4492,7 @@ QueryParamsRequest is the request type for the Query/Params RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryParamsResponse"></a>
+<a name="fury.hard.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is the response type for the Query/Params RPC method.
@@ -4500,14 +4500,14 @@ QueryParamsResponse is the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.hard.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.hard.v1beta1.Params) |  |  |
 
 
 
 
 
 
-<a name="nemo.hard.v1beta1.QueryReservesRequest"></a>
+<a name="fury.hard.v1beta1.QueryReservesRequest"></a>
 
 ### QueryReservesRequest
 QueryReservesRequest is the request type for the Query/Reserves RPC method.
@@ -4522,7 +4522,7 @@ QueryReservesRequest is the request type for the Query/Reserves RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryReservesResponse"></a>
+<a name="fury.hard.v1beta1.QueryReservesResponse"></a>
 
 ### QueryReservesResponse
 QueryReservesResponse is the response type for the Query/Reserves RPC method.
@@ -4537,7 +4537,7 @@ QueryReservesResponse is the response type for the Query/Reserves RPC method.
 
 
 
-<a name="nemo.hard.v1beta1.QueryTotalBorrowedRequest"></a>
+<a name="fury.hard.v1beta1.QueryTotalBorrowedRequest"></a>
 
 ### QueryTotalBorrowedRequest
 QueryTotalBorrowedRequest is the request type for the Query/TotalBorrowed RPC method.
@@ -4552,7 +4552,7 @@ QueryTotalBorrowedRequest is the request type for the Query/TotalBorrowed RPC me
 
 
 
-<a name="nemo.hard.v1beta1.QueryTotalBorrowedResponse"></a>
+<a name="fury.hard.v1beta1.QueryTotalBorrowedResponse"></a>
 
 ### QueryTotalBorrowedResponse
 QueryTotalBorrowedResponse is the response type for the Query/TotalBorrowed RPC method.
@@ -4567,7 +4567,7 @@ QueryTotalBorrowedResponse is the response type for the Query/TotalBorrowed RPC 
 
 
 
-<a name="nemo.hard.v1beta1.QueryTotalDepositedRequest"></a>
+<a name="fury.hard.v1beta1.QueryTotalDepositedRequest"></a>
 
 ### QueryTotalDepositedRequest
 QueryTotalDepositedRequest is the request type for the Query/TotalDeposited RPC method.
@@ -4582,7 +4582,7 @@ QueryTotalDepositedRequest is the request type for the Query/TotalDeposited RPC 
 
 
 
-<a name="nemo.hard.v1beta1.QueryTotalDepositedResponse"></a>
+<a name="fury.hard.v1beta1.QueryTotalDepositedResponse"></a>
 
 ### QueryTotalDepositedResponse
 QueryTotalDepositedResponse is the response type for the Query/TotalDeposited RPC method.
@@ -4597,7 +4597,7 @@ QueryTotalDepositedResponse is the response type for the Query/TotalDeposited RP
 
 
 
-<a name="nemo.hard.v1beta1.QueryUnsyncedBorrowsRequest"></a>
+<a name="fury.hard.v1beta1.QueryUnsyncedBorrowsRequest"></a>
 
 ### QueryUnsyncedBorrowsRequest
 QueryUnsyncedBorrowsRequest is the request type for the Query/UnsyncedBorrows RPC method.
@@ -4614,7 +4614,7 @@ QueryUnsyncedBorrowsRequest is the request type for the Query/UnsyncedBorrows RP
 
 
 
-<a name="nemo.hard.v1beta1.QueryUnsyncedBorrowsResponse"></a>
+<a name="fury.hard.v1beta1.QueryUnsyncedBorrowsResponse"></a>
 
 ### QueryUnsyncedBorrowsResponse
 QueryUnsyncedBorrowsResponse is the response type for the Query/UnsyncedBorrows RPC method.
@@ -4622,7 +4622,7 @@ QueryUnsyncedBorrowsResponse is the response type for the Query/UnsyncedBorrows 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `borrows` | [BorrowResponse](#nemo.hard.v1beta1.BorrowResponse) | repeated |  |
+| `borrows` | [BorrowResponse](#fury.hard.v1beta1.BorrowResponse) | repeated |  |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -4630,7 +4630,7 @@ QueryUnsyncedBorrowsResponse is the response type for the Query/UnsyncedBorrows 
 
 
 
-<a name="nemo.hard.v1beta1.QueryUnsyncedDepositsRequest"></a>
+<a name="fury.hard.v1beta1.QueryUnsyncedDepositsRequest"></a>
 
 ### QueryUnsyncedDepositsRequest
 QueryUnsyncedDepositsRequest is the request type for the Query/UnsyncedDeposits RPC method.
@@ -4647,7 +4647,7 @@ QueryUnsyncedDepositsRequest is the request type for the Query/UnsyncedDeposits 
 
 
 
-<a name="nemo.hard.v1beta1.QueryUnsyncedDepositsResponse"></a>
+<a name="fury.hard.v1beta1.QueryUnsyncedDepositsResponse"></a>
 
 ### QueryUnsyncedDepositsResponse
 QueryUnsyncedDepositsResponse is the response type for the Query/UnsyncedDeposits RPC method.
@@ -4655,7 +4655,7 @@ QueryUnsyncedDepositsResponse is the response type for the Query/UnsyncedDeposit
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `deposits` | [DepositResponse](#nemo.hard.v1beta1.DepositResponse) | repeated |  |
+| `deposits` | [DepositResponse](#fury.hard.v1beta1.DepositResponse) | repeated |  |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -4663,7 +4663,7 @@ QueryUnsyncedDepositsResponse is the response type for the Query/UnsyncedDeposit
 
 
 
-<a name="nemo.hard.v1beta1.SupplyInterestFactorResponse"></a>
+<a name="fury.hard.v1beta1.SupplyInterestFactorResponse"></a>
 
 ### SupplyInterestFactorResponse
 SupplyInterestFactorResponse defines an individual borrow interest factor.
@@ -4685,37 +4685,37 @@ SupplyInterestFactorResponse defines an individual borrow interest factor.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.hard.v1beta1.Query"></a>
+<a name="fury.hard.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for bep3 module.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.hard.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.hard.v1beta1.QueryParamsResponse) | Params queries module params. | GET|/nemo/hard/v1beta1/params|
-| `Accounts` | [QueryAccountsRequest](#nemo.hard.v1beta1.QueryAccountsRequest) | [QueryAccountsResponse](#nemo.hard.v1beta1.QueryAccountsResponse) | Accounts queries module accounts. | GET|/nemo/hard/v1beta1/accounts|
-| `Deposits` | [QueryDepositsRequest](#nemo.hard.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#nemo.hard.v1beta1.QueryDepositsResponse) | Deposits queries hard deposits. | GET|/nemo/hard/v1beta1/deposits|
-| `UnsyncedDeposits` | [QueryUnsyncedDepositsRequest](#nemo.hard.v1beta1.QueryUnsyncedDepositsRequest) | [QueryUnsyncedDepositsResponse](#nemo.hard.v1beta1.QueryUnsyncedDepositsResponse) | UnsyncedDeposits queries unsynced deposits. | GET|/nemo/hard/v1beta1/unsynced-deposits|
-| `TotalDeposited` | [QueryTotalDepositedRequest](#nemo.hard.v1beta1.QueryTotalDepositedRequest) | [QueryTotalDepositedResponse](#nemo.hard.v1beta1.QueryTotalDepositedResponse) | TotalDeposited queries total coins deposited to hard liquidity pools. | GET|/nemo/hard/v1beta1/total-deposited|
-| `Borrows` | [QueryBorrowsRequest](#nemo.hard.v1beta1.QueryBorrowsRequest) | [QueryBorrowsResponse](#nemo.hard.v1beta1.QueryBorrowsResponse) | Borrows queries hard borrows. | GET|/nemo/hard/v1beta1/borrows|
-| `UnsyncedBorrows` | [QueryUnsyncedBorrowsRequest](#nemo.hard.v1beta1.QueryUnsyncedBorrowsRequest) | [QueryUnsyncedBorrowsResponse](#nemo.hard.v1beta1.QueryUnsyncedBorrowsResponse) | UnsyncedBorrows queries unsynced borrows. | GET|/nemo/hard/v1beta1/unsynced-borrows|
-| `TotalBorrowed` | [QueryTotalBorrowedRequest](#nemo.hard.v1beta1.QueryTotalBorrowedRequest) | [QueryTotalBorrowedResponse](#nemo.hard.v1beta1.QueryTotalBorrowedResponse) | TotalBorrowed queries total coins borrowed from hard liquidity pools. | GET|/nemo/hard/v1beta1/total-borrowed|
-| `InterestRate` | [QueryInterestRateRequest](#nemo.hard.v1beta1.QueryInterestRateRequest) | [QueryInterestRateResponse](#nemo.hard.v1beta1.QueryInterestRateResponse) | InterestRate queries the hard module interest rates. | GET|/nemo/hard/v1beta1/interest-rate|
-| `Reserves` | [QueryReservesRequest](#nemo.hard.v1beta1.QueryReservesRequest) | [QueryReservesResponse](#nemo.hard.v1beta1.QueryReservesResponse) | Reserves queries total hard reserve coins. | GET|/nemo/hard/v1beta1/reserves|
-| `InterestFactors` | [QueryInterestFactorsRequest](#nemo.hard.v1beta1.QueryInterestFactorsRequest) | [QueryInterestFactorsResponse](#nemo.hard.v1beta1.QueryInterestFactorsResponse) | InterestFactors queries hard module interest factors. | GET|/nemo/hard/v1beta1/interest-factors|
+| `Params` | [QueryParamsRequest](#fury.hard.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.hard.v1beta1.QueryParamsResponse) | Params queries module params. | GET|/fury/hard/v1beta1/params|
+| `Accounts` | [QueryAccountsRequest](#fury.hard.v1beta1.QueryAccountsRequest) | [QueryAccountsResponse](#fury.hard.v1beta1.QueryAccountsResponse) | Accounts queries module accounts. | GET|/fury/hard/v1beta1/accounts|
+| `Deposits` | [QueryDepositsRequest](#fury.hard.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#fury.hard.v1beta1.QueryDepositsResponse) | Deposits queries hard deposits. | GET|/fury/hard/v1beta1/deposits|
+| `UnsyncedDeposits` | [QueryUnsyncedDepositsRequest](#fury.hard.v1beta1.QueryUnsyncedDepositsRequest) | [QueryUnsyncedDepositsResponse](#fury.hard.v1beta1.QueryUnsyncedDepositsResponse) | UnsyncedDeposits queries unsynced deposits. | GET|/fury/hard/v1beta1/unsynced-deposits|
+| `TotalDeposited` | [QueryTotalDepositedRequest](#fury.hard.v1beta1.QueryTotalDepositedRequest) | [QueryTotalDepositedResponse](#fury.hard.v1beta1.QueryTotalDepositedResponse) | TotalDeposited queries total coins deposited to hard liquidity pools. | GET|/fury/hard/v1beta1/total-deposited|
+| `Borrows` | [QueryBorrowsRequest](#fury.hard.v1beta1.QueryBorrowsRequest) | [QueryBorrowsResponse](#fury.hard.v1beta1.QueryBorrowsResponse) | Borrows queries hard borrows. | GET|/fury/hard/v1beta1/borrows|
+| `UnsyncedBorrows` | [QueryUnsyncedBorrowsRequest](#fury.hard.v1beta1.QueryUnsyncedBorrowsRequest) | [QueryUnsyncedBorrowsResponse](#fury.hard.v1beta1.QueryUnsyncedBorrowsResponse) | UnsyncedBorrows queries unsynced borrows. | GET|/fury/hard/v1beta1/unsynced-borrows|
+| `TotalBorrowed` | [QueryTotalBorrowedRequest](#fury.hard.v1beta1.QueryTotalBorrowedRequest) | [QueryTotalBorrowedResponse](#fury.hard.v1beta1.QueryTotalBorrowedResponse) | TotalBorrowed queries total coins borrowed from hard liquidity pools. | GET|/fury/hard/v1beta1/total-borrowed|
+| `InterestRate` | [QueryInterestRateRequest](#fury.hard.v1beta1.QueryInterestRateRequest) | [QueryInterestRateResponse](#fury.hard.v1beta1.QueryInterestRateResponse) | InterestRate queries the hard module interest rates. | GET|/fury/hard/v1beta1/interest-rate|
+| `Reserves` | [QueryReservesRequest](#fury.hard.v1beta1.QueryReservesRequest) | [QueryReservesResponse](#fury.hard.v1beta1.QueryReservesResponse) | Reserves queries total hard reserve coins. | GET|/fury/hard/v1beta1/reserves|
+| `InterestFactors` | [QueryInterestFactorsRequest](#fury.hard.v1beta1.QueryInterestFactorsRequest) | [QueryInterestFactorsResponse](#fury.hard.v1beta1.QueryInterestFactorsResponse) | InterestFactors queries hard module interest factors. | GET|/fury/hard/v1beta1/interest-factors|
 
  <!-- end services -->
 
 
 
-<a name="nemo/hard/v1beta1/tx.proto"></a>
+<a name="fury/hard/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/hard/v1beta1/tx.proto
+## fury/hard/v1beta1/tx.proto
 
 
 
-<a name="nemo.hard.v1beta1.MsgBorrow"></a>
+<a name="fury.hard.v1beta1.MsgBorrow"></a>
 
 ### MsgBorrow
 MsgBorrow defines the Msg/Borrow request type.
@@ -4731,7 +4731,7 @@ MsgBorrow defines the Msg/Borrow request type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgBorrowResponse"></a>
+<a name="fury.hard.v1beta1.MsgBorrowResponse"></a>
 
 ### MsgBorrowResponse
 MsgBorrowResponse defines the Msg/Borrow response type.
@@ -4741,7 +4741,7 @@ MsgBorrowResponse defines the Msg/Borrow response type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgDeposit"></a>
+<a name="fury.hard.v1beta1.MsgDeposit"></a>
 
 ### MsgDeposit
 MsgDeposit defines the Msg/Deposit request type.
@@ -4757,7 +4757,7 @@ MsgDeposit defines the Msg/Deposit request type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgDepositResponse"></a>
+<a name="fury.hard.v1beta1.MsgDepositResponse"></a>
 
 ### MsgDepositResponse
 MsgDepositResponse defines the Msg/Deposit response type.
@@ -4767,7 +4767,7 @@ MsgDepositResponse defines the Msg/Deposit response type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgLiquidate"></a>
+<a name="fury.hard.v1beta1.MsgLiquidate"></a>
 
 ### MsgLiquidate
 MsgLiquidate defines the Msg/Liquidate request type.
@@ -4783,7 +4783,7 @@ MsgLiquidate defines the Msg/Liquidate request type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgLiquidateResponse"></a>
+<a name="fury.hard.v1beta1.MsgLiquidateResponse"></a>
 
 ### MsgLiquidateResponse
 MsgLiquidateResponse defines the Msg/Liquidate response type.
@@ -4793,7 +4793,7 @@ MsgLiquidateResponse defines the Msg/Liquidate response type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgRepay"></a>
+<a name="fury.hard.v1beta1.MsgRepay"></a>
 
 ### MsgRepay
 MsgRepay defines the Msg/Repay request type.
@@ -4810,7 +4810,7 @@ MsgRepay defines the Msg/Repay request type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgRepayResponse"></a>
+<a name="fury.hard.v1beta1.MsgRepayResponse"></a>
 
 ### MsgRepayResponse
 MsgRepayResponse defines the Msg/Repay response type.
@@ -4820,7 +4820,7 @@ MsgRepayResponse defines the Msg/Repay response type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgWithdraw"></a>
+<a name="fury.hard.v1beta1.MsgWithdraw"></a>
 
 ### MsgWithdraw
 MsgWithdraw defines the Msg/Withdraw request type.
@@ -4836,7 +4836,7 @@ MsgWithdraw defines the Msg/Withdraw request type.
 
 
 
-<a name="nemo.hard.v1beta1.MsgWithdrawResponse"></a>
+<a name="fury.hard.v1beta1.MsgWithdrawResponse"></a>
 
 ### MsgWithdrawResponse
 MsgWithdrawResponse defines the Msg/Withdraw response type.
@@ -4852,31 +4852,31 @@ MsgWithdrawResponse defines the Msg/Withdraw response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.hard.v1beta1.Msg"></a>
+<a name="fury.hard.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the hard Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Deposit` | [MsgDeposit](#nemo.hard.v1beta1.MsgDeposit) | [MsgDepositResponse](#nemo.hard.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing funds to hard liquidity pool. | |
-| `Withdraw` | [MsgWithdraw](#nemo.hard.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#nemo.hard.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing funds from hard liquidity pool. | |
-| `Borrow` | [MsgBorrow](#nemo.hard.v1beta1.MsgBorrow) | [MsgBorrowResponse](#nemo.hard.v1beta1.MsgBorrowResponse) | Borrow defines a method for borrowing funds from hard liquidity pool. | |
-| `Repay` | [MsgRepay](#nemo.hard.v1beta1.MsgRepay) | [MsgRepayResponse](#nemo.hard.v1beta1.MsgRepayResponse) | Repay defines a method for repaying funds borrowed from hard liquidity pool. | |
-| `Liquidate` | [MsgLiquidate](#nemo.hard.v1beta1.MsgLiquidate) | [MsgLiquidateResponse](#nemo.hard.v1beta1.MsgLiquidateResponse) | Liquidate defines a method for attempting to liquidate a borrower that is over their loan-to-value. | |
+| `Deposit` | [MsgDeposit](#fury.hard.v1beta1.MsgDeposit) | [MsgDepositResponse](#fury.hard.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing funds to hard liquidity pool. | |
+| `Withdraw` | [MsgWithdraw](#fury.hard.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#fury.hard.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing funds from hard liquidity pool. | |
+| `Borrow` | [MsgBorrow](#fury.hard.v1beta1.MsgBorrow) | [MsgBorrowResponse](#fury.hard.v1beta1.MsgBorrowResponse) | Borrow defines a method for borrowing funds from hard liquidity pool. | |
+| `Repay` | [MsgRepay](#fury.hard.v1beta1.MsgRepay) | [MsgRepayResponse](#fury.hard.v1beta1.MsgRepayResponse) | Repay defines a method for repaying funds borrowed from hard liquidity pool. | |
+| `Liquidate` | [MsgLiquidate](#fury.hard.v1beta1.MsgLiquidate) | [MsgLiquidateResponse](#fury.hard.v1beta1.MsgLiquidateResponse) | Liquidate defines a method for attempting to liquidate a borrower that is over their loan-to-value. | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/incentive/v1beta1/apy.proto"></a>
+<a name="fury/incentive/v1beta1/apy.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/incentive/v1beta1/apy.proto
+## fury/incentive/v1beta1/apy.proto
 
 
 
-<a name="nemo.incentive.v1beta1.Apy"></a>
+<a name="fury.incentive.v1beta1.Apy"></a>
 
 ### Apy
 Apy contains the calculated APY for a given collateral type at a specific
@@ -4902,14 +4902,14 @@ instant in time.
 
 
 
-<a name="nemo/incentive/v1beta1/claims.proto"></a>
+<a name="fury/incentive/v1beta1/claims.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/incentive/v1beta1/claims.proto
+## fury/incentive/v1beta1/claims.proto
 
 
 
-<a name="nemo.incentive.v1beta1.BaseClaim"></a>
+<a name="fury.incentive.v1beta1.BaseClaim"></a>
 
 ### BaseClaim
 BaseClaim is a claim with a single reward coin types
@@ -4925,7 +4925,7 @@ BaseClaim is a claim with a single reward coin types
 
 
 
-<a name="nemo.incentive.v1beta1.BaseMultiClaim"></a>
+<a name="fury.incentive.v1beta1.BaseMultiClaim"></a>
 
 ### BaseMultiClaim
 BaseMultiClaim is a claim with multiple reward coin types
@@ -4941,7 +4941,7 @@ BaseMultiClaim is a claim with multiple reward coin types
 
 
 
-<a name="nemo.incentive.v1beta1.DelegatorClaim"></a>
+<a name="fury.incentive.v1beta1.DelegatorClaim"></a>
 
 ### DelegatorClaim
 DelegatorClaim stores delegation rewards that can be claimed by owner
@@ -4949,15 +4949,15 @@ DelegatorClaim stores delegation rewards that can be claimed by owner
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_claim` | [BaseMultiClaim](#nemo.incentive.v1beta1.BaseMultiClaim) |  |  |
-| `reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `base_claim` | [BaseMultiClaim](#fury.incentive.v1beta1.BaseMultiClaim) |  |  |
+| `reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.EarnClaim"></a>
+<a name="fury.incentive.v1beta1.EarnClaim"></a>
 
 ### EarnClaim
 EarnClaim stores the earn rewards that can be claimed by owner
@@ -4965,15 +4965,15 @@ EarnClaim stores the earn rewards that can be claimed by owner
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_claim` | [BaseMultiClaim](#nemo.incentive.v1beta1.BaseMultiClaim) |  |  |
-| `reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `base_claim` | [BaseMultiClaim](#fury.incentive.v1beta1.BaseMultiClaim) |  |  |
+| `reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.HardLiquidityProviderClaim"></a>
+<a name="fury.incentive.v1beta1.HardLiquidityProviderClaim"></a>
 
 ### HardLiquidityProviderClaim
 HardLiquidityProviderClaim stores the hard liquidity provider rewards that can be claimed by owner
@@ -4981,16 +4981,16 @@ HardLiquidityProviderClaim stores the hard liquidity provider rewards that can b
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_claim` | [BaseMultiClaim](#nemo.incentive.v1beta1.BaseMultiClaim) |  |  |
-| `supply_reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
-| `borrow_reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `base_claim` | [BaseMultiClaim](#fury.incentive.v1beta1.BaseMultiClaim) |  |  |
+| `supply_reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `borrow_reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.MultiRewardIndex"></a>
+<a name="fury.incentive.v1beta1.MultiRewardIndex"></a>
 
 ### MultiRewardIndex
 MultiRewardIndex stores reward accumulation information on multiple reward types
@@ -4999,14 +4999,14 @@ MultiRewardIndex stores reward accumulation information on multiple reward types
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `collateral_type` | [string](#string) |  |  |
-| `reward_indexes` | [RewardIndex](#nemo.incentive.v1beta1.RewardIndex) | repeated |  |
+| `reward_indexes` | [RewardIndex](#fury.incentive.v1beta1.RewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.MultiRewardIndexesProto"></a>
+<a name="fury.incentive.v1beta1.MultiRewardIndexesProto"></a>
 
 ### MultiRewardIndexesProto
 MultiRewardIndexesProto defines a Protobuf wrapper around a MultiRewardIndexes slice
@@ -5014,14 +5014,14 @@ MultiRewardIndexesProto defines a Protobuf wrapper around a MultiRewardIndexes s
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `multi_reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `multi_reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.RewardIndex"></a>
+<a name="fury.incentive.v1beta1.RewardIndex"></a>
 
 ### RewardIndex
 RewardIndex stores reward accumulation information
@@ -5037,7 +5037,7 @@ RewardIndex stores reward accumulation information
 
 
 
-<a name="nemo.incentive.v1beta1.RewardIndexesProto"></a>
+<a name="fury.incentive.v1beta1.RewardIndexesProto"></a>
 
 ### RewardIndexesProto
 RewardIndexesProto defines a Protobuf wrapper around a RewardIndexes slice
@@ -5045,14 +5045,14 @@ RewardIndexesProto defines a Protobuf wrapper around a RewardIndexes slice
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `reward_indexes` | [RewardIndex](#nemo.incentive.v1beta1.RewardIndex) | repeated |  |
+| `reward_indexes` | [RewardIndex](#fury.incentive.v1beta1.RewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.SavingsClaim"></a>
+<a name="fury.incentive.v1beta1.SavingsClaim"></a>
 
 ### SavingsClaim
 SavingsClaim stores the savings rewards that can be claimed by owner
@@ -5060,15 +5060,15 @@ SavingsClaim stores the savings rewards that can be claimed by owner
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_claim` | [BaseMultiClaim](#nemo.incentive.v1beta1.BaseMultiClaim) |  |  |
-| `reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `base_claim` | [BaseMultiClaim](#fury.incentive.v1beta1.BaseMultiClaim) |  |  |
+| `reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.SwapClaim"></a>
+<a name="fury.incentive.v1beta1.SwapClaim"></a>
 
 ### SwapClaim
 SwapClaim stores the swap rewards that can be claimed by owner
@@ -5076,15 +5076,15 @@ SwapClaim stores the swap rewards that can be claimed by owner
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_claim` | [BaseMultiClaim](#nemo.incentive.v1beta1.BaseMultiClaim) |  |  |
-| `reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `base_claim` | [BaseMultiClaim](#fury.incentive.v1beta1.BaseMultiClaim) |  |  |
+| `reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.USDXMintingClaim"></a>
+<a name="fury.incentive.v1beta1.USDXMintingClaim"></a>
 
 ### USDXMintingClaim
 USDXMintingClaim is for USDX minting rewards
@@ -5092,8 +5092,8 @@ USDXMintingClaim is for USDX minting rewards
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `base_claim` | [BaseClaim](#nemo.incentive.v1beta1.BaseClaim) |  |  |
-| `reward_indexes` | [RewardIndex](#nemo.incentive.v1beta1.RewardIndex) | repeated |  |
+| `base_claim` | [BaseClaim](#fury.incentive.v1beta1.BaseClaim) |  |  |
+| `reward_indexes` | [RewardIndex](#fury.incentive.v1beta1.RewardIndex) | repeated |  |
 
 
 
@@ -5109,14 +5109,14 @@ USDXMintingClaim is for USDX minting rewards
 
 
 
-<a name="nemo/incentive/v1beta1/params.proto"></a>
+<a name="fury/incentive/v1beta1/params.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/incentive/v1beta1/params.proto
+## fury/incentive/v1beta1/params.proto
 
 
 
-<a name="nemo.incentive.v1beta1.MultiRewardPeriod"></a>
+<a name="fury.incentive.v1beta1.MultiRewardPeriod"></a>
 
 ### MultiRewardPeriod
 MultiRewardPeriod supports multiple reward types
@@ -5135,7 +5135,7 @@ MultiRewardPeriod supports multiple reward types
 
 
 
-<a name="nemo.incentive.v1beta1.Multiplier"></a>
+<a name="fury.incentive.v1beta1.Multiplier"></a>
 
 ### Multiplier
 Multiplier amount the claim rewards get increased by, along with how long the claim rewards are locked
@@ -5152,7 +5152,7 @@ Multiplier amount the claim rewards get increased by, along with how long the cl
 
 
 
-<a name="nemo.incentive.v1beta1.MultipliersPerDenom"></a>
+<a name="fury.incentive.v1beta1.MultipliersPerDenom"></a>
 
 ### MultipliersPerDenom
 MultipliersPerDenom is a map of denoms to a set of multipliers
@@ -5161,14 +5161,14 @@ MultipliersPerDenom is a map of denoms to a set of multipliers
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `denom` | [string](#string) |  |  |
-| `multipliers` | [Multiplier](#nemo.incentive.v1beta1.Multiplier) | repeated |  |
+| `multipliers` | [Multiplier](#fury.incentive.v1beta1.Multiplier) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.Params"></a>
+<a name="fury.incentive.v1beta1.Params"></a>
 
 ### Params
 Params
@@ -5176,22 +5176,22 @@ Params
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `usdx_minting_reward_periods` | [RewardPeriod](#nemo.incentive.v1beta1.RewardPeriod) | repeated |  |
-| `hard_supply_reward_periods` | [MultiRewardPeriod](#nemo.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
-| `hard_borrow_reward_periods` | [MultiRewardPeriod](#nemo.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
-| `delegator_reward_periods` | [MultiRewardPeriod](#nemo.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
-| `swap_reward_periods` | [MultiRewardPeriod](#nemo.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
-| `claim_multipliers` | [MultipliersPerDenom](#nemo.incentive.v1beta1.MultipliersPerDenom) | repeated |  |
+| `usdx_minting_reward_periods` | [RewardPeriod](#fury.incentive.v1beta1.RewardPeriod) | repeated |  |
+| `hard_supply_reward_periods` | [MultiRewardPeriod](#fury.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
+| `hard_borrow_reward_periods` | [MultiRewardPeriod](#fury.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
+| `delegator_reward_periods` | [MultiRewardPeriod](#fury.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
+| `swap_reward_periods` | [MultiRewardPeriod](#fury.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
+| `claim_multipliers` | [MultipliersPerDenom](#fury.incentive.v1beta1.MultipliersPerDenom) | repeated |  |
 | `claim_end` | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
-| `savings_reward_periods` | [MultiRewardPeriod](#nemo.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
-| `earn_reward_periods` | [MultiRewardPeriod](#nemo.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
+| `savings_reward_periods` | [MultiRewardPeriod](#fury.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
+| `earn_reward_periods` | [MultiRewardPeriod](#fury.incentive.v1beta1.MultiRewardPeriod) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.RewardPeriod"></a>
+<a name="fury.incentive.v1beta1.RewardPeriod"></a>
 
 ### RewardPeriod
 RewardPeriod stores the state of an ongoing reward
@@ -5219,14 +5219,14 @@ RewardPeriod stores the state of an ongoing reward
 
 
 
-<a name="nemo/incentive/v1beta1/genesis.proto"></a>
+<a name="fury/incentive/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/incentive/v1beta1/genesis.proto
+## fury/incentive/v1beta1/genesis.proto
 
 
 
-<a name="nemo.incentive.v1beta1.AccumulationTime"></a>
+<a name="fury.incentive.v1beta1.AccumulationTime"></a>
 
 ### AccumulationTime
 AccumulationTime stores the previous reward distribution time and its corresponding collateral type
@@ -5242,7 +5242,7 @@ AccumulationTime stores the previous reward distribution time and its correspond
 
 
 
-<a name="nemo.incentive.v1beta1.GenesisRewardState"></a>
+<a name="fury.incentive.v1beta1.GenesisRewardState"></a>
 
 ### GenesisRewardState
 GenesisRewardState groups together the global state for a particular reward so it can be exported in genesis.
@@ -5250,15 +5250,15 @@ GenesisRewardState groups together the global state for a particular reward so i
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `accumulation_times` | [AccumulationTime](#nemo.incentive.v1beta1.AccumulationTime) | repeated |  |
-| `multi_reward_indexes` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `accumulation_times` | [AccumulationTime](#fury.incentive.v1beta1.AccumulationTime) | repeated |  |
+| `multi_reward_indexes` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.GenesisState"></a>
+<a name="fury.incentive.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState is the state that must be provided at genesis.
@@ -5266,20 +5266,20 @@ GenesisState is the state that must be provided at genesis.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.incentive.v1beta1.Params) |  |  |
-| `usdx_reward_state` | [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState) |  |  |
-| `hard_supply_reward_state` | [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState) |  |  |
-| `hard_borrow_reward_state` | [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState) |  |  |
-| `delegator_reward_state` | [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState) |  |  |
-| `swap_reward_state` | [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState) |  |  |
-| `usdx_minting_claims` | [USDXMintingClaim](#nemo.incentive.v1beta1.USDXMintingClaim) | repeated |  |
-| `hard_liquidity_provider_claims` | [HardLiquidityProviderClaim](#nemo.incentive.v1beta1.HardLiquidityProviderClaim) | repeated |  |
-| `delegator_claims` | [DelegatorClaim](#nemo.incentive.v1beta1.DelegatorClaim) | repeated |  |
-| `swap_claims` | [SwapClaim](#nemo.incentive.v1beta1.SwapClaim) | repeated |  |
-| `savings_reward_state` | [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState) |  |  |
-| `savings_claims` | [SavingsClaim](#nemo.incentive.v1beta1.SavingsClaim) | repeated |  |
-| `earn_reward_state` | [GenesisRewardState](#nemo.incentive.v1beta1.GenesisRewardState) |  |  |
-| `earn_claims` | [EarnClaim](#nemo.incentive.v1beta1.EarnClaim) | repeated |  |
+| `params` | [Params](#fury.incentive.v1beta1.Params) |  |  |
+| `usdx_reward_state` | [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState) |  |  |
+| `hard_supply_reward_state` | [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState) |  |  |
+| `hard_borrow_reward_state` | [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState) |  |  |
+| `delegator_reward_state` | [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState) |  |  |
+| `swap_reward_state` | [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState) |  |  |
+| `usdx_minting_claims` | [USDXMintingClaim](#fury.incentive.v1beta1.USDXMintingClaim) | repeated |  |
+| `hard_liquidity_provider_claims` | [HardLiquidityProviderClaim](#fury.incentive.v1beta1.HardLiquidityProviderClaim) | repeated |  |
+| `delegator_claims` | [DelegatorClaim](#fury.incentive.v1beta1.DelegatorClaim) | repeated |  |
+| `swap_claims` | [SwapClaim](#fury.incentive.v1beta1.SwapClaim) | repeated |  |
+| `savings_reward_state` | [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState) |  |  |
+| `savings_claims` | [SavingsClaim](#fury.incentive.v1beta1.SavingsClaim) | repeated |  |
+| `earn_reward_state` | [GenesisRewardState](#fury.incentive.v1beta1.GenesisRewardState) |  |  |
+| `earn_claims` | [EarnClaim](#fury.incentive.v1beta1.EarnClaim) | repeated |  |
 
 
 
@@ -5295,14 +5295,14 @@ GenesisState is the state that must be provided at genesis.
 
 
 
-<a name="nemo/incentive/v1beta1/query.proto"></a>
+<a name="fury/incentive/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/incentive/v1beta1/query.proto
+## fury/incentive/v1beta1/query.proto
 
 
 
-<a name="nemo.incentive.v1beta1.QueryApyRequest"></a>
+<a name="fury.incentive.v1beta1.QueryApyRequest"></a>
 
 ### QueryApyRequest
 QueryApysRequest is the request type for the Query/Apys RPC method.
@@ -5312,7 +5312,7 @@ QueryApysRequest is the request type for the Query/Apys RPC method.
 
 
 
-<a name="nemo.incentive.v1beta1.QueryApyResponse"></a>
+<a name="fury.incentive.v1beta1.QueryApyResponse"></a>
 
 ### QueryApyResponse
 QueryApysResponse is the response type for the Query/Apys RPC method.
@@ -5320,14 +5320,14 @@ QueryApysResponse is the response type for the Query/Apys RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `earn` | [Apy](#nemo.incentive.v1beta1.Apy) | repeated |  |
+| `earn` | [Apy](#fury.incentive.v1beta1.Apy) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.QueryParamsRequest"></a>
+<a name="fury.incentive.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -5337,7 +5337,7 @@ QueryParamsRequest is the request type for the Query/Params RPC method.
 
 
 
-<a name="nemo.incentive.v1beta1.QueryParamsResponse"></a>
+<a name="fury.incentive.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is the response type for the Query/Params RPC method.
@@ -5345,14 +5345,14 @@ QueryParamsResponse is the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.incentive.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.incentive.v1beta1.Params) |  |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.QueryRewardFactorsRequest"></a>
+<a name="fury.incentive.v1beta1.QueryRewardFactorsRequest"></a>
 
 ### QueryRewardFactorsRequest
 QueryRewardFactorsRequest is the request type for the Query/RewardFactors RPC method.
@@ -5362,7 +5362,7 @@ QueryRewardFactorsRequest is the request type for the Query/RewardFactors RPC me
 
 
 
-<a name="nemo.incentive.v1beta1.QueryRewardFactorsResponse"></a>
+<a name="fury.incentive.v1beta1.QueryRewardFactorsResponse"></a>
 
 ### QueryRewardFactorsResponse
 QueryRewardFactorsResponse is the response type for the Query/RewardFactors RPC method.
@@ -5370,20 +5370,20 @@ QueryRewardFactorsResponse is the response type for the Query/RewardFactors RPC 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `usdx_minting_reward_factors` | [RewardIndex](#nemo.incentive.v1beta1.RewardIndex) | repeated |  |
-| `hard_supply_reward_factors` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
-| `hard_borrow_reward_factors` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
-| `delegator_reward_factors` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
-| `swap_reward_factors` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
-| `savings_reward_factors` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
-| `earn_reward_factors` | [MultiRewardIndex](#nemo.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `usdx_minting_reward_factors` | [RewardIndex](#fury.incentive.v1beta1.RewardIndex) | repeated |  |
+| `hard_supply_reward_factors` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `hard_borrow_reward_factors` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `delegator_reward_factors` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `swap_reward_factors` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `savings_reward_factors` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
+| `earn_reward_factors` | [MultiRewardIndex](#fury.incentive.v1beta1.MultiRewardIndex) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.QueryRewardsRequest"></a>
+<a name="fury.incentive.v1beta1.QueryRewardsRequest"></a>
 
 ### QueryRewardsRequest
 QueryRewardsRequest is the request type for the Query/Rewards RPC method.
@@ -5400,7 +5400,7 @@ QueryRewardsRequest is the request type for the Query/Rewards RPC method.
 
 
 
-<a name="nemo.incentive.v1beta1.QueryRewardsResponse"></a>
+<a name="fury.incentive.v1beta1.QueryRewardsResponse"></a>
 
 ### QueryRewardsResponse
 QueryRewardsResponse is the response type for the Query/Rewards RPC method.
@@ -5408,12 +5408,12 @@ QueryRewardsResponse is the response type for the Query/Rewards RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `usdx_minting_claims` | [USDXMintingClaim](#nemo.incentive.v1beta1.USDXMintingClaim) | repeated |  |
-| `hard_liquidity_provider_claims` | [HardLiquidityProviderClaim](#nemo.incentive.v1beta1.HardLiquidityProviderClaim) | repeated |  |
-| `delegator_claims` | [DelegatorClaim](#nemo.incentive.v1beta1.DelegatorClaim) | repeated |  |
-| `swap_claims` | [SwapClaim](#nemo.incentive.v1beta1.SwapClaim) | repeated |  |
-| `savings_claims` | [SavingsClaim](#nemo.incentive.v1beta1.SavingsClaim) | repeated |  |
-| `earn_claims` | [EarnClaim](#nemo.incentive.v1beta1.EarnClaim) | repeated |  |
+| `usdx_minting_claims` | [USDXMintingClaim](#fury.incentive.v1beta1.USDXMintingClaim) | repeated |  |
+| `hard_liquidity_provider_claims` | [HardLiquidityProviderClaim](#fury.incentive.v1beta1.HardLiquidityProviderClaim) | repeated |  |
+| `delegator_claims` | [DelegatorClaim](#fury.incentive.v1beta1.DelegatorClaim) | repeated |  |
+| `swap_claims` | [SwapClaim](#fury.incentive.v1beta1.SwapClaim) | repeated |  |
+| `savings_claims` | [SavingsClaim](#fury.incentive.v1beta1.SavingsClaim) | repeated |  |
+| `earn_claims` | [EarnClaim](#fury.incentive.v1beta1.EarnClaim) | repeated |  |
 
 
 
@@ -5426,30 +5426,30 @@ QueryRewardsResponse is the response type for the Query/Rewards RPC method.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.incentive.v1beta1.Query"></a>
+<a name="fury.incentive.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for incentive module.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.incentive.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.incentive.v1beta1.QueryParamsResponse) | Params queries module params. | GET|/nemo/incentive/v1beta1/params|
-| `Rewards` | [QueryRewardsRequest](#nemo.incentive.v1beta1.QueryRewardsRequest) | [QueryRewardsResponse](#nemo.incentive.v1beta1.QueryRewardsResponse) | Rewards queries reward information for a given user. | GET|/nemo/incentive/v1beta1/rewards|
-| `RewardFactors` | [QueryRewardFactorsRequest](#nemo.incentive.v1beta1.QueryRewardFactorsRequest) | [QueryRewardFactorsResponse](#nemo.incentive.v1beta1.QueryRewardFactorsResponse) | Rewards queries the reward factors. | GET|/nemo/incentive/v1beta1/reward_factors|
-| `Apy` | [QueryApyRequest](#nemo.incentive.v1beta1.QueryApyRequest) | [QueryApyResponse](#nemo.incentive.v1beta1.QueryApyResponse) | Apy queries incentive reward apy for a reward. | GET|/nemo/incentive/v1beta1/apy|
+| `Params` | [QueryParamsRequest](#fury.incentive.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.incentive.v1beta1.QueryParamsResponse) | Params queries module params. | GET|/fury/incentive/v1beta1/params|
+| `Rewards` | [QueryRewardsRequest](#fury.incentive.v1beta1.QueryRewardsRequest) | [QueryRewardsResponse](#fury.incentive.v1beta1.QueryRewardsResponse) | Rewards queries reward information for a given user. | GET|/fury/incentive/v1beta1/rewards|
+| `RewardFactors` | [QueryRewardFactorsRequest](#fury.incentive.v1beta1.QueryRewardFactorsRequest) | [QueryRewardFactorsResponse](#fury.incentive.v1beta1.QueryRewardFactorsResponse) | Rewards queries the reward factors. | GET|/fury/incentive/v1beta1/reward_factors|
+| `Apy` | [QueryApyRequest](#fury.incentive.v1beta1.QueryApyRequest) | [QueryApyResponse](#fury.incentive.v1beta1.QueryApyResponse) | Apy queries incentive reward apy for a reward. | GET|/fury/incentive/v1beta1/apy|
 
  <!-- end services -->
 
 
 
-<a name="nemo/incentive/v1beta1/tx.proto"></a>
+<a name="fury/incentive/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/incentive/v1beta1/tx.proto
+## fury/incentive/v1beta1/tx.proto
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimDelegatorReward"></a>
+<a name="fury.incentive.v1beta1.MsgClaimDelegatorReward"></a>
 
 ### MsgClaimDelegatorReward
 MsgClaimDelegatorReward message type used to claim delegator rewards
@@ -5458,14 +5458,14 @@ MsgClaimDelegatorReward message type used to claim delegator rewards
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `sender` | [string](#string) |  |  |
-| `denoms_to_claim` | [Selection](#nemo.incentive.v1beta1.Selection) | repeated |  |
+| `denoms_to_claim` | [Selection](#fury.incentive.v1beta1.Selection) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimDelegatorRewardResponse"></a>
+<a name="fury.incentive.v1beta1.MsgClaimDelegatorRewardResponse"></a>
 
 ### MsgClaimDelegatorRewardResponse
 MsgClaimDelegatorRewardResponse defines the Msg/ClaimDelegatorReward response type.
@@ -5475,7 +5475,7 @@ MsgClaimDelegatorRewardResponse defines the Msg/ClaimDelegatorReward response ty
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimEarnReward"></a>
+<a name="fury.incentive.v1beta1.MsgClaimEarnReward"></a>
 
 ### MsgClaimEarnReward
 MsgClaimEarnReward message type used to claim earn rewards
@@ -5484,14 +5484,14 @@ MsgClaimEarnReward message type used to claim earn rewards
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `sender` | [string](#string) |  |  |
-| `denoms_to_claim` | [Selection](#nemo.incentive.v1beta1.Selection) | repeated |  |
+| `denoms_to_claim` | [Selection](#fury.incentive.v1beta1.Selection) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimEarnRewardResponse"></a>
+<a name="fury.incentive.v1beta1.MsgClaimEarnRewardResponse"></a>
 
 ### MsgClaimEarnRewardResponse
 MsgClaimEarnRewardResponse defines the Msg/ClaimEarnReward response type.
@@ -5501,7 +5501,7 @@ MsgClaimEarnRewardResponse defines the Msg/ClaimEarnReward response type.
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimHardReward"></a>
+<a name="fury.incentive.v1beta1.MsgClaimHardReward"></a>
 
 ### MsgClaimHardReward
 MsgClaimHardReward message type used to claim Hard liquidity provider rewards
@@ -5510,14 +5510,14 @@ MsgClaimHardReward message type used to claim Hard liquidity provider rewards
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `sender` | [string](#string) |  |  |
-| `denoms_to_claim` | [Selection](#nemo.incentive.v1beta1.Selection) | repeated |  |
+| `denoms_to_claim` | [Selection](#fury.incentive.v1beta1.Selection) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimHardRewardResponse"></a>
+<a name="fury.incentive.v1beta1.MsgClaimHardRewardResponse"></a>
 
 ### MsgClaimHardRewardResponse
 MsgClaimHardRewardResponse defines the Msg/ClaimHardReward response type.
@@ -5527,7 +5527,7 @@ MsgClaimHardRewardResponse defines the Msg/ClaimHardReward response type.
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimSavingsReward"></a>
+<a name="fury.incentive.v1beta1.MsgClaimSavingsReward"></a>
 
 ### MsgClaimSavingsReward
 MsgClaimSavingsReward message type used to claim savings rewards
@@ -5536,14 +5536,14 @@ MsgClaimSavingsReward message type used to claim savings rewards
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `sender` | [string](#string) |  |  |
-| `denoms_to_claim` | [Selection](#nemo.incentive.v1beta1.Selection) | repeated |  |
+| `denoms_to_claim` | [Selection](#fury.incentive.v1beta1.Selection) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimSavingsRewardResponse"></a>
+<a name="fury.incentive.v1beta1.MsgClaimSavingsRewardResponse"></a>
 
 ### MsgClaimSavingsRewardResponse
 MsgClaimSavingsRewardResponse defines the Msg/ClaimSavingsReward response type.
@@ -5553,7 +5553,7 @@ MsgClaimSavingsRewardResponse defines the Msg/ClaimSavingsReward response type.
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimSwapReward"></a>
+<a name="fury.incentive.v1beta1.MsgClaimSwapReward"></a>
 
 ### MsgClaimSwapReward
 MsgClaimSwapReward message type used to claim delegator rewards
@@ -5562,14 +5562,14 @@ MsgClaimSwapReward message type used to claim delegator rewards
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `sender` | [string](#string) |  |  |
-| `denoms_to_claim` | [Selection](#nemo.incentive.v1beta1.Selection) | repeated |  |
+| `denoms_to_claim` | [Selection](#fury.incentive.v1beta1.Selection) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimSwapRewardResponse"></a>
+<a name="fury.incentive.v1beta1.MsgClaimSwapRewardResponse"></a>
 
 ### MsgClaimSwapRewardResponse
 MsgClaimSwapRewardResponse defines the Msg/ClaimSwapReward response type.
@@ -5579,7 +5579,7 @@ MsgClaimSwapRewardResponse defines the Msg/ClaimSwapReward response type.
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimUSDXMintingReward"></a>
+<a name="fury.incentive.v1beta1.MsgClaimUSDXMintingReward"></a>
 
 ### MsgClaimUSDXMintingReward
 MsgClaimUSDXMintingReward message type used to claim USDX minting rewards
@@ -5595,7 +5595,7 @@ MsgClaimUSDXMintingReward message type used to claim USDX minting rewards
 
 
 
-<a name="nemo.incentive.v1beta1.MsgClaimUSDXMintingRewardResponse"></a>
+<a name="fury.incentive.v1beta1.MsgClaimUSDXMintingRewardResponse"></a>
 
 ### MsgClaimUSDXMintingRewardResponse
 MsgClaimUSDXMintingRewardResponse defines the Msg/ClaimUSDXMintingReward response type.
@@ -5605,7 +5605,7 @@ MsgClaimUSDXMintingRewardResponse defines the Msg/ClaimUSDXMintingReward respons
 
 
 
-<a name="nemo.incentive.v1beta1.Selection"></a>
+<a name="fury.incentive.v1beta1.Selection"></a>
 
 ### Selection
 Selection is a pair of denom and multiplier name. It holds the choice of multiplier a user makes when they claim a
@@ -5628,32 +5628,32 @@ denom.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.incentive.v1beta1.Msg"></a>
+<a name="fury.incentive.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the incentive Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `ClaimUSDXMintingReward` | [MsgClaimUSDXMintingReward](#nemo.incentive.v1beta1.MsgClaimUSDXMintingReward) | [MsgClaimUSDXMintingRewardResponse](#nemo.incentive.v1beta1.MsgClaimUSDXMintingRewardResponse) | ClaimUSDXMintingReward is a message type used to claim USDX minting rewards | |
-| `ClaimHardReward` | [MsgClaimHardReward](#nemo.incentive.v1beta1.MsgClaimHardReward) | [MsgClaimHardRewardResponse](#nemo.incentive.v1beta1.MsgClaimHardRewardResponse) | ClaimHardReward is a message type used to claim Hard liquidity provider rewards | |
-| `ClaimDelegatorReward` | [MsgClaimDelegatorReward](#nemo.incentive.v1beta1.MsgClaimDelegatorReward) | [MsgClaimDelegatorRewardResponse](#nemo.incentive.v1beta1.MsgClaimDelegatorRewardResponse) | ClaimDelegatorReward is a message type used to claim delegator rewards | |
-| `ClaimSwapReward` | [MsgClaimSwapReward](#nemo.incentive.v1beta1.MsgClaimSwapReward) | [MsgClaimSwapRewardResponse](#nemo.incentive.v1beta1.MsgClaimSwapRewardResponse) | ClaimSwapReward is a message type used to claim swap rewards | |
-| `ClaimSavingsReward` | [MsgClaimSavingsReward](#nemo.incentive.v1beta1.MsgClaimSavingsReward) | [MsgClaimSavingsRewardResponse](#nemo.incentive.v1beta1.MsgClaimSavingsRewardResponse) | ClaimSavingsReward is a message type used to claim savings rewards | |
-| `ClaimEarnReward` | [MsgClaimEarnReward](#nemo.incentive.v1beta1.MsgClaimEarnReward) | [MsgClaimEarnRewardResponse](#nemo.incentive.v1beta1.MsgClaimEarnRewardResponse) | ClaimEarnReward is a message type used to claim earn rewards | |
+| `ClaimUSDXMintingReward` | [MsgClaimUSDXMintingReward](#fury.incentive.v1beta1.MsgClaimUSDXMintingReward) | [MsgClaimUSDXMintingRewardResponse](#fury.incentive.v1beta1.MsgClaimUSDXMintingRewardResponse) | ClaimUSDXMintingReward is a message type used to claim USDX minting rewards | |
+| `ClaimHardReward` | [MsgClaimHardReward](#fury.incentive.v1beta1.MsgClaimHardReward) | [MsgClaimHardRewardResponse](#fury.incentive.v1beta1.MsgClaimHardRewardResponse) | ClaimHardReward is a message type used to claim Hard liquidity provider rewards | |
+| `ClaimDelegatorReward` | [MsgClaimDelegatorReward](#fury.incentive.v1beta1.MsgClaimDelegatorReward) | [MsgClaimDelegatorRewardResponse](#fury.incentive.v1beta1.MsgClaimDelegatorRewardResponse) | ClaimDelegatorReward is a message type used to claim delegator rewards | |
+| `ClaimSwapReward` | [MsgClaimSwapReward](#fury.incentive.v1beta1.MsgClaimSwapReward) | [MsgClaimSwapRewardResponse](#fury.incentive.v1beta1.MsgClaimSwapRewardResponse) | ClaimSwapReward is a message type used to claim swap rewards | |
+| `ClaimSavingsReward` | [MsgClaimSavingsReward](#fury.incentive.v1beta1.MsgClaimSavingsReward) | [MsgClaimSavingsRewardResponse](#fury.incentive.v1beta1.MsgClaimSavingsRewardResponse) | ClaimSavingsReward is a message type used to claim savings rewards | |
+| `ClaimEarnReward` | [MsgClaimEarnReward](#fury.incentive.v1beta1.MsgClaimEarnReward) | [MsgClaimEarnRewardResponse](#fury.incentive.v1beta1.MsgClaimEarnRewardResponse) | ClaimEarnReward is a message type used to claim earn rewards | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/issuance/v1beta1/genesis.proto"></a>
+<a name="fury/issuance/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/issuance/v1beta1/genesis.proto
+## fury/issuance/v1beta1/genesis.proto
 
 
 
-<a name="nemo.issuance.v1beta1.Asset"></a>
+<a name="fury.issuance.v1beta1.Asset"></a>
 
 ### Asset
 Asset type for assets in the issuance module
@@ -5666,14 +5666,14 @@ Asset type for assets in the issuance module
 | `blocked_addresses` | [string](#string) | repeated |  |
 | `paused` | [bool](#bool) |  |  |
 | `blockable` | [bool](#bool) |  |  |
-| `rate_limit` | [RateLimit](#nemo.issuance.v1beta1.RateLimit) |  |  |
+| `rate_limit` | [RateLimit](#fury.issuance.v1beta1.RateLimit) |  |  |
 
 
 
 
 
 
-<a name="nemo.issuance.v1beta1.AssetSupply"></a>
+<a name="fury.issuance.v1beta1.AssetSupply"></a>
 
 ### AssetSupply
 AssetSupply contains information about an asset's rate-limited supply (the
@@ -5690,7 +5690,7 @@ total supply of the asset is tracked in the top-level supply module)
 
 
 
-<a name="nemo.issuance.v1beta1.GenesisState"></a>
+<a name="fury.issuance.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the issuance module's genesis state.
@@ -5698,15 +5698,15 @@ GenesisState defines the issuance module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.issuance.v1beta1.Params) |  | params defines all the paramaters of the module. |
-| `supplies` | [AssetSupply](#nemo.issuance.v1beta1.AssetSupply) | repeated |  |
+| `params` | [Params](#fury.issuance.v1beta1.Params) |  | params defines all the paramaters of the module. |
+| `supplies` | [AssetSupply](#fury.issuance.v1beta1.AssetSupply) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.issuance.v1beta1.Params"></a>
+<a name="fury.issuance.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the issuance module.
@@ -5714,14 +5714,14 @@ Params defines the parameters for the issuance module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `assets` | [Asset](#nemo.issuance.v1beta1.Asset) | repeated |  |
+| `assets` | [Asset](#fury.issuance.v1beta1.Asset) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.issuance.v1beta1.RateLimit"></a>
+<a name="fury.issuance.v1beta1.RateLimit"></a>
 
 ### RateLimit
 RateLimit parameters for rate-limiting the supply of an issued asset
@@ -5747,14 +5747,14 @@ RateLimit parameters for rate-limiting the supply of an issued asset
 
 
 
-<a name="nemo/issuance/v1beta1/query.proto"></a>
+<a name="fury/issuance/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/issuance/v1beta1/query.proto
+## fury/issuance/v1beta1/query.proto
 
 
 
-<a name="nemo.issuance.v1beta1.QueryParamsRequest"></a>
+<a name="fury.issuance.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/issuance parameters.
@@ -5764,7 +5764,7 @@ QueryParamsRequest defines the request type for querying x/issuance parameters.
 
 
 
-<a name="nemo.issuance.v1beta1.QueryParamsResponse"></a>
+<a name="fury.issuance.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/issuance parameters.
@@ -5772,7 +5772,7 @@ QueryParamsResponse defines the response type for querying x/issuance parameters
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.issuance.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.issuance.v1beta1.Params) |  |  |
 
 
 
@@ -5785,27 +5785,27 @@ QueryParamsResponse defines the response type for querying x/issuance parameters
  <!-- end HasExtensions -->
 
 
-<a name="nemo.issuance.v1beta1.Query"></a>
+<a name="fury.issuance.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for issuance module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.issuance.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.issuance.v1beta1.QueryParamsResponse) | Params queries all parameters of the issuance module. | GET|/nemo/issuance/v1beta1/params|
+| `Params` | [QueryParamsRequest](#fury.issuance.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.issuance.v1beta1.QueryParamsResponse) | Params queries all parameters of the issuance module. | GET|/fury/issuance/v1beta1/params|
 
  <!-- end services -->
 
 
 
-<a name="nemo/issuance/v1beta1/tx.proto"></a>
+<a name="fury/issuance/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/issuance/v1beta1/tx.proto
+## fury/issuance/v1beta1/tx.proto
 
 
 
-<a name="nemo.issuance.v1beta1.MsgBlockAddress"></a>
+<a name="fury.issuance.v1beta1.MsgBlockAddress"></a>
 
 ### MsgBlockAddress
 MsgBlockAddress represents a message used by the issuer to block an address from holding or transferring tokens
@@ -5822,7 +5822,7 @@ MsgBlockAddress represents a message used by the issuer to block an address from
 
 
 
-<a name="nemo.issuance.v1beta1.MsgBlockAddressResponse"></a>
+<a name="fury.issuance.v1beta1.MsgBlockAddressResponse"></a>
 
 ### MsgBlockAddressResponse
 MsgBlockAddressResponse defines the Msg/BlockAddress response type.
@@ -5832,7 +5832,7 @@ MsgBlockAddressResponse defines the Msg/BlockAddress response type.
 
 
 
-<a name="nemo.issuance.v1beta1.MsgIssueTokens"></a>
+<a name="fury.issuance.v1beta1.MsgIssueTokens"></a>
 
 ### MsgIssueTokens
 MsgIssueTokens represents a message used by the issuer to issue new tokens
@@ -5849,7 +5849,7 @@ MsgIssueTokens represents a message used by the issuer to issue new tokens
 
 
 
-<a name="nemo.issuance.v1beta1.MsgIssueTokensResponse"></a>
+<a name="fury.issuance.v1beta1.MsgIssueTokensResponse"></a>
 
 ### MsgIssueTokensResponse
 MsgIssueTokensResponse defines the Msg/IssueTokens response type.
@@ -5859,7 +5859,7 @@ MsgIssueTokensResponse defines the Msg/IssueTokens response type.
 
 
 
-<a name="nemo.issuance.v1beta1.MsgRedeemTokens"></a>
+<a name="fury.issuance.v1beta1.MsgRedeemTokens"></a>
 
 ### MsgRedeemTokens
 MsgRedeemTokens represents a message used by the issuer to redeem (burn) tokens
@@ -5875,7 +5875,7 @@ MsgRedeemTokens represents a message used by the issuer to redeem (burn) tokens
 
 
 
-<a name="nemo.issuance.v1beta1.MsgRedeemTokensResponse"></a>
+<a name="fury.issuance.v1beta1.MsgRedeemTokensResponse"></a>
 
 ### MsgRedeemTokensResponse
 MsgRedeemTokensResponse defines the Msg/RedeemTokens response type.
@@ -5885,7 +5885,7 @@ MsgRedeemTokensResponse defines the Msg/RedeemTokens response type.
 
 
 
-<a name="nemo.issuance.v1beta1.MsgSetPauseStatus"></a>
+<a name="fury.issuance.v1beta1.MsgSetPauseStatus"></a>
 
 ### MsgSetPauseStatus
 MsgSetPauseStatus message type used by the issuer to pause or unpause status
@@ -5902,7 +5902,7 @@ MsgSetPauseStatus message type used by the issuer to pause or unpause status
 
 
 
-<a name="nemo.issuance.v1beta1.MsgSetPauseStatusResponse"></a>
+<a name="fury.issuance.v1beta1.MsgSetPauseStatusResponse"></a>
 
 ### MsgSetPauseStatusResponse
 MsgSetPauseStatusResponse defines the Msg/SetPauseStatus response type.
@@ -5912,7 +5912,7 @@ MsgSetPauseStatusResponse defines the Msg/SetPauseStatus response type.
 
 
 
-<a name="nemo.issuance.v1beta1.MsgUnblockAddress"></a>
+<a name="fury.issuance.v1beta1.MsgUnblockAddress"></a>
 
 ### MsgUnblockAddress
 MsgUnblockAddress message type used by the issuer to unblock an address from holding or transferring tokens
@@ -5929,7 +5929,7 @@ MsgUnblockAddress message type used by the issuer to unblock an address from hol
 
 
 
-<a name="nemo.issuance.v1beta1.MsgUnblockAddressResponse"></a>
+<a name="fury.issuance.v1beta1.MsgUnblockAddressResponse"></a>
 
 ### MsgUnblockAddressResponse
 MsgUnblockAddressResponse defines the Msg/UnblockAddress response type.
@@ -5945,31 +5945,31 @@ MsgUnblockAddressResponse defines the Msg/UnblockAddress response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.issuance.v1beta1.Msg"></a>
+<a name="fury.issuance.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the issuance Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `IssueTokens` | [MsgIssueTokens](#nemo.issuance.v1beta1.MsgIssueTokens) | [MsgIssueTokensResponse](#nemo.issuance.v1beta1.MsgIssueTokensResponse) | IssueTokens message type used by the issuer to issue new tokens | |
-| `RedeemTokens` | [MsgRedeemTokens](#nemo.issuance.v1beta1.MsgRedeemTokens) | [MsgRedeemTokensResponse](#nemo.issuance.v1beta1.MsgRedeemTokensResponse) | RedeemTokens message type used by the issuer to redeem (burn) tokens | |
-| `BlockAddress` | [MsgBlockAddress](#nemo.issuance.v1beta1.MsgBlockAddress) | [MsgBlockAddressResponse](#nemo.issuance.v1beta1.MsgBlockAddressResponse) | BlockAddress message type used by the issuer to block an address from holding or transferring tokens | |
-| `UnblockAddress` | [MsgUnblockAddress](#nemo.issuance.v1beta1.MsgUnblockAddress) | [MsgUnblockAddressResponse](#nemo.issuance.v1beta1.MsgUnblockAddressResponse) | UnblockAddress message type used by the issuer to unblock an address from holding or transferring tokens | |
-| `SetPauseStatus` | [MsgSetPauseStatus](#nemo.issuance.v1beta1.MsgSetPauseStatus) | [MsgSetPauseStatusResponse](#nemo.issuance.v1beta1.MsgSetPauseStatusResponse) | SetPauseStatus message type used to pause or unpause status | |
+| `IssueTokens` | [MsgIssueTokens](#fury.issuance.v1beta1.MsgIssueTokens) | [MsgIssueTokensResponse](#fury.issuance.v1beta1.MsgIssueTokensResponse) | IssueTokens message type used by the issuer to issue new tokens | |
+| `RedeemTokens` | [MsgRedeemTokens](#fury.issuance.v1beta1.MsgRedeemTokens) | [MsgRedeemTokensResponse](#fury.issuance.v1beta1.MsgRedeemTokensResponse) | RedeemTokens message type used by the issuer to redeem (burn) tokens | |
+| `BlockAddress` | [MsgBlockAddress](#fury.issuance.v1beta1.MsgBlockAddress) | [MsgBlockAddressResponse](#fury.issuance.v1beta1.MsgBlockAddressResponse) | BlockAddress message type used by the issuer to block an address from holding or transferring tokens | |
+| `UnblockAddress` | [MsgUnblockAddress](#fury.issuance.v1beta1.MsgUnblockAddress) | [MsgUnblockAddressResponse](#fury.issuance.v1beta1.MsgUnblockAddressResponse) | UnblockAddress message type used by the issuer to unblock an address from holding or transferring tokens | |
+| `SetPauseStatus` | [MsgSetPauseStatus](#fury.issuance.v1beta1.MsgSetPauseStatus) | [MsgSetPauseStatusResponse](#fury.issuance.v1beta1.MsgSetPauseStatusResponse) | SetPauseStatus message type used to pause or unpause status | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/liquid/v1beta1/query.proto"></a>
+<a name="fury/liquid/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/liquid/v1beta1/query.proto
+## fury/liquid/v1beta1/query.proto
 
 
 
-<a name="nemo.liquid.v1beta1.QueryDelegatedBalanceRequest"></a>
+<a name="fury.liquid.v1beta1.QueryDelegatedBalanceRequest"></a>
 
 ### QueryDelegatedBalanceRequest
 QueryDelegatedBalanceRequest defines the request type for Query/DelegatedBalance method.
@@ -5984,7 +5984,7 @@ QueryDelegatedBalanceRequest defines the request type for Query/DelegatedBalance
 
 
 
-<a name="nemo.liquid.v1beta1.QueryDelegatedBalanceResponse"></a>
+<a name="fury.liquid.v1beta1.QueryDelegatedBalanceResponse"></a>
 
 ### QueryDelegatedBalanceResponse
 DelegatedBalanceResponse defines the response type for the Query/DelegatedBalance method.
@@ -6000,7 +6000,7 @@ DelegatedBalanceResponse defines the response type for the Query/DelegatedBalanc
 
 
 
-<a name="nemo.liquid.v1beta1.QueryTotalSupplyRequest"></a>
+<a name="fury.liquid.v1beta1.QueryTotalSupplyRequest"></a>
 
 ### QueryTotalSupplyRequest
 QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
@@ -6010,7 +6010,7 @@ QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
 
 
 
-<a name="nemo.liquid.v1beta1.QueryTotalSupplyResponse"></a>
+<a name="fury.liquid.v1beta1.QueryTotalSupplyResponse"></a>
 
 ### QueryTotalSupplyResponse
 TotalSupplyResponse defines the response type for the Query/TotalSupply method.
@@ -6032,28 +6032,28 @@ TotalSupplyResponse defines the response type for the Query/TotalSupply method.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.liquid.v1beta1.Query"></a>
+<a name="fury.liquid.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for liquid module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `DelegatedBalance` | [QueryDelegatedBalanceRequest](#nemo.liquid.v1beta1.QueryDelegatedBalanceRequest) | [QueryDelegatedBalanceResponse](#nemo.liquid.v1beta1.QueryDelegatedBalanceResponse) | DelegatedBalance returns an account's vesting and vested coins currently delegated to validators. It ignores coins in unbonding delegations. | GET|/nemo/liquid/v1beta1/delegated_balance/{delegator}|
-| `TotalSupply` | [QueryTotalSupplyRequest](#nemo.liquid.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#nemo.liquid.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the liquid module. | GET|/nemo/liquid/v1beta1/total_supply|
+| `DelegatedBalance` | [QueryDelegatedBalanceRequest](#fury.liquid.v1beta1.QueryDelegatedBalanceRequest) | [QueryDelegatedBalanceResponse](#fury.liquid.v1beta1.QueryDelegatedBalanceResponse) | DelegatedBalance returns an account's vesting and vested coins currently delegated to validators. It ignores coins in unbonding delegations. | GET|/fury/liquid/v1beta1/delegated_balance/{delegator}|
+| `TotalSupply` | [QueryTotalSupplyRequest](#fury.liquid.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#fury.liquid.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the liquid module. | GET|/fury/liquid/v1beta1/total_supply|
 
  <!-- end services -->
 
 
 
-<a name="nemo/liquid/v1beta1/tx.proto"></a>
+<a name="fury/liquid/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/liquid/v1beta1/tx.proto
+## fury/liquid/v1beta1/tx.proto
 
 
 
-<a name="nemo.liquid.v1beta1.MsgBurnDerivative"></a>
+<a name="fury.liquid.v1beta1.MsgBurnDerivative"></a>
 
 ### MsgBurnDerivative
 MsgBurnDerivative defines the Msg/BurnDerivative request type.
@@ -6070,7 +6070,7 @@ MsgBurnDerivative defines the Msg/BurnDerivative request type.
 
 
 
-<a name="nemo.liquid.v1beta1.MsgBurnDerivativeResponse"></a>
+<a name="fury.liquid.v1beta1.MsgBurnDerivativeResponse"></a>
 
 ### MsgBurnDerivativeResponse
 MsgBurnDerivativeResponse defines the Msg/BurnDerivative response type.
@@ -6085,7 +6085,7 @@ MsgBurnDerivativeResponse defines the Msg/BurnDerivative response type.
 
 
 
-<a name="nemo.liquid.v1beta1.MsgMintDerivative"></a>
+<a name="fury.liquid.v1beta1.MsgMintDerivative"></a>
 
 ### MsgMintDerivative
 MsgMintDerivative defines the Msg/MintDerivative request type.
@@ -6102,7 +6102,7 @@ MsgMintDerivative defines the Msg/MintDerivative request type.
 
 
 
-<a name="nemo.liquid.v1beta1.MsgMintDerivativeResponse"></a>
+<a name="fury.liquid.v1beta1.MsgMintDerivativeResponse"></a>
 
 ### MsgMintDerivativeResponse
 MsgMintDerivativeResponse defines the Msg/MintDerivative response type.
@@ -6123,28 +6123,28 @@ MsgMintDerivativeResponse defines the Msg/MintDerivative response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.liquid.v1beta1.Msg"></a>
+<a name="fury.liquid.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the liquid Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `MintDerivative` | [MsgMintDerivative](#nemo.liquid.v1beta1.MsgMintDerivative) | [MsgMintDerivativeResponse](#nemo.liquid.v1beta1.MsgMintDerivativeResponse) | MintDerivative defines a method for converting a delegation into staking deriviatives. | |
-| `BurnDerivative` | [MsgBurnDerivative](#nemo.liquid.v1beta1.MsgBurnDerivative) | [MsgBurnDerivativeResponse](#nemo.liquid.v1beta1.MsgBurnDerivativeResponse) | BurnDerivative defines a method for converting staking deriviatives into a delegation. | |
+| `MintDerivative` | [MsgMintDerivative](#fury.liquid.v1beta1.MsgMintDerivative) | [MsgMintDerivativeResponse](#fury.liquid.v1beta1.MsgMintDerivativeResponse) | MintDerivative defines a method for converting a delegation into staking deriviatives. | |
+| `BurnDerivative` | [MsgBurnDerivative](#fury.liquid.v1beta1.MsgBurnDerivative) | [MsgBurnDerivativeResponse](#fury.liquid.v1beta1.MsgBurnDerivativeResponse) | BurnDerivative defines a method for converting staking deriviatives into a delegation. | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/nemodist/v1beta1/params.proto"></a>
+<a name="fury/furydist/v1beta1/params.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/nemodist/v1beta1/params.proto
+## fury/furydist/v1beta1/params.proto
 
 
 
-<a name="nemo.nemodist.v1beta1.CoreReward"></a>
+<a name="fury.furydist.v1beta1.CoreReward"></a>
 
 ### CoreReward
 CoreReward defines the reward weights for core infrastructure providers.
@@ -6160,7 +6160,7 @@ CoreReward defines the reward weights for core infrastructure providers.
 
 
 
-<a name="nemo.nemodist.v1beta1.InfrastructureParams"></a>
+<a name="fury.furydist.v1beta1.InfrastructureParams"></a>
 
 ### InfrastructureParams
 InfrastructureParams define the parameters for infrastructure rewards.
@@ -6168,33 +6168,33 @@ InfrastructureParams define the parameters for infrastructure rewards.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `infrastructure_periods` | [Period](#nemo.nemodist.v1beta1.Period) | repeated |  |
-| `core_rewards` | [CoreReward](#nemo.nemodist.v1beta1.CoreReward) | repeated |  |
-| `partner_rewards` | [PartnerReward](#nemo.nemodist.v1beta1.PartnerReward) | repeated |  |
+| `infrastructure_periods` | [Period](#fury.furydist.v1beta1.Period) | repeated |  |
+| `core_rewards` | [CoreReward](#fury.furydist.v1beta1.CoreReward) | repeated |  |
+| `partner_rewards` | [PartnerReward](#fury.furydist.v1beta1.PartnerReward) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.nemodist.v1beta1.Params"></a>
+<a name="fury.furydist.v1beta1.Params"></a>
 
 ### Params
-Params governance parameters for nemodist module
+Params governance parameters for furydist module
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | `active` | [bool](#bool) |  |  |
-| `periods` | [Period](#nemo.nemodist.v1beta1.Period) | repeated |  |
-| `infrastructure_params` | [InfrastructureParams](#nemo.nemodist.v1beta1.InfrastructureParams) |  |  |
+| `periods` | [Period](#fury.furydist.v1beta1.Period) | repeated |  |
+| `infrastructure_params` | [InfrastructureParams](#fury.furydist.v1beta1.InfrastructureParams) |  |  |
 
 
 
 
 
 
-<a name="nemo.nemodist.v1beta1.PartnerReward"></a>
+<a name="fury.furydist.v1beta1.PartnerReward"></a>
 
 ### PartnerReward
 PartnerRewards defines the reward schedule for partner infrastructure providers.
@@ -6210,11 +6210,11 @@ PartnerRewards defines the reward schedule for partner infrastructure providers.
 
 
 
-<a name="nemo.nemodist.v1beta1.Period"></a>
+<a name="fury.furydist.v1beta1.Period"></a>
 
 ### Period
 Period stores the specified start and end dates, and the inflation, expressed as a decimal
-representing the yearly APR of NEMO tokens that will be minted during that period
+representing the yearly APR of FURY tokens that will be minted during that period
 
 
 | Field | Type | Label | Description |
@@ -6237,22 +6237,22 @@ representing the yearly APR of NEMO tokens that will be minted during that perio
 
 
 
-<a name="nemo/nemodist/v1beta1/genesis.proto"></a>
+<a name="fury/furydist/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/nemodist/v1beta1/genesis.proto
+## fury/furydist/v1beta1/genesis.proto
 
 
 
-<a name="nemo.nemodist.v1beta1.GenesisState"></a>
+<a name="fury.furydist.v1beta1.GenesisState"></a>
 
 ### GenesisState
-GenesisState defines the nemodist module's genesis state.
+GenesisState defines the furydist module's genesis state.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.nemodist.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.furydist.v1beta1.Params) |  |  |
 | `previous_block_time` | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
 
 
@@ -6269,14 +6269,14 @@ GenesisState defines the nemodist module's genesis state.
 
 
 
-<a name="nemo/nemodist/v1beta1/proposal.proto"></a>
+<a name="fury/furydist/v1beta1/proposal.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/nemodist/v1beta1/proposal.proto
+## fury/furydist/v1beta1/proposal.proto
 
 
 
-<a name="nemo.nemodist.v1beta1.CommunityPoolMultiSpendProposal"></a>
+<a name="fury.furydist.v1beta1.CommunityPoolMultiSpendProposal"></a>
 
 ### CommunityPoolMultiSpendProposal
 CommunityPoolMultiSpendProposal spends from the community pool by sending to one or more
@@ -6287,14 +6287,14 @@ addresses
 | ----- | ---- | ----- | ----------- |
 | `title` | [string](#string) |  |  |
 | `description` | [string](#string) |  |  |
-| `recipient_list` | [MultiSpendRecipient](#nemo.nemodist.v1beta1.MultiSpendRecipient) | repeated |  |
+| `recipient_list` | [MultiSpendRecipient](#fury.furydist.v1beta1.MultiSpendRecipient) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.nemodist.v1beta1.CommunityPoolMultiSpendProposalJSON"></a>
+<a name="fury.furydist.v1beta1.CommunityPoolMultiSpendProposalJSON"></a>
 
 ### CommunityPoolMultiSpendProposalJSON
 CommunityPoolMultiSpendProposalJSON defines a CommunityPoolMultiSpendProposal with a deposit
@@ -6304,7 +6304,7 @@ CommunityPoolMultiSpendProposalJSON defines a CommunityPoolMultiSpendProposal wi
 | ----- | ---- | ----- | ----------- |
 | `title` | [string](#string) |  |  |
 | `description` | [string](#string) |  |  |
-| `recipient_list` | [MultiSpendRecipient](#nemo.nemodist.v1beta1.MultiSpendRecipient) | repeated |  |
+| `recipient_list` | [MultiSpendRecipient](#fury.furydist.v1beta1.MultiSpendRecipient) | repeated |  |
 | `deposit` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
 
 
@@ -6312,7 +6312,7 @@ CommunityPoolMultiSpendProposalJSON defines a CommunityPoolMultiSpendProposal wi
 
 
 
-<a name="nemo.nemodist.v1beta1.MultiSpendRecipient"></a>
+<a name="fury.furydist.v1beta1.MultiSpendRecipient"></a>
 
 ### MultiSpendRecipient
 MultiSpendRecipient defines a recipient and the amount of coins they are receiving
@@ -6337,27 +6337,27 @@ MultiSpendRecipient defines a recipient and the amount of coins they are receivi
 
 
 
-<a name="nemo/nemodist/v1beta1/query.proto"></a>
+<a name="fury/furydist/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/nemodist/v1beta1/query.proto
+## fury/furydist/v1beta1/query.proto
 
 
 
-<a name="nemo.nemodist.v1beta1.QueryBalanceRequest"></a>
+<a name="fury.furydist.v1beta1.QueryBalanceRequest"></a>
 
 ### QueryBalanceRequest
-QueryBalanceRequest defines the request type for querying x/nemodist balance.
+QueryBalanceRequest defines the request type for querying x/furydist balance.
 
 
 
 
 
 
-<a name="nemo.nemodist.v1beta1.QueryBalanceResponse"></a>
+<a name="fury.furydist.v1beta1.QueryBalanceResponse"></a>
 
 ### QueryBalanceResponse
-QueryBalanceResponse defines the response type for querying x/nemodist balance.
+QueryBalanceResponse defines the response type for querying x/furydist balance.
 
 
 | Field | Type | Label | Description |
@@ -6369,25 +6369,25 @@ QueryBalanceResponse defines the response type for querying x/nemodist balance.
 
 
 
-<a name="nemo.nemodist.v1beta1.QueryParamsRequest"></a>
+<a name="fury.furydist.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
-QueryParamsRequest defines the request type for querying x/nemodist parameters.
+QueryParamsRequest defines the request type for querying x/furydist parameters.
 
 
 
 
 
 
-<a name="nemo.nemodist.v1beta1.QueryParamsResponse"></a>
+<a name="fury.furydist.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
-QueryParamsResponse defines the response type for querying x/nemodist parameters.
+QueryParamsResponse defines the response type for querying x/furydist parameters.
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.nemodist.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.furydist.v1beta1.Params) |  |  |
 
 
 
@@ -6400,28 +6400,28 @@ QueryParamsResponse defines the response type for querying x/nemodist parameters
  <!-- end HasExtensions -->
 
 
-<a name="nemo.nemodist.v1beta1.Query"></a>
+<a name="fury.furydist.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.nemodist.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.nemodist.v1beta1.QueryParamsResponse) | Params queries the parameters of x/nemodist module. | GET|/nemo/nemodist/v1beta1/parameters|
-| `Balance` | [QueryBalanceRequest](#nemo.nemodist.v1beta1.QueryBalanceRequest) | [QueryBalanceResponse](#nemo.nemodist.v1beta1.QueryBalanceResponse) | Balance queries the balance of all coins of x/nemodist module. | GET|/nemo/nemodist/v1beta1/balance|
+| `Params` | [QueryParamsRequest](#fury.furydist.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.furydist.v1beta1.QueryParamsResponse) | Params queries the parameters of x/furydist module. | GET|/fury/furydist/v1beta1/parameters|
+| `Balance` | [QueryBalanceRequest](#fury.furydist.v1beta1.QueryBalanceRequest) | [QueryBalanceResponse](#fury.furydist.v1beta1.QueryBalanceResponse) | Balance queries the balance of all coins of x/furydist module. | GET|/fury/furydist/v1beta1/balance|
 
  <!-- end services -->
 
 
 
-<a name="nemo/pricefeed/v1beta1/store.proto"></a>
+<a name="fury/pricefeed/v1beta1/store.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/pricefeed/v1beta1/store.proto
+## fury/pricefeed/v1beta1/store.proto
 
 
 
-<a name="nemo.pricefeed.v1beta1.CurrentPrice"></a>
+<a name="fury.pricefeed.v1beta1.CurrentPrice"></a>
 
 ### CurrentPrice
 CurrentPrice defines a current price for a particular market in the pricefeed
@@ -6438,7 +6438,7 @@ module.
 
 
 
-<a name="nemo.pricefeed.v1beta1.Market"></a>
+<a name="fury.pricefeed.v1beta1.Market"></a>
 
 ### Market
 Market defines an asset in the pricefeed.
@@ -6457,7 +6457,7 @@ Market defines an asset in the pricefeed.
 
 
 
-<a name="nemo.pricefeed.v1beta1.Params"></a>
+<a name="fury.pricefeed.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the pricefeed module.
@@ -6465,14 +6465,14 @@ Params defines the parameters for the pricefeed module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `markets` | [Market](#nemo.pricefeed.v1beta1.Market) | repeated |  |
+| `markets` | [Market](#fury.pricefeed.v1beta1.Market) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.pricefeed.v1beta1.PostedPrice"></a>
+<a name="fury.pricefeed.v1beta1.PostedPrice"></a>
 
 ### PostedPrice
 PostedPrice defines a price for market posted by a specific oracle.
@@ -6499,14 +6499,14 @@ PostedPrice defines a price for market posted by a specific oracle.
 
 
 
-<a name="nemo/pricefeed/v1beta1/genesis.proto"></a>
+<a name="fury/pricefeed/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/pricefeed/v1beta1/genesis.proto
+## fury/pricefeed/v1beta1/genesis.proto
 
 
 
-<a name="nemo.pricefeed.v1beta1.GenesisState"></a>
+<a name="fury.pricefeed.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the pricefeed module's genesis state.
@@ -6514,8 +6514,8 @@ GenesisState defines the pricefeed module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.pricefeed.v1beta1.Params) |  | params defines all the paramaters of the module. |
-| `posted_prices` | [PostedPrice](#nemo.pricefeed.v1beta1.PostedPrice) | repeated |  |
+| `params` | [Params](#fury.pricefeed.v1beta1.Params) |  | params defines all the paramaters of the module. |
+| `posted_prices` | [PostedPrice](#fury.pricefeed.v1beta1.PostedPrice) | repeated |  |
 
 
 
@@ -6531,14 +6531,14 @@ GenesisState defines the pricefeed module's genesis state.
 
 
 
-<a name="nemo/pricefeed/v1beta1/query.proto"></a>
+<a name="fury/pricefeed/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/pricefeed/v1beta1/query.proto
+## fury/pricefeed/v1beta1/query.proto
 
 
 
-<a name="nemo.pricefeed.v1beta1.CurrentPriceResponse"></a>
+<a name="fury.pricefeed.v1beta1.CurrentPriceResponse"></a>
 
 ### CurrentPriceResponse
 CurrentPriceResponse defines a current price for a particular market in the pricefeed
@@ -6555,7 +6555,7 @@ module.
 
 
 
-<a name="nemo.pricefeed.v1beta1.MarketResponse"></a>
+<a name="fury.pricefeed.v1beta1.MarketResponse"></a>
 
 ### MarketResponse
 MarketResponse defines an asset in the pricefeed.
@@ -6574,7 +6574,7 @@ MarketResponse defines an asset in the pricefeed.
 
 
 
-<a name="nemo.pricefeed.v1beta1.PostedPriceResponse"></a>
+<a name="fury.pricefeed.v1beta1.PostedPriceResponse"></a>
 
 ### PostedPriceResponse
 PostedPriceResponse defines a price for market posted by a specific oracle.
@@ -6592,7 +6592,7 @@ PostedPriceResponse defines a price for market posted by a specific oracle.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryMarketsRequest"></a>
+<a name="fury.pricefeed.v1beta1.QueryMarketsRequest"></a>
 
 ### QueryMarketsRequest
 QueryMarketsRequest is the request type for the Query/Markets RPC method.
@@ -6602,7 +6602,7 @@ QueryMarketsRequest is the request type for the Query/Markets RPC method.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryMarketsResponse"></a>
+<a name="fury.pricefeed.v1beta1.QueryMarketsResponse"></a>
 
 ### QueryMarketsResponse
 QueryMarketsResponse is the response type for the Query/Markets RPC method.
@@ -6610,14 +6610,14 @@ QueryMarketsResponse is the response type for the Query/Markets RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `markets` | [MarketResponse](#nemo.pricefeed.v1beta1.MarketResponse) | repeated | List of markets |
+| `markets` | [MarketResponse](#fury.pricefeed.v1beta1.MarketResponse) | repeated | List of markets |
 
 
 
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryOraclesRequest"></a>
+<a name="fury.pricefeed.v1beta1.QueryOraclesRequest"></a>
 
 ### QueryOraclesRequest
 QueryOraclesRequest is the request type for the Query/Oracles RPC method.
@@ -6632,7 +6632,7 @@ QueryOraclesRequest is the request type for the Query/Oracles RPC method.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryOraclesResponse"></a>
+<a name="fury.pricefeed.v1beta1.QueryOraclesResponse"></a>
 
 ### QueryOraclesResponse
 QueryOraclesResponse is the response type for the Query/Oracles RPC method.
@@ -6647,7 +6647,7 @@ QueryOraclesResponse is the response type for the Query/Oracles RPC method.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryParamsRequest"></a>
+<a name="fury.pricefeed.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/pricefeed
@@ -6658,7 +6658,7 @@ parameters.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryParamsResponse"></a>
+<a name="fury.pricefeed.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/pricefeed
@@ -6667,14 +6667,14 @@ parameters.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.pricefeed.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.pricefeed.v1beta1.Params) |  |  |
 
 
 
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryPriceRequest"></a>
+<a name="fury.pricefeed.v1beta1.QueryPriceRequest"></a>
 
 ### QueryPriceRequest
 QueryPriceRequest is the request type for the Query/PriceRequest RPC method.
@@ -6689,7 +6689,7 @@ QueryPriceRequest is the request type for the Query/PriceRequest RPC method.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryPriceResponse"></a>
+<a name="fury.pricefeed.v1beta1.QueryPriceResponse"></a>
 
 ### QueryPriceResponse
 QueryPriceResponse is the response type for the Query/Prices RPC method.
@@ -6697,14 +6697,14 @@ QueryPriceResponse is the response type for the Query/Prices RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `price` | [CurrentPriceResponse](#nemo.pricefeed.v1beta1.CurrentPriceResponse) |  |  |
+| `price` | [CurrentPriceResponse](#fury.pricefeed.v1beta1.CurrentPriceResponse) |  |  |
 
 
 
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryPricesRequest"></a>
+<a name="fury.pricefeed.v1beta1.QueryPricesRequest"></a>
 
 ### QueryPricesRequest
 QueryPricesRequest is the request type for the Query/Prices RPC method.
@@ -6714,7 +6714,7 @@ QueryPricesRequest is the request type for the Query/Prices RPC method.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryPricesResponse"></a>
+<a name="fury.pricefeed.v1beta1.QueryPricesResponse"></a>
 
 ### QueryPricesResponse
 QueryPricesResponse is the response type for the Query/Prices RPC method.
@@ -6722,14 +6722,14 @@ QueryPricesResponse is the response type for the Query/Prices RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `prices` | [CurrentPriceResponse](#nemo.pricefeed.v1beta1.CurrentPriceResponse) | repeated |  |
+| `prices` | [CurrentPriceResponse](#fury.pricefeed.v1beta1.CurrentPriceResponse) | repeated |  |
 
 
 
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryRawPricesRequest"></a>
+<a name="fury.pricefeed.v1beta1.QueryRawPricesRequest"></a>
 
 ### QueryRawPricesRequest
 QueryRawPricesRequest is the request type for the Query/RawPrices RPC method.
@@ -6744,7 +6744,7 @@ QueryRawPricesRequest is the request type for the Query/RawPrices RPC method.
 
 
 
-<a name="nemo.pricefeed.v1beta1.QueryRawPricesResponse"></a>
+<a name="fury.pricefeed.v1beta1.QueryRawPricesResponse"></a>
 
 ### QueryRawPricesResponse
 QueryRawPricesResponse is the response type for the Query/RawPrices RPC
@@ -6753,7 +6753,7 @@ method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `raw_prices` | [PostedPriceResponse](#nemo.pricefeed.v1beta1.PostedPriceResponse) | repeated |  |
+| `raw_prices` | [PostedPriceResponse](#fury.pricefeed.v1beta1.PostedPriceResponse) | repeated |  |
 
 
 
@@ -6766,32 +6766,32 @@ method.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.pricefeed.v1beta1.Query"></a>
+<a name="fury.pricefeed.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for pricefeed module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.pricefeed.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.pricefeed.v1beta1.QueryParamsResponse) | Params queries all parameters of the pricefeed module. | GET|/nemo/pricefeed/v1beta1/params|
-| `Price` | [QueryPriceRequest](#nemo.pricefeed.v1beta1.QueryPriceRequest) | [QueryPriceResponse](#nemo.pricefeed.v1beta1.QueryPriceResponse) | Price queries price details based on a market | GET|/nemo/pricefeed/v1beta1/prices/{market_id}|
-| `Prices` | [QueryPricesRequest](#nemo.pricefeed.v1beta1.QueryPricesRequest) | [QueryPricesResponse](#nemo.pricefeed.v1beta1.QueryPricesResponse) | Prices queries all prices | GET|/nemo/pricefeed/v1beta1/prices|
-| `RawPrices` | [QueryRawPricesRequest](#nemo.pricefeed.v1beta1.QueryRawPricesRequest) | [QueryRawPricesResponse](#nemo.pricefeed.v1beta1.QueryRawPricesResponse) | RawPrices queries all raw prices based on a market | GET|/nemo/pricefeed/v1beta1/rawprices/{market_id}|
-| `Oracles` | [QueryOraclesRequest](#nemo.pricefeed.v1beta1.QueryOraclesRequest) | [QueryOraclesResponse](#nemo.pricefeed.v1beta1.QueryOraclesResponse) | Oracles queries all oracles based on a market | GET|/nemo/pricefeed/v1beta1/oracles/{market_id}|
-| `Markets` | [QueryMarketsRequest](#nemo.pricefeed.v1beta1.QueryMarketsRequest) | [QueryMarketsResponse](#nemo.pricefeed.v1beta1.QueryMarketsResponse) | Markets queries all markets | GET|/nemo/pricefeed/v1beta1/markets|
+| `Params` | [QueryParamsRequest](#fury.pricefeed.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.pricefeed.v1beta1.QueryParamsResponse) | Params queries all parameters of the pricefeed module. | GET|/fury/pricefeed/v1beta1/params|
+| `Price` | [QueryPriceRequest](#fury.pricefeed.v1beta1.QueryPriceRequest) | [QueryPriceResponse](#fury.pricefeed.v1beta1.QueryPriceResponse) | Price queries price details based on a market | GET|/fury/pricefeed/v1beta1/prices/{market_id}|
+| `Prices` | [QueryPricesRequest](#fury.pricefeed.v1beta1.QueryPricesRequest) | [QueryPricesResponse](#fury.pricefeed.v1beta1.QueryPricesResponse) | Prices queries all prices | GET|/fury/pricefeed/v1beta1/prices|
+| `RawPrices` | [QueryRawPricesRequest](#fury.pricefeed.v1beta1.QueryRawPricesRequest) | [QueryRawPricesResponse](#fury.pricefeed.v1beta1.QueryRawPricesResponse) | RawPrices queries all raw prices based on a market | GET|/fury/pricefeed/v1beta1/rawprices/{market_id}|
+| `Oracles` | [QueryOraclesRequest](#fury.pricefeed.v1beta1.QueryOraclesRequest) | [QueryOraclesResponse](#fury.pricefeed.v1beta1.QueryOraclesResponse) | Oracles queries all oracles based on a market | GET|/fury/pricefeed/v1beta1/oracles/{market_id}|
+| `Markets` | [QueryMarketsRequest](#fury.pricefeed.v1beta1.QueryMarketsRequest) | [QueryMarketsResponse](#fury.pricefeed.v1beta1.QueryMarketsResponse) | Markets queries all markets | GET|/fury/pricefeed/v1beta1/markets|
 
  <!-- end services -->
 
 
 
-<a name="nemo/pricefeed/v1beta1/tx.proto"></a>
+<a name="fury/pricefeed/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/pricefeed/v1beta1/tx.proto
+## fury/pricefeed/v1beta1/tx.proto
 
 
 
-<a name="nemo.pricefeed.v1beta1.MsgPostPrice"></a>
+<a name="fury.pricefeed.v1beta1.MsgPostPrice"></a>
 
 ### MsgPostPrice
 MsgPostPrice represents a method for creating a new post price
@@ -6809,7 +6809,7 @@ MsgPostPrice represents a method for creating a new post price
 
 
 
-<a name="nemo.pricefeed.v1beta1.MsgPostPriceResponse"></a>
+<a name="fury.pricefeed.v1beta1.MsgPostPriceResponse"></a>
 
 ### MsgPostPriceResponse
 MsgPostPriceResponse defines the Msg/PostPrice response type.
@@ -6825,27 +6825,27 @@ MsgPostPriceResponse defines the Msg/PostPrice response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.pricefeed.v1beta1.Msg"></a>
+<a name="fury.pricefeed.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the pricefeed Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `PostPrice` | [MsgPostPrice](#nemo.pricefeed.v1beta1.MsgPostPrice) | [MsgPostPriceResponse](#nemo.pricefeed.v1beta1.MsgPostPriceResponse) | PostPrice defines a method for creating a new post price | |
+| `PostPrice` | [MsgPostPrice](#fury.pricefeed.v1beta1.MsgPostPrice) | [MsgPostPriceResponse](#fury.pricefeed.v1beta1.MsgPostPriceResponse) | PostPrice defines a method for creating a new post price | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/router/v1beta1/tx.proto"></a>
+<a name="fury/router/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/router/v1beta1/tx.proto
+## fury/router/v1beta1/tx.proto
 
 
 
-<a name="nemo.router.v1beta1.MsgDelegateMintDeposit"></a>
+<a name="fury.router.v1beta1.MsgDelegateMintDeposit"></a>
 
 ### MsgDelegateMintDeposit
 MsgDelegateMintDeposit delegates tokens to a validator, then converts them into staking derivatives,
@@ -6863,7 +6863,7 @@ then deposits to an earn vault.
 
 
 
-<a name="nemo.router.v1beta1.MsgDelegateMintDepositResponse"></a>
+<a name="fury.router.v1beta1.MsgDelegateMintDepositResponse"></a>
 
 ### MsgDelegateMintDepositResponse
 MsgDelegateMintDepositResponse defines the Msg/MsgDelegateMintDeposit response type.
@@ -6873,7 +6873,7 @@ MsgDelegateMintDepositResponse defines the Msg/MsgDelegateMintDeposit response t
 
 
 
-<a name="nemo.router.v1beta1.MsgMintDeposit"></a>
+<a name="fury.router.v1beta1.MsgMintDeposit"></a>
 
 ### MsgMintDeposit
 MsgMintDeposit converts a delegation into staking derivatives and deposits it all into an earn vault.
@@ -6890,7 +6890,7 @@ MsgMintDeposit converts a delegation into staking derivatives and deposits it al
 
 
 
-<a name="nemo.router.v1beta1.MsgMintDepositResponse"></a>
+<a name="fury.router.v1beta1.MsgMintDepositResponse"></a>
 
 ### MsgMintDepositResponse
 MsgMintDepositResponse defines the Msg/MsgMintDeposit response type.
@@ -6900,7 +6900,7 @@ MsgMintDepositResponse defines the Msg/MsgMintDeposit response type.
 
 
 
-<a name="nemo.router.v1beta1.MsgWithdrawBurn"></a>
+<a name="fury.router.v1beta1.MsgWithdrawBurn"></a>
 
 ### MsgWithdrawBurn
 MsgWithdrawBurn removes staking derivatives from an earn vault and converts them back to a staking delegation.
@@ -6917,7 +6917,7 @@ MsgWithdrawBurn removes staking derivatives from an earn vault and converts them
 
 
 
-<a name="nemo.router.v1beta1.MsgWithdrawBurnResponse"></a>
+<a name="fury.router.v1beta1.MsgWithdrawBurnResponse"></a>
 
 ### MsgWithdrawBurnResponse
 MsgWithdrawBurnResponse defines the Msg/MsgWithdrawBurn response type.
@@ -6927,7 +6927,7 @@ MsgWithdrawBurnResponse defines the Msg/MsgWithdrawBurn response type.
 
 
 
-<a name="nemo.router.v1beta1.MsgWithdrawBurnUndelegate"></a>
+<a name="fury.router.v1beta1.MsgWithdrawBurnUndelegate"></a>
 
 ### MsgWithdrawBurnUndelegate
 MsgWithdrawBurnUndelegate removes staking derivatives from an earn vault, converts them to a staking delegation,
@@ -6945,7 +6945,7 @@ then undelegates them from their validator.
 
 
 
-<a name="nemo.router.v1beta1.MsgWithdrawBurnUndelegateResponse"></a>
+<a name="fury.router.v1beta1.MsgWithdrawBurnUndelegateResponse"></a>
 
 ### MsgWithdrawBurnUndelegateResponse
 MsgWithdrawBurnUndelegateResponse defines the Msg/MsgWithdrawBurnUndelegate response type.
@@ -6961,30 +6961,30 @@ MsgWithdrawBurnUndelegateResponse defines the Msg/MsgWithdrawBurnUndelegate resp
  <!-- end HasExtensions -->
 
 
-<a name="nemo.router.v1beta1.Msg"></a>
+<a name="fury.router.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the router Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `MintDeposit` | [MsgMintDeposit](#nemo.router.v1beta1.MsgMintDeposit) | [MsgMintDepositResponse](#nemo.router.v1beta1.MsgMintDepositResponse) | MintDeposit converts a delegation into staking derivatives and deposits it all into an earn vault. | |
-| `DelegateMintDeposit` | [MsgDelegateMintDeposit](#nemo.router.v1beta1.MsgDelegateMintDeposit) | [MsgDelegateMintDepositResponse](#nemo.router.v1beta1.MsgDelegateMintDepositResponse) | DelegateMintDeposit delegates tokens to a validator, then converts them into staking derivatives, then deposits to an earn vault. | |
-| `WithdrawBurn` | [MsgWithdrawBurn](#nemo.router.v1beta1.MsgWithdrawBurn) | [MsgWithdrawBurnResponse](#nemo.router.v1beta1.MsgWithdrawBurnResponse) | WithdrawBurn removes staking derivatives from an earn vault and converts them back to a staking delegation. | |
-| `WithdrawBurnUndelegate` | [MsgWithdrawBurnUndelegate](#nemo.router.v1beta1.MsgWithdrawBurnUndelegate) | [MsgWithdrawBurnUndelegateResponse](#nemo.router.v1beta1.MsgWithdrawBurnUndelegateResponse) | WithdrawBurnUndelegate removes staking derivatives from an earn vault, converts them to a staking delegation, then undelegates them from their validator. | |
+| `MintDeposit` | [MsgMintDeposit](#fury.router.v1beta1.MsgMintDeposit) | [MsgMintDepositResponse](#fury.router.v1beta1.MsgMintDepositResponse) | MintDeposit converts a delegation into staking derivatives and deposits it all into an earn vault. | |
+| `DelegateMintDeposit` | [MsgDelegateMintDeposit](#fury.router.v1beta1.MsgDelegateMintDeposit) | [MsgDelegateMintDepositResponse](#fury.router.v1beta1.MsgDelegateMintDepositResponse) | DelegateMintDeposit delegates tokens to a validator, then converts them into staking derivatives, then deposits to an earn vault. | |
+| `WithdrawBurn` | [MsgWithdrawBurn](#fury.router.v1beta1.MsgWithdrawBurn) | [MsgWithdrawBurnResponse](#fury.router.v1beta1.MsgWithdrawBurnResponse) | WithdrawBurn removes staking derivatives from an earn vault and converts them back to a staking delegation. | |
+| `WithdrawBurnUndelegate` | [MsgWithdrawBurnUndelegate](#fury.router.v1beta1.MsgWithdrawBurnUndelegate) | [MsgWithdrawBurnUndelegateResponse](#fury.router.v1beta1.MsgWithdrawBurnUndelegateResponse) | WithdrawBurnUndelegate removes staking derivatives from an earn vault, converts them to a staking delegation, then undelegates them from their validator. | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/savings/v1beta1/store.proto"></a>
+<a name="fury/savings/v1beta1/store.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/savings/v1beta1/store.proto
+## fury/savings/v1beta1/store.proto
 
 
 
-<a name="nemo.savings.v1beta1.Deposit"></a>
+<a name="fury.savings.v1beta1.Deposit"></a>
 
 ### Deposit
 Deposit defines an amount of coins deposited into a savings module account.
@@ -7000,7 +7000,7 @@ Deposit defines an amount of coins deposited into a savings module account.
 
 
 
-<a name="nemo.savings.v1beta1.Params"></a>
+<a name="fury.savings.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the savings module.
@@ -7024,14 +7024,14 @@ Params defines the parameters for the savings module.
 
 
 
-<a name="nemo/savings/v1beta1/genesis.proto"></a>
+<a name="fury/savings/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/savings/v1beta1/genesis.proto
+## fury/savings/v1beta1/genesis.proto
 
 
 
-<a name="nemo.savings.v1beta1.GenesisState"></a>
+<a name="fury.savings.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the savings module's genesis state.
@@ -7039,8 +7039,8 @@ GenesisState defines the savings module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.savings.v1beta1.Params) |  | params defines all the parameters of the module. |
-| `deposits` | [Deposit](#nemo.savings.v1beta1.Deposit) | repeated |  |
+| `params` | [Params](#fury.savings.v1beta1.Params) |  | params defines all the parameters of the module. |
+| `deposits` | [Deposit](#fury.savings.v1beta1.Deposit) | repeated |  |
 
 
 
@@ -7056,14 +7056,14 @@ GenesisState defines the savings module's genesis state.
 
 
 
-<a name="nemo/savings/v1beta1/query.proto"></a>
+<a name="fury/savings/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/savings/v1beta1/query.proto
+## fury/savings/v1beta1/query.proto
 
 
 
-<a name="nemo.savings.v1beta1.QueryDepositsRequest"></a>
+<a name="fury.savings.v1beta1.QueryDepositsRequest"></a>
 
 ### QueryDepositsRequest
 QueryDepositsRequest defines the request type for querying x/savings
@@ -7081,7 +7081,7 @@ deposits.
 
 
 
-<a name="nemo.savings.v1beta1.QueryDepositsResponse"></a>
+<a name="fury.savings.v1beta1.QueryDepositsResponse"></a>
 
 ### QueryDepositsResponse
 QueryDepositsResponse defines the response type for querying x/savings
@@ -7090,7 +7090,7 @@ deposits.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `deposits` | [Deposit](#nemo.savings.v1beta1.Deposit) | repeated |  |
+| `deposits` | [Deposit](#fury.savings.v1beta1.Deposit) | repeated |  |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -7098,7 +7098,7 @@ deposits.
 
 
 
-<a name="nemo.savings.v1beta1.QueryParamsRequest"></a>
+<a name="fury.savings.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/savings
@@ -7109,7 +7109,7 @@ parameters.
 
 
 
-<a name="nemo.savings.v1beta1.QueryParamsResponse"></a>
+<a name="fury.savings.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/savings
@@ -7118,14 +7118,14 @@ parameters.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.savings.v1beta1.Params) |  |  |
+| `params` | [Params](#fury.savings.v1beta1.Params) |  |  |
 
 
 
 
 
 
-<a name="nemo.savings.v1beta1.QueryTotalSupplyRequest"></a>
+<a name="fury.savings.v1beta1.QueryTotalSupplyRequest"></a>
 
 ### QueryTotalSupplyRequest
 QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
@@ -7135,7 +7135,7 @@ QueryTotalSupplyRequest defines the request type for Query/TotalSupply method.
 
 
 
-<a name="nemo.savings.v1beta1.QueryTotalSupplyResponse"></a>
+<a name="fury.savings.v1beta1.QueryTotalSupplyResponse"></a>
 
 ### QueryTotalSupplyResponse
 TotalSupplyResponse defines the response type for the Query/TotalSupply method.
@@ -7157,29 +7157,29 @@ TotalSupplyResponse defines the response type for the Query/TotalSupply method.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.savings.v1beta1.Query"></a>
+<a name="fury.savings.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for savings module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.savings.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.savings.v1beta1.QueryParamsResponse) | Params queries all parameters of the savings module. | GET|/nemo/savings/v1beta1/params|
-| `Deposits` | [QueryDepositsRequest](#nemo.savings.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#nemo.savings.v1beta1.QueryDepositsResponse) | Deposits queries savings deposits. | GET|/nemo/savings/v1beta1/deposits|
-| `TotalSupply` | [QueryTotalSupplyRequest](#nemo.savings.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#nemo.savings.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the savings module. | GET|/nemo/savings/v1beta1/total_supply|
+| `Params` | [QueryParamsRequest](#fury.savings.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.savings.v1beta1.QueryParamsResponse) | Params queries all parameters of the savings module. | GET|/fury/savings/v1beta1/params|
+| `Deposits` | [QueryDepositsRequest](#fury.savings.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#fury.savings.v1beta1.QueryDepositsResponse) | Deposits queries savings deposits. | GET|/fury/savings/v1beta1/deposits|
+| `TotalSupply` | [QueryTotalSupplyRequest](#fury.savings.v1beta1.QueryTotalSupplyRequest) | [QueryTotalSupplyResponse](#fury.savings.v1beta1.QueryTotalSupplyResponse) | TotalSupply returns the total sum of all coins currently locked into the savings module. | GET|/fury/savings/v1beta1/total_supply|
 
  <!-- end services -->
 
 
 
-<a name="nemo/savings/v1beta1/tx.proto"></a>
+<a name="fury/savings/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/savings/v1beta1/tx.proto
+## fury/savings/v1beta1/tx.proto
 
 
 
-<a name="nemo.savings.v1beta1.MsgDeposit"></a>
+<a name="fury.savings.v1beta1.MsgDeposit"></a>
 
 ### MsgDeposit
 MsgDeposit defines the Msg/Deposit request type.
@@ -7195,7 +7195,7 @@ MsgDeposit defines the Msg/Deposit request type.
 
 
 
-<a name="nemo.savings.v1beta1.MsgDepositResponse"></a>
+<a name="fury.savings.v1beta1.MsgDepositResponse"></a>
 
 ### MsgDepositResponse
 MsgDepositResponse defines the Msg/Deposit response type.
@@ -7205,7 +7205,7 @@ MsgDepositResponse defines the Msg/Deposit response type.
 
 
 
-<a name="nemo.savings.v1beta1.MsgWithdraw"></a>
+<a name="fury.savings.v1beta1.MsgWithdraw"></a>
 
 ### MsgWithdraw
 MsgWithdraw defines the Msg/Withdraw request type.
@@ -7221,7 +7221,7 @@ MsgWithdraw defines the Msg/Withdraw request type.
 
 
 
-<a name="nemo.savings.v1beta1.MsgWithdrawResponse"></a>
+<a name="fury.savings.v1beta1.MsgWithdrawResponse"></a>
 
 ### MsgWithdrawResponse
 MsgWithdrawResponse defines the Msg/Withdraw response type.
@@ -7237,28 +7237,28 @@ MsgWithdrawResponse defines the Msg/Withdraw response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.savings.v1beta1.Msg"></a>
+<a name="fury.savings.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the savings Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Deposit` | [MsgDeposit](#nemo.savings.v1beta1.MsgDeposit) | [MsgDepositResponse](#nemo.savings.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing funds to the savings module account | |
-| `Withdraw` | [MsgWithdraw](#nemo.savings.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#nemo.savings.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing funds to the savings module account | |
+| `Deposit` | [MsgDeposit](#fury.savings.v1beta1.MsgDeposit) | [MsgDepositResponse](#fury.savings.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing funds to the savings module account | |
+| `Withdraw` | [MsgWithdraw](#fury.savings.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#fury.savings.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing funds to the savings module account | |
 
  <!-- end services -->
 
 
 
-<a name="nemo/swap/v1beta1/swap.proto"></a>
+<a name="fury/swap/v1beta1/swap.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/swap/v1beta1/swap.proto
+## fury/swap/v1beta1/swap.proto
 
 
 
-<a name="nemo.swap.v1beta1.AllowedPool"></a>
+<a name="fury.swap.v1beta1.AllowedPool"></a>
 
 ### AllowedPool
 AllowedPool defines a pool that is allowed to be created
@@ -7274,7 +7274,7 @@ AllowedPool defines a pool that is allowed to be created
 
 
 
-<a name="nemo.swap.v1beta1.Params"></a>
+<a name="fury.swap.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the swap module.
@@ -7282,7 +7282,7 @@ Params defines the parameters for the swap module.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `allowed_pools` | [AllowedPool](#nemo.swap.v1beta1.AllowedPool) | repeated | allowed_pools defines that pools that are allowed to be created |
+| `allowed_pools` | [AllowedPool](#fury.swap.v1beta1.AllowedPool) | repeated | allowed_pools defines that pools that are allowed to be created |
 | `swap_fee` | [string](#string) |  | swap_fee defines the swap fee for all pools |
 
 
@@ -7290,7 +7290,7 @@ Params defines the parameters for the swap module.
 
 
 
-<a name="nemo.swap.v1beta1.PoolRecord"></a>
+<a name="fury.swap.v1beta1.PoolRecord"></a>
 
 ### PoolRecord
 PoolRecord represents the state of a liquidity pool
@@ -7309,7 +7309,7 @@ and is used to store the state of a denominated pool
 
 
 
-<a name="nemo.swap.v1beta1.ShareRecord"></a>
+<a name="fury.swap.v1beta1.ShareRecord"></a>
 
 ### ShareRecord
 ShareRecord stores the shares owned for a depositor and pool
@@ -7335,14 +7335,14 @@ ShareRecord stores the shares owned for a depositor and pool
 
 
 
-<a name="nemo/swap/v1beta1/genesis.proto"></a>
+<a name="fury/swap/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/swap/v1beta1/genesis.proto
+## fury/swap/v1beta1/genesis.proto
 
 
 
-<a name="nemo.swap.v1beta1.GenesisState"></a>
+<a name="fury.swap.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the swap module's genesis state.
@@ -7350,9 +7350,9 @@ GenesisState defines the swap module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.swap.v1beta1.Params) |  | params defines all the paramaters related to swap |
-| `pool_records` | [PoolRecord](#nemo.swap.v1beta1.PoolRecord) | repeated | pool_records defines the available pools |
-| `share_records` | [ShareRecord](#nemo.swap.v1beta1.ShareRecord) | repeated | share_records defines the owned shares of each pool |
+| `params` | [Params](#fury.swap.v1beta1.Params) |  | params defines all the paramaters related to swap |
+| `pool_records` | [PoolRecord](#fury.swap.v1beta1.PoolRecord) | repeated | pool_records defines the available pools |
+| `share_records` | [ShareRecord](#fury.swap.v1beta1.ShareRecord) | repeated | share_records defines the owned shares of each pool |
 
 
 
@@ -7368,14 +7368,14 @@ GenesisState defines the swap module's genesis state.
 
 
 
-<a name="nemo/swap/v1beta1/query.proto"></a>
+<a name="fury/swap/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/swap/v1beta1/query.proto
+## fury/swap/v1beta1/query.proto
 
 
 
-<a name="nemo.swap.v1beta1.DepositResponse"></a>
+<a name="fury.swap.v1beta1.DepositResponse"></a>
 
 ### DepositResponse
 DepositResponse defines a single deposit query response type.
@@ -7393,7 +7393,7 @@ DepositResponse defines a single deposit query response type.
 
 
 
-<a name="nemo.swap.v1beta1.PoolResponse"></a>
+<a name="fury.swap.v1beta1.PoolResponse"></a>
 
 ### PoolResponse
 Pool represents the state of a single pool
@@ -7410,7 +7410,7 @@ Pool represents the state of a single pool
 
 
 
-<a name="nemo.swap.v1beta1.QueryDepositsRequest"></a>
+<a name="fury.swap.v1beta1.QueryDepositsRequest"></a>
 
 ### QueryDepositsRequest
 QueryDepositsRequest is the request type for the Query/Deposits RPC method.
@@ -7427,7 +7427,7 @@ QueryDepositsRequest is the request type for the Query/Deposits RPC method.
 
 
 
-<a name="nemo.swap.v1beta1.QueryDepositsResponse"></a>
+<a name="fury.swap.v1beta1.QueryDepositsResponse"></a>
 
 ### QueryDepositsResponse
 QueryDepositsResponse is the response type for the Query/Deposits RPC method.
@@ -7435,7 +7435,7 @@ QueryDepositsResponse is the response type for the Query/Deposits RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `deposits` | [DepositResponse](#nemo.swap.v1beta1.DepositResponse) | repeated | deposits returns the deposits matching the requested parameters |
+| `deposits` | [DepositResponse](#fury.swap.v1beta1.DepositResponse) | repeated | deposits returns the deposits matching the requested parameters |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  | pagination defines the pagination in the response. |
 
 
@@ -7443,7 +7443,7 @@ QueryDepositsResponse is the response type for the Query/Deposits RPC method.
 
 
 
-<a name="nemo.swap.v1beta1.QueryParamsRequest"></a>
+<a name="fury.swap.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest defines the request type for querying x/swap parameters.
@@ -7453,7 +7453,7 @@ QueryParamsRequest defines the request type for querying x/swap parameters.
 
 
 
-<a name="nemo.swap.v1beta1.QueryParamsResponse"></a>
+<a name="fury.swap.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse defines the response type for querying x/swap parameters.
@@ -7461,14 +7461,14 @@ QueryParamsResponse defines the response type for querying x/swap parameters.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `params` | [Params](#nemo.swap.v1beta1.Params) |  | params represents the swap module parameters |
+| `params` | [Params](#fury.swap.v1beta1.Params) |  | params represents the swap module parameters |
 
 
 
 
 
 
-<a name="nemo.swap.v1beta1.QueryPoolsRequest"></a>
+<a name="fury.swap.v1beta1.QueryPoolsRequest"></a>
 
 ### QueryPoolsRequest
 QueryPoolsRequest is the request type for the Query/Pools RPC method.
@@ -7484,7 +7484,7 @@ QueryPoolsRequest is the request type for the Query/Pools RPC method.
 
 
 
-<a name="nemo.swap.v1beta1.QueryPoolsResponse"></a>
+<a name="fury.swap.v1beta1.QueryPoolsResponse"></a>
 
 ### QueryPoolsResponse
 QueryPoolsResponse is the response type for the Query/Pools RPC method.
@@ -7492,7 +7492,7 @@ QueryPoolsResponse is the response type for the Query/Pools RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `pools` | [PoolResponse](#nemo.swap.v1beta1.PoolResponse) | repeated | pools represents returned pools |
+| `pools` | [PoolResponse](#fury.swap.v1beta1.PoolResponse) | repeated | pools represents returned pools |
 | `pagination` | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  | pagination defines the pagination in the response. |
 
 
@@ -7506,29 +7506,29 @@ QueryPoolsResponse is the response type for the Query/Pools RPC method.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.swap.v1beta1.Query"></a>
+<a name="fury.swap.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service for swap module
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#nemo.swap.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#nemo.swap.v1beta1.QueryParamsResponse) | Params queries all parameters of the swap module. | GET|/nemo/swap/v1beta1/params|
-| `Pools` | [QueryPoolsRequest](#nemo.swap.v1beta1.QueryPoolsRequest) | [QueryPoolsResponse](#nemo.swap.v1beta1.QueryPoolsResponse) | Pools queries pools based on pool ID | GET|/nemo/swap/v1beta1/pools|
-| `Deposits` | [QueryDepositsRequest](#nemo.swap.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#nemo.swap.v1beta1.QueryDepositsResponse) | Deposits queries deposit details based on owner address and pool | GET|/nemo/swap/v1beta1/deposits|
+| `Params` | [QueryParamsRequest](#fury.swap.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.swap.v1beta1.QueryParamsResponse) | Params queries all parameters of the swap module. | GET|/fury/swap/v1beta1/params|
+| `Pools` | [QueryPoolsRequest](#fury.swap.v1beta1.QueryPoolsRequest) | [QueryPoolsResponse](#fury.swap.v1beta1.QueryPoolsResponse) | Pools queries pools based on pool ID | GET|/fury/swap/v1beta1/pools|
+| `Deposits` | [QueryDepositsRequest](#fury.swap.v1beta1.QueryDepositsRequest) | [QueryDepositsResponse](#fury.swap.v1beta1.QueryDepositsResponse) | Deposits queries deposit details based on owner address and pool | GET|/fury/swap/v1beta1/deposits|
 
  <!-- end services -->
 
 
 
-<a name="nemo/swap/v1beta1/tx.proto"></a>
+<a name="fury/swap/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## nemo/swap/v1beta1/tx.proto
+## fury/swap/v1beta1/tx.proto
 
 
 
-<a name="nemo.swap.v1beta1.MsgDeposit"></a>
+<a name="fury.swap.v1beta1.MsgDeposit"></a>
 
 ### MsgDeposit
 MsgDeposit represents a message for depositing liquidity into a pool
@@ -7547,7 +7547,7 @@ MsgDeposit represents a message for depositing liquidity into a pool
 
 
 
-<a name="nemo.swap.v1beta1.MsgDepositResponse"></a>
+<a name="fury.swap.v1beta1.MsgDepositResponse"></a>
 
 ### MsgDepositResponse
 MsgDepositResponse defines the Msg/Deposit response type.
@@ -7557,7 +7557,7 @@ MsgDepositResponse defines the Msg/Deposit response type.
 
 
 
-<a name="nemo.swap.v1beta1.MsgSwapExactForTokens"></a>
+<a name="fury.swap.v1beta1.MsgSwapExactForTokens"></a>
 
 ### MsgSwapExactForTokens
 MsgSwapExactForTokens represents a message for trading exact coinA for coinB
@@ -7576,7 +7576,7 @@ MsgSwapExactForTokens represents a message for trading exact coinA for coinB
 
 
 
-<a name="nemo.swap.v1beta1.MsgSwapExactForTokensResponse"></a>
+<a name="fury.swap.v1beta1.MsgSwapExactForTokensResponse"></a>
 
 ### MsgSwapExactForTokensResponse
 MsgSwapExactForTokensResponse defines the Msg/SwapExactForTokens response
@@ -7587,7 +7587,7 @@ type.
 
 
 
-<a name="nemo.swap.v1beta1.MsgSwapForExactTokens"></a>
+<a name="fury.swap.v1beta1.MsgSwapForExactTokens"></a>
 
 ### MsgSwapForExactTokens
 MsgSwapForExactTokens represents a message for trading coinA for an exact
@@ -7607,7 +7607,7 @@ coinB
 
 
 
-<a name="nemo.swap.v1beta1.MsgSwapForExactTokensResponse"></a>
+<a name="fury.swap.v1beta1.MsgSwapForExactTokensResponse"></a>
 
 ### MsgSwapForExactTokensResponse
 MsgSwapForExactTokensResponse defines the Msg/SwapForExactTokensResponse
@@ -7618,7 +7618,7 @@ response type.
 
 
 
-<a name="nemo.swap.v1beta1.MsgWithdraw"></a>
+<a name="fury.swap.v1beta1.MsgWithdraw"></a>
 
 ### MsgWithdraw
 MsgWithdraw represents a message for withdrawing liquidity from a pool
@@ -7637,7 +7637,7 @@ MsgWithdraw represents a message for withdrawing liquidity from a pool
 
 
 
-<a name="nemo.swap.v1beta1.MsgWithdrawResponse"></a>
+<a name="fury.swap.v1beta1.MsgWithdrawResponse"></a>
 
 ### MsgWithdrawResponse
 MsgWithdrawResponse defines the Msg/Withdraw response type.
@@ -7653,17 +7653,17 @@ MsgWithdrawResponse defines the Msg/Withdraw response type.
  <!-- end HasExtensions -->
 
 
-<a name="nemo.swap.v1beta1.Msg"></a>
+<a name="fury.swap.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the swap Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Deposit` | [MsgDeposit](#nemo.swap.v1beta1.MsgDeposit) | [MsgDepositResponse](#nemo.swap.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing liquidity into a pool | |
-| `Withdraw` | [MsgWithdraw](#nemo.swap.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#nemo.swap.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing liquidity into a pool | |
-| `SwapExactForTokens` | [MsgSwapExactForTokens](#nemo.swap.v1beta1.MsgSwapExactForTokens) | [MsgSwapExactForTokensResponse](#nemo.swap.v1beta1.MsgSwapExactForTokensResponse) | SwapExactForTokens represents a message for trading exact coinA for coinB | |
-| `SwapForExactTokens` | [MsgSwapForExactTokens](#nemo.swap.v1beta1.MsgSwapForExactTokens) | [MsgSwapForExactTokensResponse](#nemo.swap.v1beta1.MsgSwapForExactTokensResponse) | SwapForExactTokens represents a message for trading coinA for an exact coinB | |
+| `Deposit` | [MsgDeposit](#fury.swap.v1beta1.MsgDeposit) | [MsgDepositResponse](#fury.swap.v1beta1.MsgDepositResponse) | Deposit defines a method for depositing liquidity into a pool | |
+| `Withdraw` | [MsgWithdraw](#fury.swap.v1beta1.MsgWithdraw) | [MsgWithdrawResponse](#fury.swap.v1beta1.MsgWithdrawResponse) | Withdraw defines a method for withdrawing liquidity into a pool | |
+| `SwapExactForTokens` | [MsgSwapExactForTokens](#fury.swap.v1beta1.MsgSwapExactForTokens) | [MsgSwapExactForTokensResponse](#fury.swap.v1beta1.MsgSwapExactForTokensResponse) | SwapExactForTokens represents a message for trading exact coinA for coinB | |
+| `SwapForExactTokens` | [MsgSwapForExactTokens](#fury.swap.v1beta1.MsgSwapForExactTokens) | [MsgSwapForExactTokensResponse](#fury.swap.v1beta1.MsgSwapForExactTokensResponse) | SwapForExactTokens represents a message for trading coinA for an exact coinB | |
 
  <!-- end services -->
 

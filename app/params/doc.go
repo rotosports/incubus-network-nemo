@@ -1,5 +1,5 @@
 /*
-Package params defines the simulation parameters for the Nemo app.
+Package params defines the simulation parameters for the Fury app.
 
 It contains the default weights used for each transaction used on the module's
 simulation. These weights define the chance for a transaction to be simulated at

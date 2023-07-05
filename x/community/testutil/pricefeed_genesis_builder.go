@@ -5,11 +5,11 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
-// lendGenesisBuilder builds the Hard and Pricefeed genesis states for setting up Nemo Lend
+// lendGenesisBuilder builds the Hard and Pricefeed genesis states for setting up Fury Lend
 type lendGenesisBuilder struct {
 	hardMarkets []hardtypes.MoneyMarket
 	pfMarkets   []pricefeedtypes.Market

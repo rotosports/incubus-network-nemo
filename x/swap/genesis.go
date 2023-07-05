@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/swap/keeper"
-	"github.com/incubus-network/nemo/x/swap/types"
+	"github.com/incubus-network/fury/x/swap/keeper"
+	"github.com/incubus-network/fury/x/swap/types"
 )
 
 // InitGenesis initializes story state from genesis file

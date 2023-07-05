@@ -8,10 +8,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	"github.com/incubus-network/nemo/x/validator-vesting/types"
+	"github.com/incubus-network/fury/x/validator-vesting/types"
 )
 
-// GetQueryCmd returns the cli query commands for the nemodist module
+// GetQueryCmd returns the cli query commands for the furydist module
 func GetQueryCmd() *cobra.Command {
 	valVestingQueryCmd := &cobra.Command{
 		Use:   types.QueryPath,
@@ -40,7 +40,7 @@ func queryCirculatingSupply() *cobra.Command {
 	return &cobra.Command{
 		Use:   "circulating-supply",
 		Short: "Get circulating supply",
-		Long:  "Get the current circulating supply of nemo tokens",
+		Long:  "Get the current circulating supply of fury tokens",
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			cliCtx, err := client.GetClientQueryContext(cmd)
@@ -69,7 +69,7 @@ func queryTotalSupply() *cobra.Command {
 	return &cobra.Command{
 		Use:   "total-supply",
 		Short: "Get total supply",
-		Long:  "Get the current total supply of nemo tokens",
+		Long:  "Get the current total supply of fury tokens",
 		Args:  cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			cliCtx, err := client.GetClientQueryContext(cmd)

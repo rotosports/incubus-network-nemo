@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/nemo/x/hard/types"
+	"github.com/incubus-network/fury/x/hard/types"
 )
 
 type ParamTestSuite struct {

@@ -3,7 +3,7 @@ package client
 import (
 	govclient "github.com/cosmos/cosmos-sdk/x/gov/client"
 
-	"github.com/incubus-network/nemo/x/earn/client/cli"
+	"github.com/incubus-network/fury/x/earn/client/cli"
 )
 
 // community-pool deposit/withdraw proposal handlers

@@ -12,10 +12,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/hard"
-	"github.com/incubus-network/nemo/x/hard/keeper"
-	"github.com/incubus-network/nemo/x/hard/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/hard"
+	"github.com/incubus-network/fury/x/hard/keeper"
+	"github.com/incubus-network/fury/x/hard/types"
 )
 
 type GenesisTestSuite struct {
@@ -50,7 +50,7 @@ func (suite *GenesisTestSuite) Test_InitExportGenesis() {
 					sdk.NewDec(1e15),
 					loanToValue,
 				),
-				"nemo:usd",
+				"fury:usd",
 				sdkmath.NewInt(1e6),
 				types.NewInterestRateModel(
 					sdk.MustNewDecFromStr("0.05"),

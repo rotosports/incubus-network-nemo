@@ -9,8 +9,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 type GenesisTestSuite struct {
@@ -20,7 +20,7 @@ type GenesisTestSuite struct {
 }
 
 func (suite *GenesisTestSuite) SetupTest() {
-	coin := sdk.NewCoin("nemo", sdk.OneInt())
+	coin := sdk.NewCoin("fury", sdk.OneInt())
 	suite.swaps = atomicSwaps(10)
 
 	supply := types.NewAssetSupply(coin, coin, coin, coin, time.Duration(0))

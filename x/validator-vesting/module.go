@@ -14,8 +14,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/incubus-network/nemo/x/validator-vesting/client/cli"
-	"github.com/incubus-network/nemo/x/validator-vesting/types"
+	"github.com/incubus-network/fury/x/validator-vesting/client/cli"
+	"github.com/incubus-network/fury/x/validator-vesting/types"
 )
 
 var (

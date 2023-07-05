@@ -11,14 +11,14 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/tests/e2e/runner"
-	"github.com/incubus-network/nemo/tests/util"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/tests/e2e/runner"
+	"github.com/incubus-network/fury/tests/util"
 )
 
 const (
 	FundedAccountName = "whale"
-	// use coin type 60 so we are compatible with accounts from `nemo add keys --eth <name>`
+	// use coin type 60 so we are compatible with accounts from `fury add keys --eth <name>`
 	// these accounts use the ethsecp256k1 signing algorithm that allows the signing client
 	// to manage both sdk & evm txs.
 	Bip44CoinType = 60
@@ -28,26 +28,26 @@ const (
 )
 
 // DeployedErc20 is a type that wraps the details of the pre-deployed erc20 used by the e2e test suite.
-// The Address comes from SuiteConfig.NemoErc20Address
+// The Address comes from SuiteConfig.FuryErc20Address
 // The CosmosDenom is fetched from the EnabledConversionPairs param of x/evmutil.
 // The tests expect the following:
 // - the funded account has a nonzero balance of the erc20
 // - the erc20 is enabled for conversion to sdk.Coin
 // - the corresponding sdk.Coin is enabled as an earn vault denom
-// These requirements are checked in InitNemoEvmData().
+// These requirements are checked in InitFuryEvmData().
 type DeployedErc20 struct {
 	Address     common.Address
 	CosmosDenom string
 }
 
-// E2eTestSuite is a testify test suite for running end-to-end integration tests on Nemo.
+// E2eTestSuite is a testify test suite for running end-to-end integration tests on Fury.
 type E2eTestSuite struct {
 	suite.Suite
 
 	config SuiteConfig
 	runner runner.NodeRunner
 
-	Nemo *Chain
+	Fury *Chain
 	Ibc  *Chain
 
 	UpgradeHeight int64
@@ -89,44 +89,44 @@ func (suite *E2eTestSuite) SetupSuite() {
 	suiteConfig := ParseSuiteConfig()
 	suite.config = suiteConfig
 	suite.DeployedErc20 = DeployedErc20{
-		Address: common.HexToAddress(suiteConfig.NemoErc20Address),
-		// Denom is fetched in InitNemoEvmData()
+		Address: common.HexToAddress(suiteConfig.FuryErc20Address),
+		// Denom is fetched in InitFuryEvmData()
 	}
 
 	// setup the correct NodeRunner for the given config
-	if suiteConfig.Nmtool != nil {
-		suite.runner = suite.SetupNmtoolNodeRunner()
+	if suiteConfig.Futool != nil {
+		suite.runner = suite.SetupFutoolNodeRunner()
 	} else if suiteConfig.LiveNetwork != nil {
 		suite.runner = suite.SetupLiveNetworkNodeRunner()
 	} else {
-		panic("expected either nmtool or live network configs to be defined")
+		panic("expected either futool or live network configs to be defined")
 	}
 
 	chains := suite.runner.StartChains()
-	nemochain := chains.MustGetChain("nemo")
-	suite.Nemo, err = NewChain(suite.T(), nemochain, suiteConfig.FundedAccountMnemonic)
+	furychain := chains.MustGetChain("fury")
+	suite.Fury, err = NewChain(suite.T(), furychain, suiteConfig.FundedAccountMfurynic)
 	if err != nil {
 		suite.runner.Shutdown()
-		suite.T().Fatalf("failed to create nemo chain querier: %s", err)
+		suite.T().Fatalf("failed to create fury chain querier: %s", err)
 	}
 
 	if suiteConfig.IncludeIbcTests {
 		ibcchain := chains.MustGetChain("ibc")
-		suite.Ibc, err = NewChain(suite.T(), ibcchain, suiteConfig.FundedAccountMnemonic)
+		suite.Ibc, err = NewChain(suite.T(), ibcchain, suiteConfig.FundedAccountMfurynic)
 		if err != nil {
 			suite.runner.Shutdown()
 			suite.T().Fatalf("failed to create ibc chain querier: %s", err)
 		}
 	}
 
-	suite.InitNemoEvmData()
+	suite.InitFuryEvmData()
 
-	whale := suite.Nemo.GetAccount(FundedAccountName)
+	whale := suite.Fury.GetAccount(FundedAccountName)
 	suite.cost = costSummary{
 		sdkAddress:         whale.SdkAddress.String(),
 		evmAddress:         whale.EvmAddress.Hex(),
-		sdkBalanceBefore:   suite.Nemo.QuerySdkForBalances(whale.SdkAddress),
-		erc20BalanceBefore: suite.Nemo.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress),
+		sdkBalanceBefore:   suite.Fury.QuerySdkForBalances(whale.SdkAddress),
+		erc20BalanceBefore: suite.Fury.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress),
 	}
 }
 
@@ -135,29 +135,29 @@ func (suite *E2eTestSuite) SetupSuite() {
 func (suite *E2eTestSuite) TearDownSuite() {
 	fmt.Println("tearing down test suite.")
 
-	whale := suite.Nemo.GetAccount(FundedAccountName)
+	whale := suite.Fury.GetAccount(FundedAccountName)
 
 	if suite.enableRefunds {
-		suite.cost.sdkBalanceAfter = suite.Nemo.QuerySdkForBalances(whale.SdkAddress)
-		suite.cost.erc20BalanceAfter = suite.Nemo.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress)
+		suite.cost.sdkBalanceAfter = suite.Fury.QuerySdkForBalances(whale.SdkAddress)
+		suite.cost.erc20BalanceAfter = suite.Fury.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress)
 		fmt.Println("==BEFORE REFUNDS==")
 		fmt.Println(suite.cost)
 
 		fmt.Println("attempting to return all unused funds")
-		suite.Nemo.ReturnAllFunds()
+		suite.Fury.ReturnAllFunds()
 
 		fmt.Println("==AFTER REFUNDS==")
 	}
 
 	// calculate & output cost summary for funded account
-	suite.cost.sdkBalanceAfter = suite.Nemo.QuerySdkForBalances(whale.SdkAddress)
-	suite.cost.erc20BalanceAfter = suite.Nemo.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress)
+	suite.cost.sdkBalanceAfter = suite.Fury.QuerySdkForBalances(whale.SdkAddress)
+	suite.cost.erc20BalanceAfter = suite.Fury.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress)
 	fmt.Println(suite.cost)
 
 	// TODO: track asset denoms & then return all funds to initial funding account.
 
 	// close all account request channels
-	suite.Nemo.Shutdown()
+	suite.Fury.Shutdown()
 	if suite.Ibc != nil {
 		suite.Ibc.Shutdown()
 	}
@@ -165,27 +165,27 @@ func (suite *E2eTestSuite) TearDownSuite() {
 	suite.runner.Shutdown()
 }
 
-// SetupNmtoolNodeRunner is a helper method for building a NmtoolRunnerConfig from the suite config.
-func (suite *E2eTestSuite) SetupNmtoolNodeRunner() *runner.NmtoolRunner {
-	// upgrade tests are only supported on nmtool networks
-	suite.UpgradeHeight = suite.config.Nmtool.NemoUpgradeHeight
+// SetupFutoolNodeRunner is a helper method for building a FutoolRunnerConfig from the suite config.
+func (suite *E2eTestSuite) SetupFutoolNodeRunner() *runner.FutoolRunner {
+	// upgrade tests are only supported on futool networks
+	suite.UpgradeHeight = suite.config.Futool.FuryUpgradeHeight
 	suite.enableRefunds = false
 
-	runnerConfig := runner.NmtoolRunnerConfig{
-		NemoConfigTemplate: suite.config.Nmtool.NemoConfigTemplate,
+	runnerConfig := runner.FutoolRunnerConfig{
+		FuryConfigTemplate: suite.config.Futool.FuryConfigTemplate,
 
 		IncludeIBC: suite.config.IncludeIbcTests,
 		ImageTag:   "local",
 
-		EnableAutomatedUpgrade:  suite.config.Nmtool.IncludeAutomatedUpgrade,
-		NemoUpgradeName:         suite.config.Nmtool.NemoUpgradeName,
-		NemoUpgradeHeight:       suite.config.Nmtool.NemoUpgradeHeight,
-		NemoUpgradeBaseImageTag: suite.config.Nmtool.NemoUpgradeBaseImageTag,
+		EnableAutomatedUpgrade:  suite.config.Futool.IncludeAutomatedUpgrade,
+		FuryUpgradeName:         suite.config.Futool.FuryUpgradeName,
+		FuryUpgradeHeight:       suite.config.Futool.FuryUpgradeHeight,
+		FuryUpgradeBaseImageTag: suite.config.Futool.FuryUpgradeBaseImageTag,
 
 		SkipShutdown: suite.config.SkipShutdown,
 	}
 
-	return runner.NewNmtoolRunner(runnerConfig)
+	return runner.NewFutoolRunner(runnerConfig)
 }
 
 // SetupLiveNetworkNodeRunner is a helper method for building a LiveNodeRunner from the suite config.
@@ -197,9 +197,9 @@ func (suite *E2eTestSuite) SetupLiveNetworkNodeRunner() *runner.LiveNodeRunner {
 	suite.enableRefunds = true
 
 	runnerConfig := runner.LiveNodeRunnerConfig{
-		NemoRpcUrl:    suite.config.LiveNetwork.NemoRpcUrl,
-		NemoGrpcUrl:   suite.config.LiveNetwork.NemoGrpcUrl,
-		NemoEvmRpcUrl: suite.config.LiveNetwork.NemoEvmRpcUrl,
+		FuryRpcUrl:    suite.config.LiveNetwork.FuryRpcUrl,
+		FuryGrpcUrl:   suite.config.LiveNetwork.FuryGrpcUrl,
+		FuryEvmRpcUrl: suite.config.LiveNetwork.FuryEvmRpcUrl,
 	}
 
 	return runner.NewLiveNodeRunner(runnerConfig)
@@ -215,17 +215,17 @@ func (suite *E2eTestSuite) SkipIfIbcDisabled() {
 
 // SkipIfUpgradeDisabled should be called at the start of tests that require automated upgrades.
 // It gracefully skips the current test if upgrades are dissabled.
-// Note: automated upgrade tests are currently only enabled for Nmtool suite runs.
+// Note: automated upgrade tests are currently only enabled for Futool suite runs.
 func (suite *E2eTestSuite) SkipIfUpgradeDisabled() {
-	if suite.config.Nmtool != nil && suite.config.Nmtool.IncludeAutomatedUpgrade {
+	if suite.config.Futool != nil && suite.config.Futool.IncludeAutomatedUpgrade {
 		suite.T().SkipNow()
 	}
 }
 
-// NemoHomePath returns the OS-specific filepath for the nemo home directory
-// Assumes network is running with nmtool installed from the sub-repository in tests/e2e/nmtool
-func (suite *E2eTestSuite) NemoHomePath() string {
-	return filepath.Join("nmtool", "full_configs", "generated", "nemo", "initstate", ".nemo")
+// FuryHomePath returns the OS-specific filepath for the fury home directory
+// Assumes network is running with futool installed from the sub-repository in tests/e2e/futool
+func (suite *E2eTestSuite) FuryHomePath() string {
+	return filepath.Join("futool", "full_configs", "generated", "fury", "initstate", ".fury")
 }
 
 // BigIntsEqual is a helper method for comparing the equality of two big ints

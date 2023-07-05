@@ -2,14 +2,14 @@
 swagger: "2.0"
 info:
   version: "3.0"
-  title: Nemo Light Client RPC
+  title: Fury Light Client RPC
   description: A REST interface for state queries, transaction generation and broadcasting.
 tags:
   - name: Vesting
     description: Validator vesting module APIs
 schemes:
   - https
-host: api.data.nemo.io
+host: api.data.fury.io
 securityDefinitions:
   kms:
     type: basic
@@ -17,14 +17,14 @@ paths:
   /vesting/circulatingsupply:
     get:
       deprecated: true
-      summary: Get the current circulating supply of NEMO
+      summary: Get the current circulating supply of FURY
       tags:
         - Vesting
       produces:
         - application/json
       responses:
         200:
-          description: NEMO circulating supply
+          description: FURY circulating supply
           schema:
             properties:
               height:
@@ -38,14 +38,14 @@ paths:
   /vesting/totalsupply:
     get:
       deprecated: true
-      summary: Get the total supply of NEMO
+      summary: Get the total supply of FURY
       tags:
         - Vesting
       produces:
         - application/json
       responses:
         200:
-          description: NEMO total supply
+          description: FURY total supply
           schema:
             properties:
               height:

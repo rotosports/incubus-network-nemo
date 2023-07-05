@@ -10,7 +10,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/x/earn/types"
 )
 
 type queryServer struct {
@@ -157,7 +157,7 @@ func (s queryServer) Vault(
 
 	// Handle bfury separately to get total of **all** bfury vaults
 	if req.Denom == bfuryDenom {
-		return s.getAggregateBnemoVault(sdkCtx, allowedVault)
+		return s.getAggregateBfuryVault(sdkCtx, allowedVault)
 	}
 
 	// Must be req.Denom and not allowedVault.Denom to get full "bfury" denom
@@ -187,13 +187,13 @@ func (s queryServer) Vault(
 	}, nil
 }
 
-// getAggregateBnemoVault returns a VaultResponse of the total of all bfury
+// getAggregateBfuryVault returns a VaultResponse of the total of all bfury
 // vaults.
-func (s queryServer) getAggregateBnemoVault(
+func (s queryServer) getAggregateBfuryVault(
 	ctx sdk.Context,
 	allowedVault types.AllowedVault,
 ) (*types.QueryVaultResponse, error) {
-	allBnemo := sdk.NewCoins()
+	allBfury := sdk.NewCoins()
 
 	var iterErr error
 	s.keeper.IterateVaultRecords(ctx, func(record types.VaultRecord) (stop bool) {
@@ -208,7 +208,7 @@ func (s queryServer) getAggregateBnemoVault(
 			return false
 		}
 
-		allBnemo = allBnemo.Add(vaultValue)
+		allBfury = allBfury.Add(vaultValue)
 
 		return false
 	})
@@ -217,7 +217,7 @@ func (s queryServer) getAggregateBnemoVault(
 		return nil, iterErr
 	}
 
-	vaultValue, err := s.keeper.liquidKeeper.GetStakedTokensForDerivatives(ctx, allBnemo)
+	vaultValue, err := s.keeper.liquidKeeper.GetStakedTokensForDerivatives(ctx, allBfury)
 	if err != nil {
 		return nil, err
 	}
@@ -252,7 +252,7 @@ func (s queryServer) Deposits(
 
 	// bfury aggregate total
 	if req.Denom == bfuryDenom {
-		return s.getOneAccountBnemoVaultDeposit(sdkCtx, req)
+		return s.getOneAccountBfuryVaultDeposit(sdkCtx, req)
 	}
 
 	// specific vault
@@ -402,9 +402,9 @@ func (s queryServer) getOneAccountOneVaultDeposit(
 	}, nil
 }
 
-// getOneAccountBnemoVaultDeposit returns deposits for the aggregated bfury vault
+// getOneAccountBfuryVaultDeposit returns deposits for the aggregated bfury vault
 // and a specific account
-func (s queryServer) getOneAccountBnemoVaultDeposit(
+func (s queryServer) getOneAccountBfuryVaultDeposit(
 	ctx sdk.Context,
 	req *types.QueryDepositsRequest,
 ) (*types.QueryDepositsResponse, error) {
@@ -435,15 +435,15 @@ func (s queryServer) getOneAccountBnemoVaultDeposit(
 	}
 
 	// Remove non-bfury coins, GetStakedTokensForDerivatives expects only bfury
-	totalBnemoValue := sdk.NewCoins()
+	totalBfuryValue := sdk.NewCoins()
 	for _, coin := range totalAccountValue {
 		if s.keeper.liquidKeeper.IsDerivativeDenom(ctx, coin.Denom) {
-			totalBnemoValue = totalBnemoValue.Add(coin)
+			totalBfuryValue = totalBfuryValue.Add(coin)
 		}
 	}
 
 	// Use account value with only the aggregate bfury converted to underlying staked tokens
-	stakedValue, err := s.keeper.liquidKeeper.GetStakedTokensForDerivatives(ctx, totalBnemoValue)
+	stakedValue, err := s.keeper.liquidKeeper.GetStakedTokensForDerivatives(ctx, totalBfuryValue)
 	if err != nil {
 		return nil, err
 	}

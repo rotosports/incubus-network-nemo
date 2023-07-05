@@ -10,7 +10,7 @@ import (
 )
 
 func TestAssetSupplyValidate(t *testing.T) {
-	coin := sdk.NewCoin("nemo", sdk.OneInt())
+	coin := sdk.NewCoin("fury", sdk.OneInt())
 	invalidCoin := sdk.Coin{Denom: "Invalid Denom", Amount: sdkmath.NewInt(-1)}
 	testCases := []struct {
 		msg     string

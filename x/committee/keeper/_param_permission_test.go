@@ -11,11 +11,11 @@ import (
 	"github.com/stretchr/testify/suite"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/nemo/app"
-	bep3types "github.com/incubus-network/nemo/x/bep3/types"
-	cdptypes "github.com/incubus-network/nemo/x/cdp/types"
-	"github.com/incubus-network/nemo/x/committee/types"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/app"
+	bep3types "github.com/incubus-network/fury/x/bep3/types"
+	cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	"github.com/incubus-network/fury/x/committee/types"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 type PermissionTestSuite struct {

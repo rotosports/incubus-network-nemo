@@ -8,8 +8,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/incubus-network/nemo/x/incentive/types"
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/x/incentive/types"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
 )
 
 const (

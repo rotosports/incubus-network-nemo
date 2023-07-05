@@ -9,8 +9,8 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type ConversionTestSuite struct {

@@ -38,32 +38,32 @@ jobs:
     steps:
       - name: checkout repo from current commit
         uses: actions/checkout@v3
-      - name: save version of nemo that will be deployed if this pr is merged
-        id: nemo-version
+      - name: save version of fury that will be deployed if this pr is merged
+        id: fury-version
         run: |
-          echo "NEMO_VERSION=$(cat ./ci/env/nemo-internal-testnet/NEMO.VERSION)" >> $GITHUB_OUTPUT
+          echo "FURY_VERSION=$(cat ./ci/env/fury-internal-testnet/FURY.VERSION)" >> $GITHUB_OUTPUT
       - name: checkout repo from master
         uses: actions/checkout@v3
         with:
           ref: master
-      - name: checkout version of nemo that will be deployed if this pr is merged
+      - name: checkout version of fury that will be deployed if this pr is merged
         run: |
           git pull -p
-          git checkout $NEMO_VERSION
+          git checkout $FURY_VERSION
         env:
-          NEMO_VERSION: ${{ steps.nemo-version.outputs.NEMO_VERSION }}
+          FURY_VERSION: ${{ steps.fury-version.outputs.FURY_VERSION }}
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: "1.20"
           check-latest: true
           cache: true
-      - name: build nemo cli
+      - name: build fury cli
         run: make install
       - name: checkout repo from current commit to validate current branch's genesis
         uses: actions/checkout@v3
       - name: validate testnet genesis
-        run: nemo validate-genesis ci/env/nemo-internal-testnet/genesis.json
+        run: fury validate-genesis ci/env/fury-internal-testnet/genesis.json
   validate-protonet-genesis:
     runs-on: ubuntu-latest
     steps:
@@ -75,7 +75,7 @@ jobs:
           go-version: "1.20"
           check-latest: true
           cache: true
-      - name: build nemo cli
+      - name: build fury cli
         run: make install
       - name: validate protonet genesis
-        run: nemo validate-genesis ci/env/nemo-protonet/genesis.json
+        run: fury validate-genesis ci/env/fury-protonet/genesis.json

@@ -13,7 +13,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/x/earn/types"
 )
 
 // GetTxCmd returns the transaction commands for this module
@@ -126,7 +126,7 @@ $ %s tx gov submit-proposal community-pool-deposit <path/to/proposal.json> --fro
 Where proposal.json contains:
 {
   "title": "Community Pool Deposit",
-  "description": "Deposit some NEMO from community pool!",
+  "description": "Deposit some FURY from community pool!",
   "amount": 
   	{
 			"denom": "ufury",
@@ -184,7 +184,7 @@ $ %s tx gov submit-proposal community-pool-withdraw <path/to/proposal.json> --fr
 Where proposal.json contains:
 {
   "title": "Community Pool Withdraw",
-  "description": "Withdraw some NEMO from community pool!",
+  "description": "Withdraw some FURY from community pool!",
   "amount": 
   	{
 			"denom": "ufury",

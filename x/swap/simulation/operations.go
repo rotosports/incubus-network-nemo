@@ -14,9 +14,9 @@ package simulation
 // 	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
 // 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-// 	appparams "github.com/incubus-network/nemo/app/params"
-// 	"github.com/incubus-network/nemo/x/swap/keeper"
-// 	"github.com/incubus-network/nemo/x/swap/types"
+// 	appparams "github.com/incubus-network/fury/app/params"
+// 	"github.com/incubus-network/fury/x/swap/keeper"
+// 	"github.com/incubus-network/fury/x/swap/types"
 // )
 
 // var (

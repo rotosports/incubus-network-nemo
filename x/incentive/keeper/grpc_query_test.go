@@ -7,10 +7,10 @@ import (
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/app"
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	"github.com/incubus-network/fury/app"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/types"
 	"github.com/stretchr/testify/suite"
 	tmprototypes "github.com/tendermint/tendermint/proto/tendermint/types"
 )
@@ -55,7 +55,7 @@ func (suite *grpcQueryTestSuite) SetupTest() {
 	hardGS := hardtypes.NewGenesisState(
 		hardtypes.NewParams(
 			hardtypes.MoneyMarkets{
-				hardtypes.NewMoneyMarket("ufury", hardtypes.NewBorrowLimit(false, borrowLimit, loanToValue), "nemo:usd", sdkmath.NewInt(1000000), hardtypes.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
+				hardtypes.NewMoneyMarket("ufury", hardtypes.NewBorrowLimit(false, borrowLimit, loanToValue), "fury:usd", sdkmath.NewInt(1000000), hardtypes.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
 				hardtypes.NewMoneyMarket("bnb", hardtypes.NewBorrowLimit(false, borrowLimit, loanToValue), "bnb:usd", sdkmath.NewInt(1000000), hardtypes.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
 			},
 			sdk.NewDec(10),

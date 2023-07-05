@@ -11,7 +11,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/nemo/x/issuance/types"
+	"github.com/incubus-network/fury/x/issuance/types"
 )
 
 // GetTxCmd returns the transaction cli commands for the issuance module

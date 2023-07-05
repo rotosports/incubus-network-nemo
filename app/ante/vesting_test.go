@@ -12,8 +12,8 @@ import (
 	vesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/app/ante"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/app/ante"
 )
 
 func TestVestingMempoolDecorator_MsgCreateVestingAccount_Unauthorized(t *testing.T) {

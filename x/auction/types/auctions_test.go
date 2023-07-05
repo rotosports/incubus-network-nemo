@@ -14,7 +14,7 @@ const (
 	TestInitiatorModuleName = "liquidator"
 	TestLotDenom            = "usdx"
 	TestLotAmount           = 100
-	TestBidDenom            = "nemo"
+	TestBidDenom            = "fury"
 	TestBidAmount           = 20
 	TestDebtDenom           = "debt"
 	TestDebtAmount1         = 20
@@ -26,7 +26,7 @@ const (
 )
 
 func init() {
-	sdk.GetConfig().SetBech32PrefixForAccount("nemo", "nemo"+sdk.PrefixPublic)
+	sdk.GetConfig().SetBech32PrefixForAccount("fury", "fury"+sdk.PrefixPublic)
 }
 
 func d(amount string) sdk.Dec               { return sdk.MustNewDecFromStr(amount) }
@@ -116,14 +116,14 @@ func TestDebtAuctionValidate(t *testing.T) {
 				BaseAuction: BaseAuction{
 					ID:              1,
 					Initiator:       testAccAddress1,
-					Lot:             c("nemo", 1),
+					Lot:             c("fury", 1),
 					Bidder:          addr1,
-					Bid:             c("nemo", 1),
+					Bid:             c("fury", 1),
 					EndTime:         now,
 					MaxEndTime:      now,
 					HasReceivedBids: true,
 				},
-				CorrespondingDebt: c("nemo", 1),
+				CorrespondingDebt: c("fury", 1),
 			},
 			true,
 		},
@@ -133,9 +133,9 @@ func TestDebtAuctionValidate(t *testing.T) {
 				BaseAuction: BaseAuction{
 					ID:              1,
 					Initiator:       testAccAddress1,
-					Lot:             c("nemo", 1),
+					Lot:             c("fury", 1),
 					Bidder:          addr1,
-					Bid:             c("nemo", 1),
+					Bid:             c("fury", 1),
 					EndTime:         now,
 					MaxEndTime:      now,
 					HasReceivedBids: true,
@@ -175,15 +175,15 @@ func TestCollateralAuctionValidate(t *testing.T) {
 				BaseAuction: BaseAuction{
 					ID:              1,
 					Initiator:       testAccAddress1,
-					Lot:             c("nemo", 1),
+					Lot:             c("fury", 1),
 					Bidder:          addr1,
-					Bid:             c("nemo", 1),
+					Bid:             c("fury", 1),
 					EndTime:         now,
 					MaxEndTime:      now,
 					HasReceivedBids: true,
 				},
-				CorrespondingDebt: c("nemo", 1),
-				MaxBid:            c("nemo", 1),
+				CorrespondingDebt: c("fury", 1),
+				MaxBid:            c("fury", 1),
 				LotReturns: WeightedAddresses{
 					Addresses: []sdk.AccAddress{addr1},
 					Weights:   []sdkmath.Int{sdkmath.NewInt(1)},
@@ -197,9 +197,9 @@ func TestCollateralAuctionValidate(t *testing.T) {
 				BaseAuction: BaseAuction{
 					ID:              1,
 					Initiator:       testAccAddress1,
-					Lot:             c("nemo", 1),
+					Lot:             c("fury", 1),
 					Bidder:          addr1,
-					Bid:             c("nemo", 1),
+					Bid:             c("fury", 1),
 					EndTime:         now,
 					MaxEndTime:      now,
 					HasReceivedBids: true,
@@ -214,14 +214,14 @@ func TestCollateralAuctionValidate(t *testing.T) {
 				BaseAuction: BaseAuction{
 					ID:              1,
 					Initiator:       testAccAddress1,
-					Lot:             c("nemo", 1),
+					Lot:             c("fury", 1),
 					Bidder:          addr1,
-					Bid:             c("nemo", 1),
+					Bid:             c("fury", 1),
 					EndTime:         now,
 					MaxEndTime:      now,
 					HasReceivedBids: true,
 				},
-				CorrespondingDebt: c("nemo", 1),
+				CorrespondingDebt: c("fury", 1),
 				MaxBid:            sdk.Coin{Denom: "DENOM", Amount: sdkmath.NewInt(1)},
 			},
 			false,
@@ -232,15 +232,15 @@ func TestCollateralAuctionValidate(t *testing.T) {
 				BaseAuction: BaseAuction{
 					ID:              1,
 					Initiator:       testAccAddress1,
-					Lot:             c("nemo", 1),
+					Lot:             c("fury", 1),
 					Bidder:          addr1,
-					Bid:             c("nemo", 1),
+					Bid:             c("fury", 1),
 					EndTime:         now,
 					MaxEndTime:      now,
 					HasReceivedBids: true,
 				},
-				CorrespondingDebt: c("nemo", 1),
-				MaxBid:            c("nemo", 1),
+				CorrespondingDebt: c("fury", 1),
+				MaxBid:            c("fury", 1),
 				LotReturns: WeightedAddresses{
 					Addresses: []sdk.AccAddress{nil},
 					Weights:   []sdkmath.Int{sdkmath.NewInt(1)},

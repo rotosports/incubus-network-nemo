@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/liquid/types"
 	"github.com/stretchr/testify/require"
 )
 

@@ -6,8 +6,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/app"
-	cdptypes "github.com/incubus-network/nemo/x/cdp/types"
+	"github.com/incubus-network/fury/app"
+	cdptypes "github.com/incubus-network/fury/x/cdp/types"
 )
 
 func NewCDPGenState(cdc codec.JSONCodec, denom, asset string, liquidationRatio sdk.Dec) app.GenesisState {

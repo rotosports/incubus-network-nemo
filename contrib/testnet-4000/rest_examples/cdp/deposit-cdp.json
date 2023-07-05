@@ -2,7 +2,7 @@
   "base_req": {
     "from": "fury1rjnv8ns2wvz9calje5pmcnpxm055pegp06n7h6",
     "memo": "",
-    "chain_id": "nemo-internal",
+    "chain_id": "fury-internal",
     "account_number": "12",
     "sequence": "0",
     "gas": "500000",

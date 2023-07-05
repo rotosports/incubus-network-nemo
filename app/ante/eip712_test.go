@@ -33,17 +33,17 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/incubus-network/nemo/app"
-	cdptypes "github.com/incubus-network/nemo/x/cdp/types"
-	evmutilkeeper "github.com/incubus-network/nemo/x/evmutil/keeper"
-	evmutiltestutil "github.com/incubus-network/nemo/x/evmutil/testutil"
-	evmutiltypes "github.com/incubus-network/nemo/x/evmutil/types"
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/app"
+	cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	evmutilkeeper "github.com/incubus-network/fury/x/evmutil/keeper"
+	evmutiltestutil "github.com/incubus-network/fury/x/evmutil/testutil"
+	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 const (
-	ChainID       = "nemotest_1-1"
+	ChainID       = "furytest_1-1"
 	USDCCoinDenom = "erc20/usdc"
 	USDCCDPType   = "erc20-usdc"
 )
@@ -351,17 +351,17 @@ func (suite *EIP712TestSuite) SetupTest() {
 	params := evmKeeper.GetParams(suite.ctx)
 	params.EIP712AllowedMsgs = []evmtypes.EIP712AllowedMsg{
 		{
-			MsgTypeUrl:       "/nemo.evmutil.v1beta1.MsgConvertERC20ToCoin",
+			MsgTypeUrl:       "/fury.evmutil.v1beta1.MsgConvertERC20ToCoin",
 			MsgValueTypeName: "MsgValueEVMConvertERC20ToCoin",
 			ValueTypes: []evmtypes.EIP712MsgAttrType{
 				{Name: "initiator", Type: "string"},
 				{Name: "receiver", Type: "string"},
-				{Name: "nemo_erc20_address", Type: "string"},
+				{Name: "fury_erc20_address", Type: "string"},
 				{Name: "amount", Type: "string"},
 			},
 		},
 		{
-			MsgTypeUrl:       "/nemo.cdp.v1beta1.MsgCreateCDP",
+			MsgTypeUrl:       "/fury.cdp.v1beta1.MsgCreateCDP",
 			MsgValueTypeName: "MsgValueCDPCreate",
 			ValueTypes: []evmtypes.EIP712MsgAttrType{
 				{Name: "sender", Type: "string"},
@@ -371,7 +371,7 @@ func (suite *EIP712TestSuite) SetupTest() {
 			},
 		},
 		{
-			MsgTypeUrl:       "/nemo.cdp.v1beta1.MsgDeposit",
+			MsgTypeUrl:       "/fury.cdp.v1beta1.MsgDeposit",
 			MsgValueTypeName: "MsgValueCDPDeposit",
 			ValueTypes: []evmtypes.EIP712MsgAttrType{
 				{Name: "depositor", Type: "string"},
@@ -381,7 +381,7 @@ func (suite *EIP712TestSuite) SetupTest() {
 			},
 		},
 		{
-			MsgTypeUrl:       "/nemo.hard.v1beta1.MsgDeposit",
+			MsgTypeUrl:       "/fury.hard.v1beta1.MsgDeposit",
 			MsgValueTypeName: "MsgValueHardDeposit",
 			ValueTypes: []evmtypes.EIP712MsgAttrType{
 				{Name: "depositor", Type: "string"},
@@ -389,7 +389,7 @@ func (suite *EIP712TestSuite) SetupTest() {
 			},
 		},
 		{
-			MsgTypeUrl:       "/nemo.evmutil.v1beta1.MsgConvertCoinToERC20",
+			MsgTypeUrl:       "/fury.evmutil.v1beta1.MsgConvertCoinToERC20",
 			MsgValueTypeName: "MsgValueEVMConvertCoinToERC20",
 			ValueTypes: []evmtypes.EIP712MsgAttrType{
 				{Name: "initiator", Type: "string"},
@@ -398,7 +398,7 @@ func (suite *EIP712TestSuite) SetupTest() {
 			},
 		},
 		{
-			MsgTypeUrl:       "/nemo.cdp.v1beta1.MsgRepayDebt",
+			MsgTypeUrl:       "/fury.cdp.v1beta1.MsgRepayDebt",
 			MsgValueTypeName: "MsgValueCDPRepayDebt",
 			ValueTypes: []evmtypes.EIP712MsgAttrType{
 				{Name: "sender", Type: "string"},
@@ -407,7 +407,7 @@ func (suite *EIP712TestSuite) SetupTest() {
 			},
 		},
 		{
-			MsgTypeUrl:       "/nemo.hard.v1beta1.MsgWithdraw",
+			MsgTypeUrl:       "/fury.hard.v1beta1.MsgWithdraw",
 			MsgValueTypeName: "MsgValueHardWithdraw",
 			ValueTypes: []evmtypes.EIP712MsgAttrType{
 				{Name: "depositor", Type: "string"},
@@ -570,7 +570,7 @@ func (suite *EIP712TestSuite) TestEIP712Tx() {
 			updateTx: func(txBuilder client.TxBuilder, msgs []sdk.Msg) client.TxBuilder {
 				gasAmt := sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(20)))
 				return suite.createTestEIP712CosmosTxBuilder(
-					suite.testAddr, suite.testPrivKey, "nemotest_12-1", uint64(helpers.DefaultGenTxGas*10), gasAmt, msgs,
+					suite.testAddr, suite.testPrivKey, "furytest_12-1", uint64(helpers.DefaultGenTxGas*10), gasAmt, msgs,
 				)
 			},
 		},

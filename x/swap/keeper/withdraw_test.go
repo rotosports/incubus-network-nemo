@@ -5,7 +5,7 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/x/swap/types"
+	"github.com/incubus-network/fury/x/swap/types"
 )
 
 func (suite *keeperTestSuite) TestWithdraw_AllShares() {

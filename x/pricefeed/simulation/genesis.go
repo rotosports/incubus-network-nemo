@@ -9,8 +9,8 @@ package simulation
 // 	"github.com/cosmos/cosmos-sdk/types/module"
 // 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-// 	"github.com/incubus-network/nemo/x/pricefeed/types"
-// 	pricefeed "github.com/incubus-network/nemo/x/pricefeed/types"
+// 	"github.com/incubus-network/fury/x/pricefeed/types"
+// 	pricefeed "github.com/incubus-network/fury/x/pricefeed/types"
 // )
 
 // var (

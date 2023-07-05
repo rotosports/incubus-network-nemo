@@ -9,8 +9,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 )
@@ -19,7 +19,7 @@ import (
 // The provided rewardPeriod must be valid to avoid panics in calculating time durations.
 func (k Keeper) AccumulateEarnRewards(ctx sdk.Context, rewardPeriod types.MultiRewardPeriod) error {
 	if rewardPeriod.CollateralType == "bfury" {
-		return k.accumulateEarnBnemoRewards(ctx, rewardPeriod)
+		return k.accumulateEarnBfuryRewards(ctx, rewardPeriod)
 	}
 
 	k.accumulateEarnRewards(
@@ -35,8 +35,8 @@ func (k Keeper) AccumulateEarnRewards(ctx sdk.Context, rewardPeriod types.MultiR
 
 func GetProportionalRewardsPerSecond(
 	rewardPeriod types.MultiRewardPeriod,
-	totalBnemoSupply sdkmath.Int,
-	singleBnemoSupply sdkmath.Int,
+	totalBfurySupply sdkmath.Int,
+	singleBfurySupply sdkmath.Int,
 ) sdk.DecCoins {
 	// Rate per bfury-xxx = rewardsPerSecond * % of bfury-xxx
 	//                    = rewardsPerSecond * (bfury-xxx / total bfury)
@@ -46,14 +46,14 @@ func GetProportionalRewardsPerSecond(
 
 	// Prevent division by zero, if there are no total shares then there are no
 	// rewards.
-	if totalBnemoSupply.IsZero() {
+	if totalBfurySupply.IsZero() {
 		return newRate
 	}
 
 	for _, rewardCoin := range rewardPeriod.RewardsPerSecond {
 		scaledAmount := sdk.NewDecFromInt(rewardCoin.Amount).
-			Mul(sdk.NewDecFromInt(singleBnemoSupply)).
-			Quo(sdk.NewDecFromInt(totalBnemoSupply))
+			Mul(sdk.NewDecFromInt(singleBfurySupply)).
+			Quo(sdk.NewDecFromInt(totalBfurySupply))
 
 		newRate = newRate.Add(sdk.NewDecCoinFromDec(rewardCoin.Denom, scaledAmount))
 	}
@@ -61,9 +61,9 @@ func GetProportionalRewardsPerSecond(
 	return newRate
 }
 
-// accumulateEarnBnemoRewards does the same as AccumulateEarnRewards but for
+// accumulateEarnBfuryRewards does the same as AccumulateEarnRewards but for
 // *all* bfury vaults.
-func (k Keeper) accumulateEarnBnemoRewards(ctx sdk.Context, rewardPeriod types.MultiRewardPeriod) error {
+func (k Keeper) accumulateEarnBfuryRewards(ctx sdk.Context, rewardPeriod types.MultiRewardPeriod) error {
 	// All bfury vault denoms
 	bfuryVaultsDenoms := make(map[string]bool)
 
@@ -86,36 +86,36 @@ func (k Keeper) accumulateEarnBnemoRewards(ctx sdk.Context, rewardPeriod types.M
 		return false
 	})
 
-	totalBnemoValue, err := k.liquidKeeper.GetTotalDerivativeValue(ctx)
+	totalBfuryValue, err := k.liquidKeeper.GetTotalDerivativeValue(ctx)
 	if err != nil {
 		return err
 	}
 
 	i := 0
-	sortedBnemoVaultsDenoms := make([]string, len(bfuryVaultsDenoms))
+	sortedBfuryVaultsDenoms := make([]string, len(bfuryVaultsDenoms))
 	for vaultDenom := range bfuryVaultsDenoms {
-		sortedBnemoVaultsDenoms[i] = vaultDenom
+		sortedBfuryVaultsDenoms[i] = vaultDenom
 		i++
 	}
 
 	// Sort the vault denoms to ensure deterministic iteration order.
-	sort.Strings(sortedBnemoVaultsDenoms)
+	sort.Strings(sortedBfuryVaultsDenoms)
 
 	// Accumulate rewards for each bfury vault.
-	for _, bfuryDenom := range sortedBnemoVaultsDenoms {
+	for _, bfuryDenom := range sortedBfuryVaultsDenoms {
 		derivativeValue, err := k.liquidKeeper.GetDerivativeValue(ctx, bfuryDenom)
 		if err != nil {
 			return err
 		}
 
-		k.accumulateBnemoEarnRewards(
+		k.accumulateBfuryEarnRewards(
 			ctx,
 			bfuryDenom,
 			rewardPeriod.Start,
 			rewardPeriod.End,
 			GetProportionalRewardsPerSecond(
 				rewardPeriod,
-				totalBnemoValue.Amount,
+				totalBfuryValue.Amount,
 				derivativeValue.Amount,
 			),
 		)
@@ -124,7 +124,7 @@ func (k Keeper) accumulateEarnBnemoRewards(ctx sdk.Context, rewardPeriod types.M
 	return nil
 }
 
-func (k Keeper) accumulateBnemoEarnRewards(
+func (k Keeper) accumulateBfuryEarnRewards(
 	ctx sdk.Context,
 	collateralType string,
 	periodStart time.Time,

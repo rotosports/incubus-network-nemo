@@ -10,11 +10,11 @@ import (
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 	"github.com/cosmos/cosmos-sdk/x/mint"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	"github.com/incubus-network/nemo/x/incentive"
-	"github.com/incubus-network/nemo/x/incentive/testutil"
-	"github.com/incubus-network/nemo/x/incentive/types"
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	"github.com/incubus-network/fury/x/incentive"
+	"github.com/incubus-network/fury/x/incentive/testutil"
+	"github.com/incubus-network/fury/x/incentive/types"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
 )
 
 func (suite *HandlerTestSuite) TestEarnLiquidClaim() {

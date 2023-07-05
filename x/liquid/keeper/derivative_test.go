@@ -10,8 +10,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/liquid/types"
 )
 
 func (suite *KeeperTestSuite) TestBurnDerivative() {
@@ -44,7 +44,7 @@ func (suite *KeeperTestSuite) TestBurnDerivative() {
 			name:             "error when denom cannot be parsed",
 			balance:          c(liquidDenom, 1e9),
 			moduleDelegation: i(1e9),
-			burnAmount:       c(fmt.Sprintf("cnemo-%s", valAddr), 1e6),
+			burnAmount:       c(fmt.Sprintf("cfury-%s", valAddr), 1e6),
 			expectedErr:      types.ErrInvalidDenom,
 		},
 		{
@@ -414,7 +414,7 @@ func (suite *KeeperTestSuite) TestGetStakedTokensForDerivatives() {
 	testCases := []struct {
 		name           string
 		derivatives    sdk.Coins
-		wantNemoAmount sdkmath.Int
+		wantFuryAmount sdkmath.Int
 		err            error
 	}{
 		{
@@ -422,7 +422,7 @@ func (suite *KeeperTestSuite) TestGetStakedTokensForDerivatives() {
 			derivatives: sdk.NewCoins(
 				sdk.NewCoin(suite.Keeper.GetLiquidStakingTokenDenom(valAddr1), vestedBalance),
 			),
-			wantNemoAmount: vestedBalance,
+			wantFuryAmount: vestedBalance,
 		},
 		{
 			name: "valid - slashed validator",
@@ -430,7 +430,7 @@ func (suite *KeeperTestSuite) TestGetStakedTokensForDerivatives() {
 				sdk.NewCoin(suite.Keeper.GetLiquidStakingTokenDenom(valAddr3), vestedBalance),
 			),
 			// vestedBalance * 95%
-			wantNemoAmount: vestedBalance.Mul(sdkmath.NewInt(95)).Quo(sdkmath.NewInt(100)),
+			wantFuryAmount: vestedBalance.Mul(sdkmath.NewInt(95)).Quo(sdkmath.NewInt(100)),
 		},
 		{
 			name: "valid - sum",
@@ -439,7 +439,7 @@ func (suite *KeeperTestSuite) TestGetStakedTokensForDerivatives() {
 				sdk.NewCoin(suite.Keeper.GetLiquidStakingTokenDenom(valAddr1), vestedBalance),
 			),
 			// vestedBalance + (vestedBalance * 95%)
-			wantNemoAmount: vestedBalance.Mul(sdkmath.NewInt(95)).Quo(sdkmath.NewInt(100)).Add(vestedBalance),
+			wantFuryAmount: vestedBalance.Mul(sdkmath.NewInt(95)).Quo(sdkmath.NewInt(100)).Add(vestedBalance),
 		},
 		{
 			name: "invalid - undelegated validator address denom",
@@ -451,21 +451,21 @@ func (suite *KeeperTestSuite) TestGetStakedTokensForDerivatives() {
 		{
 			name: "invalid - denom",
 			derivatives: sdk.NewCoins(
-				sdk.NewCoin("nemo", vestedBalance),
+				sdk.NewCoin("fury", vestedBalance),
 			),
-			err: fmt.Errorf("invalid derivative denom: cannot parse denom nemo"),
+			err: fmt.Errorf("invalid derivative denom: cannot parse denom fury"),
 		},
 	}
 
 	for _, tc := range testCases {
 		suite.Run(tc.name, func() {
-			nemoAmount, err := suite.Keeper.GetStakedTokensForDerivatives(suite.Ctx, tc.derivatives)
+			furyAmount, err := suite.Keeper.GetStakedTokensForDerivatives(suite.Ctx, tc.derivatives)
 
 			if tc.err != nil {
 				suite.Require().Error(err)
 			} else {
 				suite.Require().NoError(err)
-				suite.Require().Equal(suite.NewBondCoin(tc.wantNemoAmount), nemoAmount)
+				suite.Require().Equal(suite.NewBondCoin(tc.wantFuryAmount), furyAmount)
 			}
 		})
 	}

@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/x/liquid/types"
 )
 
 type queryServer struct {

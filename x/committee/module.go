@@ -16,9 +16,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/incubus-network/nemo/x/committee/client/cli"
-	"github.com/incubus-network/nemo/x/committee/keeper"
-	"github.com/incubus-network/nemo/x/committee/types"
+	"github.com/incubus-network/fury/x/committee/client/cli"
+	"github.com/incubus-network/fury/x/committee/keeper"
+	"github.com/incubus-network/fury/x/committee/types"
 )
 
 // ConsensusVersion defines the current module consensus version.

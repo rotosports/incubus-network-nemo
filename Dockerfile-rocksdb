@@ -1,4 +1,4 @@
-FROM golang:1.20-bullseye AS nemo-builder
+FROM golang:1.20-bullseye AS fury-builder
 
 # Set up dependencies
 RUN apt-get update \
@@ -19,16 +19,16 @@ RUN git clone https://github.com/facebook/rocksdb.git \
     && make -j$(nproc) install-shared \
     && ldconfig
 
-# Add source files for nemo
-COPY . nemo
+# Add source files for fury
+COPY . fury
 
-ARG nemo_database_backend=rocksdb
-ENV NEMO_DATABASE_BACKEND=$nemo_database_backend
+ARG fury_database_backend=rocksdb
+ENV FURY_DATABASE_BACKEND=$fury_database_backend
 
 # Mount go build and mod caches as container caches, persisted between builder invocations
 RUN --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=cache,target=/go/pkg/mod \
-    cd nemo && make install COSMOS_BUILD_OPTIONS=$NEMO_DATABASE_BACKEND
+    cd fury && make install COSMOS_BUILD_OPTIONS=$FURY_DATABASE_BACKEND
 
 
 FROM ubuntu:22.04
@@ -38,10 +38,10 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # copy rocksdb shared objects
-COPY --from=nemo-builder /usr/local/lib/ /usr/local/lib/
+COPY --from=fury-builder /usr/local/lib/ /usr/local/lib/
 RUN ldconfig
 
-# copy nemo binary
-COPY --from=nemo-builder /go/bin/nemo /bin/nemo
+# copy fury binary
+COPY --from=fury-builder /go/bin/fury /bin/fury
 
-CMD ["nemo"]
+CMD ["fury"]

@@ -3,7 +3,7 @@ package testutil
 import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/app"
+	"github.com/incubus-network/fury/app"
 
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 )

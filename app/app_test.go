@@ -45,7 +45,7 @@ func TestExport(t *testing.T) {
 
 	initRequest := abci.RequestInitChain{
 		Time:            time.Date(1998, 1, 1, 0, 0, 0, 0, time.UTC),
-		ChainId:         "nemotest_1-1",
+		ChainId:         "furytest_1-1",
 		InitialHeight:   1,
 		ConsensusParams: tmtypes.TM2PB.ConsensusParams(tmtypes.DefaultConsensusParams()),
 		Validators:      nil,

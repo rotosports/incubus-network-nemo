@@ -10,8 +10,8 @@ import (
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/liquid/types"
 )
 
 var (

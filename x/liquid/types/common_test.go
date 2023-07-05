@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/incubus-network/nemo/app"
+	"github.com/incubus-network/fury/app"
 )
 
 func TestMain(m *testing.M) {

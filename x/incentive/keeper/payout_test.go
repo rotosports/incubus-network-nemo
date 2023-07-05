@@ -12,14 +12,14 @@ import (
 	vestingtypes "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	tmprototypes "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	cdpkeeper "github.com/incubus-network/nemo/x/cdp/keeper"
-	cdptypes "github.com/incubus-network/nemo/x/cdp/types"
-	hardkeeper "github.com/incubus-network/nemo/x/hard/keeper"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/testutil"
-	"github.com/incubus-network/nemo/x/incentive/types"
-	nemodisttypes "github.com/incubus-network/nemo/x/nemodist/types"
+	"github.com/incubus-network/fury/app"
+	cdpkeeper "github.com/incubus-network/fury/x/cdp/keeper"
+	cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/testutil"
+	"github.com/incubus-network/fury/x/incentive/types"
+	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
 )
 
 // Test suite used for all keeper tests
@@ -341,7 +341,7 @@ func (suite *PayoutTestSuite) TestSendCoinsToPeriodicVestingAccount() {
 				tc.args.accArgs.startTime,
 			)
 			if tc.args.mintModAccountCoins {
-				authBuilder = authBuilder.WithSimpleModuleAccount(nemodisttypes.ModuleName, tc.args.period.Amount)
+				authBuilder = authBuilder.WithSimpleModuleAccount(furydisttypes.ModuleName, tc.args.period.Amount)
 			}
 
 			suite.genesisTime = tc.args.ctxTime
@@ -350,7 +350,7 @@ func (suite *PayoutTestSuite) TestSendCoinsToPeriodicVestingAccount() {
 				authBuilder.BuildMarshalled(suite.app.AppCodec()),
 			)
 
-			err := suite.keeper.SendTimeLockedCoinsToPeriodicVestingAccount(suite.ctx, nemodisttypes.ModuleName, suite.addrs[0], tc.args.period.Amount, tc.args.period.Length)
+			err := suite.keeper.SendTimeLockedCoinsToPeriodicVestingAccount(suite.ctx, furydisttypes.ModuleName, suite.addrs[0], tc.args.period.Amount, tc.args.period.Length)
 
 			if tc.errArgs.expectErr {
 				suite.Require().Error(err)
@@ -372,7 +372,7 @@ func (suite *PayoutTestSuite) TestSendCoinsToPeriodicVestingAccount() {
 func (suite *PayoutTestSuite) TestSendCoinsToBaseAccount() {
 	authBuilder := app.NewAuthBankGenesisBuilder().
 		WithSimpleAccount(suite.addrs[1], cs(c("ufury", 400))).
-		WithSimpleModuleAccount(nemodisttypes.ModuleName, cs(c("ufury", 600)))
+		WithSimpleModuleAccount(furydisttypes.ModuleName, cs(c("ufury", 600)))
 
 	suite.genesisTime = time.Unix(100, 0)
 	suite.SetupApp()
@@ -381,7 +381,7 @@ func (suite *PayoutTestSuite) TestSendCoinsToBaseAccount() {
 	)
 
 	// send coins to base account
-	err := suite.keeper.SendTimeLockedCoinsToAccount(suite.ctx, nemodisttypes.ModuleName, suite.addrs[1], cs(c("ufury", 100)), 5)
+	err := suite.keeper.SendTimeLockedCoinsToAccount(suite.ctx, furydisttypes.ModuleName, suite.addrs[1], cs(c("ufury", 100)), 5)
 	suite.Require().NoError(err)
 	acc := suite.getAccount(suite.addrs[1])
 	vacc, ok := acc.(*vestingtypes.PeriodicVestingAccount)
@@ -401,7 +401,7 @@ func (suite *PayoutTestSuite) TestSendCoinsToBaseAccount() {
 
 func (suite *PayoutTestSuite) TestSendCoinsToInvalidAccount() {
 	authBuilder := app.NewAuthBankGenesisBuilder().
-		WithSimpleModuleAccount(nemodisttypes.ModuleName, cs(c("ufury", 600)))
+		WithSimpleModuleAccount(furydisttypes.ModuleName, cs(c("ufury", 600)))
 
 	suite.SetupApp()
 	suite.app.InitializeFromGenesisStates(
@@ -409,11 +409,11 @@ func (suite *PayoutTestSuite) TestSendCoinsToInvalidAccount() {
 	)
 
 	// No longer an empty validator vesting account, just a regular addr
-	err := suite.keeper.SendTimeLockedCoinsToAccount(suite.ctx, nemodisttypes.ModuleName, suite.addrs[2], cs(c("ufury", 100)), 5)
+	err := suite.keeper.SendTimeLockedCoinsToAccount(suite.ctx, furydisttypes.ModuleName, suite.addrs[2], cs(c("ufury", 100)), 5)
 	suite.Require().ErrorIs(err, types.ErrAccountNotFound)
 
 	macc := suite.getModuleAccount(cdptypes.ModuleName)
-	err = suite.keeper.SendTimeLockedCoinsToAccount(suite.ctx, nemodisttypes.ModuleName, macc.GetAddress(), cs(c("ufury", 100)), 5)
+	err = suite.keeper.SendTimeLockedCoinsToAccount(suite.ctx, furydisttypes.ModuleName, macc.GetAddress(), cs(c("ufury", 100)), 5)
 	suite.Require().ErrorIs(err, types.ErrInvalidAccountType)
 }
 

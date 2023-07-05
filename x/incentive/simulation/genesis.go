@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/incubus-network/nemo/x/incentive/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 var (

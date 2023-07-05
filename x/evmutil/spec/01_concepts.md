@@ -8,7 +8,7 @@ order: 1
 
 In order to use the EVM and be compatible with existing clients, the gas denom used by the EVM must be in 18 decimals. Since `ufury` has 6 decimals of precision, it cannot be used as the EVM gas denom directly.
 
-To use the Nemo token on the EVM, the evmutil module provides an `EvmBankKeeper` that is responsible for the conversion of `ufury` and `afury`. A user's excess `afury` balance is stored in the `x/evmutil` store, while its `ufury` balance remains in the cosmos-sdk `x/bank` module.
+To use the Fury token on the EVM, the evmutil module provides an `EvmBankKeeper` that is responsible for the conversion of `ufury` and `afury`. A user's excess `afury` balance is stored in the `x/evmutil` store, while its `ufury` balance remains in the cosmos-sdk `x/bank` module.
 
 ## `EvmBankKeeper` Overview
 
@@ -34,7 +34,7 @@ The swap logic ensures that all `afury` is backed by the equivalent `ufury` bala
 
 ## ERC20 token <> sdk.Coin Conversion
 
-`x/evmutil` facilitates moving assets between Nemo's EVM and Cosmos co-chains. This must be handled differently depending on which co-chain to which the asset it native. The messages controlling these flows involve two accounts:
+`x/evmutil` facilitates moving assets between Fury's EVM and Cosmos co-chains. This must be handled differently depending on which co-chain to which the asset it native. The messages controlling these flows involve two accounts:
 1. The _initiator_ who sends coins from their co-chain
 2. The _receiver_ who receives coins on the other co-chain
 

@@ -12,7 +12,7 @@ import (
 
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/incubus-network/nemo/x/auction/types"
+	"github.com/incubus-network/fury/x/auction/types"
 )
 
 type Keeper struct {

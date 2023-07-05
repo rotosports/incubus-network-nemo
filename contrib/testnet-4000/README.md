@@ -1,6 +1,6 @@
 # Testnet-4000
 
-Resources and examples for running and interacting with nemo-testnet-4000
+Resources and examples for running and interacting with fury-testnet-4000
 
 ## Rest server requests
 
@@ -12,13 +12,13 @@ Before making a request, query account information for the signing account. Note
     kvcli q auth account $(kvcli keys show accB -a)
 ```
 
-If testing locally, start the Nemo rest server:
+If testing locally, start the Fury rest server:
 
 ```bash
     kvcli rest-server
 ```
 
-Now we'll create an unsigned request, sign it, and broadcast it to the Nemo blockchain via the rest server. Note that if you're using the mainnet or testnet, the host IP address will need to be updated to point at an active rest server instead of http://127.0.0.1.
+Now we'll create an unsigned request, sign it, and broadcast it to the Fury blockchain via the rest server. Note that if you're using the mainnet or testnet, the host IP address will need to be updated to point at an active rest server instead of http://127.0.0.1.
 
 ### Create CDP example request
 
@@ -35,11 +35,11 @@ Format the base request in create-cdp.json. You'll need to update the 'from', 'c
     kvcli tx broadcast ./contrib/testnet-4000/rest_examples/cdp/broadcast-create-cdp.json
 ```
 
-Congratulations, you've just created a CDP on Nemo using the rest server!
+Congratulations, you've just created a CDP on Fury using the rest server!
 
 ### Post market price example request
 
-Note that only market oracles can post prices, other senders will have their transactions rejected by Nemo.
+Note that only market oracles can post prices, other senders will have their transactions rejected by Fury.
 
 Format the base request in post-price.json. You'll need to update the 'from', 'chain-id', 'account_number', 'sequence', and 'gas' as appropriate. Then, populate the post price request's params 'from', 'market_id', 'price', and 'expiry'. An example formatted request can be found in `example-post-price.json`.
 
@@ -55,7 +55,7 @@ Format the base request in post-price.json. You'll need to update the 'from', 'c
     kvcli tx broadcast ./contrib/testnet-4000/rest_examples/pricefeed/broadcast-post-price.json
 ```
 
-Congratulations, you've just posted a current market price on Nemo using the rest server!
+Congratulations, you've just posted a current market price on Fury using the rest server!
 
 ## Governance proposals
 
@@ -63,7 +63,7 @@ Example governance proposals are located in `/proposal_examples`.
 
 ## Dredd automated REST API testing
 
-To run the dredd tests to hit the endpoints and test the api run the following command from the `nemo` folder:
+To run the dredd tests to hit the endpoints and test the api run the following command from the `fury` folder:
 
 ```bash
     make test_dredd

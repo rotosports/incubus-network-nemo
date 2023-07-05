@@ -16,9 +16,9 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/savings/keeper"
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/savings/keeper"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 // Test suite used for all keeper tests

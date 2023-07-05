@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/incubus-network/nemo/x/committee/testutil"
-	"github.com/incubus-network/nemo/x/committee/types"
+	"github.com/incubus-network/fury/x/committee/testutil"
+	"github.com/incubus-network/fury/x/committee/types"
 )
 
 func TestBaseCommittee(t *testing.T) {
 	addresses := []sdk.AccAddress{
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest1"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest2"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest3"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest1"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest2"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest3"))),
 	}
 
 	testCases := []struct {
@@ -205,9 +205,9 @@ func TestBaseCommittee(t *testing.T) {
 
 func TestMemberCommittee(t *testing.T) {
 	addresses := []sdk.AccAddress{
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest1"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest2"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest3"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest1"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest2"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest3"))),
 	}
 
 	testCases := []struct {
@@ -251,9 +251,9 @@ func TestMemberCommittee(t *testing.T) {
 // TestTokenCommittee tests unique TokenCommittee functionality
 func TestTokenCommittee(t *testing.T) {
 	addresses := []sdk.AccAddress{
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest1"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest2"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest3"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest1"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest2"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest3"))),
 	}
 
 	testCases := []struct {

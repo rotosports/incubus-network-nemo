@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/incubus-network/nemo/x/committee/types"
+	"github.com/incubus-network/fury/x/committee/types"
 )
 
 const (

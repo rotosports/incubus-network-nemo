@@ -12,7 +12,7 @@ set -ex
 
 # setup values used by the script, in github actions these
 # are set as environment variables when running seed scripts
-CHAIN_API_URL=https://rpc.app.internal.testnet.us-east.production.nemo.io:443
+CHAIN_API_URL=https://rpc.app.internal.testnet.us-east.production.fury.io:443
 CHAIN_ID=highbury_710-17000
 
 MULTICHAIN_wBTC_CONTRACT_ADDRESS=0x288429bc07B8d030ba418bb30F170327F9fBE502
@@ -25,18 +25,18 @@ wETH_CONTRACT_ADDRESS=0x5d6D67a665C9F169B0f9436E05B11108C1606043
 
 
 
-# configure nemo binary to talk to the desired chain endpoint
-nemo config node "${CHAIN_API_URL}"
-nemo config chain-id "${CHAIN_ID}"
+# configure fury binary to talk to the desired chain endpoint
+fury config node "${CHAIN_API_URL}"
+fury config chain-id "${CHAIN_ID}"
 
 # use the test keyring to allow scriptng key generation
-nemo config keyring-backend test
+fury config keyring-backend test
 
 # wait for transactions to be committed per CLI command
-nemo config broadcast-mode block
+fury config broadcast-mode block
 
 # setup god's wallet
-echo "${NEMO_TESTNET_GOD_MNEMONIC}" | nemo keys add --recover god
+echo "${FURY_TESTNET_GOD_MFURYNIC}" | fury keys add --recover god
 
 # create template string for the proposal we want to enact
 # https://incubus-network.atlassian.net/wiki/spaces/ENG/pages/1228537857/Submitting+Governance+Proposals+WIP
@@ -49,7 +49,7 @@ PARAM_CHANGE_PROP_TEMPLATE=$(cat <<'END_HEREDOC'
         {
             "subspace": "evmutil",
             "key": "EnabledConversionPairs",
-            "value": "[{\"nemo_erc20_address\":\"MULTICHAIN_USDC_CONTRACT_ADDRESS\",\"denom\":\"erc20/multichain/usdc\"},{\"nemo_erc20_address\":\"MULTICHAIN_USDT_CONTRACT_ADDRESS\",\"denom\":\"erc20/multichain/usdt\"},{\"nemo_erc20_address\":\"MULTICHAIN_wBTC_CONTRACT_ADDRESS\",\"denom\":\"erc20/multichain/btc\"},{\"nemo_erc20_address\":\"AXL_USDC_CONTRACT_ADDRESS\",\"denom\":\"erc20/axelar/usdc\"},{\"nemo_erc20_address\":\"wBTC_CONTRACT_ADDRESS\",\"denom\":\"erc20/axelar/wbtc\"},{\"nemo_erc20_address\":\"wETH_CONTRACT_ADDRESS\",\"denom\":\"erc20/axelar/eth\"}]"
+            "value": "[{\"fury_erc20_address\":\"MULTICHAIN_USDC_CONTRACT_ADDRESS\",\"denom\":\"erc20/multichain/usdc\"},{\"fury_erc20_address\":\"MULTICHAIN_USDT_CONTRACT_ADDRESS\",\"denom\":\"erc20/multichain/usdt\"},{\"fury_erc20_address\":\"MULTICHAIN_wBTC_CONTRACT_ADDRESS\",\"denom\":\"erc20/multichain/btc\"},{\"fury_erc20_address\":\"AXL_USDC_CONTRACT_ADDRESS\",\"denom\":\"erc20/axelar/usdc\"},{\"fury_erc20_address\":\"wBTC_CONTRACT_ADDRESS\",\"denom\":\"erc20/axelar/wbtc\"},{\"fury_erc20_address\":\"wETH_CONTRACT_ADDRESS\",\"denom\":\"erc20/axelar/eth\"}]"
         }
     ]
 }
@@ -74,15 +74,15 @@ touch $proposalFileName
 echo "$finalProposal" > $proposalFileName
 
 # snapshot original module params
-originalEvmUtilParams=$(curl https://api.app.internal.testnet.us-east.production.nemo.io/nemo/evmutil/v1beta1/params)
+originalEvmUtilParams=$(curl https://api.app.internal.testnet.us-east.production.fury.io/fury/evmutil/v1beta1/params)
 printf "original evm util module params\n %s" , "$originalEvmUtilParams"
 
 # change the params of the chain like a god - make it so 🖖🏽
 # make sure to update god committee member permissions for the module
 # and params being updated (see below for example)
-# https://github.com/Incubus-Network/nemo/pull/1556/files#diff-0bd6043650c708661f37bbe6fa5b29b52149e0ec0069103c3954168fc9f12612R900-R903
-nemo tx committee submit-proposal 1 "$proposalFileName" --gas 2000000 --gas-prices 0.01ufury --from god -y
+# https://github.com/Incubus-Network/fury/pull/1556/files#diff-0bd6043650c708661f37bbe6fa5b29b52149e0ec0069103c3954168fc9f12612R900-R903
+fury tx committee submit-proposal 1 "$proposalFileName" --gas 2000000 --gas-prices 0.01ufury --from god -y
 
 # fetch current module params
-updatedEvmUtilParams=$(curl https://api.app.internal.testnet.us-east.production.nemo.io/nemo/evmutil/v1beta1/params)
+updatedEvmUtilParams=$(curl https://api.app.internal.testnet.us-east.production.fury.io/fury/evmutil/v1beta1/params)
 printf "updated evm util module params\n %s" , "$updatedEvmUtilParams"

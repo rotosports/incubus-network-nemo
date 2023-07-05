@@ -12,9 +12,9 @@ import (
 
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/incubus-network/nemo/tests/e2e/testutil"
-	"github.com/incubus-network/nemo/tests/util"
-	evmutiltypes "github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/tests/e2e/testutil"
+	"github.com/incubus-network/fury/tests/util"
+	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
 )
 
 const initialCosmosCoinConversionDenomFunds = int64(1e4)
@@ -24,21 +24,21 @@ func setupConvertToCoinTest(
 ) (denom string, initialFunds sdk.Coins, user *testutil.SigningAccount) {
 	// we expect a denom to be registered to the allowed denoms param
 	// and for the funded account to have a balance for that denom
-	params, err := suite.Nemo.Evmutil.Params(context.Background(), &evmutiltypes.QueryParamsRequest{})
+	params, err := suite.Fury.Evmutil.Params(context.Background(), &evmutiltypes.QueryParamsRequest{})
 	suite.NoError(err)
 	suite.GreaterOrEqual(
 		len(params.Params.AllowedCosmosDenoms), 1,
-		"nemo chain expected to have at least one AllowedCosmosDenom for ERC20 conversion",
+		"fury chain expected to have at least one AllowedCosmosDenom for ERC20 conversion",
 	)
 
 	tokenInfo := params.Params.AllowedCosmosDenoms[0]
 	denom = tokenInfo.CosmosDenom
 	initialFunds = sdk.NewCoins(
-		sdk.NewInt64Coin(suite.Nemo.StakingDenom, 1e5),                 // gas money
+		sdk.NewInt64Coin(suite.Fury.StakingDenom, 1e5),                 // gas money
 		sdk.NewInt64Coin(denom, initialCosmosCoinConversionDenomFunds), // conversion-enabled cosmos coin
 	)
 
-	user = suite.Nemo.NewFundedAccount(accountName, initialFunds)
+	user = suite.Fury.NewFundedAccount(accountName, initialFunds)
 
 	return denom, initialFunds, user
 }
@@ -60,20 +60,20 @@ func (suite *IntegrationTestSuite) setupAccountWithCosmosCoinERC20Balance(
 		user.EvmAddress.Hex(),
 		convertAmount,
 	)
-	tx := util.NemoMsgRequest{
+	tx := util.FuryMsgRequest{
 		Msgs:      []sdk.Msg{&msg},
 		GasLimit:  4e5,
 		FeeAmount: sdk.NewCoins(ufury(400)),
 		Data:      "converting sdk coin to erc20",
 	}
-	res := user.SignAndBroadcastNemoTx(tx)
+	res := user.SignAndBroadcastFuryTx(tx)
 	suite.NoError(res.Err)
 
 	// adjust sdk balance
 	sdkBalance = sdkBalance.Sub(convertAmount)
 
 	// query for the deployed contract
-	deployedContracts, err := suite.Nemo.Evmutil.DeployedCosmosCoinContracts(
+	deployedContracts, err := suite.Fury.Evmutil.DeployedCosmosCoinContracts(
 		context.Background(),
 		&evmutiltypes.QueryDeployedCosmosCoinContractsRequest{CosmosDenoms: []string{denom}},
 	)
@@ -89,7 +89,7 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoinsToFromERC20() {
 	denom, initialFunds, user := setupConvertToCoinTest(suite, "cosmo-coin-converter")
 
 	convertAmount := int64(5e3)
-	initialModuleBalance := suite.Nemo.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
+	initialModuleBalance := suite.Fury.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
 
 	///////////////////////////////
 	// CONVERT COSMOS COIN -> ERC20
@@ -99,17 +99,17 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoinsToFromERC20() {
 		user.EvmAddress.Hex(),
 		sdk.NewInt64Coin(denom, convertAmount),
 	)
-	tx := util.NemoMsgRequest{
+	tx := util.FuryMsgRequest{
 		Msgs:      []sdk.Msg{&convertToErc20Msg},
 		GasLimit:  2e6,
 		FeeAmount: sdk.NewCoins(ufury(2000)),
 		Data:      "converting sdk coin to erc20",
 	}
-	res := user.SignAndBroadcastNemoTx(tx)
+	res := user.SignAndBroadcastFuryTx(tx)
 	suite.NoError(res.Err)
 
 	// query for the deployed contract
-	deployedContracts, err := suite.Nemo.Evmutil.DeployedCosmosCoinContracts(
+	deployedContracts, err := suite.Fury.Evmutil.DeployedCosmosCoinContracts(
 		context.Background(),
 		&evmutiltypes.QueryDeployedCosmosCoinContractsRequest{CosmosDenoms: []string{denom}},
 	)
@@ -119,17 +119,17 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoinsToFromERC20() {
 	contractAddress := deployedContracts.DeployedCosmosCoinContracts[0].Address
 
 	// check erc20 balance
-	erc20Balance := suite.Nemo.GetErc20Balance(contractAddress.Address, user.EvmAddress)
+	erc20Balance := suite.Fury.GetErc20Balance(contractAddress.Address, user.EvmAddress)
 	suite.BigIntsEqual(big.NewInt(convertAmount), erc20Balance, "unexpected erc20 balance post-convert")
 
 	// check cosmos coin is deducted from account
 	expectedFunds := initialFunds.AmountOf(denom).SubRaw(convertAmount)
-	balance := suite.Nemo.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
+	balance := suite.Fury.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
 	suite.Equal(expectedFunds, balance)
 
 	// check that module account has sdk coins
 	expectedModuleBalance := initialModuleBalance.AddRaw(convertAmount)
-	actualModuleBalance := suite.Nemo.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
+	actualModuleBalance := suite.Fury.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
 	suite.Equal(expectedModuleBalance, actualModuleBalance)
 
 	///////////////////////////////
@@ -141,26 +141,26 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoinsToFromERC20() {
 		sdk.NewInt64Coin(denom, convertAmount),
 	)
 
-	tx = util.NemoMsgRequest{
+	tx = util.FuryMsgRequest{
 		Msgs:      []sdk.Msg{&convertFromErc20Msg},
 		GasLimit:  2e5,
 		FeeAmount: sdk.NewCoins(ufury(200)),
 		Data:      "converting erc20 to cosmos coin",
 	}
-	res = user.SignAndBroadcastNemoTx(tx)
+	res = user.SignAndBroadcastFuryTx(tx)
 	suite.NoError(res.Err)
 
 	// check erc20 balance
-	erc20Balance = suite.Nemo.GetErc20Balance(contractAddress.Address, user.EvmAddress)
+	erc20Balance = suite.Fury.GetErc20Balance(contractAddress.Address, user.EvmAddress)
 	suite.BigIntsEqual(big.NewInt(0), erc20Balance, "expected all erc20 to be converted back")
 
 	// check cosmos coin is added back to account
 	expectedFunds = initialFunds.AmountOf(denom)
-	balance = suite.Nemo.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
+	balance = suite.Fury.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
 	suite.Equal(expectedFunds, balance)
 
 	// check that module account has sdk coins deducted
-	actualModuleBalance = suite.Nemo.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
+	actualModuleBalance = suite.Fury.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
 	suite.Equal(initialModuleBalance, actualModuleBalance)
 }
 
@@ -169,7 +169,7 @@ func (suite *IntegrationTestSuite) TestEIP712ConvertCosmosCoinsToFromERC20() {
 	denom, initialFunds, user := setupConvertToCoinTest(suite, "cosmo-coin-converter-eip712")
 
 	convertAmount := int64(5e3)
-	initialModuleBalance := suite.Nemo.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
+	initialModuleBalance := suite.Fury.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
 
 	///////////////////////////////
 	// CONVERT COSMOS COIN -> ERC20
@@ -181,28 +181,28 @@ func (suite *IntegrationTestSuite) TestEIP712ConvertCosmosCoinsToFromERC20() {
 	)
 	tx := suite.NewEip712TxBuilder(
 		user,
-		suite.Nemo,
+		suite.Fury,
 		2e6,
 		sdk.NewCoins(ufury(1e4)),
 		[]sdk.Msg{&convertToErc20Msg},
 		"this is a memo",
 	).GetTx()
-	txBytes, err := suite.Nemo.EncodingConfig.TxConfig.TxEncoder()(tx)
+	txBytes, err := suite.Fury.EncodingConfig.TxConfig.TxEncoder()(tx)
 	suite.NoError(err)
 
 	// submit the eip712 message to the chain.
-	res, err := suite.Nemo.Tx.BroadcastTx(context.Background(), &txtypes.BroadcastTxRequest{
+	res, err := suite.Fury.Tx.BroadcastTx(context.Background(), &txtypes.BroadcastTxRequest{
 		TxBytes: txBytes,
 		Mode:    txtypes.BroadcastMode_BROADCAST_MODE_SYNC,
 	})
 	suite.NoError(err)
 	suite.Equal(sdkerrors.SuccessABCICode, res.TxResponse.Code)
 
-	_, err = util.WaitForSdkTxCommit(suite.Nemo.Tx, res.TxResponse.TxHash, 6*time.Second)
+	_, err = util.WaitForSdkTxCommit(suite.Fury.Tx, res.TxResponse.TxHash, 6*time.Second)
 	suite.NoError(err)
 
 	// query for the deployed contract
-	deployedContracts, err := suite.Nemo.Evmutil.DeployedCosmosCoinContracts(
+	deployedContracts, err := suite.Fury.Evmutil.DeployedCosmosCoinContracts(
 		context.Background(),
 		&evmutiltypes.QueryDeployedCosmosCoinContractsRequest{CosmosDenoms: []string{denom}},
 	)
@@ -212,17 +212,17 @@ func (suite *IntegrationTestSuite) TestEIP712ConvertCosmosCoinsToFromERC20() {
 	contractAddress := deployedContracts.DeployedCosmosCoinContracts[0].Address
 
 	// check erc20 balance
-	erc20Balance := suite.Nemo.GetErc20Balance(contractAddress.Address, user.EvmAddress)
+	erc20Balance := suite.Fury.GetErc20Balance(contractAddress.Address, user.EvmAddress)
 	suite.BigIntsEqual(big.NewInt(convertAmount), erc20Balance, "unexpected erc20 balance post-convert")
 
 	// check cosmos coin is deducted from account
 	expectedFunds := initialFunds.AmountOf(denom).SubRaw(convertAmount)
-	balance := suite.Nemo.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
+	balance := suite.Fury.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
 	suite.Equal(expectedFunds, balance)
 
 	// check that module account has sdk coins
 	expectedModuleBalance := initialModuleBalance.AddRaw(convertAmount)
-	actualModuleBalance := suite.Nemo.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
+	actualModuleBalance := suite.Fury.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
 	suite.Equal(expectedModuleBalance, actualModuleBalance)
 
 	///////////////////////////////
@@ -235,37 +235,37 @@ func (suite *IntegrationTestSuite) TestEIP712ConvertCosmosCoinsToFromERC20() {
 	)
 	tx = suite.NewEip712TxBuilder(
 		user,
-		suite.Nemo,
+		suite.Fury,
 		2e5,
 		sdk.NewCoins(ufury(200)),
 		[]sdk.Msg{&convertFromErc20Msg},
 		"",
 	).GetTx()
-	txBytes, err = suite.Nemo.EncodingConfig.TxConfig.TxEncoder()(tx)
+	txBytes, err = suite.Fury.EncodingConfig.TxConfig.TxEncoder()(tx)
 	suite.NoError(err)
 
 	// submit the eip712 message to the chain
-	res, err = suite.Nemo.Tx.BroadcastTx(context.Background(), &txtypes.BroadcastTxRequest{
+	res, err = suite.Fury.Tx.BroadcastTx(context.Background(), &txtypes.BroadcastTxRequest{
 		TxBytes: txBytes,
 		Mode:    txtypes.BroadcastMode_BROADCAST_MODE_SYNC,
 	})
 	suite.NoError(err)
 	suite.Equal(sdkerrors.SuccessABCICode, res.TxResponse.Code)
 
-	_, err = util.WaitForSdkTxCommit(suite.Nemo.Tx, res.TxResponse.TxHash, 6*time.Second)
+	_, err = util.WaitForSdkTxCommit(suite.Fury.Tx, res.TxResponse.TxHash, 6*time.Second)
 	suite.NoError(err)
 
 	// check erc20 balance
-	erc20Balance = suite.Nemo.GetErc20Balance(contractAddress.Address, user.EvmAddress)
+	erc20Balance = suite.Fury.GetErc20Balance(contractAddress.Address, user.EvmAddress)
 	suite.BigIntsEqual(big.NewInt(0), erc20Balance, "expected all erc20 to be converted back")
 
 	// check cosmos coin is added back to account
 	expectedFunds = initialFunds.AmountOf(denom)
-	balance = suite.Nemo.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
+	balance = suite.Fury.QuerySdkForBalances(user.SdkAddress).AmountOf(denom)
 	suite.Equal(expectedFunds, balance)
 
 	// check that module account has sdk coins deducted
-	actualModuleBalance = suite.Nemo.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
+	actualModuleBalance = suite.Fury.GetModuleBalances(evmutiltypes.ModuleName).AmountOf(denom)
 	suite.Equal(initialModuleBalance, actualModuleBalance)
 }
 
@@ -332,7 +332,7 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoins_ERC20Magic() {
 	)
 
 	gasMoney := sdk.NewCoins(ufury(1e5))
-	bob := suite.Nemo.NewFundedAccount("cosmo-coin-converter-complex-bob", gasMoney)
+	bob := suite.Fury.NewFundedAccount("cosmo-coin-converter-complex-bob", gasMoney)
 	amount := big.NewInt(1e3) // test assumes this is half of alice's balance.
 
 	// bob can't move alice's funds
@@ -397,10 +397,10 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoins_ERC20Magic() {
 	suite.NoError(res.Err)
 
 	// alice should have amount deducted
-	erc20Balance := suite.Nemo.GetErc20Balance(contractAddress.Address, alice.EvmAddress)
+	erc20Balance := suite.Fury.GetErc20Balance(contractAddress.Address, alice.EvmAddress)
 	suite.BigIntsEqual(big.NewInt(initialAliceAmount-amount.Int64()), erc20Balance, "alice has unexpected erc20 balance")
 	// bob should have amount added
-	erc20Balance = suite.Nemo.GetErc20Balance(contractAddress.Address, bob.EvmAddress)
+	erc20Balance = suite.Fury.GetErc20Balance(contractAddress.Address, bob.EvmAddress)
 	suite.BigIntsEqual(amount, erc20Balance, "bob has unexpected erc20 balance")
 
 	// convert bob's new funds back to an sdk.Coin
@@ -409,24 +409,24 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoins_ERC20Magic() {
 		bob.SdkAddress.String(),
 		sdk.NewInt64Coin(denom, amount.Int64()),
 	)
-	convertTx := util.NemoMsgRequest{
+	convertTx := util.FuryMsgRequest{
 		Msgs:      []sdk.Msg{&convertMsg},
 		GasLimit:  2e5,
 		FeeAmount: sdk.NewCoins(ufury(200)),
 		Data:      "bob converts his new erc20 to an sdk.Coin",
 	}
-	convertRes := bob.SignAndBroadcastNemoTx(convertTx)
+	convertRes := bob.SignAndBroadcastFuryTx(convertTx)
 	suite.NoError(convertRes.Err)
 
 	// bob should have no more erc20 balance
-	erc20Balance = suite.Nemo.GetErc20Balance(contractAddress.Address, bob.EvmAddress)
+	erc20Balance = suite.Fury.GetErc20Balance(contractAddress.Address, bob.EvmAddress)
 	suite.BigIntsEqual(big.NewInt(0), erc20Balance, "expected no erc20 balance for bob")
 	// bob should have sdk balance
-	balance := suite.Nemo.QuerySdkForBalances(bob.SdkAddress).AmountOf(denom)
+	balance := suite.Fury.QuerySdkForBalances(bob.SdkAddress).AmountOf(denom)
 	suite.Equal(sdk.NewIntFromBigInt(amount), balance)
 
 	// alice should have the remaining balance
-	erc20Balance = suite.Nemo.GetErc20Balance(contractAddress.Address, alice.EvmAddress)
+	erc20Balance = suite.Fury.GetErc20Balance(contractAddress.Address, alice.EvmAddress)
 	suite.BigIntsEqual(amount, erc20Balance, "expected alice to have half initial funds remaining")
 
 	// convert alice's remaining balance back to sdk coins
@@ -435,6 +435,6 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoins_ERC20Magic() {
 		alice.SdkAddress.String(),
 		sdk.NewInt64Coin(denom, amount.Int64()),
 	)
-	convertRes = alice.SignAndBroadcastNemoTx(convertTx)
+	convertRes = alice.SignAndBroadcastFuryTx(convertTx)
 	suite.NoError(convertRes.Err)
 }

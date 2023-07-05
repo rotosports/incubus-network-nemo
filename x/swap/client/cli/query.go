@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	"github.com/incubus-network/nemo/x/swap/types"
+	"github.com/incubus-network/fury/x/swap/types"
 )
 
 // flags for cli queries

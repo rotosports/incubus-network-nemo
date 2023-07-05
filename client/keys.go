@@ -55,7 +55,7 @@ The pass backend requires GnuPG: https://gnupg.org/
 	addCmd.RunE = runAddCmd
 
 	cmd.AddCommand(
-		keys.MnemonicKeyCommand(),
+		keys.MfurynicKeyCommand(),
 		addCmd,
 		keys.ExportKeyCommand(),
 		keys.ImportKeyCommand(),

@@ -6,10 +6,10 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/app"
-	auctiontypes "github.com/incubus-network/nemo/x/auction/types"
-	"github.com/incubus-network/nemo/x/cdp/keeper"
-	"github.com/incubus-network/nemo/x/cdp/types"
+	"github.com/incubus-network/fury/app"
+	auctiontypes "github.com/incubus-network/fury/x/auction/types"
+	"github.com/incubus-network/fury/x/cdp/keeper"
+	"github.com/incubus-network/fury/x/cdp/types"
 
 	"github.com/stretchr/testify/suite"
 
@@ -31,7 +31,7 @@ func (suite *AuctionTestSuite) SetupTest() {
 	config := sdk.GetConfig()
 	app.SetBech32AddressPrefixes(config)
 	tApp := app.NewTestApp()
-	taddr := sdk.AccAddress(crypto.AddressHash([]byte("NemoTestUser1")))
+	taddr := sdk.AccAddress(crypto.AddressHash([]byte("FuryTestUser1")))
 	ctx := tApp.NewContext(true, tmproto.Header{Height: 1, Time: tmtime.Now()})
 	authGS := app.NewFundedGenStateWithSameCoins(tApp.AppCodec(), cs(c("usdx", 21000000000)), []sdk.AccAddress{taddr})
 	tApp.InitializeFromGenesisStates(

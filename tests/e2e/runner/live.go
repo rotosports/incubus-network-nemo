@@ -11,9 +11,9 @@ import (
 // LiveNodeRunnerConfig implements NodeRunner.
 // It connects to a running network via the RPC, GRPC, and EVM urls.
 type LiveNodeRunnerConfig struct {
-	NemoRpcUrl    string
-	NemoGrpcUrl   string
-	NemoEvmRpcUrl string
+	FuryRpcUrl    string
+	FuryGrpcUrl   string
+	FuryEvmRpcUrl string
 }
 
 // LiveNodeRunner implements NodeRunner for an already-running chain.
@@ -33,42 +33,42 @@ func NewLiveNodeRunner(config LiveNodeRunnerConfig) *LiveNodeRunner {
 // It initializes connections to the chain based on parameters.
 // It attempts to ping the necessary endpoints and panics if they cannot be reached.
 func (r LiveNodeRunner) StartChains() Chains {
-	fmt.Println("establishing connection to live nemo network")
+	fmt.Println("establishing connection to live fury network")
 	chains := NewChains()
 
-	nemoChain := ChainDetails{
-		RpcUrl:    r.config.NemoRpcUrl,
-		GrpcUrl:   r.config.NemoGrpcUrl,
-		EvmRpcUrl: r.config.NemoEvmRpcUrl,
+	furyChain := ChainDetails{
+		RpcUrl:    r.config.FuryRpcUrl,
+		GrpcUrl:   r.config.FuryGrpcUrl,
+		EvmRpcUrl: r.config.FuryEvmRpcUrl,
 	}
 
-	if err := waitForChainStart(nemoChain); err != nil {
+	if err := waitForChainStart(furyChain); err != nil {
 		panic(fmt.Sprintf("failed to ping chain: %s", err))
 	}
 
 	// determine chain id
-	grpc, err := nemoChain.GrpcConn()
+	grpc, err := furyChain.GrpcConn()
 	if err != nil {
-		panic(fmt.Sprintf("failed to establish grpc conn to %s: %s", r.config.NemoGrpcUrl, err))
+		panic(fmt.Sprintf("failed to establish grpc conn to %s: %s", r.config.FuryGrpcUrl, err))
 	}
 	tm := tmservice.NewServiceClient(grpc)
 	nodeInfo, err := tm.GetNodeInfo(context.Background(), &tmservice.GetNodeInfoRequest{})
 	if err != nil {
-		panic(fmt.Sprintf("failed to fetch nemo node info: %s", err))
+		panic(fmt.Sprintf("failed to fetch fury node info: %s", err))
 	}
-	nemoChain.ChainId = nodeInfo.DefaultNodeInfo.Network
+	furyChain.ChainId = nodeInfo.DefaultNodeInfo.Network
 
 	// determine staking denom
 	staking := stakingtypes.NewQueryClient(grpc)
 	stakingParams, err := staking.Params(context.Background(), &stakingtypes.QueryParamsRequest{})
 	if err != nil {
-		panic(fmt.Sprintf("failed to fetch nemo staking params: %s", err))
+		panic(fmt.Sprintf("failed to fetch fury staking params: %s", err))
 	}
-	nemoChain.StakingDenom = stakingParams.Params.BondDenom
+	furyChain.StakingDenom = stakingParams.Params.BondDenom
 
-	chains.Register("nemo", &nemoChain)
+	chains.Register("fury", &furyChain)
 
-	fmt.Printf("successfully connected to live network %+v\n", nemoChain)
+	fmt.Printf("successfully connected to live network %+v\n", furyChain)
 
 	return chains
 }

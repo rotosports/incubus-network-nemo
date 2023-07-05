@@ -18,8 +18,8 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/liquid/keeper"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/liquid/keeper"
 )
 
 // Test suite used for all keeper tests

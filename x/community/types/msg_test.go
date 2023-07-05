@@ -7,8 +7,8 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/community/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/community/types"
 )
 
 func TestFundCommunityPool_ValidateBasic(t *testing.T) {

@@ -23,9 +23,9 @@ var (
 
 func init() {
 	govv1beta1.RegisterProposalType(ProposalTypeCommunityPoolDeposit)
-	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolDepositProposal{}, "nemo/CommunityPoolDepositProposal", nil)
+	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolDepositProposal{}, "fury/CommunityPoolDepositProposal", nil)
 	govv1beta1.RegisterProposalType(ProposalTypeCommunityPoolWithdraw)
-	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolWithdrawProposal{}, "nemo/CommunityPoolWithdrawProposal", nil)
+	govv1beta1.ModuleCdc.Amino.RegisterConcrete(&CommunityPoolWithdrawProposal{}, "fury/CommunityPoolWithdrawProposal", nil)
 }
 
 // NewCommunityPoolDepositProposal creates a new community pool deposit proposal.

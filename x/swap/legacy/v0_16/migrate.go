@@ -1,8 +1,8 @@
 package v0_16
 
 import (
-	v015swap "github.com/incubus-network/nemo/x/swap/legacy/v0_15"
-	v016swap "github.com/incubus-network/nemo/x/swap/types"
+	v015swap "github.com/incubus-network/fury/x/swap/legacy/v0_15"
+	v016swap "github.com/incubus-network/fury/x/swap/types"
 )
 
 func migrateParams(params v015swap.Params) v016swap.Params {

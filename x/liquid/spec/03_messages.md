@@ -68,7 +68,7 @@ type MsgBurnDerivative struct {
 {
   // user who owns the bfury
   "sender": "fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr",
-  // the amount of bfury the user wants to convert back into normal staked nemo
+  // the amount of bfury the user wants to convert back into normal staked fury
   "amount": {
     "amount": "1234000000",
     "denom": "bfury-furyvaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42"

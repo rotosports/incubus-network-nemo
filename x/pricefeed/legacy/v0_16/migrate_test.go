@@ -8,9 +8,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	app "github.com/incubus-network/nemo/app"
-	v015pricefeed "github.com/incubus-network/nemo/x/pricefeed/legacy/v0_15"
-	v016pricefeed "github.com/incubus-network/nemo/x/pricefeed/types"
+	app "github.com/incubus-network/fury/app"
+	v015pricefeed "github.com/incubus-network/fury/x/pricefeed/legacy/v0_15"
+	v016pricefeed "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 type migrateTestSuite struct {
@@ -222,7 +222,7 @@ func (s *migrateTestSuite) TestMigrate_Params() {
 		Markets: v015pricefeed.Markets{
 			{
 				MarketID:   "market-1",
-				BaseAsset:  "nemo",
+				BaseAsset:  "fury",
 				QuoteAsset: "usd",
 				Oracles:    s.addresses,
 				Active:     true,
@@ -233,7 +233,7 @@ func (s *migrateTestSuite) TestMigrate_Params() {
 		Markets: v016pricefeed.Markets{
 			{
 				MarketID:   "market-1",
-				BaseAsset:  "nemo",
+				BaseAsset:  "fury",
 				QuoteAsset: "usd",
 				Oracles:    s.addresses,
 				Active:     true,

@@ -16,9 +16,9 @@ import (
 	"github.com/tendermint/tendermint/crypto"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/issuance/keeper"
-	"github.com/incubus-network/nemo/x/issuance/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/issuance/keeper"
+	"github.com/incubus-network/fury/x/issuance/types"
 )
 
 // Test suite used for all keeper tests

@@ -13,7 +13,7 @@ import (
 	"github.com/spf13/cobra"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 // Query atomic swaps flags

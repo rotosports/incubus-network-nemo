@@ -22,14 +22,14 @@ import (
 
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/incubus-network/nemo/app"
-	nemoparams "github.com/incubus-network/nemo/app/params"
-	"github.com/incubus-network/nemo/tests/e2e/runner"
-	"github.com/incubus-network/nemo/tests/util"
-	committeetypes "github.com/incubus-network/nemo/x/committee/types"
-	communitytypes "github.com/incubus-network/nemo/x/community/types"
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	evmutiltypes "github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	furyparams "github.com/incubus-network/fury/app/params"
+	"github.com/incubus-network/fury/tests/e2e/runner"
+	"github.com/incubus-network/fury/tests/util"
+	committeetypes "github.com/incubus-network/fury/x/committee/types"
+	communitytypes "github.com/incubus-network/fury/x/community/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
 )
 
 // Chain wraps query clients & accounts for a network
@@ -44,7 +44,7 @@ type Chain struct {
 	ContractAddrs map[string]common.Address
 	erc20s        map[common.Address]struct{}
 
-	EncodingConfig nemoparams.EncodingConfig
+	EncodingConfig furyparams.EncodingConfig
 
 	Auth      authtypes.QueryClient
 	Bank      banktypes.QueryClient
@@ -59,9 +59,9 @@ type Chain struct {
 }
 
 // NewChain creates the query clients & signing account management for a chain run on a set of ports.
-// A signing client for the fundedAccountMnemonic is initialized. This account is referred to in the
+// A signing client for the fundedAccountMfurynic is initialized. This account is referred to in the
 // code as "whale" and it is used to supply funds to all new accounts.
-func NewChain(t *testing.T, details *runner.ChainDetails, fundedAccountMnemonic string) (*Chain, error) {
+func NewChain(t *testing.T, details *runner.ChainDetails, fundedAccountMfurynic string) (*Chain, error) {
 	chain := &Chain{
 		t:             t,
 		StakingDenom:  details.StakingDenom,
@@ -99,14 +99,14 @@ func NewChain(t *testing.T, details *runner.ChainDetails, fundedAccountMnemonic 
 		FundedAccountName,
 		hd.CreateHDPath(Bip44CoinType, 0, 0),
 		chain.ChainId,
-		fundedAccountMnemonic,
+		fundedAccountMfurynic,
 	)
 
 	// check that funded account is actually funded.
 	fmt.Printf("[%s] account used for funding (%s) address: %s\n", chain.ChainId, FundedAccountName, whale.SdkAddress)
 	whaleFunds := chain.QuerySdkForBalances(whale.SdkAddress)
 	if whaleFunds.IsZero() {
-		chain.t.Fatal("funded account mnemonic is for account with no funds")
+		chain.t.Fatal("funded account mfurynic is for account with no funds")
 	}
 
 	return chain, nil

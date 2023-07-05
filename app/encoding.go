@@ -3,7 +3,7 @@ package app
 import (
 	enccodec "github.com/evmos/ethermint/encoding/codec"
 
-	"github.com/incubus-network/nemo/app/params"
+	"github.com/incubus-network/fury/app/params"
 )
 
 // MakeEncodingConfig creates an EncodingConfig and registers the app's types on it.

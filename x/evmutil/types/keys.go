@@ -21,7 +21,7 @@ const (
 var (
 	// AccountStoreKeyPrefix is the prefix for keys that store accounts
 	AccountStoreKeyPrefix = []byte{0x00}
-	// DeployedCosmosCoinContractKeyPrefix is the key for storing deployed NemoWrappedCosmosCoinERC20s contract addresses
+	// DeployedCosmosCoinContractKeyPrefix is the key for storing deployed FuryWrappedCosmosCoinERC20s contract addresses
 	DeployedCosmosCoinContractKeyPrefix = []byte{0x01}
 )
 

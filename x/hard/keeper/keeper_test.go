@@ -14,10 +14,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	auctionkeeper "github.com/incubus-network/nemo/x/auction/keeper"
-	"github.com/incubus-network/nemo/x/hard/keeper"
-	"github.com/incubus-network/nemo/x/hard/types"
+	"github.com/incubus-network/fury/app"
+	auctionkeeper "github.com/incubus-network/fury/x/auction/keeper"
+	"github.com/incubus-network/fury/x/hard/keeper"
+	"github.com/incubus-network/fury/x/hard/types"
 )
 
 // Test suite used for all keeper tests

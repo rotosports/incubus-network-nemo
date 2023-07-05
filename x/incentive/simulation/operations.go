@@ -9,9 +9,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	appparams "github.com/incubus-network/nemo/app/params"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	appparams "github.com/incubus-network/fury/app/params"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // Simulation operation weights constants

@@ -18,10 +18,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	auctiontypes "github.com/incubus-network/nemo/x/auction/types"
-	"github.com/incubus-network/nemo/x/cdp/keeper"
-	"github.com/incubus-network/nemo/x/cdp/types"
+	"github.com/incubus-network/fury/app"
+	auctiontypes "github.com/incubus-network/fury/x/auction/types"
+	"github.com/incubus-network/fury/x/cdp/keeper"
+	"github.com/incubus-network/fury/x/cdp/types"
 )
 
 type SeizeTestSuite struct {
@@ -43,7 +43,7 @@ type liquidationTracker struct {
 
 func (suite *SeizeTestSuite) SetupTest() {
 	tApp := app.NewTestApp()
-	ctx := tApp.NewContext(true, tmproto.Header{Height: 1, Time: tmtime.Now(), ChainID: "nemotest_1-1"})
+	ctx := tApp.NewContext(true, tmproto.Header{Height: 1, Time: tmtime.Now(), ChainID: "furytest_1-1"})
 	tracker := liquidationTracker{}
 	coins := cs(c("btc", 100000000), c("xrp", 10000000000))
 	_, addrs := app.GeneratePrivKeyAddressPairs(100)

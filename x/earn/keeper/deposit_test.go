@@ -7,9 +7,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/earn/testutil"
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/earn/testutil"
+	"github.com/incubus-network/fury/x/earn/types"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -168,9 +168,9 @@ func (suite *depositTestSuite) TestDeposit_PrivateVault() {
 	suite.Require().NoError(err, "private vault should allow deposits from allowed addresses")
 }
 
-func (suite *depositTestSuite) TestDeposit_bNemo() {
+func (suite *depositTestSuite) TestDeposit_bFury() {
 	vaultDenom := "bfury"
-	coinDenom := testutil.TestBnemoDenoms[0]
+	coinDenom := testutil.TestBfuryDenoms[0]
 
 	startBalance := sdk.NewInt64Coin(coinDenom, 1000)
 	depositAmount := sdk.NewInt64Coin(coinDenom, 100)

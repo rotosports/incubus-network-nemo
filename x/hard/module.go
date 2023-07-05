@@ -15,9 +15,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/nemo/x/hard/client/cli"
-	"github.com/incubus-network/nemo/x/hard/keeper"
-	"github.com/incubus-network/nemo/x/hard/types"
+	"github.com/incubus-network/fury/x/hard/client/cli"
+	"github.com/incubus-network/fury/x/hard/keeper"
+	"github.com/incubus-network/fury/x/hard/types"
 )
 
 var (

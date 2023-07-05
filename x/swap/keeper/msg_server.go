@@ -6,7 +6,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/swap/types"
+	"github.com/incubus-network/fury/x/swap/types"
 )
 
 type msgServer struct {

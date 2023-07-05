@@ -21,9 +21,9 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	tmdb "github.com/tendermint/tm-db"
 
-	"github.com/incubus-network/nemo/app"
-	bep3types "github.com/incubus-network/nemo/x/bep3/types"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/app"
+	bep3types "github.com/incubus-network/fury/x/bep3/types"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 func TestMain(m *testing.M) {
@@ -59,7 +59,7 @@ func TestAppAnteHandler_AuthorizedMempool(t *testing.T) {
 		),
 	}
 
-	chainID := "nemotest_1-1"
+	chainID := "furytest_1-1"
 	tApp = tApp.InitializeFromGenesisStatesWithTimeAndChainID(
 		time.Date(1998, 1, 1, 0, 0, 0, 0, time.UTC),
 		chainID,
@@ -209,7 +209,7 @@ func TestAppAnteHandler_RejectMsgsInAuthz(t *testing.T) {
 		return msg
 	}
 
-	chainID := "nemotest_1-1"
+	chainID := "furytest_1-1"
 	encodingConfig := app.MakeEncodingConfig()
 
 	testcases := []struct {

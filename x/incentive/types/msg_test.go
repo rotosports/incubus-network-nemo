@@ -10,11 +10,11 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/incubus-network/nemo/x/incentive/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 func TestMsgClaim_Validate(t *testing.T) {
-	validAddress := sdk.AccAddress(crypto.AddressHash([]byte("NemoTest1"))).String()
+	validAddress := sdk.AccAddress(crypto.AddressHash([]byte("FuryTest1"))).String()
 
 	type expectedErr struct {
 		wraps error
@@ -160,7 +160,7 @@ func TestMsgClaim_Validate(t *testing.T) {
 }
 
 func TestMsgClaimUSDXMintingReward_Validate(t *testing.T) {
-	validAddress := sdk.AccAddress(crypto.AddressHash([]byte("NemoTest1"))).String()
+	validAddress := sdk.AccAddress(crypto.AddressHash([]byte("FuryTest1"))).String()
 
 	type expectedErr struct {
 		wraps error

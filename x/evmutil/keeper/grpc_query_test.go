@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/evmutil/keeper"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/evmutil/keeper"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type grpcQueryTestSuite struct {

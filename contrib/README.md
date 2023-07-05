@@ -1,16 +1,16 @@
 # Contrib
 
-Resources and examples for running and interacting with the nemo blockchain. `contrib` contains sample genesis files, example governance proposals, and rest-server request examples for different versions of nemo.
+Resources and examples for running and interacting with the fury blockchain. `contrib` contains sample genesis files, example governance proposals, and rest-server request examples for different versions of fury.
 
 ## testnet-4000
 
-nemo-testnet-4000 introduces the cdp and auction modules, allowing users to create CDPs and mint usdx as well as participate in auctions.
+fury-testnet-4000 introduces the cdp and auction modules, allowing users to create CDPs and mint usdx as well as participate in auctions.
 
 Configuration and rest-server interaction files are available in the [testnet-4000](./testnet-4000/README.md) directory.
 
 ## testnet-5000
 
-nemo-testnet-5000 introduces the bep3 modules, allowing users to transfer BNB between the bnbchain testnet and nemo.
+fury-testnet-5000 introduces the bep3 modules, allowing users to transfer BNB between the bnbchain testnet and fury.
 
 Configuration and rest-server interaction files are available in the [testnet-5000](./testnet-5000/README.md) directory.
 

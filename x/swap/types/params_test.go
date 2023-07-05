@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/incubus-network/nemo/x/swap/types"
+	"github.com/incubus-network/fury/x/swap/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
@@ -264,8 +264,8 @@ func TestAllowedPool_Validation(t *testing.T) {
 		},
 		{
 			name:        "invalid token order due to capitalization",
-			allowedPool: types.NewAllowedPool("ufury", "UNEMO"),
-			expectedErr: "invalid token order: 'UNEMO' must come before 'ufury'",
+			allowedPool: types.NewAllowedPool("ufury", "UFURY"),
+			expectedErr: "invalid token order: 'UFURY' must come before 'ufury'",
 		},
 		{
 			name:        "invalid token a with colon",
@@ -274,8 +274,8 @@ func TestAllowedPool_Validation(t *testing.T) {
 		},
 		{
 			name:        "invalid token b with colon",
-			allowedPool: types.NewAllowedPool("ufury", "u:nemo"),
-			expectedErr: "tokenB cannot have colons in the denom: u:nemo",
+			allowedPool: types.NewAllowedPool("ufury", "u:fury"),
+			expectedErr: "tokenB cannot have colons in the denom: u:fury",
 		},
 	}
 
@@ -288,7 +288,7 @@ func TestAllowedPool_Validation(t *testing.T) {
 }
 
 func TestAllowedPool_TokenMatch_CaseSensitive(t *testing.T) {
-	allowedPool := types.NewAllowedPool("UNEMO", "ufury")
+	allowedPool := types.NewAllowedPool("UFURY", "ufury")
 	err := allowedPool.Validate()
 	assert.NoError(t, err)
 

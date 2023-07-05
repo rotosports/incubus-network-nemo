@@ -6,8 +6,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/earn/testutil"
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/x/earn/testutil"
+	"github.com/incubus-network/fury/x/earn/types"
 	"github.com/stretchr/testify/suite"
 )
 
@@ -243,9 +243,9 @@ func (suite *withdrawTestSuite) TestWithdraw_Partial() {
 	)
 }
 
-func (suite *withdrawTestSuite) TestWithdraw_bNemo() {
+func (suite *withdrawTestSuite) TestWithdraw_bFury() {
 	vaultDenom := "bfury"
-	coinDenom := testutil.TestBnemoDenoms[0]
+	coinDenom := testutil.TestBfuryDenoms[0]
 
 	startBalance := sdk.NewInt64Coin(coinDenom, 1000)
 	depositAmount := sdk.NewInt64Coin(coinDenom, 100)

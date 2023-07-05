@@ -9,15 +9,15 @@ import (
 
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 const (
 	TestSenderOtherChain    = "bnb1uky3me9ggqypmrsvxk7ur6hqkzq7zmv4ed4ng7"
 	TestRecipientOtherChain = "bnb1urfermcg92dwq36572cx4xg84wpk3lfpksr5g7"
 	TestDeputy              = "fury1xy7hrjy9r0algz9w3gzm8u6mrpq97kwt3qgvd6"
-	TestUser                = "fury1vry5lhegzlulehuutcr7nmdlmktw88awd3qrqf"
+	TestUser                = "fury1vry5lhegzlulehuutcr7fudlmktw88awd3qrqf"
 )
 
 var (

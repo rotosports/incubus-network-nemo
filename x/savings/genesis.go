@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/savings/keeper"
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/x/savings/keeper"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 // InitGenesis initializes genesis state

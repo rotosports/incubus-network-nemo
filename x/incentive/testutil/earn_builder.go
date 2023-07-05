@@ -2,9 +2,9 @@ package testutil
 
 import (
 	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/incubus-network/nemo/app"
+	"github.com/incubus-network/fury/app"
 
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
 )
 
 // EarnGenesisBuilder is a tool for creating a earn genesis state.

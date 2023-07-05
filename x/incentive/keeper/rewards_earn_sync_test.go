@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // SynchronizeEarnRewardTests runs unit tests for the keeper.SynchronizeEarnReward method

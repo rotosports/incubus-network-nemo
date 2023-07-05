@@ -11,8 +11,8 @@ import (
 	"github.com/tendermint/tendermint/crypto"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 const (
@@ -23,8 +23,8 @@ const (
 
 var (
 	DenomMap  = map[int]string{0: "btc", 1: "eth", 2: "bnb", 3: "xrp", 4: "dai"}
-	TestUser1 = sdk.AccAddress(crypto.AddressHash([]byte("NemoTestUser1")))
-	TestUser2 = sdk.AccAddress(crypto.AddressHash([]byte("NemoTestUser2")))
+	TestUser1 = sdk.AccAddress(crypto.AddressHash([]byte("FuryTestUser1")))
+	TestUser2 = sdk.AccAddress(crypto.AddressHash([]byte("FuryTestUser2")))
 )
 
 func c(denom string, amount int64) sdk.Coin { return sdk.NewInt64Coin(denom, amount) }

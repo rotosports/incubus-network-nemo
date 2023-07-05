@@ -16,7 +16,7 @@ import (
 
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 // GetTxCmd returns the transaction commands for this module
@@ -58,7 +58,7 @@ func GetCmdCreateAtomicSwap() *cobra.Command {
 				return err
 			}
 
-			from := clientCtx.GetFromAddress() // same as Nemo executor's deputy address
+			from := clientCtx.GetFromAddress() // same as Fury executor's deputy address
 			to, err := sdk.AccAddressFromBech32(args[0])
 			if err != nil {
 				return err

@@ -6,7 +6,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/incubus-network/nemo/x/auction/types"
+	"github.com/incubus-network/fury/x/auction/types"
 )
 
 // ParamChanges defines the parameters that can be modified by param change proposals

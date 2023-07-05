@@ -13,7 +13,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/types/query"
 
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 type queryServer struct {

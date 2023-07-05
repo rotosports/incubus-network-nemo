@@ -4,8 +4,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/x/staking"
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/liquid/types"
 
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 )

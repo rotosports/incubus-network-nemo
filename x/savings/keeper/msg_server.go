@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 type msgServer struct {

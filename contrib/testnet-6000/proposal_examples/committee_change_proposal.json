@@ -1,5 +1,5 @@
 {
-  "type": "nemo/CommitteeChangeProposal",
+  "type": "fury/CommitteeChangeProposal",
   "value": {
     "title": "Update Committee 0",
     "description": "This is a proposal that updates committee with id 0",
@@ -12,7 +12,7 @@
       ],
       "permissions": [
         {
-          "type": "nemo/SubParamChangePermission",
+          "type": "fury/SubParamChangePermission",
           "value": {
             "allowed_params": [
               {
@@ -72,7 +72,7 @@
                 "key": "Active"
               },
               {
-                "subspace": "nemodist",
+                "subspace": "furydist",
                 "key": "Active"
               }
             ],

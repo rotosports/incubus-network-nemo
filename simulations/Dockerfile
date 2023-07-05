@@ -11,7 +11,7 @@ RUN apk add python py-pip
 RUN pip install awscli
 
 # Set working directory for the build
-WORKDIR /root/nemo
+WORKDIR /root/fury
 # default home directory is /root
 
 # Download dependencies before adding source files to speed up build times
@@ -29,4 +29,4 @@ COPY Makefile .
 
 COPY simulations simulations
 
-# nmd and kcli binaries are not necessary for running the simulations
+# fud and kcli binaries are not necessary for running the simulations

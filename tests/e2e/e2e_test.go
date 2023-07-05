@@ -18,9 +18,9 @@ import (
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	emtypes "github.com/evmos/ethermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/tests/e2e/testutil"
-	"github.com/incubus-network/nemo/tests/util"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/tests/e2e/testutil"
+	"github.com/incubus-network/fury/tests/util"
 )
 
 var (
@@ -39,40 +39,40 @@ func TestIntegrationTestSuite(t *testing.T) {
 	suite.Run(t, new(IntegrationTestSuite))
 }
 
-// example test that queries nemo via SDK and EVM
+// example test that queries fury via SDK and EVM
 func (suite *IntegrationTestSuite) TestChainID() {
-	expectedEvmNetworkId, err := emtypes.ParseChainID(suite.Nemo.ChainId)
+	expectedEvmNetworkId, err := emtypes.ParseChainID(suite.Fury.ChainId)
 	suite.NoError(err)
 
 	// EVM query
-	evmNetworkId, err := suite.Nemo.EvmClient.NetworkID(context.Background())
+	evmNetworkId, err := suite.Fury.EvmClient.NetworkID(context.Background())
 	suite.NoError(err)
 	suite.Equal(expectedEvmNetworkId, evmNetworkId)
 
 	// SDK query
-	nodeInfo, err := suite.Nemo.Tm.GetNodeInfo(context.Background(), &tmservice.GetNodeInfoRequest{})
+	nodeInfo, err := suite.Fury.Tm.GetNodeInfo(context.Background(), &tmservice.GetNodeInfoRequest{})
 	suite.NoError(err)
-	suite.Equal(suite.Nemo.ChainId, nodeInfo.DefaultNodeInfo.Network)
+	suite.Equal(suite.Fury.ChainId, nodeInfo.DefaultNodeInfo.Network)
 }
 
 // example test that funds a new account & queries its balance
 func (suite *IntegrationTestSuite) TestFundedAccount() {
 	funds := ufury(1e3)
-	acc := suite.Nemo.NewFundedAccount("example-acc", sdk.NewCoins(funds))
+	acc := suite.Fury.NewFundedAccount("example-acc", sdk.NewCoins(funds))
 
 	// check that the sdk & evm signers are for the same account
 	suite.Equal(acc.SdkAddress.String(), util.EvmToSdkAddress(acc.EvmAddress).String())
 	suite.Equal(acc.EvmAddress.Hex(), util.SdkToEvmAddress(acc.SdkAddress).Hex())
 
 	// check balance via SDK query
-	res, err := suite.Nemo.Bank.Balance(context.Background(), banktypes.NewQueryBalanceRequest(
+	res, err := suite.Fury.Bank.Balance(context.Background(), banktypes.NewQueryBalanceRequest(
 		acc.SdkAddress, "ufury",
 	))
 	suite.NoError(err)
 	suite.Equal(funds, *res.Balance)
 
 	// check balance via EVM query
-	afuryBal, err := suite.Nemo.EvmClient.BalanceAt(context.Background(), acc.EvmAddress, nil)
+	afuryBal, err := suite.Fury.EvmClient.BalanceAt(context.Background(), acc.EvmAddress, nil)
 	suite.NoError(err)
 	suite.Equal(funds.Amount.MulRaw(1e12).BigInt(), afuryBal)
 }
@@ -80,22 +80,22 @@ func (suite *IntegrationTestSuite) TestFundedAccount() {
 // example test that signs & broadcasts an EVM tx
 func (suite *IntegrationTestSuite) TestTransferOverEVM() {
 	// fund an account that can perform the transfer
-	initialFunds := ufury(1e6) // 1 NEMO
-	acc := suite.Nemo.NewFundedAccount("evm-test-transfer", sdk.NewCoins(initialFunds))
+	initialFunds := ufury(1e6) // 1 FURY
+	acc := suite.Fury.NewFundedAccount("evm-test-transfer", sdk.NewCoins(initialFunds))
 
-	// get a rando account to send nemo to
+	// get a rando account to send fury to
 	randomAddr := app.RandomAddress()
 	to := util.SdkToEvmAddress(randomAddr)
 
 	// example fetching of nonce (account sequence)
-	nonce, err := suite.Nemo.EvmClient.PendingNonceAt(context.Background(), acc.EvmAddress)
+	nonce, err := suite.Fury.EvmClient.PendingNonceAt(context.Background(), acc.EvmAddress)
 	suite.NoError(err)
 	suite.Equal(uint64(0), nonce) // sanity check. the account should have no prior txs
 
-	// transfer nemo over EVM
-	nemoToTransfer := big.NewInt(1e17) // .1 NEMO; afury has 18 decimals.
+	// transfer fury over EVM
+	furyToTransfer := big.NewInt(1e17) // .1 FURY; afury has 18 decimals.
 	req := util.EvmTxRequest{
-		Tx:   ethtypes.NewTransaction(nonce, to, nemoToTransfer, 1e5, minEvmGasPrice, nil),
+		Tx:   ethtypes.NewTransaction(nonce, to, furyToTransfer, 1e5, minEvmGasPrice, nil),
 		Data: "any ol' data to track this through the system",
 	}
 	res := acc.SignAndBroadcastEvmTx(req)
@@ -107,32 +107,32 @@ func (suite *IntegrationTestSuite) TestTransferOverEVM() {
 		Mul(sdkmath.NewIntFromUint64(res.Receipt.GasUsed)).
 		QuoRaw(1e12) // convert afury to ufury
 
-	// expect (9 - gas used) NEMO remaining in account.
-	balance := suite.Nemo.QuerySdkForBalances(acc.SdkAddress)
+	// expect (9 - gas used) FURY remaining in account.
+	balance := suite.Fury.QuerySdkForBalances(acc.SdkAddress)
 	suite.Equal(sdkmath.NewInt(9e5).Sub(ufuryUsedForGas), balance.AmountOf("ufury"))
 }
 
-// TestIbcTransfer transfers NEMO from the primary nemo chain (suite.Nemo) to the ibc chain (suite.Ibc).
-// Note that because the IBC chain also runs nemo's binary, this tests both the sending & receiving.
+// TestIbcTransfer transfers FURY from the primary fury chain (suite.Fury) to the ibc chain (suite.Ibc).
+// Note that because the IBC chain also runs fury's binary, this tests both the sending & receiving.
 func (suite *IntegrationTestSuite) TestIbcTransfer() {
 	suite.SkipIfIbcDisabled()
 
 	// ARRANGE
-	// setup nemo account
-	funds := ufury(1e5) // .1 NEMO
-	nemoAcc := suite.Nemo.NewFundedAccount("ibc-transfer-nemo-side", sdk.NewCoins(funds))
+	// setup fury account
+	funds := ufury(1e5) // .1 FURY
+	furyAcc := suite.Fury.NewFundedAccount("ibc-transfer-fury-side", sdk.NewCoins(funds))
 	// setup ibc account
 	ibcAcc := suite.Ibc.NewFundedAccount("ibc-transfer-ibc-side", sdk.NewCoins())
 
 	gasLimit := int64(2e5)
 	fee := ufury(200)
 
-	fundsToSend := ufury(5e4) // .005 NEMO
+	fundsToSend := ufury(5e4) // .005 FURY
 	transferMsg := ibctypes.NewMsgTransfer(
 		testutil.IbcPort,
 		testutil.IbcChannel,
 		fundsToSend,
-		nemoAcc.SdkAddress.String(),
+		furyAcc.SdkAddress.String(),
 		ibcAcc.SdkAddress.String(),
 		ibcclienttypes.NewHeight(0, 0), // timeout height disabled when 0
 		uint64(time.Now().Add(30*time.Second).UnixNano()),
@@ -142,21 +142,21 @@ func (suite *IntegrationTestSuite) TestIbcTransfer() {
 	expectedSrcBalance := funds.Sub(fundsToSend).Sub(fee)
 
 	// ACT
-	// IBC transfer from nemo -> ibc
-	transferTo := util.NemoMsgRequest{
+	// IBC transfer from fury -> ibc
+	transferTo := util.FuryMsgRequest{
 		Msgs:      []sdk.Msg{transferMsg},
 		GasLimit:  uint64(gasLimit),
 		FeeAmount: sdk.NewCoins(fee),
-		Memo:      "sent from Nemo!",
+		Memo:      "sent from Fury!",
 	}
-	res := nemoAcc.SignAndBroadcastNemoTx(transferTo)
+	res := furyAcc.SignAndBroadcastFuryTx(transferTo)
 
 	// ASSERT
 	suite.NoError(res.Err)
 
-	// the balance should be deducted from nemo account
+	// the balance should be deducted from fury account
 	suite.Eventually(func() bool {
-		balance := suite.Nemo.QuerySdkForBalances(nemoAcc.SdkAddress)
+		balance := suite.Fury.QuerySdkForBalances(furyAcc.SdkAddress)
 		return balance.AmountOf("ufury").Equal(expectedSrcBalance.Amount)
 	}, 10*time.Second, 1*time.Second)
 

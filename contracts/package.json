@@ -1,9 +1,9 @@
 {
-  "name": "nemo-contracts",
+  "name": "fury-contracts",
   "version": "0.0.1",
-  "author": "Nemo Labs",
+  "author": "Fury Labs",
   "private": true,
-  "description": "Solidity contracts for Nemo Blockchain",
+  "description": "Solidity contracts for Fury Blockchain",
   "engines": {
     "node": ">=18.0.0"
   },

@@ -6,7 +6,7 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/x/community/types"
+	"github.com/incubus-network/fury/x/community/types"
 )
 
 // Keeper of the community store

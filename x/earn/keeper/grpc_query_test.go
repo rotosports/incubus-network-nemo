@@ -16,11 +16,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/earn/keeper"
-	"github.com/incubus-network/nemo/x/earn/testutil"
-	"github.com/incubus-network/nemo/x/earn/types"
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/earn/keeper"
+	"github.com/incubus-network/fury/x/earn/testutil"
+	"github.com/incubus-network/fury/x/earn/types"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
 )
 
 type grpcQueryTestSuite struct {
@@ -114,7 +114,7 @@ func (suite *grpcQueryTestSuite) TestVaults_ZeroSupply() {
 
 func (suite *grpcQueryTestSuite) TestVaults_WithSupply() {
 	vaultDenom := "usdx"
-	vault2Denom := testutil.TestBnemoDenoms[0]
+	vault2Denom := testutil.TestBfuryDenoms[0]
 
 	depositAmount := sdk.NewInt64Coin(vaultDenom, 100)
 	deposit2Amount := sdk.NewInt64Coin(vault2Denom, 100)
@@ -162,7 +162,7 @@ func (suite *grpcQueryTestSuite) TestVaults_WithSupply() {
 func (suite *grpcQueryTestSuite) TestVaults_MixedSupply() {
 	vaultDenom := "usdx"
 	vault2Denom := "busd"
-	vault3Denom := testutil.TestBnemoDenoms[0]
+	vault3Denom := testutil.TestBfuryDenoms[0]
 
 	depositAmount := sdk.NewInt64Coin(vault3Denom, 100)
 
@@ -231,12 +231,12 @@ func (suite *grpcQueryTestSuite) TestDeposits() {
 	vault3Denom := fmt.Sprintf("bfury-%s", valAddr1.String())
 	vault4Denom := fmt.Sprintf("bfury-%s", valAddr2.String())
 
-	initialUnemoBalance := sdkmath.NewInt(1e9)
+	initialUfuryBalance := sdkmath.NewInt(1e9)
 	startBalance := sdk.NewCoins(
-		sdk.NewCoin("ufury", initialUnemoBalance),
+		sdk.NewCoin("ufury", initialUfuryBalance),
 		sdk.NewInt64Coin(vault1Denom, 1000),
 		sdk.NewInt64Coin(vault2Denom, 1000),
-		// Bnemo isn't actually minted via x/liquid
+		// Bfury isn't actually minted via x/liquid
 		sdk.NewInt64Coin(vault3Denom, 1000),
 		sdk.NewInt64Coin(vault4Denom, 1000),
 	)
@@ -247,8 +247,8 @@ func (suite *grpcQueryTestSuite) TestDeposits() {
 	suite.App.FundAccount(suite.Ctx, valAccAddr2, startBalance)
 	suite.App.FundAccount(suite.Ctx, delegator, startBalance)
 
-	suite.CreateNewUnbondedValidator(valAddr1, initialUnemoBalance)
-	suite.CreateNewUnbondedValidator(valAddr2, initialUnemoBalance)
+	suite.CreateNewUnbondedValidator(valAddr1, initialUfuryBalance)
+	suite.CreateNewUnbondedValidator(valAddr2, initialUfuryBalance)
 	suite.CreateDelegation(valAddr1, delegator, delegateAmount)
 	suite.CreateDelegation(valAddr2, delegator, delegateAmount)
 
@@ -498,7 +498,7 @@ func (suite *grpcQueryTestSuite) TestDeposits_InvalidAddress() {
 	suite.Require().ErrorIs(err, status.Error(codes.InvalidArgument, "Invalid address"))
 }
 
-func (suite *grpcQueryTestSuite) TestDeposits_bNemo() {
+func (suite *grpcQueryTestSuite) TestDeposits_bFury() {
 	// vault denom is only "bfury" which has it's own special handler
 	suite.CreateVault(
 		"bfury",
@@ -514,8 +514,8 @@ func (suite *grpcQueryTestSuite) TestDeposits_bNemo() {
 		[]sdk.AccAddress{},
 	)
 
-	address1, derivatives1, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[0], sdkmath.NewInt(1e9))
-	address2, derivatives2, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[1], sdkmath.NewInt(1e9))
+	address1, derivatives1, _ := suite.createAccountWithDerivatives(testutil.TestBfuryDenoms[0], sdkmath.NewInt(1e9))
+	address2, derivatives2, _ := suite.createAccountWithDerivatives(testutil.TestBfuryDenoms[1], sdkmath.NewInt(1e9))
 
 	err := suite.App.FundAccount(suite.Ctx, address1, sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(1e9))))
 	suite.Require().NoError(err)
@@ -592,9 +592,9 @@ func (suite *grpcQueryTestSuite) TestDeposits_bNemo() {
 	})
 }
 
-func (suite *grpcQueryTestSuite) TestVault_bNemo_Single() {
+func (suite *grpcQueryTestSuite) TestVault_bFury_Single() {
 	vaultDenom := "bfury"
-	coinDenom := testutil.TestBnemoDenoms[0]
+	coinDenom := testutil.TestBfuryDenoms[0]
 
 	startBalance := sdk.NewInt64Coin(coinDenom, 1000)
 	depositAmount := sdk.NewInt64Coin(coinDenom, 100)
@@ -635,12 +635,12 @@ func (suite *grpcQueryTestSuite) TestVault_bNemo_Single() {
 	)
 }
 
-func (suite *grpcQueryTestSuite) TestVault_bNemo_Aggregate() {
+func (suite *grpcQueryTestSuite) TestVault_bFury_Aggregate() {
 	vaultDenom := "bfury"
 
-	address1, derivatives1, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[0], sdkmath.NewInt(1e9))
-	address2, derivatives2, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[1], sdkmath.NewInt(1e9))
-	address3, derivatives3, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[2], sdkmath.NewInt(1e9))
+	address1, derivatives1, _ := suite.createAccountWithDerivatives(testutil.TestBfuryDenoms[0], sdkmath.NewInt(1e9))
+	address2, derivatives2, _ := suite.createAccountWithDerivatives(testutil.TestBfuryDenoms[1], sdkmath.NewInt(1e9))
+	address3, derivatives3, _ := suite.createAccountWithDerivatives(testutil.TestBfuryDenoms[2], sdkmath.NewInt(1e9))
 	// Slash the last validator to reduce the value of it's derivatives to test bfury to underlying token conversion.
 	// First call end block to bond validator to enable slashing.
 	staking.EndBlocker(suite.Ctx, suite.App.GetStakingKeeper())
@@ -791,8 +791,8 @@ func (suite *grpcQueryTestSuite) TestTotalSupply() {
 		{
 			name: "aggregates supply of bfury vaults accounting for slashing",
 			setup: func() {
-				address1, derivatives1, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[0], sdkmath.NewInt(1e9))
-				address2, derivatives2, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[1], sdkmath.NewInt(1e9))
+				address1, derivatives1, _ := suite.createAccountWithDerivatives(testutil.TestBfuryDenoms[0], sdkmath.NewInt(1e9))
+				address2, derivatives2, _ := suite.createAccountWithDerivatives(testutil.TestBfuryDenoms[1], sdkmath.NewInt(1e9))
 
 				// bond validators
 				staking.EndBlocker(suite.Ctx, suite.App.GetStakingKeeper())
@@ -804,8 +804,8 @@ func (suite *grpcQueryTestSuite) TestTotalSupply() {
 				suite.CreateVault("bfury", types.StrategyTypes{types.STRATEGY_TYPE_SAVINGS}, false, []sdk.AccAddress{})
 
 				// deposit bfury
-				deposit(address1, testutil.TestBnemoDenoms[0], derivatives1.Amount.Int64())
-				deposit(address2, testutil.TestBnemoDenoms[1], derivatives2.Amount.Int64())
+				deposit(address1, testutil.TestBfuryDenoms[0], derivatives1.Amount.Int64())
+				deposit(address2, testutil.TestBfuryDenoms[1], derivatives2.Amount.Int64())
 			},
 			expectedSupply: sdk.NewCoins(
 				sdk.NewCoin(

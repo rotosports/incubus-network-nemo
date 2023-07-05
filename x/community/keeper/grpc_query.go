@@ -4,7 +4,7 @@ import (
 	"context"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/x/community/types"
+	"github.com/incubus-network/fury/x/community/types"
 )
 
 type queryServer struct {

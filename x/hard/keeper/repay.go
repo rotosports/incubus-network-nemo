@@ -4,7 +4,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/hard/types"
+	"github.com/incubus-network/fury/x/hard/types"
 )
 
 // Repay borrowed funds

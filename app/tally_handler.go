@@ -8,15 +8,15 @@ import (
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	earnkeeper "github.com/incubus-network/nemo/x/earn/keeper"
-	liquidkeeper "github.com/incubus-network/nemo/x/liquid/keeper"
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
-	savingskeeper "github.com/incubus-network/nemo/x/savings/keeper"
+	earnkeeper "github.com/incubus-network/fury/x/earn/keeper"
+	liquidkeeper "github.com/incubus-network/fury/x/liquid/keeper"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
+	savingskeeper "github.com/incubus-network/fury/x/savings/keeper"
 )
 
 var _ govv1.TallyHandler = TallyHandler{}
 
-// TallyHandler is the tally handler for nemo
+// TallyHandler is the tally handler for fury
 type TallyHandler struct {
 	gk  govkeeper.Keeper
 	stk stakingkeeper.Keeper
@@ -105,8 +105,8 @@ func (th TallyHandler) Tally(
 		})
 
 		// get voter bfury and update total voting power and results
-		addrBnemo := th.getAddrBnemo(ctx, voter).toCoins()
-		for _, coin := range addrBnemo {
+		addrBfury := th.getAddrBfury(ctx, voter).toCoins()
+		for _, coin := range addrBfury {
 			valAddr, err := liquidtypes.ParseLiquidStakingTokenDenom(coin.Denom)
 			if err != nil {
 				break
@@ -207,18 +207,18 @@ func (bfuryMap bfuryByDenom) toCoins() sdk.Coins {
 	return coins.Sort()
 }
 
-// getAddrBnemo returns a map of validator address & the amount of bfury
+// getAddrBfury returns a map of validator address & the amount of bfury
 // of the addr for each validator.
-func (th TallyHandler) getAddrBnemo(ctx sdk.Context, addr sdk.AccAddress) bfuryByDenom {
+func (th TallyHandler) getAddrBfury(ctx sdk.Context, addr sdk.AccAddress) bfuryByDenom {
 	results := make(bfuryByDenom)
-	th.addBnemoFromWallet(ctx, addr, results)
-	th.addBnemoFromSavings(ctx, addr, results)
-	th.addBnemoFromEarn(ctx, addr, results)
+	th.addBfuryFromWallet(ctx, addr, results)
+	th.addBfuryFromSavings(ctx, addr, results)
+	th.addBfuryFromEarn(ctx, addr, results)
 	return results
 }
 
-// addBnemoFromWallet adds all addr balances of bfury in x/bank.
-func (th TallyHandler) addBnemoFromWallet(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
+// addBfuryFromWallet adds all addr balances of bfury in x/bank.
+func (th TallyHandler) addBfuryFromWallet(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
 	coins := th.bk.GetAllBalances(ctx, addr)
 	for _, coin := range coins {
 		if th.lk.IsDerivativeDenom(ctx, coin.Denom) {
@@ -227,8 +227,8 @@ func (th TallyHandler) addBnemoFromWallet(ctx sdk.Context, addr sdk.AccAddress, 
 	}
 }
 
-// addBnemoFromSavings adds all addr deposits of bfury in x/savings.
-func (th TallyHandler) addBnemoFromSavings(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
+// addBfuryFromSavings adds all addr deposits of bfury in x/savings.
+func (th TallyHandler) addBfuryFromSavings(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
 	deposit, found := th.svk.GetDeposit(ctx, addr)
 	if !found {
 		return
@@ -240,8 +240,8 @@ func (th TallyHandler) addBnemoFromSavings(ctx sdk.Context, addr sdk.AccAddress,
 	}
 }
 
-// addBnemoFromEarn adds all addr deposits of bfury in x/earn.
-func (th TallyHandler) addBnemoFromEarn(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
+// addBfuryFromEarn adds all addr deposits of bfury in x/earn.
+func (th TallyHandler) addBfuryFromEarn(ctx sdk.Context, addr sdk.AccAddress, bfury bfuryByDenom) {
 	shares, found := th.ek.GetVaultAccountShares(ctx, addr)
 	if !found {
 		return

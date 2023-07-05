@@ -10,18 +10,18 @@ import (
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/incubus-network/nemo/x/committee/testutil"
-	"github.com/incubus-network/nemo/x/committee/types"
+	"github.com/incubus-network/fury/x/committee/testutil"
+	"github.com/incubus-network/fury/x/committee/types"
 )
 
 func TestGenesisState_Validate(t *testing.T) {
 	testTime := time.Date(1998, time.January, 1, 0, 0, 0, 0, time.UTC)
 	addresses := []sdk.AccAddress{
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest1"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest2"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest3"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest4"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest5"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest1"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest2"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest3"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest4"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest5"))),
 	}
 
 	testGenesis := types.NewGenesisState(

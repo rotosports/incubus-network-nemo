@@ -9,9 +9,9 @@ import (
 
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type ParamsTestSuite struct {
@@ -107,11 +107,11 @@ func (suite *ParamsTestSuite) TestParams_Validate() {
 	invalidConversionPairs := types.NewConversionPairs(
 		types.NewConversionPair(
 			testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000A"),
-			"nemo",
+			"fury",
 		),
 		types.NewConversionPair(
 			testutil.MustNewInternalEVMAddressFromString("0x000000000000000000000000000000000000000B"),
-			"nemo", // duplicate denom!
+			"fury", // duplicate denom!
 		),
 	)
 	validAllowedCosmosDenoms := types.NewAllowedCosmosCoinERC20Tokens(

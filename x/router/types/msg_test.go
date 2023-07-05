@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/nemo/x/router/types"
+	"github.com/incubus-network/fury/x/router/types"
 )
 
 func TestMsgMintDeposit_Signing(t *testing.T) {

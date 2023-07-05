@@ -10,7 +10,7 @@
     "simulate": false
   },
   "from": "fury1sl8glhaa9f9tep0d9h8gdcfmwcatghtd0h9l0w",
-  "to": "fury1vry5lhegzlulehuutcr7nmdlmktw88awd3qrqf",
+  "to": "fury1vry5lhegzlulehuutcr7fudlmktw88awd3qrqf",
   "recipient_other_chain": "tbnb1etjxt3t5r9899w3tf7dnktdue5ngu4ncdwckvt",
   "sender_other_chain": "tbnb10uypsspvl6jlxcx5xse02pag39l8xpe7a3468h",
   "random_number_hash": "c0544b7f4b890a673ea3f61bdb4650fbfe2f3e56bda1b397d6d592fca7163c8c",

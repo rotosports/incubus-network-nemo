@@ -36,9 +36,9 @@ import (
 	tmtime "github.com/tendermint/tendermint/types/time"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/evmutil/keeper"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/evmutil/keeper"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type Suite struct {
@@ -108,7 +108,7 @@ func (suite *Suite) SetupTest() {
 	// InitializeFromGenesisStates commits first block so we start at 2 here
 	suite.Ctx = suite.App.NewContext(false, tmproto.Header{
 		Height:          suite.App.LastBlockHeight() + 1,
-		ChainID:         "nemotest_1-1",
+		ChainID:         "furytest_1-1",
 		Time:            time.Now().UTC(),
 		ProposerAddress: consAddress.Bytes(),
 		Version: tmversion.Consensus{
@@ -184,7 +184,7 @@ func (suite *Suite) ModuleBalance(denom string) sdk.Int {
 	return suite.App.GetModuleAccountBalance(suite.Ctx, types.ModuleName, denom)
 }
 
-func (suite *Suite) FundAccountWithNemo(addr sdk.AccAddress, coins sdk.Coins) {
+func (suite *Suite) FundAccountWithFury(addr sdk.AccAddress, coins sdk.Coins) {
 	ufury := coins.AmountOf("ufury")
 	if ufury.IsPositive() {
 		err := suite.App.FundAccount(suite.Ctx, addr, sdk.NewCoins(sdk.NewCoin("ufury", ufury)))
@@ -197,7 +197,7 @@ func (suite *Suite) FundAccountWithNemo(addr sdk.AccAddress, coins sdk.Coins) {
 	}
 }
 
-func (suite *Suite) FundModuleAccountWithNemo(moduleName string, coins sdk.Coins) {
+func (suite *Suite) FundModuleAccountWithFury(moduleName string, coins sdk.Coins) {
 	ufury := coins.AmountOf("ufury")
 	if ufury.IsPositive() {
 		err := suite.App.FundModuleAccount(suite.Ctx, moduleName, sdk.NewCoins(sdk.NewCoin("ufury", ufury)))

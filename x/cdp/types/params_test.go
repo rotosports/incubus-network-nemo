@@ -8,7 +8,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/cdp/types"
+	"github.com/incubus-network/fury/x/cdp/types"
 )
 
 type ParamsTestSuite struct {

@@ -10,9 +10,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/liquid/keeper"
-	"github.com/incubus-network/nemo/x/liquid/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/liquid/keeper"
+	"github.com/incubus-network/fury/x/liquid/types"
 )
 
 type grpcQueryTestSuite struct {
@@ -176,7 +176,7 @@ func (suite *grpcQueryTestSuite) TestQueryTotalSupply() {
 		expectedErr   error
 	}{
 		{
-			name:          "no liquid nemo means no tvl",
+			name:          "no liquid fury means no tvl",
 			setup:         func() {},
 			expectedTotal: sdk.ZeroInt(),
 			expectedErr:   nil,

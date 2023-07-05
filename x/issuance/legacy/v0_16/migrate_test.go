@@ -9,9 +9,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	app "github.com/incubus-network/nemo/app"
-	v015issuance "github.com/incubus-network/nemo/x/issuance/legacy/v0_15"
-	v016issuance "github.com/incubus-network/nemo/x/issuance/types"
+	app "github.com/incubus-network/fury/app"
+	v015issuance "github.com/incubus-network/fury/x/issuance/legacy/v0_15"
+	v016issuance "github.com/incubus-network/fury/x/issuance/types"
 )
 
 type migrateTestSuite struct {

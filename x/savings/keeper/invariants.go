@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/x/savings/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

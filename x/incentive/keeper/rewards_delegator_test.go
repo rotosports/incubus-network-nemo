@@ -14,10 +14,10 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/testutil"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/testutil"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // Test suite used for all keeper tests
@@ -54,7 +54,7 @@ func (suite *DelegatorRewardsTestSuite) SetupApp() {
 	suite.keeper = suite.app.GetIncentiveKeeper()
 	suite.stakingKeeper = suite.app.GetStakingKeeper()
 
-	suite.ctx = suite.app.NewContext(true, tmproto.Header{Height: 1, Time: suite.genesisTime, ChainID: "nemotest_1-1"})
+	suite.ctx = suite.app.NewContext(true, tmproto.Header{Height: 1, Time: suite.genesisTime, ChainID: "furytest_1-1"})
 }
 
 func (suite *DelegatorRewardsTestSuite) SetupWithGenState(authBuilder *app.AuthBankGenesisBuilder, incentBuilder testutil.IncentiveGenesisBuilder) {

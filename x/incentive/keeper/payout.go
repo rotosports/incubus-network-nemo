@@ -8,8 +8,8 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	vestingtypes "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 
-	"github.com/incubus-network/nemo/x/incentive/types"
-	// validatorvesting "github.com/incubus-network/nemo/x/validator-vesting"
+	"github.com/incubus-network/fury/x/incentive/types"
+	// validatorvesting "github.com/incubus-network/fury/x/validator-vesting"
 )
 
 const (

@@ -3,9 +3,9 @@ package types_test
 import (
 	"testing"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 	"github.com/stretchr/testify/require"
 
 	sdkmath "cosmossdk.io/math"
@@ -185,7 +185,7 @@ func TestMsgConvertERC20ToCoin(t *testing.T) {
 			msg := types.MsgConvertERC20ToCoin{
 				Initiator:        tc.initiator,
 				Receiver:         tc.receiver,
-				NemoERC20Address: tc.contractAddr,
+				FuryERC20Address: tc.contractAddr,
 				Amount:           tc.amount,
 			}
 			err := msg.ValidateBasic()
@@ -201,7 +201,7 @@ func TestMsgConvertERC20ToCoin(t *testing.T) {
 }
 
 func TestConvertCosmosCoinToERC20_ValidateBasic(t *testing.T) {
-	validNemoAddr := app.RandomAddress()
+	validFuryAddr := app.RandomAddress()
 	validHexAddr, _ := testutil.RandomEvmAccount()
 	invalidAddr := "not-an-address"
 	validAmount := sdk.NewInt64Coin("hard", 5e3)
@@ -215,14 +215,14 @@ func TestConvertCosmosCoinToERC20_ValidateBasic(t *testing.T) {
 	}{
 		{
 			name:        "valid",
-			initiator:   validNemoAddr.String(),
+			initiator:   validFuryAddr.String(),
 			receiver:    validHexAddr.String(),
 			amount:      validAmount,
 			expectedErr: "",
 		},
 		{
-			name:        "invalid - sending to nemo addr",
-			initiator:   validNemoAddr.String(),
+			name:        "invalid - sending to fury addr",
+			initiator:   validFuryAddr.String(),
 			receiver:    app.RandomAddress().String(),
 			amount:      validAmount,
 			expectedErr: "receiver is not a valid hex address",
@@ -236,35 +236,35 @@ func TestConvertCosmosCoinToERC20_ValidateBasic(t *testing.T) {
 		},
 		{
 			name:        "invalid - invalid receiver",
-			initiator:   validNemoAddr.String(),
+			initiator:   validFuryAddr.String(),
 			receiver:    invalidAddr,
 			amount:      validAmount,
 			expectedErr: "receiver is not a valid hex address",
 		},
 		{
 			name:        "invalid - invalid amount - nil",
-			initiator:   validNemoAddr.String(),
+			initiator:   validFuryAddr.String(),
 			receiver:    validHexAddr.String(),
 			amount:      sdk.Coin{},
 			expectedErr: "invalid coins",
 		},
 		{
 			name:        "invalid - invalid amount - zero",
-			initiator:   validNemoAddr.String(),
+			initiator:   validFuryAddr.String(),
 			receiver:    validHexAddr.String(),
 			amount:      sdk.NewInt64Coin("magic", 0),
 			expectedErr: "invalid coins",
 		},
 		{
 			name:        "invalid - invalid amount - negative",
-			initiator:   validNemoAddr.String(),
+			initiator:   validFuryAddr.String(),
 			receiver:    validHexAddr.String(),
 			amount:      sdk.Coin{Denom: "magic", Amount: sdkmath.NewInt(-42)},
 			expectedErr: "invalid coins",
 		},
 		{
 			name:        "invalid - invalid amount - invalid denom",
-			initiator:   validNemoAddr.String(),
+			initiator:   validFuryAddr.String(),
 			receiver:    validHexAddr.String(),
 			amount:      sdk.Coin{Denom: "", Amount: sdkmath.NewInt(42)},
 			expectedErr: "invalid coins",
@@ -313,7 +313,7 @@ func TestConvertCosmosCoinToERC20_GetSigners(t *testing.T) {
 
 func TestConvertCosmosCoinFromERC20_ValidateBasic(t *testing.T) {
 	validHexAddr := testutil.RandomEvmAddress()
-	validNemoAddr := app.RandomAddress()
+	validFuryAddr := app.RandomAddress()
 	invalidAddr := "not-an-address"
 	validAmount := sdk.NewInt64Coin("hard", 5e3)
 
@@ -327,7 +327,7 @@ func TestConvertCosmosCoinFromERC20_ValidateBasic(t *testing.T) {
 		{
 			name:        "valid",
 			initiator:   validHexAddr.String(),
-			receiver:    validNemoAddr.String(),
+			receiver:    validFuryAddr.String(),
 			amount:      validAmount,
 			expectedErr: "",
 		},
@@ -355,28 +355,28 @@ func TestConvertCosmosCoinFromERC20_ValidateBasic(t *testing.T) {
 		{
 			name:        "invalid - invalid amount - nil",
 			initiator:   validHexAddr.String(),
-			receiver:    validNemoAddr.String(),
+			receiver:    validFuryAddr.String(),
 			amount:      sdk.Coin{},
 			expectedErr: "invalid coins",
 		},
 		{
 			name:        "invalid - invalid amount - zero",
 			initiator:   validHexAddr.String(),
-			receiver:    validNemoAddr.String(),
+			receiver:    validFuryAddr.String(),
 			amount:      sdk.NewInt64Coin("magic", 0),
 			expectedErr: "invalid coins",
 		},
 		{
 			name:        "invalid - invalid amount - negative",
 			initiator:   validHexAddr.String(),
-			receiver:    validNemoAddr.String(),
+			receiver:    validFuryAddr.String(),
 			amount:      sdk.Coin{Denom: "magic", Amount: sdkmath.NewInt(-42)},
 			expectedErr: "invalid coins",
 		},
 		{
 			name:        "invalid - invalid amount - invalid denom",
 			initiator:   validHexAddr.String(),
-			receiver:    validNemoAddr.String(),
+			receiver:    validFuryAddr.String(),
 			amount:      sdk.Coin{Denom: "", Amount: sdkmath.NewInt(42)},
 			expectedErr: "invalid coins",
 		},

@@ -11,11 +11,11 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/nemo/app"
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	"github.com/incubus-network/nemo/x/router/keeper"
-	"github.com/incubus-network/nemo/x/router/testutil"
-	"github.com/incubus-network/nemo/x/router/types"
+	"github.com/incubus-network/fury/app"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	"github.com/incubus-network/fury/x/router/keeper"
+	"github.com/incubus-network/fury/x/router/testutil"
+	"github.com/incubus-network/fury/x/router/types"
 )
 
 type msgServerTestSuite struct {
@@ -177,7 +177,7 @@ func (suite *msgServerTestSuite) TestMintDepositAndWithdrawBurn_TransferEntireBa
 	// Earn vault has all minted derivatives
 	suite.VaultAccountValueEqual(user, sdk.NewInt64Coin(derivativeDenom, 999_999_998)) // 2 lost in conversion
 
-	// Query the full nemo balance of the earn deposit and convert all to a delegation
+	// Query the full fury balance of the earn deposit and convert all to a delegation
 	deposit := suite.QueryEarn_VaultValue(user, "bfury")
 	suite.Equal(suite.NewBondCoins(sdkmath.NewInt(333_333_332)), deposit.Value) // 1 lost due to lost shares
 
@@ -242,7 +242,7 @@ func (suite *msgServerTestSuite) TestDelegateMintDepositAndWithdrawBurnUndelegat
 
 	suite.VaultAccountValueEqual(user, sdk.NewInt64Coin(derivativeDenom, 166_666_666))
 
-	// Query the full nemo balance of the earn deposit and convert all to a delegation
+	// Query the full fury balance of the earn deposit and convert all to a delegation
 	deposit := suite.QueryEarn_VaultValue(user, "bfury")
 	suite.Equal(suite.NewBondCoins(sdkmath.NewInt(99_999_999)), deposit.Value) // 1 lost due to truncating shares to derivatives
 

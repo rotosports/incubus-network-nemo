@@ -7,7 +7,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/swap/types"
+	"github.com/incubus-network/fury/x/swap/types"
 )
 
 // Deposit creates a new pool or adds liquidity to an existing pool.  For a pool to be created, a pool
@@ -32,7 +32,7 @@ import (
 // It's this percent change we calculate and compare to the slippage limit provided.
 //
 // For example, if we have a pool with 100e6 ufury and 400e6 usdx.  The ufury price is 4 usdx and the
-// usdx price is 0.25 ufury.  If a depositor adds liquidity of 4e6 ufury and 14e6 usdx, a nemo price of
+// usdx price is 0.25 ufury.  If a depositor adds liquidity of 4e6 ufury and 14e6 usdx, a fury price of
 // 3.50 usdx and a usdx price of 0.29 ufury.  This is a -12.5% slippage is the ufury price, and a 14.3%
 // slippage in the usdx price.
 //

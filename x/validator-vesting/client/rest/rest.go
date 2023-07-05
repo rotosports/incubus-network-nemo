@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 )
 
-// RegisterRoutes registers nemodist-related REST handlers to a router
+// RegisterRoutes registers furydist-related REST handlers to a router
 func RegisterRoutes(cliCtx client.Context, rtr *mux.Router) {
 	registerQueryRoutes(cliCtx, rtr)
 }

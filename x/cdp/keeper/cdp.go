@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/store/prefix"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/cdp/types"
+	"github.com/incubus-network/fury/x/cdp/types"
 )
 
 // AddCdp adds a cdp for a specific owner and collateral type

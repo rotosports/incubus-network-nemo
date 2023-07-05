@@ -8,10 +8,10 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/committee/keeper"
-	"github.com/incubus-network/nemo/x/committee/testutil"
-	"github.com/incubus-network/nemo/x/committee/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/committee/keeper"
+	"github.com/incubus-network/fury/x/committee/testutil"
+	"github.com/incubus-network/fury/x/committee/types"
 )
 
 // getProposalVoteMap collects up votes into a map indexed by proposalID

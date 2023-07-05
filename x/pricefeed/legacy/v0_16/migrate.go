@@ -2,8 +2,8 @@ package v0_16
 
 import (
 	"github.com/cosmos/cosmos-sdk/types"
-	v015pricefeed "github.com/incubus-network/nemo/x/pricefeed/legacy/v0_15"
-	v016pricefeed "github.com/incubus-network/nemo/x/pricefeed/types"
+	v015pricefeed "github.com/incubus-network/fury/x/pricefeed/legacy/v0_15"
+	v016pricefeed "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 var NewIBCMarkets = []v016pricefeed.Market{

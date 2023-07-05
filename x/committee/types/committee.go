@@ -15,9 +15,9 @@ import (
 const MaxCommitteeDescriptionLength int = 512
 
 const (
-	BaseCommitteeType   = "nemo/BaseCommittee"
-	MemberCommitteeType = "nemo/MemberCommittee" // Committee is composed of member addresses that vote to enact proposals within their permissions
-	TokenCommitteeType  = "nemo/TokenCommittee"  // Committee is composed of token holders with voting power determined by total token balance
+	BaseCommitteeType   = "fury/BaseCommittee"
+	MemberCommitteeType = "fury/MemberCommittee" // Committee is composed of member addresses that vote to enact proposals within their permissions
+	TokenCommitteeType  = "fury/TokenCommittee"  // Committee is composed of token holders with voting power determined by total token balance
 	BondDenom           = "ufury"
 )
 

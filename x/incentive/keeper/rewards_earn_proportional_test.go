@@ -6,8 +6,8 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/types"
 	"github.com/stretchr/testify/require"
 )
 
@@ -15,8 +15,8 @@ func TestGetProportionalRewardPeriod(t *testing.T) {
 	tests := []struct {
 		name                  string
 		giveRewardPeriod      types.MultiRewardPeriod
-		giveTotalBnemoSupply  sdkmath.Int
-		giveSingleBnemoSupply sdkmath.Int
+		giveTotalBfurySupply  sdkmath.Int
+		giveSingleBfurySupply sdkmath.Int
 		wantRewardsPerSecond  sdk.DecCoins
 	}{
 		{
@@ -77,8 +77,8 @@ func TestGetProportionalRewardPeriod(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			rewardsPerSecond := keeper.GetProportionalRewardsPerSecond(
 				tt.giveRewardPeriod,
-				tt.giveTotalBnemoSupply,
-				tt.giveSingleBnemoSupply,
+				tt.giveTotalBfurySupply,
+				tt.giveSingleBfurySupply,
 			)
 
 			require.Equal(t, tt.wantRewardsPerSecond, rewardsPerSecond)

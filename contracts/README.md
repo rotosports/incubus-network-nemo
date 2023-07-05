@@ -1,6 +1,6 @@
-# Nemo EVM contracts
+# Fury EVM contracts
 
-Contracts for the Nemo EVM used by the Nemo blockchain.
+Contracts for the Fury EVM used by the Fury blockchain.
 Includes an ERC20 contract for wrapping native cosmos sdk.Coins.
 
 ## Setup

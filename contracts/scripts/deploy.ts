@@ -1,7 +1,7 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const tokenName = "Nemo-wrapped ATOM";
+  const tokenName = "Fury-wrapped ATOM";
   const tokenSymbol = "kATOM";
   const tokenDecimals = 6;
 

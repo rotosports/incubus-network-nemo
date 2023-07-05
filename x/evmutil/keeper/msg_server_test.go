@@ -12,10 +12,10 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/math"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/evmutil/keeper"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/evmutil/keeper"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type MsgServerSuite struct {
@@ -187,7 +187,7 @@ func (suite *MsgServerSuite) TestConvertERC20ToCoin() {
 			types.MsgConvertERC20ToCoin{
 				Initiator:        "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc",
 				Receiver:         invokerCosmosAddr.String(),
-				NemoERC20Address: contractAddr.String(),
+				FuryERC20Address: contractAddr.String(),
 				Amount:           sdkmath.NewInt(10_000),
 			},
 			math.MaxBig256,
@@ -282,7 +282,7 @@ func (suite *MsgServerSuite) TestConvertCosmosCoinToERC20_InitialContractDeploy(
 		// make the denom allowed for conversion
 		params := suite.Keeper.GetParams(suite.Ctx)
 		params.AllowedCosmosDenoms = types.NewAllowedCosmosCoinERC20Tokens(
-			types.NewAllowedCosmosCoinERC20Token(allowedDenom, "Nemo EVM Atom", "ATOM", 6),
+			types.NewAllowedCosmosCoinERC20Token(allowedDenom, "Fury EVM Atom", "ATOM", 6),
 		)
 		suite.Keeper.SetParams(suite.Ctx, params)
 
@@ -331,7 +331,7 @@ func (suite *MsgServerSuite) TestConvertCosmosCoinToERC20_InitialContractDeploy(
 		{
 			name: "invalid - bad initiator",
 			msg: types.NewMsgConvertCosmosCoinToERC20(
-				"invalid-nemo-address",
+				"invalid-fury-address",
 				testutil.RandomEvmAddress().Hex(),
 				sdk.NewInt64Coin(allowedDenom, 1e4),
 			),
@@ -452,7 +452,7 @@ func (suite *MsgServerSuite) TestConvertCosmosCoinToERC20_AlreadyDeployedContrac
 	// make the denom allowed for conversion
 	params := suite.Keeper.GetParams(suite.Ctx)
 	params.AllowedCosmosDenoms = types.NewAllowedCosmosCoinERC20Tokens(
-		types.NewAllowedCosmosCoinERC20Token(allowedDenom, "Nemo EVM Atom", "ATOM", 6),
+		types.NewAllowedCosmosCoinERC20Token(allowedDenom, "Fury EVM Atom", "ATOM", 6),
 	)
 	suite.Keeper.SetParams(suite.Ctx, params)
 

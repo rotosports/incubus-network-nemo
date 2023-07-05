@@ -10,8 +10,8 @@ import (
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	paramsproposal "github.com/cosmos/cosmos-sdk/x/params/types/proposal"
 
-	"github.com/incubus-network/nemo/x/committee/types"
-	communitytypes "github.com/incubus-network/nemo/x/community/types"
+	"github.com/incubus-network/fury/x/committee/types"
+	communitytypes "github.com/incubus-network/fury/x/community/types"
 )
 
 func TestPackPermissions_Success(t *testing.T) {
@@ -202,7 +202,7 @@ func TestParamsChangePermission_SimpleParamsChange_Allows(t *testing.T) {
 			pubProposal: newTestParamsChangeProposalWithChanges(
 				[]paramsproposal.ParamChange{
 					{
-						Subspace: "nemodist",
+						Subspace: "furydist",
 						Key:      "TestKey",
 						Value:    `100`,
 					},

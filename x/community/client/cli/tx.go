@@ -13,8 +13,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/incubus-network/nemo/x/community/client/utils"
-	"github.com/incubus-network/nemo/x/community/types"
+	"github.com/incubus-network/fury/x/community/client/utils"
+	"github.com/incubus-network/fury/x/community/types"
 )
 
 const (
@@ -87,7 +87,7 @@ $ %s tx gov submit-proposal community-pool-lend-deposit <path/to/proposal.json> 
 Where proposal.json contains:
 {
   "title": "Community Pool Deposit",
-  "description": "Deposit some NEMO from community pool!",
+  "description": "Deposit some FURY from community pool!",
   "amount": [
     {
       "denom": "ufury",
@@ -148,7 +148,7 @@ $ %s tx gov submit-proposal community-pool-lend-withdraw <path/to/proposal.json>
 Where proposal.json contains:
 {
   "title": "Community Pool Withdrawal",
-  "description": "Withdraw some NEMO from community pool!",
+  "description": "Withdraw some FURY from community pool!",
   "amount": [
     {
       "denom": "ufury",

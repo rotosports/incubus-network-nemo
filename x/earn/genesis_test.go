@@ -3,10 +3,10 @@ package earn_test
 import (
 	"testing"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/earn"
-	"github.com/incubus-network/nemo/x/earn/testutil"
-	"github.com/incubus-network/nemo/x/earn/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/earn"
+	"github.com/incubus-network/fury/x/earn/testutil"
+	"github.com/incubus-network/fury/x/earn/types"
 	"github.com/stretchr/testify/suite"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"

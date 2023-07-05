@@ -12,9 +12,9 @@ package simulation
 // 	"github.com/cosmos/cosmos-sdk/x/auth"
 // 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-// 	appparams "github.com/incubus-network/nemo/app/params"
-// 	"github.com/incubus-network/nemo/x/pricefeed/keeper"
-// 	"github.com/incubus-network/nemo/x/pricefeed/types"
+// 	appparams "github.com/incubus-network/fury/app/params"
+// 	"github.com/incubus-network/fury/x/pricefeed/keeper"
+// 	"github.com/incubus-network/fury/x/pricefeed/types"
 // )
 
 // // Simulation operation weights constants

@@ -1,4 +1,4 @@
 all:
-	docker build --tag nemo/nemonode nemonode
+	docker build --tag fury/furynode furynode
 
 .PHONY: all

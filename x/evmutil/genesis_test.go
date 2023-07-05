@@ -6,9 +6,9 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/incubus-network/nemo/x/evmutil"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type genesisTestSuite struct {
@@ -39,7 +39,7 @@ func (s *genesisTestSuite) TestInitGenesis_SetAccounts() {
 func (s *genesisTestSuite) TestInitGenesis_SetParams() {
 	params := types.DefaultParams()
 	conversionPair := types.ConversionPair{
-		NemoERC20Address: testutil.MustNewInternalEVMAddressFromString("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2").Bytes(),
+		FuryERC20Address: testutil.MustNewInternalEVMAddressFromString("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2").Bytes(),
 		Denom:            "weth",
 	}
 	params.EnabledConversionPairs = []types.ConversionPair{conversionPair}
@@ -76,13 +76,13 @@ func (s *genesisTestSuite) TestExportGenesis() {
 	params := types.DefaultParams()
 	params.EnabledConversionPairs = []types.ConversionPair{
 		{
-			NemoERC20Address: testutil.MustNewInternalEVMAddressFromString("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2").Bytes(),
+			FuryERC20Address: testutil.MustNewInternalEVMAddressFromString("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2").Bytes(),
 			Denom:            "weth"},
 	}
 	params.AllowedCosmosDenoms = []types.AllowedCosmosCoinERC20Token{
 		{
 			CosmosDenom: "hard",
-			Name:        "Nemo EVM HARD",
+			Name:        "Fury EVM HARD",
 			Symbol:      "HARD",
 			Decimals:    6,
 		},

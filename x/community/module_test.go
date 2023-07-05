@@ -7,8 +7,8 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/community/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/community/types"
 )
 
 func TestItCreatesModuleAccountOnInitBlock(t *testing.T) {

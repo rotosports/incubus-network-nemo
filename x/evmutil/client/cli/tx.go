@@ -14,7 +14,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 // GetTxCmd returns the transaction commands for this module
@@ -45,7 +45,7 @@ func GetTxCmd() *cobra.Command {
 
 func getCmdConvertEvmERC20FromCoin() *cobra.Command {
 	return &cobra.Command{
-		Use:   "convert-evm-erc20-from-coin [Nemo EVM address] [coin]",
+		Use:   "convert-evm-erc20-from-coin [Fury EVM address] [coin]",
 		Short: "EVM-native asset: converts a coin on Cosmos co-chain to an ERC20 on EVM co-chain",
 		Example: fmt.Sprintf(
 			`%s tx %s convert-evm-erc20-from-coin 0x7Bbf300890857b8c241b219C6a489431669b3aFA 500000000erc20/usdc --from <key> --gas 2000000`,
@@ -81,7 +81,7 @@ func getCmdConvertEvmERC20FromCoin() *cobra.Command {
 
 func getCmdConvertEvmERC20ToCoin() *cobra.Command {
 	return &cobra.Command{
-		Use:   "convert-evm-erc20-to-coin [Nemo receiver address] [Nemo ERC20 address] [amount]",
+		Use:   "convert-evm-erc20-to-coin [Fury receiver address] [Fury ERC20 address] [amount]",
 		Short: "EVM-native asset: converts an ERC20 on EVM co-chain to a coin on Cosmos co-chain",
 		Example: fmt.Sprintf(`
 %[1]s tx %[2]s convert-evm-erc20-to-coin fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr 0xeA7100edA2f805356291B0E55DaD448599a72C6d 1000000000000000 --from <key> --gas 1000000
@@ -163,7 +163,7 @@ func getCmdMsgConvertCosmosCoinToERC20() *cobra.Command {
 
 func getCmdMsgConvertCosmosCoinFromERC20() *cobra.Command {
 	return &cobra.Command{
-		Use:   "convert-cosmos-coin-from-erc20 [receiver_nemo_address] [amount] [flags]",
+		Use:   "convert-cosmos-coin-from-erc20 [receiver_fury_address] [amount] [flags]",
 		Short: "Cosmos-native asset: converts an ERC20 on EVM co-chain back to a coin on Cosmos co-chain",
 		Example: fmt.Sprintf(
 			`Convert ERC20 representation of 500 ATOM back to a Cosmos coin, sending to fury1q0dkky0505r555etn6u2nz4h4kjcg5y8pk6g54:
@@ -179,7 +179,7 @@ func getCmdMsgConvertCosmosCoinFromERC20() *cobra.Command {
 
 			receiver, err := sdk.AccAddressFromBech32(args[0])
 			if err != nil {
-				return fmt.Errorf("receiver '%s' is an invalid nemo address", args[0])
+				return fmt.Errorf("receiver '%s' is an invalid fury address", args[0])
 			}
 
 			amount, err := sdk.ParseCoinNormalized(args[1])

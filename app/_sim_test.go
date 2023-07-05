@@ -32,15 +32,15 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/cosmos/cosmos-sdk/x/supply"
 
-	"github.com/incubus-network/nemo/x/auction"
-	"github.com/incubus-network/nemo/x/bep3"
-	"github.com/incubus-network/nemo/x/cdp"
-	"github.com/incubus-network/nemo/x/committee"
-	"github.com/incubus-network/nemo/x/incentive"
-	"github.com/incubus-network/nemo/x/nemodist"
-	"github.com/incubus-network/nemo/x/pricefeed"
-	"github.com/incubus-network/nemo/x/swap"
-	validatorvesting "github.com/incubus-network/nemo/x/validator-vesting"
+	"github.com/incubus-network/fury/x/auction"
+	"github.com/incubus-network/fury/x/bep3"
+	"github.com/incubus-network/fury/x/cdp"
+	"github.com/incubus-network/fury/x/committee"
+	"github.com/incubus-network/fury/x/incentive"
+	"github.com/incubus-network/fury/x/furydist"
+	"github.com/incubus-network/fury/x/pricefeed"
+	"github.com/incubus-network/fury/x/swap"
+	validatorvesting "github.com/incubus-network/fury/x/validator-vesting"
 )
 
 type StoreKeysPrefixes struct {
@@ -184,7 +184,7 @@ func TestAppImportExport(t *testing.T) {
 		{app.keys[bep3.StoreKey], newApp.keys[bep3.StoreKey], [][]byte{}},
 		{app.keys[cdp.StoreKey], newApp.keys[cdp.StoreKey], [][]byte{}},
 		{app.keys[incentive.StoreKey], newApp.keys[incentive.StoreKey], [][]byte{}},
-		{app.keys[nemodist.StoreKey], newApp.keys[nemodist.StoreKey], [][]byte{}},
+		{app.keys[furydist.StoreKey], newApp.keys[furydist.StoreKey], [][]byte{}},
 		{app.keys[pricefeed.StoreKey], newApp.keys[pricefeed.StoreKey], [][]byte{}},
 		{app.keys[validatorvesting.StoreKey], newApp.keys[validatorvesting.StoreKey], [][]byte{}},
 		{app.keys[committee.StoreKey], newApp.keys[committee.StoreKey], [][]byte{}},

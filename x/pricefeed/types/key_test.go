@@ -9,7 +9,7 @@ import (
 
 func TestRawPriceKey_Iteration(t *testing.T) {
 	// An iterator key should only match price keys with the same market
-	iteratorKey := RawPriceIteratorKey("nemo:usd")
+	iteratorKey := RawPriceIteratorKey("fury:usd")
 
 	addr := sdk.AccAddress("test addr")
 
@@ -20,12 +20,12 @@ func TestRawPriceKey_Iteration(t *testing.T) {
 	}{
 		{
 			name:      "equal marketID is included in iteration",
-			priceKey:  RawPriceKey("nemo:usd", addr),
+			priceKey:  RawPriceKey("fury:usd", addr),
 			expectErr: false,
 		},
 		{
 			name:      "prefix overlapping marketID excluded from iteration",
-			priceKey:  RawPriceKey("nemo:usd:30", addr),
+			priceKey:  RawPriceKey("fury:usd:30", addr),
 			expectErr: true,
 		},
 	}

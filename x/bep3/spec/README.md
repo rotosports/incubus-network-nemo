@@ -17,11 +17,11 @@ parent:
 
 ## Abstract
 
-`x/bep3` is a module that handles cross-chain atomic swaps between Nemo and blockchains that implement the BEP3 protocol. Atomic swaps are created, then either claimed before their expiration block or refunded after they've expired.
+`x/bep3` is a module that handles cross-chain atomic swaps between Fury and blockchains that implement the BEP3 protocol. Atomic swaps are created, then either claimed before their expiration block or refunded after they've expired.
 
-Several user interfaces support Nemo BEP3 swaps:
+Several user interfaces support Fury BEP3 swaps:
 - [Trust Wallet](https://trustwallet.com/)
-- [Cosmostation](https://wallet.cosmostation.io/?network=nemo)
+- [Cosmostation](https://wallet.cosmostation.io/?network=fury)
 - [Frontier Wallet](https://frontierwallet.com/)
 
-Swaps can also be created, claimed, and refunded using Nemo's [Javascript SDK](https://github.com/Incubus-Network/javascript-sdk) or CLI.
+Swaps can also be created, claimed, and refunded using Fury's [Javascript SDK](https://github.com/Incubus-Network/javascript-sdk) or CLI.

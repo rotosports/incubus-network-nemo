@@ -10,7 +10,7 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	nemodistTypes "github.com/incubus-network/nemo/x/nemodist/types"
+	furydistTypes "github.com/incubus-network/fury/x/furydist/types"
 )
 
 // Parameter keys and default values
@@ -34,7 +34,7 @@ var (
 	BondDenom              = "ufury"
 	USDXMintingRewardDenom = "ufury"
 
-	IncentiveMacc = nemodistTypes.ModuleName
+	IncentiveMacc = furydistTypes.ModuleName
 )
 
 // NewParams returns a new params object

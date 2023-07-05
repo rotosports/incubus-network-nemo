@@ -26,7 +26,7 @@
         "tx_size_cost_per_byte": "10"
       }
     },
-    "nemodist": {
+    "furydist": {
       "params": {
         "active": true,
         "periods": [

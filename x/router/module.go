@@ -12,9 +12,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/nemo/x/router/client/cli"
-	"github.com/incubus-network/nemo/x/router/keeper"
-	"github.com/incubus-network/nemo/x/router/types"
+	"github.com/incubus-network/fury/x/router/client/cli"
+	"github.com/incubus-network/fury/x/router/keeper"
+	"github.com/incubus-network/fury/x/router/types"
 )
 
 var (

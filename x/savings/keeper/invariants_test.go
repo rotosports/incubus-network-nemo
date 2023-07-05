@@ -11,9 +11,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/savings/keeper"
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/savings/keeper"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 type invariantTestSuite struct {

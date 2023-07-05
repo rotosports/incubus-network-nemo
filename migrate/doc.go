@@ -11,8 +11,8 @@ There are two types of migration:
 Genesis migration starts a whole new blockchain (with new chain-id) for the new software version.
 In-Place upgrade keeps the blockchain (and chain-id) the same for the new software version.
 
-We only support migrations between mainnet nemo releases.
-We only support migrations from the previous mainnet nemo version to the current. We don't support migrating between two old versions, use the old software version for this.
+We only support migrations between mainnet fury releases.
+We only support migrations from the previous mainnet fury version to the current. We don't support migrating between two old versions, use the old software version for this.
 We only support migrations from old to new versions, not the other way around.
 
 Genesis Migration
@@ -22,7 +22,7 @@ The process is:
 - marshal it to json (using current codec)
 
 On each release we can delete the previous releases migration and old GenesisState type.
-eg nemo-3 migrates `auth.GenesisState` from nemo-2 to `auth.GenesisState` from nemo-3,
-but for nemo-4 we don't need to keep around nemo-2's `auth.GenesisState` type.
+eg fury-3 migrates `auth.GenesisState` from fury-2 to `auth.GenesisState` from fury-3,
+but for fury-4 we don't need to keep around fury-2's `auth.GenesisState` type.
 */
 package migrate

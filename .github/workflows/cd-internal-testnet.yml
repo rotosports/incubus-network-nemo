@@ -2,14 +2,14 @@ name: Continuous Deployment (Internal Testnet)
 # run after every successful CI job of new commits to the master branch
 on:
   workflow_run:
-    workflows: [Continuous Integration (Nemo Master)]
+    workflows: [Continuous Integration (Fury Master)]
     types:
       - completed
 
 jobs:
   # in order:
   # enter standby (prevents autoscaling group from killing node during deploy)
-  # stop nemo
+  # stop fury
   # take ebs + zfs snapshots
   # download updated binary and genesis
   # reset application database state (only done on internal testnet)
@@ -20,18 +20,18 @@ jobs:
     with:
       aws-region: us-east-1
       chain-id: highbury_710-17000
-      ssm-document-name: nemo-testnet-internal-node-update
+      ssm-document-name: fury-testnet-internal-node-update
       playbook-name: reset-internal-testnet-playbook.yml
       playbook-infrastructure-branch: master
     secrets: inherit
 
-  # start nemo with new binary and genesis state on api, peer and seed nodes, place nodes in service once they start and are synched to live
+  # start fury with new binary and genesis state on api, peer and seed nodes, place nodes in service once they start and are synched to live
   start-chain-api:
     uses: ./.github/workflows/cd-start-chain.yml
     with:
       aws-region: us-east-1
       chain-id: highbury_710-17000
-      ssm-document-name: nemo-testnet-internal-node-update
+      ssm-document-name: fury-testnet-internal-node-update
       playbook-name: start-chain-api-playbook.yml
       playbook-infrastructure-branch: master
     secrets: inherit
@@ -41,12 +41,12 @@ jobs:
   seed-chain-state:
     uses: ./.github/workflows/cd-seed-chain.yml
     with:
-      chain-api-url: https://rpc.app.internal.testnet.us-east.production.nemo.io:443
+      chain-api-url: https://rpc.app.internal.testnet.us-east.production.fury.io:443
       chain-id: highbury_710-17000
       seed-script-filename: seed-internal-testnet.sh
       erc20-deployer-network-name: internal_testnet
       genesis_validator_addresses: "furyvaloper1xcgtffvv2yeqmgs3yz4gv29kgjrj8usxw3xsx0 furyvaloper1w66m9hdzwgd6uc8g93zqkcumgwzrpcw9e94ce7"
-      nemo_version_filepath:  ./ci/env/nemo-internal-testnet/NEMO.VERSION
+      fury_version_filepath:  ./ci/env/fury-internal-testnet/FURY.VERSION
     secrets: inherit
     needs: [start-chain-api]
   post-pipeline-metrics:
@@ -54,7 +54,7 @@ jobs:
     if: always() # always run so we metric failures and successes
     with:
       aws-region: us-east-1
-      metric-name: nemo.deploys.testnet.internal
-      namespace: Nemo/ContinuousDeployment
+      metric-name: fury.deploys.testnet.internal
+      namespace: Fury/ContinuousDeployment
     secrets: inherit
     needs: [seed-chain-state]

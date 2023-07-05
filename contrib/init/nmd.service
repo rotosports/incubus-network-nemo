@@ -1,12 +1,12 @@
 [Unit]
-Description=Nemo daemon
+Description=Fury daemon
 After=network-online.target
 
 [Service]
 
-# Run as nemo:nemo
-User=nemo
-ExecStart=/home/nemo/go/bin/nmd start
+# Run as fury:fury
+User=fury
+ExecStart=/home/fury/go/bin/fud start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096

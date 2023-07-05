@@ -13,9 +13,9 @@ import (
 	vesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/incubus-network/nemo/x/evmutil/keeper"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/x/evmutil/keeper"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type evmBankKeeperTestSuite struct {
@@ -107,7 +107,7 @@ func (suite *evmBankKeeperTestSuite) TestGetBalance() {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
 
-			suite.FundAccountWithNemo(suite.Addrs[0], tt.startingAmount)
+			suite.FundAccountWithFury(suite.Addrs[0], tt.startingAmount)
 			coin := suite.EvmBankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "afury")
 			suite.Require().Equal(tt.expAmount, coin.Amount)
 		})
@@ -232,11 +232,11 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
 
-			suite.FundAccountWithNemo(suite.Addrs[0], tt.startingAccBal)
-			suite.FundModuleAccountWithNemo(evmtypes.ModuleName, startingModuleCoins)
+			suite.FundAccountWithFury(suite.Addrs[0], tt.startingAccBal)
+			suite.FundModuleAccountWithFury(evmtypes.ModuleName, startingModuleCoins)
 
 			// fund our module with some ufury to account for converting extra afury back to ufury
-			suite.FundModuleAccountWithNemo(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
+			suite.FundModuleAccountWithFury(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
 
 			err := suite.EvmBankKeeper.SendCoinsFromModuleToAccount(suite.Ctx, evmtypes.ModuleName, suite.Addrs[0], tt.sendCoins)
 			if tt.hasErr {
@@ -350,8 +350,8 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromAccountToModule() {
 	for _, tt := range tests {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
-			suite.FundAccountWithNemo(suite.Addrs[0], startingAccCoins)
-			suite.FundModuleAccountWithNemo(evmtypes.ModuleName, startingModuleCoins)
+			suite.FundAccountWithFury(suite.Addrs[0], startingAccCoins)
+			suite.FundModuleAccountWithFury(evmtypes.ModuleName, startingModuleCoins)
 
 			err := suite.EvmBankKeeper.SendCoinsFromAccountToModule(suite.Ctx, suite.Addrs[0], evmtypes.ModuleName, tt.sendCoins)
 			if tt.hasErr {
@@ -378,11 +378,11 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromAccountToModule() {
 }
 
 func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
-	startingUnemo := sdkmath.NewInt(100)
+	startingUfury := sdkmath.NewInt(100)
 	tests := []struct {
 		name       string
 		burnCoins  sdk.Coins
-		expUnemo   sdkmath.Int
+		expUfury   sdkmath.Int
 		expAtfury   sdkmath.Int
 		hasErr     bool
 		afuryStart sdkmath.Int
@@ -414,7 +414,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 		{
 			"burn no afury",
 			sdk.NewCoins(sdk.NewInt64Coin("afury", 0)),
-			startingUnemo,
+			startingUfury,
 			sdk.ZeroInt(),
 			false,
 			sdk.ZeroInt(),
@@ -422,7 +422,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 		{
 			"errors if burning other coins",
 			sdk.NewCoins(sdk.NewInt64Coin("afury", 500), sdk.NewInt64Coin("busd", 1000)),
-			startingUnemo,
+			startingUfury,
 			sdkmath.NewInt(100),
 			true,
 			sdkmath.NewInt(100),
@@ -433,7 +433,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 				sdk.NewInt64Coin("afury", 12_000_000_000_000),
 				sdk.NewInt64Coin("afury", 2_000_000_000_000),
 			},
-			startingUnemo,
+			startingUfury,
 			sdk.ZeroInt(),
 			true,
 			sdk.ZeroInt(),
@@ -441,7 +441,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 		{
 			"errors if burn amount is negative",
 			sdk.Coins{sdk.Coin{Denom: "afury", Amount: sdkmath.NewInt(-100)}},
-			startingUnemo,
+			startingUfury,
 			sdkmath.NewInt(50),
 			true,
 			sdkmath.NewInt(50),
@@ -476,10 +476,10 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
 			startingCoins := sdk.NewCoins(
-				sdk.NewCoin("ufury", startingUnemo),
+				sdk.NewCoin("ufury", startingUfury),
 				sdk.NewCoin("afury", tt.afuryStart),
 			)
-			suite.FundModuleAccountWithNemo(evmtypes.ModuleName, startingCoins)
+			suite.FundModuleAccountWithFury(evmtypes.ModuleName, startingCoins)
 
 			err := suite.EvmBankKeeper.BurnCoins(suite.Ctx, evmtypes.ModuleName, tt.burnCoins)
 			if tt.hasErr {
@@ -491,7 +491,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 
 			// check ufury
 			ufuryActual := suite.BankKeeper.GetBalance(suite.Ctx, suite.EvmModuleAddr, "ufury")
-			suite.Require().Equal(tt.expUnemo, ufuryActual.Amount)
+			suite.Require().Equal(tt.expUfury, ufuryActual.Amount)
 
 			// check afury
 			afuryActual := suite.Keeper.GetBalance(suite.Ctx, suite.EvmModuleAddr)
@@ -589,8 +589,8 @@ func (suite *evmBankKeeperTestSuite) TestMintCoins() {
 	for _, tt := range tests {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
-			suite.FundModuleAccountWithNemo(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
-			suite.FundModuleAccountWithNemo(evmtypes.ModuleName, sdk.NewCoins(sdk.NewCoin("afury", tt.afuryStart)))
+			suite.FundModuleAccountWithFury(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
+			suite.FundModuleAccountWithFury(evmtypes.ModuleName, sdk.NewCoins(sdk.NewCoin("afury", tt.afuryStart)))
 
 			err := suite.EvmBankKeeper.MintCoins(suite.Ctx, evmtypes.ModuleName, tt.mintCoins)
 			if tt.hasErr {
@@ -650,7 +650,7 @@ func (suite *evmBankKeeperTestSuite) TestValidateEvmCoins() {
 	}
 }
 
-func (suite *evmBankKeeperTestSuite) TestConvertOneUnemoToAtfuryIfNeeded() {
+func (suite *evmBankKeeperTestSuite) TestConvertOneUfuryToAtfuryIfNeeded() {
 	afuryNeeded := sdkmath.NewInt(200)
 	tests := []struct {
 		name          string
@@ -681,17 +681,17 @@ func (suite *evmBankKeeperTestSuite) TestConvertOneUnemoToAtfuryIfNeeded() {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
 
-			suite.FundAccountWithNemo(suite.Addrs[0], tt.startingCoins)
-			err := suite.EvmBankKeeper.ConvertOneUnemoToAtfuryIfNeeded(suite.Ctx, suite.Addrs[0], afuryNeeded)
-			moduleNemo := suite.BankKeeper.GetBalance(suite.Ctx, suite.AccountKeeper.GetModuleAddress(types.ModuleName), "ufury")
+			suite.FundAccountWithFury(suite.Addrs[0], tt.startingCoins)
+			err := suite.EvmBankKeeper.ConvertOneUfuryToAtfuryIfNeeded(suite.Ctx, suite.Addrs[0], afuryNeeded)
+			moduleFury := suite.BankKeeper.GetBalance(suite.Ctx, suite.AccountKeeper.GetModuleAddress(types.ModuleName), "ufury")
 			if tt.success {
 				suite.Require().NoError(err)
 				if tt.startingCoins.AmountOf("afury").LT(afuryNeeded) {
-					suite.Require().Equal(sdk.OneInt(), moduleNemo.Amount)
+					suite.Require().Equal(sdk.OneInt(), moduleFury.Amount)
 				}
 			} else {
 				suite.Require().Error(err)
-				suite.Require().Equal(sdk.ZeroInt(), moduleNemo.Amount)
+				suite.Require().Equal(sdk.ZeroInt(), moduleFury.Amount)
 			}
 
 			afury := suite.Keeper.GetBalance(suite.Ctx, suite.Addrs[0])
@@ -702,7 +702,7 @@ func (suite *evmBankKeeperTestSuite) TestConvertOneUnemoToAtfuryIfNeeded() {
 	}
 }
 
-func (suite *evmBankKeeperTestSuite) TestConvertAtfuryToUnemo() {
+func (suite *evmBankKeeperTestSuite) TestConvertAtfuryToUfury() {
 	tests := []struct {
 		name          string
 		startingCoins sdk.Coins
@@ -730,8 +730,8 @@ func (suite *evmBankKeeperTestSuite) TestConvertAtfuryToUnemo() {
 
 			err := suite.App.FundModuleAccount(suite.Ctx, types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
 			suite.Require().NoError(err)
-			suite.FundAccountWithNemo(suite.Addrs[0], tt.startingCoins)
-			err = suite.EvmBankKeeper.ConvertAtfuryToUnemo(suite.Ctx, suite.Addrs[0])
+			suite.FundAccountWithFury(suite.Addrs[0], tt.startingCoins)
+			err = suite.EvmBankKeeper.ConvertAtfuryToUfury(suite.Ctx, suite.Addrs[0])
 			suite.Require().NoError(err)
 			afury := suite.Keeper.GetBalance(suite.Ctx, suite.Addrs[0])
 			suite.Require().Equal(tt.expectedCoins.AmountOf("afury"), afury)

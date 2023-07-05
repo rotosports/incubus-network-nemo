@@ -8,14 +8,14 @@ import (
 	"github.com/tendermint/tendermint/crypto"
 	tmbytes "github.com/tendermint/tendermint/libs/bytes"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/bep3/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 var (
 	coinsSingle       = sdk.NewCoins(sdk.NewInt64Coin("bnb", 50000))
 	binanceAddrs      = []sdk.AccAddress{}
-	nemoAddrs         = []sdk.AccAddress{}
+	furyAddrs         = []sdk.AccAddress{}
 	randomNumberBytes = []byte{15}
 	timestampInt64    = int64(100)
 	randomNumberHash  = tmbytes.HexBytes(types.CalculateRandomHash(randomNumberBytes, timestampInt64))
@@ -24,14 +24,14 @@ var (
 func init() {
 	app.SetSDKConfig()
 
-	// Must be set after SetSDKConfig to use nemo Bech32 prefix instead of cosmos
+	// Must be set after SetSDKConfig to use fury Bech32 prefix instead of cosmos
 	binanceAddrs = []sdk.AccAddress{
 		sdk.AccAddress(crypto.AddressHash([]byte("BinanceTest1"))),
 		sdk.AccAddress(crypto.AddressHash([]byte("BinanceTest2"))),
 	}
-	nemoAddrs = []sdk.AccAddress{
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest1"))),
-		sdk.AccAddress(crypto.AddressHash([]byte("NemoTest2"))),
+	furyAddrs = []sdk.AccAddress{
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest1"))),
+		sdk.AccAddress(crypto.AddressHash([]byte("FuryTest2"))),
 	}
 }
 
@@ -57,12 +57,12 @@ func (suite *MsgTestSuite) TestMsgCreateAtomicSwap() {
 		heightSpan          uint64
 		expectPass          bool
 	}{
-		{"normal cross-chain", binanceAddrs[0], nemoAddrs[0], nemoAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, coinsSingle, 500, true},
-		{"without other chain fields", binanceAddrs[0], nemoAddrs[0], "", "", randomNumberHash.String(), timestampInt64, coinsSingle, 500, false},
-		{"invalid amount", binanceAddrs[0], nemoAddrs[0], nemoAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, nil, 500, false},
-		{"invalid from address", sdk.AccAddress{}, nemoAddrs[0], nemoAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, coinsSingle, 500, false},
-		{"invalid to address", binanceAddrs[0], sdk.AccAddress{}, nemoAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, coinsSingle, 500, false},
-		{"invalid rand hash", binanceAddrs[0], nemoAddrs[0], nemoAddrs[0].String(), binanceAddrs[0].String(), "ff", timestampInt64, coinsSingle, 500, false},
+		{"normal cross-chain", binanceAddrs[0], furyAddrs[0], furyAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, coinsSingle, 500, true},
+		{"without other chain fields", binanceAddrs[0], furyAddrs[0], "", "", randomNumberHash.String(), timestampInt64, coinsSingle, 500, false},
+		{"invalid amount", binanceAddrs[0], furyAddrs[0], furyAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, nil, 500, false},
+		{"invalid from address", sdk.AccAddress{}, furyAddrs[0], furyAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, coinsSingle, 500, false},
+		{"invalid to address", binanceAddrs[0], sdk.AccAddress{}, furyAddrs[0].String(), binanceAddrs[0].String(), randomNumberHash.String(), timestampInt64, coinsSingle, 500, false},
+		{"invalid rand hash", binanceAddrs[0], furyAddrs[0], furyAddrs[0].String(), binanceAddrs[0].String(), "ff", timestampInt64, coinsSingle, 500, false},
 	}
 
 	for i, tc := range tests {

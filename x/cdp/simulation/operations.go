@@ -10,9 +10,9 @@ package simulation
 // 	sdk "github.com/cosmos/cosmos-sdk/types"
 // 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-// 	appparams "github.com/incubus-network/nemo/app/params"
-// 	"github.com/incubus-network/nemo/x/cdp/keeper"
-// 	"github.com/incubus-network/nemo/x/cdp/types"
+// 	appparams "github.com/incubus-network/fury/app/params"
+// 	"github.com/incubus-network/fury/x/cdp/keeper"
+// 	"github.com/incubus-network/fury/x/cdp/types"
 // )
 
 // // Simulation operation weights constants

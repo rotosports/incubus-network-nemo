@@ -2,7 +2,7 @@ package issuance
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/nemo/x/issuance/keeper"
+	"github.com/incubus-network/fury/x/issuance/keeper"
 )
 
 // BeginBlocker iterates over each asset and seizes coins from blocked addresses by returning them to the asset owner

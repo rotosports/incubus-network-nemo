@@ -97,67 +97,67 @@ import (
 	tmlog "github.com/tendermint/tendermint/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/incubus-network/nemo/app/ante"
-	nemoparams "github.com/incubus-network/nemo/app/params"
-	"github.com/incubus-network/nemo/x/auction"
-	auctionkeeper "github.com/incubus-network/nemo/x/auction/keeper"
-	auctiontypes "github.com/incubus-network/nemo/x/auction/types"
-	"github.com/incubus-network/nemo/x/bep3"
-	bep3keeper "github.com/incubus-network/nemo/x/bep3/keeper"
-	bep3types "github.com/incubus-network/nemo/x/bep3/types"
-	"github.com/incubus-network/nemo/x/cdp"
-	cdpkeeper "github.com/incubus-network/nemo/x/cdp/keeper"
-	cdptypes "github.com/incubus-network/nemo/x/cdp/types"
-	"github.com/incubus-network/nemo/x/committee"
-	committeeclient "github.com/incubus-network/nemo/x/committee/client"
-	committeekeeper "github.com/incubus-network/nemo/x/committee/keeper"
-	committeetypes "github.com/incubus-network/nemo/x/committee/types"
-	"github.com/incubus-network/nemo/x/community"
-	communityclient "github.com/incubus-network/nemo/x/community/client"
-	communitykeeper "github.com/incubus-network/nemo/x/community/keeper"
-	communitytypes "github.com/incubus-network/nemo/x/community/types"
-	earn "github.com/incubus-network/nemo/x/earn"
-	earnclient "github.com/incubus-network/nemo/x/earn/client"
-	earnkeeper "github.com/incubus-network/nemo/x/earn/keeper"
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	evmutil "github.com/incubus-network/nemo/x/evmutil"
-	evmutilkeeper "github.com/incubus-network/nemo/x/evmutil/keeper"
-	evmutiltypes "github.com/incubus-network/nemo/x/evmutil/types"
-	"github.com/incubus-network/nemo/x/hard"
-	hardkeeper "github.com/incubus-network/nemo/x/hard/keeper"
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	"github.com/incubus-network/nemo/x/incentive"
-	incentivekeeper "github.com/incubus-network/nemo/x/incentive/keeper"
-	incentivetypes "github.com/incubus-network/nemo/x/incentive/types"
-	issuance "github.com/incubus-network/nemo/x/issuance"
-	issuancekeeper "github.com/incubus-network/nemo/x/issuance/keeper"
-	issuancetypes "github.com/incubus-network/nemo/x/issuance/types"
-	"github.com/incubus-network/nemo/x/liquid"
-	liquidkeeper "github.com/incubus-network/nemo/x/liquid/keeper"
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
-	"github.com/incubus-network/nemo/x/nemodist"
-	nemodistclient "github.com/incubus-network/nemo/x/nemodist/client"
-	nemodistkeeper "github.com/incubus-network/nemo/x/nemodist/keeper"
-	nemodisttypes "github.com/incubus-network/nemo/x/nemodist/types"
-	pricefeed "github.com/incubus-network/nemo/x/pricefeed"
-	pricefeedkeeper "github.com/incubus-network/nemo/x/pricefeed/keeper"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
-	"github.com/incubus-network/nemo/x/router"
-	routerkeeper "github.com/incubus-network/nemo/x/router/keeper"
-	routertypes "github.com/incubus-network/nemo/x/router/types"
-	savings "github.com/incubus-network/nemo/x/savings"
-	savingskeeper "github.com/incubus-network/nemo/x/savings/keeper"
-	savingstypes "github.com/incubus-network/nemo/x/savings/types"
-	"github.com/incubus-network/nemo/x/swap"
-	swapkeeper "github.com/incubus-network/nemo/x/swap/keeper"
-	swaptypes "github.com/incubus-network/nemo/x/swap/types"
-	validatorvesting "github.com/incubus-network/nemo/x/validator-vesting"
-	validatorvestingrest "github.com/incubus-network/nemo/x/validator-vesting/client/rest"
-	validatorvestingtypes "github.com/incubus-network/nemo/x/validator-vesting/types"
+	"github.com/incubus-network/fury/app/ante"
+	furyparams "github.com/incubus-network/fury/app/params"
+	"github.com/incubus-network/fury/x/auction"
+	auctionkeeper "github.com/incubus-network/fury/x/auction/keeper"
+	auctiontypes "github.com/incubus-network/fury/x/auction/types"
+	"github.com/incubus-network/fury/x/bep3"
+	bep3keeper "github.com/incubus-network/fury/x/bep3/keeper"
+	bep3types "github.com/incubus-network/fury/x/bep3/types"
+	"github.com/incubus-network/fury/x/cdp"
+	cdpkeeper "github.com/incubus-network/fury/x/cdp/keeper"
+	cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	"github.com/incubus-network/fury/x/committee"
+	committeeclient "github.com/incubus-network/fury/x/committee/client"
+	committeekeeper "github.com/incubus-network/fury/x/committee/keeper"
+	committeetypes "github.com/incubus-network/fury/x/committee/types"
+	"github.com/incubus-network/fury/x/community"
+	communityclient "github.com/incubus-network/fury/x/community/client"
+	communitykeeper "github.com/incubus-network/fury/x/community/keeper"
+	communitytypes "github.com/incubus-network/fury/x/community/types"
+	earn "github.com/incubus-network/fury/x/earn"
+	earnclient "github.com/incubus-network/fury/x/earn/client"
+	earnkeeper "github.com/incubus-network/fury/x/earn/keeper"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	evmutil "github.com/incubus-network/fury/x/evmutil"
+	evmutilkeeper "github.com/incubus-network/fury/x/evmutil/keeper"
+	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/incubus-network/fury/x/hard"
+	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	"github.com/incubus-network/fury/x/incentive"
+	incentivekeeper "github.com/incubus-network/fury/x/incentive/keeper"
+	incentivetypes "github.com/incubus-network/fury/x/incentive/types"
+	issuance "github.com/incubus-network/fury/x/issuance"
+	issuancekeeper "github.com/incubus-network/fury/x/issuance/keeper"
+	issuancetypes "github.com/incubus-network/fury/x/issuance/types"
+	"github.com/incubus-network/fury/x/liquid"
+	liquidkeeper "github.com/incubus-network/fury/x/liquid/keeper"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
+	"github.com/incubus-network/fury/x/furydist"
+	furydistclient "github.com/incubus-network/fury/x/furydist/client"
+	furydistkeeper "github.com/incubus-network/fury/x/furydist/keeper"
+	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
+	pricefeed "github.com/incubus-network/fury/x/pricefeed"
+	pricefeedkeeper "github.com/incubus-network/fury/x/pricefeed/keeper"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/incubus-network/fury/x/router"
+	routerkeeper "github.com/incubus-network/fury/x/router/keeper"
+	routertypes "github.com/incubus-network/fury/x/router/types"
+	savings "github.com/incubus-network/fury/x/savings"
+	savingskeeper "github.com/incubus-network/fury/x/savings/keeper"
+	savingstypes "github.com/incubus-network/fury/x/savings/types"
+	"github.com/incubus-network/fury/x/swap"
+	swapkeeper "github.com/incubus-network/fury/x/swap/keeper"
+	swaptypes "github.com/incubus-network/fury/x/swap/types"
+	validatorvesting "github.com/incubus-network/fury/x/validator-vesting"
+	validatorvestingrest "github.com/incubus-network/fury/x/validator-vesting/client/rest"
+	validatorvestingtypes "github.com/incubus-network/fury/x/validator-vesting/types"
 )
 
 const (
-	appName = "nemo"
+	appName = "fury"
 )
 
 var (
@@ -180,7 +180,7 @@ var (
 			upgradeclient.LegacyCancelProposalHandler,
 			ibcclientclient.UpdateClientProposalHandler,
 			ibcclientclient.UpgradeProposalHandler,
-			nemodistclient.ProposalHandler,
+			furydistclient.ProposalHandler,
 			committeeclient.ProposalHandler,
 			earnclient.DepositProposalHandler,
 			earnclient.WithdrawProposalHandler,
@@ -198,7 +198,7 @@ var (
 		vesting.AppModuleBasic{},
 		evm.AppModuleBasic{},
 		feemarket.AppModuleBasic{},
-		nemodist.AppModuleBasic{},
+		furydist.AppModuleBasic{},
 		auction.AppModuleBasic{},
 		issuance.AppModuleBasic{},
 		bep3.AppModuleBasic{},
@@ -230,7 +230,7 @@ var (
 		ibctransfertypes.ModuleName:     {authtypes.Minter, authtypes.Burner},
 		evmtypes.ModuleName:             {authtypes.Minter, authtypes.Burner}, // used for secure addition and subtraction of balance using module account
 		evmutiltypes.ModuleName:         {authtypes.Minter, authtypes.Burner},
-		nemodisttypes.NemoDistMacc:      {authtypes.Minter},
+		furydisttypes.FuryDistMacc:      {authtypes.Minter},
 		auctiontypes.ModuleName:         nil,
 		issuancetypes.ModuleAccountName: {authtypes.Minter, authtypes.Burner},
 		bep3types.ModuleName:            {authtypes.Burner, authtypes.Minter},
@@ -241,7 +241,7 @@ var (
 		savingstypes.ModuleAccountName:  nil,
 		liquidtypes.ModuleAccountName:   {authtypes.Minter, authtypes.Burner},
 		earntypes.ModuleAccountName:     nil,
-		nemodisttypes.FundModuleAccount: nil,
+		furydisttypes.FundModuleAccount: nil,
 		minttypes.ModuleName:            {authtypes.Minter},
 		communitytypes.ModuleName:       nil,
 	}
@@ -269,7 +269,7 @@ var DefaultOptions = Options{
 	EVMMaxGasWanted: ethermintconfig.DefaultMaxTxGasWanted,
 }
 
-// App is the Nemo ABCI application.
+// App is the Fury ABCI application.
 type App struct {
 	*baseapp.BaseApp
 
@@ -301,7 +301,7 @@ type App struct {
 	upgradeKeeper    upgradekeeper.Keeper
 	evidenceKeeper   evidencekeeper.Keeper
 	transferKeeper   ibctransferkeeper.Keeper
-	nemodistKeeper   nemodistkeeper.Keeper
+	furydistKeeper   furydistkeeper.Keeper
 	auctionKeeper    auctionkeeper.Keeper
 	issuanceKeeper   issuancekeeper.Keeper
 	bep3Keeper       bep3keeper.Keeper
@@ -338,7 +338,7 @@ func init() {
 		stdlog.Printf("Failed to get home dir %v", err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".nemo")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".fury")
 }
 
 // NewApp returns a reference to an initialized App.
@@ -347,7 +347,7 @@ func NewApp(
 	db dbm.DB,
 	homePath string,
 	traceStore io.Writer,
-	encodingConfig nemoparams.EncodingConfig,
+	encodingConfig furyparams.EncodingConfig,
 	options Options,
 	baseAppOptions ...func(*baseapp.BaseApp),
 ) *App {
@@ -366,7 +366,7 @@ func NewApp(
 		govtypes.StoreKey, paramstypes.StoreKey, ibchost.StoreKey,
 		upgradetypes.StoreKey, evidencetypes.StoreKey, ibctransfertypes.StoreKey,
 		evmtypes.StoreKey, feemarkettypes.StoreKey, authzkeeper.StoreKey,
-		capabilitytypes.StoreKey, nemodisttypes.StoreKey, auctiontypes.StoreKey,
+		capabilitytypes.StoreKey, furydisttypes.StoreKey, auctiontypes.StoreKey,
 		issuancetypes.StoreKey, bep3types.StoreKey, pricefeedtypes.StoreKey,
 		swaptypes.StoreKey, cdptypes.StoreKey, hardtypes.StoreKey,
 		committeetypes.StoreKey, incentivetypes.StoreKey, evmutiltypes.StoreKey,
@@ -399,7 +399,7 @@ func NewApp(
 	slashingSubspace := app.paramsKeeper.Subspace(slashingtypes.ModuleName)
 	govSubspace := app.paramsKeeper.Subspace(govtypes.ModuleName).WithKeyTable(govv1.ParamKeyTable())
 	crisisSubspace := app.paramsKeeper.Subspace(crisistypes.ModuleName)
-	nemodistSubspace := app.paramsKeeper.Subspace(nemodisttypes.ModuleName)
+	furydistSubspace := app.paramsKeeper.Subspace(furydisttypes.ModuleName)
 	auctionSubspace := app.paramsKeeper.Subspace(auctiontypes.ModuleName)
 	issuanceSubspace := app.paramsKeeper.Subspace(issuancetypes.ModuleName)
 	bep3Subspace := app.paramsKeeper.Subspace(bep3types.ModuleName)
@@ -639,10 +639,10 @@ func NewApp(
 		app.distrKeeper,
 		&hardKeeper,
 	)
-	app.nemodistKeeper = nemodistkeeper.NewKeeper(
+	app.furydistKeeper = furydistkeeper.NewKeeper(
 		appCodec,
-		keys[nemodisttypes.StoreKey],
-		nemodistSubspace,
+		keys[furydisttypes.StoreKey],
+		furydistSubspace,
 		app.bankKeeper,
 		app.accountKeeper,
 		app.distrKeeper,
@@ -725,7 +725,7 @@ func NewApp(
 		AddRoute(upgradetypes.RouterKey, upgrade.NewSoftwareUpgradeProposalHandler(app.upgradeKeeper)).
 		AddRoute(ibcclienttypes.RouterKey, ibcclient.NewClientProposalHandler(app.ibcKeeper.ClientKeeper)).
 		AddRoute(distrtypes.RouterKey, distr.NewCommunityPoolSpendProposalHandler(app.distrKeeper)).
-		AddRoute(nemodisttypes.RouterKey, nemodist.NewCommunityPoolMultiSpendProposalHandler(app.nemodistKeeper)).
+		AddRoute(furydisttypes.RouterKey, furydist.NewCommunityPoolMultiSpendProposalHandler(app.furydistKeeper)).
 		AddRoute(earntypes.RouterKey, earn.NewCommunityPoolProposalHandler(app.earnKeeper)).
 		AddRoute(communitytypes.RouterKey, community.NewCommunityPoolProposalHandler(app.communityKeeper)).
 		AddRoute(committeetypes.RouterKey, committee.NewProposalHandler(app.committeeKeeper))
@@ -771,7 +771,7 @@ func NewApp(
 		transferModule,
 		vesting.NewAppModule(app.accountKeeper, app.bankKeeper),
 		authzmodule.NewAppModule(appCodec, app.authzKeeper, app.accountKeeper, app.bankKeeper, app.interfaceRegistry),
-		nemodist.NewAppModule(app.nemodistKeeper, app.accountKeeper),
+		furydist.NewAppModule(app.furydistKeeper, app.accountKeeper),
 		auction.NewAppModule(app.auctionKeeper, app.accountKeeper, app.bankKeeper),
 		issuance.NewAppModule(app.issuanceKeeper, app.accountKeeper, app.bankKeeper),
 		bep3.NewAppModule(app.bep3Keeper, app.accountKeeper, app.bankKeeper),
@@ -811,7 +811,7 @@ func NewApp(
 		stakingtypes.ModuleName,
 		feemarkettypes.ModuleName,
 		evmtypes.ModuleName,
-		nemodisttypes.ModuleName,
+		furydisttypes.ModuleName,
 		communitytypes.ModuleName,
 		// Auction begin blocker will close out expired auctions and pay debt back to cdp.
 		// It should be run before cdp begin blocker which cancels out debt with stable and starts more auctions.
@@ -864,7 +864,7 @@ func NewApp(
 		committeetypes.ModuleName,
 		upgradetypes.ModuleName,
 		evidencetypes.ModuleName,
-		nemodisttypes.ModuleName,
+		furydisttypes.ModuleName,
 		swaptypes.ModuleName,
 		vestingtypes.ModuleName,
 		ibchost.ModuleName,
@@ -900,7 +900,7 @@ func NewApp(
 		ibctransfertypes.ModuleName,
 		evmtypes.ModuleName,
 		feemarkettypes.ModuleName,
-		nemodisttypes.ModuleName,
+		furydisttypes.ModuleName,
 		auctiontypes.ModuleName,
 		issuancetypes.ModuleName,
 		savingstypes.ModuleName,
@@ -1025,7 +1025,7 @@ func (app *App) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.Res
 		panic(err)
 	}
 
-	// Store current module versions in nemo-10 to setup future in-place upgrades.
+	// Store current module versions in fury-10 to setup future in-place upgrades.
 	// During in-place migrations, the old module versions in the store will be referenced to determine which migrations to run.
 	app.upgradeKeeper.SetModuleVersionMap(ctx, app.mm.GetVersionMap())
 
@@ -1085,9 +1085,9 @@ func RegisterAPIRouteRewrites(router *mux.Router) {
 	// Mapping of client path to backend path. Similar to nginx rewrite rules,
 	// but does not return a 301 or 302 redirect.
 	// Eg: querying /cosmos/distribution/v1beta1/community_pool will return
-	// the same response as querying /nemo/community/v1beta1/total_balance
+	// the same response as querying /fury/community/v1beta1/total_balance
 	routeMap := map[string]string{
-		"/cosmos/distribution/v1beta1/community_pool": "/nemo/community/v1beta1/total_balance",
+		"/cosmos/distribution/v1beta1/community_pool": "/fury/community/v1beta1/total_balance",
 	}
 
 	for clientPath, backendPath := range routeMap {
@@ -1128,14 +1128,14 @@ func (app *App) RegisterNodeService(clientCtx client.Context) {
 func (app *App) loadBlockedMaccAddrs() map[string]bool {
 	modAccAddrs := app.ModuleAccountAddrs()
 	allowedMaccs := map[string]bool{
-		// nemodist
-		app.accountKeeper.GetModuleAddress(nemodisttypes.ModuleName).String(): true,
+		// furydist
+		app.accountKeeper.GetModuleAddress(furydisttypes.ModuleName).String(): true,
 		// earn
 		app.accountKeeper.GetModuleAddress(earntypes.ModuleName).String(): true,
 		// liquid
 		app.accountKeeper.GetModuleAddress(liquidtypes.ModuleName).String(): true,
-		// nemodist fund
-		app.accountKeeper.GetModuleAddress(nemodisttypes.FundModuleAccount).String(): true,
+		// furydist fund
+		app.accountKeeper.GetModuleAddress(furydisttypes.FundModuleAccount).String(): true,
 		// community
 		app.accountKeeper.GetModuleAddress(communitytypes.ModuleAccountName).String(): true,
 		// NOTE: if adding evmutil, adjust the cosmos-coins-fully-backed-invariant accordingly.

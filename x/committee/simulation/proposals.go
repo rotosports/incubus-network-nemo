@@ -8,9 +8,9 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	appparams "github.com/incubus-network/nemo/app/params"
-	"github.com/incubus-network/nemo/x/committee/keeper"
-	"github.com/incubus-network/nemo/x/committee/types"
+	appparams "github.com/incubus-network/fury/app/params"
+	"github.com/incubus-network/fury/x/committee/keeper"
+	"github.com/incubus-network/fury/x/committee/types"
 )
 
 const OpWeightSubmitCommitteeChangeProposal = "op_weight_submit_committee_change_proposal"

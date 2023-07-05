@@ -7,31 +7,31 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/incubus-network/nemo/tests/e2e/contracts/greeter"
-	"github.com/incubus-network/nemo/x/earn/types"
-	evmutiltypes "github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/tests/e2e/contracts/greeter"
+	"github.com/incubus-network/fury/x/earn/types"
+	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
 )
 
-// InitNemoEvmData is run after the chain is running, but before the tests are run.
+// InitFuryEvmData is run after the chain is running, but before the tests are run.
 // It is used to initialize some EVM state, such as deploying contracts.
-func (suite *E2eTestSuite) InitNemoEvmData() {
-	whale := suite.Nemo.GetAccount(FundedAccountName)
+func (suite *E2eTestSuite) InitFuryEvmData() {
+	whale := suite.Fury.GetAccount(FundedAccountName)
 
 	// ensure funded account has nonzero erc20 balance
-	balance := suite.Nemo.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress)
+	balance := suite.Fury.GetErc20Balance(suite.DeployedErc20.Address, whale.EvmAddress)
 	if balance.Cmp(big.NewInt(0)) != 1 {
 		panic(fmt.Sprintf("expected funded account (%s) to have erc20 balance", whale.EvmAddress.Hex()))
 	}
 
 	// expect the erc20 to be enabled for conversion to sdk.Coin
-	params, err := suite.Nemo.Evmutil.Params(context.Background(), &evmutiltypes.QueryParamsRequest{})
+	params, err := suite.Fury.Evmutil.Params(context.Background(), &evmutiltypes.QueryParamsRequest{})
 	if err != nil {
 		panic(fmt.Sprintf("failed to fetch evmutil params during init: %s", err))
 	}
 	found := false
 	erc20Addr := suite.DeployedErc20.Address.Hex()
 	for _, p := range params.Params.EnabledConversionPairs {
-		if common.BytesToAddress(p.NemoERC20Address).Hex() == erc20Addr {
+		if common.BytesToAddress(p.FuryERC20Address).Hex() == erc20Addr {
 			found = true
 			suite.DeployedErc20.CosmosDenom = p.Denom
 		}
@@ -39,10 +39,10 @@ func (suite *E2eTestSuite) InitNemoEvmData() {
 	if !found {
 		panic(fmt.Sprintf("erc20 %s must be enabled for conversion to cosmos coin", erc20Addr))
 	}
-	suite.Nemo.RegisterErc20(suite.DeployedErc20.Address)
+	suite.Fury.RegisterErc20(suite.DeployedErc20.Address)
 
 	// expect the erc20's cosmos denom to be a supported earn vault
-	_, err = suite.Nemo.Earn.Vault(
+	_, err = suite.Fury.Earn.Vault(
 		context.Background(),
 		types.NewQueryVaultRequest(suite.DeployedErc20.CosmosDenom),
 	)
@@ -57,13 +57,13 @@ func (suite *E2eTestSuite) InitNemoEvmData() {
 		"what's up!",
 	)
 	suite.NoError(err, "failed to deploy a contract to the EVM")
-	suite.Nemo.ContractAddrs["greeter"] = greeterAddr
+	suite.Fury.ContractAddrs["greeter"] = greeterAddr
 }
 
-// FundNemoErc20Balance sends the pre-deployed ERC20 token to the `toAddress`.
-func (suite *E2eTestSuite) FundNemoErc20Balance(toAddress common.Address, amount *big.Int) EvmTxResponse {
+// FundFuryErc20Balance sends the pre-deployed ERC20 token to the `toAddress`.
+func (suite *E2eTestSuite) FundFuryErc20Balance(toAddress common.Address, amount *big.Int) EvmTxResponse {
 	// funded account should have erc20 balance
-	whale := suite.Nemo.GetAccount(FundedAccountName)
+	whale := suite.Fury.GetAccount(FundedAccountName)
 	res, err := whale.TransferErc20(suite.DeployedErc20.Address, toAddress, amount)
 	suite.NoError(err)
 	return res

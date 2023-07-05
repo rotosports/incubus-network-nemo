@@ -24,24 +24,24 @@ import (
 	emtypes "github.com/evmos/ethermint/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/tests/util"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/tests/util"
 )
 
 // SigningAccount wraps details about an account and its private keys.
 // It exposes functionality for signing and broadcasting transactions.
 type SigningAccount struct {
 	name     string
-	mnemonic string
+	mfurynic string
 
 	evmPrivKey *ethsecp256k1.PrivKey
 	evmSigner  *util.EvmSigner
 	evmReqChan chan<- util.EvmTxRequest
 	evmResChan <-chan util.EvmTxResponse
 
-	nemoSigner *util.NemoSigner
-	sdkReqChan chan<- util.NemoMsgRequest
-	sdkResChan <-chan util.NemoMsgResponse
+	furySigner *util.FurySigner
+	sdkReqChan chan<- util.FuryMsgRequest
+	sdkResChan <-chan util.FuryMsgResponse
 
 	EvmAuth *bind.TransactOpts
 
@@ -63,17 +63,17 @@ func (chain *Chain) GetAccount(name string) *SigningAccount {
 }
 
 // AddNewSigningAccount sets up a new account with a signer for SDK and EVM transactions.
-func (chain *Chain) AddNewSigningAccount(name string, hdPath *hd.BIP44Params, chainId, mnemonic string) *SigningAccount {
+func (chain *Chain) AddNewSigningAccount(name string, hdPath *hd.BIP44Params, chainId, mfurynic string) *SigningAccount {
 	if _, found := chain.accounts[name]; found {
 		chain.t.Fatalf("account with name %s already exists", name)
 	}
 
-	// Nemo signing account for SDK side
-	privKeyBytes, err := hd.Secp256k1.Derive()(mnemonic, "", hdPath.String())
-	require.NoErrorf(chain.t, err, "failed to derive private key from mnemonic for %s: %s", name, err)
+	// Fury signing account for SDK side
+	privKeyBytes, err := hd.Secp256k1.Derive()(mfurynic, "", hdPath.String())
+	require.NoErrorf(chain.t, err, "failed to derive private key from mfurynic for %s: %s", name, err)
 	privKey := &ethsecp256k1.PrivKey{Key: privKeyBytes}
 
-	nemoSigner := util.NewNemoSigner(
+	furySigner := util.NewFurySigner(
 		chainId,
 		chain.EncodingConfig,
 		chain.Auth,
@@ -82,11 +82,11 @@ func (chain *Chain) AddNewSigningAccount(name string, hdPath *hd.BIP44Params, ch
 		100,
 	)
 
-	sdkReqChan := make(chan util.NemoMsgRequest)
-	sdkResChan, err := nemoSigner.Run(sdkReqChan)
+	sdkReqChan := make(chan util.FuryMsgRequest)
+	sdkResChan, err := furySigner.Run(sdkReqChan)
 	require.NoErrorf(chain.t, err, "failed to start signer for account %s: %s", name, err)
 
-	// Nemo signing account for EVM side
+	// Fury signing account for EVM side
 	evmChainId, err := emtypes.ParseChainID(chainId)
 	require.NoErrorf(chain.t, err, "unable to parse ethermint-compatible chain id from %s", chainId)
 	ecdsaPrivKey, err := crypto.HexToECDSA(hex.EncodeToString(privKeyBytes))
@@ -106,7 +106,7 @@ func (chain *Chain) AddNewSigningAccount(name string, hdPath *hd.BIP44Params, ch
 
 	chain.accounts[name] = &SigningAccount{
 		name:     name,
-		mnemonic: mnemonic,
+		mfurynic: mfurynic,
 		l:        logger,
 
 		gasDenom: chain.StakingDenom,
@@ -116,21 +116,21 @@ func (chain *Chain) AddNewSigningAccount(name string, hdPath *hd.BIP44Params, ch
 		evmReqChan: evmReqChan,
 		evmResChan: evmResChan,
 
-		nemoSigner: nemoSigner,
+		furySigner: furySigner,
 		sdkReqChan: sdkReqChan,
 		sdkResChan: sdkResChan,
 
 		EvmAuth: evmSigner.Auth,
 
 		EvmAddress: evmSigner.Address(),
-		SdkAddress: nemoSigner.Address(),
+		SdkAddress: furySigner.Address(),
 	}
 
 	return chain.accounts[name]
 }
 
-// SignAndBroadcastNemoTx sends a request to the signer and awaits its response.
-func (a *SigningAccount) SignAndBroadcastNemoTx(req util.NemoMsgRequest) util.NemoMsgResponse {
+// SignAndBroadcastFuryTx sends a request to the signer and awaits its response.
+func (a *SigningAccount) SignAndBroadcastFuryTx(req util.FuryMsgRequest) util.FuryMsgResponse {
 	a.l.Printf("broadcasting sdk tx. has data = %+v\n", req.Data)
 	// send the request to signer
 	a.sdkReqChan <- req
@@ -192,14 +192,14 @@ func (a *SigningAccount) SignRawEvmData(msg []byte) ([]byte, types.PubKey, error
 func (chain *Chain) NewFundedAccount(name string, funds sdk.Coins) *SigningAccount {
 	entropy, err := bip39.NewEntropy(128)
 	require.NoErrorf(chain.t, err, "failed to generate entropy for account %s: %s", name, err)
-	mnemonic, err := bip39.NewMnemonic(entropy)
-	require.NoErrorf(chain.t, err, "failed to create new mnemonic for account %s: %s", name, err)
+	mfurynic, err := bip39.NewMfurynic(entropy)
+	require.NoErrorf(chain.t, err, "failed to create new mfurynic for account %s: %s", name, err)
 
 	acc := chain.AddNewSigningAccount(
 		name,
 		hd.CreateHDPath(app.Bip44CoinType, 0, 0),
 		chain.ChainId,
-		mnemonic,
+		mfurynic,
 	)
 
 	// don't attempt to fund when no funds are desired
@@ -226,9 +226,9 @@ func (a *SigningAccount) NextNonce() (uint64, error) {
 }
 
 // BankSend is a helper method for sending funds via x/bank's MsgSend
-func (a *SigningAccount) BankSend(to sdk.AccAddress, amount sdk.Coins) util.NemoMsgResponse {
-	return a.SignAndBroadcastNemoTx(
-		util.NemoMsgRequest{
+func (a *SigningAccount) BankSend(to sdk.AccAddress, amount sdk.Coins) util.FuryMsgResponse {
+	return a.SignAndBroadcastFuryTx(
+		util.FuryMsgRequest{
 			Msgs:      []sdk.Msg{banktypes.NewMsgSend(a.SdkAddress, to, amount)},
 			GasLimit:  2e5,                                                        // 200,000 gas
 			FeeAmount: sdk.NewCoins(sdk.NewCoin(a.gasDenom, sdkmath.NewInt(200))), // assume min gas price of .001ufury

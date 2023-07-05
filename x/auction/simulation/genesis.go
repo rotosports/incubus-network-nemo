@@ -13,8 +13,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 	"github.com/cosmos/cosmos-sdk/x/supply"
 
-	"github.com/incubus-network/nemo/x/auction/types"
-	cdptypes "github.com/incubus-network/nemo/x/cdp/types"
+	"github.com/incubus-network/fury/x/auction/types"
+	cdptypes "github.com/incubus-network/fury/x/cdp/types"
 )
 
 const (
@@ -129,7 +129,7 @@ func RandomizedGenState(simState *module.SimulationState) {
 	simState.GenState[supply.ModuleName] = simState.Cdc.MustMarshalJSON(supplyGenesis)
 
 	// TODO liquidator mod account doesn't need to be initialized for this example
-	// - it just mints nemo, doesn't need a starting balance
+	// - it just mints fury, doesn't need a starting balance
 	// - and supply.GetModuleAccount creates one if it doesn't exist
 
 	// Note: this line prints out the auction genesis state, not just the auction parameters. Some sdk modules print out just the parameters.

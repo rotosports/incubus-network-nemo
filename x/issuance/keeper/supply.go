@@ -6,7 +6,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/issuance/types"
+	"github.com/incubus-network/fury/x/issuance/types"
 )
 
 // CreateNewAssetSupply creates a new AssetSupply in the store for the input denom

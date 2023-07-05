@@ -8,10 +8,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/incubus-network/nemo/app"
-	cdptypes "github.com/incubus-network/nemo/x/cdp/types"
-	"github.com/incubus-network/nemo/x/incentive/testutil"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
+	"github.com/incubus-network/fury/app"
+	cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	"github.com/incubus-network/fury/x/incentive/testutil"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
 )
 
 // Avoid cluttering test cases with long function names
@@ -109,7 +109,7 @@ func NewPricefeedGenStateMultiFromTime(cdc codec.JSONCodec, t time.Time) app.Gen
 	pfGenesis := pricefeedtypes.GenesisState{
 		Params: pricefeedtypes.Params{
 			Markets: []pricefeedtypes.Market{
-				{MarketID: "nemo:usd", BaseAsset: "nemo", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
+				{MarketID: "fury:usd", BaseAsset: "fury", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 				{MarketID: "btc:usd", BaseAsset: "btc", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 				{MarketID: "xrp:usd", BaseAsset: "xrp", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 				{MarketID: "bnb:usd", BaseAsset: "bnb", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
@@ -119,7 +119,7 @@ func NewPricefeedGenStateMultiFromTime(cdc codec.JSONCodec, t time.Time) app.Gen
 		},
 		PostedPrices: []pricefeedtypes.PostedPrice{
 			{
-				MarketID:      "nemo:usd",
+				MarketID:      "fury:usd",
 				OracleAddress: sdk.AccAddress{},
 				Price:         sdk.MustNewDecFromStr("2.00"),
 				Expiry:        t.Add(1 * time.Hour),
@@ -160,14 +160,14 @@ func NewPricefeedGenStateMultiFromTime(cdc codec.JSONCodec, t time.Time) app.Gen
 }
 
 func NewHardGenStateMulti(genTime time.Time) testutil.HardGenesisBuilder {
-	nemoMM := testutil.NewStandardMoneyMarket("ufury")
-	nemoMM.SpotMarketID = "nemo:usd"
+	furyMM := testutil.NewStandardMoneyMarket("ufury")
+	furyMM.SpotMarketID = "fury:usd"
 	btcMM := testutil.NewStandardMoneyMarket("btcb")
 	btcMM.SpotMarketID = "btc:usd"
 
 	builder := testutil.NewHardGenesisBuilder().WithGenesisTime(genTime).
 		WithInitializedMoneyMarket(testutil.NewStandardMoneyMarket("usdx")).
-		WithInitializedMoneyMarket(nemoMM).
+		WithInitializedMoneyMarket(furyMM).
 		WithInitializedMoneyMarket(testutil.NewStandardMoneyMarket("bnb")).
 		WithInitializedMoneyMarket(btcMM).
 		WithInitializedMoneyMarket(testutil.NewStandardMoneyMarket("xrp")).

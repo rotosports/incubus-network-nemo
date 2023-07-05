@@ -72,7 +72,7 @@ func TestGenesisState_Validate(t *testing.T) {
 				USDXMintingClaims: USDXMintingClaims{
 					{
 						BaseClaim: BaseClaim{
-							Owner:  sdk.AccAddress(crypto.AddressHash([]byte("NemoTestUser1"))),
+							Owner:  sdk.AccAddress(crypto.AddressHash([]byte("FuryTestUser1"))),
 							Reward: sdk.NewCoin("ufury", sdkmath.NewInt(100000000)),
 						},
 						RewardIndexes: []RewardIndex{

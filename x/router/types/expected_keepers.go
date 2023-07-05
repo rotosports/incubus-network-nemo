@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
 )
 
 type StakingKeeper interface {

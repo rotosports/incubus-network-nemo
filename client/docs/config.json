@@ -1,19 +1,19 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Nemo - gRPC Gateway docs",
+    "title": "Fury - gRPC Gateway docs",
     "description": "A REST interface for state queries",
     "version": "1.0.0"
   },
   "externalDocs": {
     "description": "GitHub",
-    "url": "https://github.com/Incubus-Network/nemo"
+    "url": "https://github.com/Incubus-Network/fury"
   },
-  "host": "api.data.nemo.io",
+  "host": "api.data.fury.io",
   "schemes": ["https"],
   "apis": [
     {
-      "url": "./out/swagger/nemo/auction/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/auction/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Auction"
@@ -30,7 +30,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/bep3/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/bep3/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "BEP3"
@@ -47,7 +47,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/cdp/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/cdp/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "CDP"
@@ -64,7 +64,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/committee/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/committee/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Committee"
@@ -81,7 +81,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/earn/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/earn/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Earn"
@@ -98,7 +98,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/hard/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/hard/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Hard"
@@ -115,7 +115,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/incentive/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/incentive/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Incentive"
@@ -132,7 +132,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/issuance/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/issuance/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Issuance"
@@ -149,10 +149,10 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/nemodist/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/furydist/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
-          "Query": "Nemodist"
+          "Query": "Furydist"
         }
       },
       "operationIds": {
@@ -160,13 +160,13 @@
           {
             "type": "regex",
             "from": "(.*)",
-            "to": "Nemodist$1"
+            "to": "Furydist$1"
           }
         ]
       }
     },
     {
-      "url": "./out/swagger/nemo/liquid/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/liquid/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Liquid"
@@ -183,7 +183,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/pricefeed/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/pricefeed/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Pricefeed"
@@ -200,7 +200,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/swap/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/swap/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Swap"
@@ -217,7 +217,7 @@
       }
     },
     {
-      "url": "./out/swagger/nemo/savings/v1beta1/query.swagger.json",
+      "url": "./out/swagger/fury/savings/v1beta1/query.swagger.json",
       "tags": {
         "rename": {
           "Query": "Savings"
@@ -240,7 +240,7 @@
       },
       "tags": {
         "rename": {
-          "Gaia REST": "NEMO Rest",
+          "Gaia REST": "FURY Rest",
           "Query": "Cosmos SDK"
         }
       },

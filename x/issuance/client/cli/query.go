@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	"github.com/incubus-network/nemo/x/issuance/types"
+	"github.com/incubus-network/fury/x/issuance/types"
 )
 
 // GetQueryCmd returns the cli query commands for the issuance module

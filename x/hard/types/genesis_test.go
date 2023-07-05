@@ -10,12 +10,12 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/x/hard/types"
+	"github.com/incubus-network/fury/x/hard/types"
 )
 
 const (
 	USDX_CF = 1000000
-	NEMO_CF = 1000000
+	FURY_CF = 1000000
 	BTCB_CF = 100000000
 	BNB_CF  = 100000000
 	BUSD_CF = 100000000

@@ -11,8 +11,8 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/app/ante"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/app/ante"
 )
 
 func mustParseDecCoins(value string) sdk.DecCoins {

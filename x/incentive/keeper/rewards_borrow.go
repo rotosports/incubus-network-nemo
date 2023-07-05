@@ -7,8 +7,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	"github.com/incubus-network/nemo/x/incentive/types"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	"github.com/incubus-network/fury/x/incentive/types"
 )
 
 // AccumulateHardBorrowRewards calculates new rewards to distribute this block and updates the global indexes to reflect this.

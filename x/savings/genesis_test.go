@@ -11,10 +11,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/savings"
-	"github.com/incubus-network/nemo/x/savings/keeper"
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/savings"
+	"github.com/incubus-network/fury/x/savings/keeper"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 type GenesisTestSuite struct {

@@ -28,7 +28,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/slashing"
 	"github.com/cosmos/cosmos-sdk/x/staking"
 
-	"github.com/incubus-network/nemo/app"
+	"github.com/incubus-network/fury/app"
 )
 
 const (
@@ -77,12 +77,12 @@ func init() {
 type Fixtures struct {
 	BuildDir    string
 	RootDir     string
-	NmdBinary   string
+	FudBinary   string
 	KvcliBinary string
 	ChainID     string
 	RPCAddr     string
 	Port        string
-	NmdHome     string
+	FudHome     string
 	KvcliHome   string
 	P2PAddr     string
 	T           *testing.T
@@ -92,7 +92,7 @@ type Fixtures struct {
 
 // NewFixtures creates a new instance of Fixtures with many vars set
 func NewFixtures(t *testing.T) *Fixtures {
-	tmpDir, err := ioutil.TempDir("", "nemo_integration_"+t.Name()+"_")
+	tmpDir, err := ioutil.TempDir("", "fury_integration_"+t.Name()+"_")
 	require.NoError(t, err)
 
 	servAddr, port, err := server.FreeTCPAddr()
@@ -113,9 +113,9 @@ func NewFixtures(t *testing.T) *Fixtures {
 		T:           t,
 		BuildDir:    buildDir,
 		RootDir:     tmpDir,
-		NmdBinary:   filepath.Join(buildDir, "nmd"),
+		FudBinary:   filepath.Join(buildDir, "fud"),
 		KvcliBinary: filepath.Join(buildDir, "kvcli"),
-		NmdHome:     filepath.Join(tmpDir, ".nmd"),
+		FudHome:     filepath.Join(tmpDir, ".fud"),
 		KvcliHome:   filepath.Join(tmpDir, ".kvcli"),
 		RPCAddr:     servAddr,
 		P2PAddr:     p2pAddr,
@@ -126,7 +126,7 @@ func NewFixtures(t *testing.T) *Fixtures {
 
 // GenesisFile returns the path of the genesis file
 func (f Fixtures) GenesisFile() string {
-	return filepath.Join(f.NmdHome, "config", "genesis.json")
+	return filepath.Join(f.FudHome, "config", "genesis.json")
 }
 
 // GenesisState returns the application's genesis state
@@ -201,20 +201,20 @@ func (f *Fixtures) Flags() string {
 }
 
 //___________________________________________________________________________________
-// nemod
+// furyd
 
-// UnsafeResetAll is nemod unsafe-reset-all
+// UnsafeResetAll is furyd unsafe-reset-all
 func (f *Fixtures) UnsafeResetAll(flags ...string) {
-	cmd := fmt.Sprintf("%s --home=%s unsafe-reset-all", f.NmdBinary, f.NmdHome)
+	cmd := fmt.Sprintf("%s --home=%s unsafe-reset-all", f.FudBinary, f.FudHome)
 	executeWrite(f.T, addFlags(cmd, flags))
-	err := os.RemoveAll(filepath.Join(f.NmdHome, "config", "gentx"))
+	err := os.RemoveAll(filepath.Join(f.FudHome, "config", "gentx"))
 	require.NoError(f.T, err)
 }
 
-// KvInit is nemod init
+// KvInit is furyd init
 // NOTE: KvInit sets the ChainID for the Fixtures instance
 func (f *Fixtures) KvInit(moniker string, flags ...string) {
-	cmd := fmt.Sprintf("%s init -o --home=%s %s", f.NmdBinary, f.NmdHome, moniker)
+	cmd := fmt.Sprintf("%s init -o --home=%s %s", f.FudBinary, f.FudHome, moniker)
 	_, stderr := tests.ExecuteT(f.T, addFlags(cmd, flags), clientkeys.DefaultKeyPass)
 
 	var chainID string
@@ -229,45 +229,45 @@ func (f *Fixtures) KvInit(moniker string, flags ...string) {
 	f.ChainID = chainID
 }
 
-// AddGenesisAccount is nemod add-genesis-account
+// AddGenesisAccount is furyd add-genesis-account
 func (f *Fixtures) AddGenesisAccount(address sdk.AccAddress, coins sdk.Coins, flags ...string) {
-	cmd := fmt.Sprintf("%s add-genesis-account %s %s --home=%s --keyring-backend=test", f.NmdBinary, address, coins, f.NmdHome)
+	cmd := fmt.Sprintf("%s add-genesis-account %s %s --home=%s --keyring-backend=test", f.FudBinary, address, coins, f.FudHome)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags))
 }
 
-// GenTx is nemod gentx
+// GenTx is furyd gentx
 func (f *Fixtures) GenTx(name string, flags ...string) {
-	cmd := fmt.Sprintf("%s gentx --name=%s --home=%s --home-client=%s --keyring-backend=test", f.NmdBinary, name, f.NmdHome, f.KvcliHome)
+	cmd := fmt.Sprintf("%s gentx --name=%s --home=%s --home-client=%s --keyring-backend=test", f.FudBinary, name, f.FudHome, f.KvcliHome)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags))
 }
 
-// CollectGenTxs is nemod collect-gentxs
+// CollectGenTxs is furyd collect-gentxs
 func (f *Fixtures) CollectGenTxs(flags ...string) {
-	cmd := fmt.Sprintf("%s collect-gentxs --home=%s", f.NmdBinary, f.NmdHome)
+	cmd := fmt.Sprintf("%s collect-gentxs --home=%s", f.FudBinary, f.FudHome)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags))
 }
 
-// GDStart runs nemod start with the appropriate flags and returns a process
+// GDStart runs furyd start with the appropriate flags and returns a process
 func (f *Fixtures) GDStart(flags ...string) *tests.Process {
-	cmd := fmt.Sprintf("%s start --home=%s --rpc.laddr=%v --p2p.laddr=%v --pruning=everything", f.NmdBinary, f.NmdHome, f.RPCAddr, f.P2PAddr)
+	cmd := fmt.Sprintf("%s start --home=%s --rpc.laddr=%v --p2p.laddr=%v --pruning=everything", f.FudBinary, f.FudHome, f.RPCAddr, f.P2PAddr)
 	proc := tests.GoExecuteTWithStdout(f.T, addFlags(cmd, flags))
 	tests.WaitForTMStart(f.Port)
 	tests.WaitForNextNBlocksTM(1, f.Port)
 	return proc
 }
 
-// GDTendermint returns the results of nemod tendermint [query]
+// GDTendermint returns the results of furyd tendermint [query]
 func (f *Fixtures) GDTendermint(query string) string {
-	cmd := fmt.Sprintf("%s tendermint %s --home=%s", f.NmdBinary, query, f.NmdHome)
+	cmd := fmt.Sprintf("%s tendermint %s --home=%s", f.FudBinary, query, f.FudHome)
 	success, stdout, stderr := executeWriteRetStdStreams(f.T, cmd)
 	require.Empty(f.T, stderr)
 	require.True(f.T, success)
 	return strings.TrimSpace(stdout)
 }
 
-// ValidateGenesis runs nemod validate-genesis
+// ValidateGenesis runs furyd validate-genesis
 func (f *Fixtures) ValidateGenesis() {
-	cmd := fmt.Sprintf("%s validate-genesis --home=%s", f.NmdBinary, f.NmdHome)
+	cmd := fmt.Sprintf("%s validate-genesis --home=%s", f.FudBinary, f.FudHome)
 	executeWriteCheckErr(f.T, cmd)
 }
 
@@ -289,17 +289,17 @@ func (f *Fixtures) KeysAdd(name string, flags ...string) {
 }
 
 // KeysAddRecover prepares kvcli keys add --recover
-func (f *Fixtures) KeysAddRecover(name, mnemonic string, flags ...string) (exitSuccess bool, stdout, stderr string) {
+func (f *Fixtures) KeysAddRecover(name, mfurynic string, flags ...string) (exitSuccess bool, stdout, stderr string) {
 	cmd := fmt.Sprintf("%s keys add --keyring-backend=test --home=%s --recover %s",
 		f.KvcliBinary, f.KvcliHome, name)
-	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), mnemonic)
+	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), mfurynic)
 }
 
 // KeysAddRecoverHDPath prepares kvcli keys add --recover --account --index
-func (f *Fixtures) KeysAddRecoverHDPath(name, mnemonic string, account uint32, index uint32, flags ...string) {
+func (f *Fixtures) KeysAddRecoverHDPath(name, mfurynic string, account uint32, index uint32, flags ...string) {
 	cmd := fmt.Sprintf("%s keys add --keyring-backend=test --home=%s --recover %s --account %d"+
 		" --index %d", f.KvcliBinary, f.KvcliHome, name, account, index)
-	executeWriteCheckErr(f.T, addFlags(cmd, flags), mnemonic)
+	executeWriteCheckErr(f.T, addFlags(cmd, flags), mfurynic)
 }
 
 // KeysShow is kvcli keys show

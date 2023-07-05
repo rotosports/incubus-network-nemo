@@ -10,9 +10,9 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/evmutil/testutil"
-	"github.com/incubus-network/nemo/x/evmutil/types"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/evmutil/testutil"
+	"github.com/incubus-network/fury/x/evmutil/types"
 )
 
 type convertCosmosCoinToERC20Suite struct {
@@ -90,7 +90,7 @@ func (suite *convertCosmosCoinToERC20Suite) TestConvertCosmosCoinToERC20() {
 		// make the denom allowed for conversion
 		params := suite.Keeper.GetParams(suite.Ctx)
 		params.AllowedCosmosDenoms = types.NewAllowedCosmosCoinERC20Tokens(
-			types.NewAllowedCosmosCoinERC20Token(allowedDenom, "Nemo EVM Atom", "ATOM", 6),
+			types.NewAllowedCosmosCoinERC20Token(allowedDenom, "Fury EVM Atom", "ATOM", 6),
 		)
 		suite.Keeper.SetParams(suite.Ctx, params)
 

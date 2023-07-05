@@ -17,8 +17,8 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	earntypes "github.com/incubus-network/nemo/x/earn/types"
-	liquidtypes "github.com/incubus-network/nemo/x/liquid/types"
+	earntypes "github.com/incubus-network/fury/x/earn/types"
+	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
 )
 
 // d is an alias for sdk.MustNewDecFromStr
@@ -64,7 +64,7 @@ func (suite *tallyHandlerSuite) TestVotePower_AllSourcesCounted() {
 
 	derivatives := suite.mintDerivative(user.GetAddress(), validator.GetOperator(), sdkmath.NewInt(500e6))
 
-	suite.allowBNemoEarnDeposits()
+	suite.allowBFuryEarnDeposits()
 	suite.earnDeposit(
 		user.GetAddress(),
 		sdk.NewCoin(derivatives.Denom, sdkmath.NewInt(250e6)),
@@ -89,7 +89,7 @@ func (suite *tallyHandlerSuite) TestVotePower_UserOverridesValidator() {
 
 	derivatives := suite.mintDerivative(user.GetAddress(), validator.GetOperator(), sdkmath.NewInt(500e6))
 
-	suite.allowBNemoEarnDeposits()
+	suite.allowBFuryEarnDeposits()
 	suite.earnDeposit(
 		user.GetAddress(),
 		sdk.NewCoin(derivatives.Denom, sdkmath.NewInt(250e6)),
@@ -268,7 +268,7 @@ func (suite *tallyHandlerSuite) newBondCoin(amount sdkmath.Int) sdk.Coin {
 	return suite.staking.newBondCoin(suite.ctx, amount)
 }
 
-func (suite *tallyHandlerSuite) allowBNemoEarnDeposits() {
+func (suite *tallyHandlerSuite) allowBFuryEarnDeposits() {
 	ek := suite.app.GetEarnKeeper()
 	earnParams := ek.GetParams(suite.ctx)
 

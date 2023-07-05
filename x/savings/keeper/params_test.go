@@ -1,7 +1,7 @@
 package keeper_test
 
 import (
-	"github.com/incubus-network/nemo/x/savings/types"
+	"github.com/incubus-network/fury/x/savings/types"
 )
 
 func (suite *KeeperTestSuite) TestGetSetParams() {

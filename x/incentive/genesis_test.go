@@ -11,12 +11,12 @@ import (
 
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/nemo/app"
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	"github.com/incubus-network/nemo/x/incentive"
-	"github.com/incubus-network/nemo/x/incentive/keeper"
-	"github.com/incubus-network/nemo/x/incentive/types"
-	nemodisttypes "github.com/incubus-network/nemo/x/nemodist/types"
+	"github.com/incubus-network/fury/app"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	"github.com/incubus-network/fury/x/incentive"
+	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/incubus-network/fury/x/incentive/types"
+	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
 )
 
 const (
@@ -44,14 +44,14 @@ func (suite *GenesisTestSuite) SetupTest() {
 
 	authBuilder := app.NewAuthBankGenesisBuilder().
 		WithSimpleAccount(addrs[0], cs(c("bnb", 1e10), c("ufury", 1e10))).
-		WithSimpleModuleAccount(nemodisttypes.NemoDistMacc, cs(c("hard", 1e15), c("ufury", 1e15)))
+		WithSimpleModuleAccount(furydisttypes.FuryDistMacc, cs(c("hard", 1e15), c("ufury", 1e15)))
 
 	loanToValue, _ := sdk.NewDecFromStr("0.6")
 	borrowLimit := sdk.NewDec(1000000000000000)
 	hardGS := hardtypes.NewGenesisState(
 		hardtypes.NewParams(
 			hardtypes.MoneyMarkets{
-				hardtypes.NewMoneyMarket("ufury", hardtypes.NewBorrowLimit(false, borrowLimit, loanToValue), "nemo:usd", sdkmath.NewInt(1000000), hardtypes.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
+				hardtypes.NewMoneyMarket("ufury", hardtypes.NewBorrowLimit(false, borrowLimit, loanToValue), "fury:usd", sdkmath.NewInt(1000000), hardtypes.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
 				hardtypes.NewMoneyMarket("bnb", hardtypes.NewBorrowLimit(false, borrowLimit, loanToValue), "bnb:usd", sdkmath.NewInt(1000000), hardtypes.NewInterestRateModel(sdk.MustNewDecFromStr("0.05"), sdk.MustNewDecFromStr("2"), sdk.MustNewDecFromStr("0.8"), sdk.MustNewDecFromStr("10")), sdk.MustNewDecFromStr("0.05"), sdk.ZeroDec()),
 			},
 			sdk.NewDec(10),

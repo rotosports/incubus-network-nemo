@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/incubus-network/nemo/app/params"
+	"github.com/incubus-network/fury/app/params"
 	"google.golang.org/grpc/codes"
 	grpcstatus "google.golang.org/grpc/status"
 
@@ -26,18 +26,18 @@ var (
 	ErrSdkBroadcastTimeout = errors.New("timed out waiting for tx to be committed to block")
 )
 
-type NemoMsgRequest struct {
+type FuryMsgRequest struct {
 	Msgs      []sdk.Msg
 	GasLimit  uint64
 	FeeAmount sdk.Coins
 	Memo      string
-	// Arbitrary data to be referenced in the corresponding NemoMsgResponse, unused
-	// in signing. This is mostly useful to match NemoMsgResponses with NemoMsgRequests.
+	// Arbitrary data to be referenced in the corresponding FuryMsgResponse, unused
+	// in signing. This is mostly useful to match FuryMsgResponses with FuryMsgRequests.
 	Data interface{}
 }
 
-type NemoMsgResponse struct {
-	Request NemoMsgRequest
+type FuryMsgResponse struct {
+	Request FuryMsgRequest
 	Tx      authsigning.Tx
 	TxBytes []byte
 	Result  sdk.TxResponse
@@ -54,8 +54,8 @@ const (
 	txResetSequence
 )
 
-// NemoSigner broadcasts msgs to a single nemo node
-type NemoSigner struct {
+// FurySigner broadcasts msgs to a single fury node
+type FurySigner struct {
 	chainID         string
 	encodingConfig  params.EncodingConfig
 	authClient      authtypes.QueryClient
@@ -64,15 +64,15 @@ type NemoSigner struct {
 	inflightTxLimit uint64
 }
 
-func NewNemoSigner(
+func NewFurySigner(
 	chainID string,
 	encodingConfig params.EncodingConfig,
 	authClient authtypes.QueryClient,
 	txClient txtypes.ServiceClient,
 	privKey cryptotypes.PrivKey,
-	inflightTxLimit uint64) *NemoSigner {
+	inflightTxLimit uint64) *FurySigner {
 
-	return &NemoSigner{
+	return &FurySigner{
 		chainID:         chainID,
 		encodingConfig:  encodingConfig,
 		authClient:      authClient,
@@ -82,7 +82,7 @@ func NewNemoSigner(
 	}
 }
 
-func (s *NemoSigner) pollAccountState() <-chan authtypes.AccountI {
+func (s *FurySigner) pollAccountState() <-chan authtypes.AccountI {
 	accountState := make(chan authtypes.AccountI)
 
 	go func() {
@@ -108,7 +108,7 @@ func (s *NemoSigner) pollAccountState() <-chan authtypes.AccountI {
 	return accountState
 }
 
-func (s *NemoSigner) Run(requests <-chan NemoMsgRequest) (<-chan NemoMsgResponse, error) {
+func (s *FurySigner) Run(requests <-chan FuryMsgRequest) (<-chan FuryMsgResponse, error) {
 	// poll account state in it's own goroutine
 	// and send status updates to the signing goroutine
 	//
@@ -116,15 +116,15 @@ func (s *NemoSigner) Run(requests <-chan NemoMsgRequest) (<-chan NemoMsgResponse
 	// websocket events with a fallback to polling
 	accountState := s.pollAccountState()
 
-	responses := make(chan NemoMsgResponse)
+	responses := make(chan FuryMsgResponse)
 	go func() {
 		// wait until account is loaded to start signing
 		account := <-accountState
 		// store current request waiting to be broadcasted
-		var currentRequest *NemoMsgRequest
+		var currentRequest *FuryMsgRequest
 		// keep track of all successfully broadcasted txs
 		// index is sequence % inflightTxLimit
-		inflight := make([]*NemoMsgResponse, s.inflightTxLimit)
+		inflight := make([]*FuryMsgResponse, s.inflightTxLimit)
 		// used for confirming sent txs only
 		prevDeliverTxSeq := account.GetSequence()
 		// tx sequence of already signed messages
@@ -251,7 +251,7 @@ func (s *NemoSigner) Run(requests <-chan NemoMsgRequest) (<-chan NemoMsgResponse
 
 					tx, txBytes, err := Sign(s.encodingConfig.TxConfig, s.privKey, txBuilder, signerData)
 
-					response = &NemoMsgResponse{
+					response = &FuryMsgResponse{
 						Request: *currentRequest,
 						Tx:      tx,
 						TxBytes: txBytes,
@@ -375,7 +375,7 @@ func (s *NemoSigner) Run(requests <-chan NemoMsgRequest) (<-chan NemoMsgResponse
 }
 
 // Address returns the address of the Signer
-func (s *NemoSigner) Address() sdk.AccAddress {
+func (s *FurySigner) Address() sdk.AccAddress {
 	return GetAccAddress(s.privKey)
 }
 

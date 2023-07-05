@@ -8,7 +8,7 @@ package simulation
 
 // 	"github.com/tendermint/tendermint/libs/kv"
 
-// 	"github.com/incubus-network/nemo/x/pricefeed/types"
+// 	"github.com/incubus-network/fury/x/pricefeed/types"
 // )
 
 // // DecodeStore unmarshals the KVPair's Value to the corresponding pricefeed type

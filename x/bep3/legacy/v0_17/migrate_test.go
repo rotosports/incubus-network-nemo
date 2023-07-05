@@ -12,8 +12,8 @@ import (
 	"github.com/stretchr/testify/suite"
 	"github.com/tendermint/tendermint/libs/bytes"
 
-	app "github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/bep3/types"
+	app "github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/bep3/types"
 )
 
 type migrateTestSuite struct {

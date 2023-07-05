@@ -7,16 +7,16 @@ import (
 
 	sdkmath "cosmossdk.io/math"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
-	"github.com/incubus-network/nemo/app"
-	"github.com/incubus-network/nemo/x/earn/keeper"
-	"github.com/incubus-network/nemo/x/earn/types"
-	"github.com/incubus-network/nemo/x/hard"
+	"github.com/incubus-network/fury/app"
+	"github.com/incubus-network/fury/x/earn/keeper"
+	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/incubus-network/fury/x/hard"
 
-	hardkeeper "github.com/incubus-network/nemo/x/hard/keeper"
-	hardtypes "github.com/incubus-network/nemo/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/nemo/x/pricefeed/types"
-	savingskeeper "github.com/incubus-network/nemo/x/savings/keeper"
-	savingstypes "github.com/incubus-network/nemo/x/savings/types"
+	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
+	hardtypes "github.com/incubus-network/fury/x/hard/types"
+	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	savingskeeper "github.com/incubus-network/fury/x/savings/keeper"
+	savingstypes "github.com/incubus-network/fury/x/savings/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
@@ -32,7 +32,7 @@ import (
 	tmtime "github.com/tendermint/tendermint/types/time"
 )
 
-var TestBnemoDenoms = []string{
+var TestBfuryDenoms = []string{
 	"bfury-furyvaloper15gqc744d05xacn4n6w2furuads9fu4pq7c8fhj",
 	"bfury-furyvaloper15qdefkmwswysgg4qxgqpqr35k3m49pkx2xjwrh",
 	"bfury-furyvaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydecmmtjay",
@@ -59,7 +59,7 @@ func (suite *Suite) SetupTest() {
 		Params: pricefeedtypes.Params{
 			Markets: []pricefeedtypes.Market{
 				{MarketID: "usdx:usd", BaseAsset: "usdx", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
-				{MarketID: "nemo:usd", BaseAsset: "nemo", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
+				{MarketID: "fury:usd", BaseAsset: "fury", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 				{MarketID: "bnb:usd", BaseAsset: "bnb", QuoteAsset: "usd", Oracles: []sdk.AccAddress{}, Active: true},
 			},
 		},
@@ -71,7 +71,7 @@ func (suite *Suite) SetupTest() {
 				Expiry:        time.Now().Add(100 * time.Hour),
 			},
 			{
-				MarketID:      "nemo:usd",
+				MarketID:      "fury:usd",
 				OracleAddress: sdk.AccAddress{},
 				Price:         sdk.MustNewDecFromStr("2.00"),
 				Expiry:        time.Now().Add(100 * time.Hour),
@@ -124,13 +124,13 @@ func (suite *Suite) SetupTest() {
 				sdk.ZeroDec(),
 			),
 			hardtypes.NewMoneyMarket(
-				"nemo",
+				"fury",
 				hardtypes.NewBorrowLimit(
 					true,
 					sdk.MustNewDecFromStr("20000000"),
 					sdk.MustNewDecFromStr("1"),
 				),
-				"nemo:usd",
+				"fury:usd",
 				sdkmath.NewInt(1000000),
 				hardtypes.NewInterestRateModel(
 					sdk.MustNewDecFromStr("0.05"),
@@ -158,9 +158,9 @@ func (suite *Suite) SetupTest() {
 				"ufury",
 				"busd",
 				"usdx",
-				TestBnemoDenoms[0],
-				TestBnemoDenoms[1],
-				TestBnemoDenoms[2],
+				TestBfuryDenoms[0],
+				TestBfuryDenoms[1],
+				TestBfuryDenoms[2],
 			},
 		),
 		nil,

@@ -1,16 +1,16 @@
 swagger: '2.0'
 info:
-  title: Nemo - gRPC Gateway docs
+  title: Fury - gRPC Gateway docs
   description: A REST interface for state queries
   version: 1.0.0
 externalDocs:
   description: GitHub
-  url: https://github.com/Incubus-Network/nemo
-host: api.data.nemo.io
+  url: https://github.com/Incubus-Network/fury
+host: api.data.fury.io
 schemes:
   - https
 paths:
-  /nemo/auction/v1beta1/auctions:
+  /fury/auction/v1beta1/auctions:
     get:
       summary: >-
         Auctions queries auctions filtered by asset denom, owner address, phase,
@@ -489,7 +489,7 @@ paths:
           type: boolean
       tags:
         - Auction
-  /nemo/auction/v1beta1/auctions/{auction_id}:
+  /fury/auction/v1beta1/auctions/{auction_id}:
     get:
       summary: Auction queries an individual Auction by auction ID
       operationId: AuctionAuction
@@ -874,7 +874,7 @@ paths:
           format: uint64
       tags:
         - Auction
-  /nemo/auction/v1beta1/next-auction-id:
+  /fury/auction/v1beta1/next-auction-id:
     get:
       summary: NextAuctionID queries the next auction ID
       operationId: AuctionNextAuctionID
@@ -1083,7 +1083,7 @@ paths:
                         }
       tags:
         - Auction
-  /nemo/auction/v1beta1/params:
+  /fury/auction/v1beta1/params:
     get:
       summary: Params queries all parameters of the auction module.
       operationId: AuctionParams
@@ -1308,7 +1308,7 @@ paths:
                         }
       tags:
         - Auction
-  /nemo/bep3/v1beta1/assetsupplies:
+  /fury/bep3/v1beta1/assetsupplies:
     get:
       summary: AssetSupplies queries a list of asset supplies
       operationId: BEP3AssetSupplies
@@ -1429,7 +1429,7 @@ paths:
                       format: byte
       tags:
         - BEP3
-  /nemo/bep3/v1beta1/assetsupply/{denom}:
+  /fury/bep3/v1beta1/assetsupply/{denom}:
     get:
       summary: AssetSupply queries info about an asset's supply
       operationId: BEP3AssetSupply
@@ -1550,7 +1550,7 @@ paths:
           type: string
       tags:
         - BEP3
-  /nemo/bep3/v1beta1/atomicswap/{swap_id}:
+  /fury/bep3/v1beta1/atomicswap/{swap_id}:
     get:
       summary: AtomicSwap queries info about an atomic swap
       operationId: BEP3AtomicSwap
@@ -1599,10 +1599,10 @@ paths:
                     title: timestamp represents the timestamp of the swap
                   sender:
                     type: string
-                    title: sender is the nemo chain sender of the swap
+                    title: sender is the fury chain sender of the swap
                   recipient:
                     type: string
-                    title: recipient is the nemo chain recipient of the swap
+                    title: recipient is the fury chain recipient of the swap
                   sender_other_chain:
                     type: string
                     title: sender_other_chain is the sender on the other chain
@@ -1644,8 +1644,8 @@ paths:
                     description: >-
                       - SWAP_DIRECTION_UNSPECIFIED: SWAP_DIRECTION_UNSPECIFIED
                       represents unspecified or invalid swap direcation
-                       - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain)
-                       - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain)
+                       - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain)
+                       - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain)
                 title: >-
                   AtomicSwapResponse represents the returned atomic swap
                   properties
@@ -1682,7 +1682,7 @@ paths:
           type: string
       tags:
         - BEP3
-  /nemo/bep3/v1beta1/atomicswaps:
+  /fury/bep3/v1beta1/atomicswaps:
     get:
       summary: AtomicSwaps queries a list of atomic swaps
       operationId: BEP3AtomicSwaps
@@ -1736,10 +1736,10 @@ paths:
                       title: timestamp represents the timestamp of the swap
                     sender:
                       type: string
-                      title: sender is the nemo chain sender of the swap
+                      title: sender is the fury chain sender of the swap
                     recipient:
                       type: string
-                      title: recipient is the nemo chain recipient of the swap
+                      title: recipient is the fury chain recipient of the swap
                     sender_other_chain:
                       type: string
                       title: sender_other_chain is the sender on the other chain
@@ -1783,8 +1783,8 @@ paths:
                       description: >-
                         - SWAP_DIRECTION_UNSPECIFIED: SWAP_DIRECTION_UNSPECIFIED
                         represents unspecified or invalid swap direcation
-                         - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain)
-                         - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain)
+                         - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain)
+                         - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain)
                   title: >-
                     AtomicSwapResponse represents the returned atomic swap
                     properties
@@ -1878,8 +1878,8 @@ paths:
             direction fitlers by swap direction.
 
              - SWAP_DIRECTION_UNSPECIFIED: SWAP_DIRECTION_UNSPECIFIED represents unspecified or invalid swap direcation
-             - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain)
-             - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain)
+             - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain)
+             - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain)
           in: query
           required: false
           type: string
@@ -1946,7 +1946,7 @@ paths:
           type: boolean
       tags:
         - BEP3
-  /nemo/bep3/v1beta1/params:
+  /fury/bep3/v1beta1/params:
     get:
       summary: Params queries module params
       operationId: BEP3Params
@@ -2007,7 +2007,7 @@ paths:
                         deputy_address:
                           type: string
                           format: byte
-                          title: deputy_address the nemo address of the deputy
+                          title: deputy_address the fury address of the deputy
                         fixed_fee:
                           type: string
                           title: fixed_fee defines the fee for incoming swaps
@@ -2059,7 +2059,7 @@ paths:
                       format: byte
       tags:
         - BEP3
-  /nemo/cdp/v1beta1/accounts:
+  /fury/cdp/v1beta1/accounts:
     get:
       summary: Accounts queries the CDP module accounts.
       operationId: CDPAccounts
@@ -2478,7 +2478,7 @@ paths:
                         }
       tags:
         - CDP
-  /nemo/cdp/v1beta1/cdps:
+  /fury/cdp/v1beta1/cdps:
     get:
       summary: Cdps queries all active CDPs.
       operationId: CDPCdps
@@ -2869,7 +2869,7 @@ paths:
           type: boolean
       tags:
         - CDP
-  /nemo/cdp/v1beta1/cdps/deposits/{owner}/{collateral_type}:
+  /fury/cdp/v1beta1/cdps/deposits/{owner}/{collateral_type}:
     get:
       summary: >-
         Deposits queries deposits associated with the CDP owned by an address
@@ -3114,7 +3114,7 @@ paths:
           type: string
       tags:
         - CDP
-  /nemo/cdp/v1beta1/cdps/{owner}/{collateral_type}:
+  /fury/cdp/v1beta1/cdps/{owner}/{collateral_type}:
     get:
       summary: Cdp queries a CDP with the input owner address and collateral type.
       operationId: CDPCdp
@@ -3409,7 +3409,7 @@ paths:
           type: string
       tags:
         - CDP
-  /nemo/cdp/v1beta1/params:
+  /fury/cdp/v1beta1/params:
     get:
       summary: Params queries all parameters of the cdp module.
       operationId: CDPParams
@@ -3702,7 +3702,7 @@ paths:
                         }
       tags:
         - CDP
-  /nemo/cdp/v1beta1/totalCollateral:
+  /fury/cdp/v1beta1/totalCollateral:
     get:
       summary: TotalCollateral queries the total collateral of a given collateral type.
       operationId: CDPTotalCollateral
@@ -3938,7 +3938,7 @@ paths:
           type: string
       tags:
         - CDP
-  /nemo/cdp/v1beta1/totalPrincipal:
+  /fury/cdp/v1beta1/totalPrincipal:
     get:
       summary: TotalPrincipal queries the total principal of a given collateral type.
       operationId: CDPTotalPrincipal
@@ -4174,7 +4174,7 @@ paths:
           type: string
       tags:
         - CDP
-  /nemo/committee/v1beta1/committees:
+  /fury/committee/v1beta1/committees:
     get:
       summary: Committees queries all committess of the committee module.
       operationId: CommitteeCommittees
@@ -4559,7 +4559,7 @@ paths:
                         }
       tags:
         - Committee
-  /nemo/committee/v1beta1/committees/{committee_id}:
+  /fury/committee/v1beta1/committees/{committee_id}:
     get:
       summary: Committee queries a committee based on committee ID.
       operationId: CommitteeCommittee
@@ -4944,7 +4944,7 @@ paths:
           format: uint64
       tags:
         - Committee
-  /nemo/committee/v1beta1/next-proposal-id:
+  /fury/committee/v1beta1/next-proposal-id:
     get:
       summary: NextProposalID queries the next proposal ID of the committee module.
       operationId: CommitteeNextProposalID
@@ -5153,7 +5153,7 @@ paths:
                         }
       tags:
         - Committee
-  /nemo/committee/v1beta1/proposals:
+  /fury/committee/v1beta1/proposals:
     get:
       summary: Proposals queries proposals based on committee ID.
       operationId: CommitteeProposals
@@ -5561,7 +5561,7 @@ paths:
           format: uint64
       tags:
         - Committee
-  /nemo/committee/v1beta1/proposals/{proposal_id}:
+  /fury/committee/v1beta1/proposals/{proposal_id}:
     get:
       summary: Deposits queries a proposal based on proposal ID.
       operationId: CommitteeProposal
@@ -5955,7 +5955,7 @@ paths:
           format: uint64
       tags:
         - Committee
-  /nemo/committee/v1beta1/proposals/{proposal_id}/tally:
+  /fury/committee/v1beta1/proposals/{proposal_id}/tally:
     get:
       summary: Tally queries the tally of a single proposal ID.
       operationId: CommitteeTally
@@ -6182,7 +6182,7 @@ paths:
           format: uint64
       tags:
         - Committee
-  /nemo/committee/v1beta1/proposals/{proposal_id}/votes:
+  /fury/committee/v1beta1/proposals/{proposal_id}/votes:
     get:
       summary: Votes queries all votes for a single proposal ID.
       operationId: CommitteeVotes
@@ -6498,7 +6498,7 @@ paths:
           type: boolean
       tags:
         - Committee
-  /nemo/committee/v1beta1/proposals/{proposal_id}/votes/{voter}:
+  /fury/committee/v1beta1/proposals/{proposal_id}/votes/{voter}:
     get:
       summary: Vote queries the vote of a single voter for a single proposal ID.
       operationId: CommitteeVote
@@ -6734,7 +6734,7 @@ paths:
           type: string
       tags:
         - Committee
-  /nemo/committee/v1beta1/raw-params:
+  /fury/committee/v1beta1/raw-params:
     get:
       summary: RawParams queries the raw params data of any subspace and key.
       operationId: CommitteeRawParams
@@ -6951,7 +6951,7 @@ paths:
           type: string
       tags:
         - Committee
-  /nemo/earn/v1beta1/deposits:
+  /fury/earn/v1beta1/deposits:
     get:
       summary: Deposits queries deposit details based on depositor address and vault
       operationId: EarnDeposits
@@ -7132,7 +7132,7 @@ paths:
           type: boolean
       tags:
         - Earn
-  /nemo/earn/v1beta1/params:
+  /fury/earn/v1beta1/params:
     get:
       summary: Params queries all parameters of the earn module.
       operationId: EarnParams
@@ -7231,7 +7231,7 @@ paths:
                       format: byte
       tags:
         - Earn
-  /nemo/earn/v1beta1/total_supply:
+  /fury/earn/v1beta1/total_supply:
     get:
       summary: >-
         TotalSupply returns the total sum of all coins currently locked into the
@@ -7292,7 +7292,7 @@ paths:
                       format: byte
       tags:
         - Earn
-  /nemo/earn/v1beta1/vaults:
+  /fury/earn/v1beta1/vaults:
     get:
       summary: Vaults queries all vaults
       operationId: EarnVaults
@@ -7392,7 +7392,7 @@ paths:
                       format: byte
       tags:
         - Earn
-  /nemo/earn/v1beta1/vaults/{denom}:
+  /fury/earn/v1beta1/vaults/{denom}:
     get:
       summary: Vault queries a single vault based on the vault denom
       operationId: EarnVault
@@ -7496,7 +7496,7 @@ paths:
           type: string
       tags:
         - Earn
-  /nemo/hard/v1beta1/accounts:
+  /fury/hard/v1beta1/accounts:
     get:
       summary: Accounts queries module accounts.
       operationId: HardAccounts
@@ -7915,7 +7915,7 @@ paths:
                         }
       tags:
         - Hard
-  /nemo/hard/v1beta1/borrows:
+  /fury/hard/v1beta1/borrows:
     get:
       summary: Borrows queries hard borrows.
       operationId: HardBorrows
@@ -8255,7 +8255,7 @@ paths:
           type: boolean
       tags:
         - Hard
-  /nemo/hard/v1beta1/deposits:
+  /fury/hard/v1beta1/deposits:
     get:
       summary: Deposits queries hard deposits.
       operationId: HardDeposits
@@ -8595,7 +8595,7 @@ paths:
           type: boolean
       tags:
         - Hard
-  /nemo/hard/v1beta1/interest-factors:
+  /fury/hard/v1beta1/interest-factors:
     get:
       summary: InterestFactors queries hard module interest factors.
       operationId: HardInterestFactors
@@ -8822,7 +8822,7 @@ paths:
           type: string
       tags:
         - Hard
-  /nemo/hard/v1beta1/interest-rate:
+  /fury/hard/v1beta1/interest-rate:
     get:
       summary: InterestRate queries the hard module interest rates.
       operationId: HardInterestRate
@@ -9049,7 +9049,7 @@ paths:
           type: string
       tags:
         - Hard
-  /nemo/hard/v1beta1/params:
+  /fury/hard/v1beta1/params:
     get:
       summary: Params queries module params.
       operationId: HardParams
@@ -9301,7 +9301,7 @@ paths:
                         }
       tags:
         - Hard
-  /nemo/hard/v1beta1/reserves:
+  /fury/hard/v1beta1/reserves:
     get:
       summary: Reserves queries total hard reserve coins.
       operationId: HardReserves
@@ -9529,7 +9529,7 @@ paths:
           type: string
       tags:
         - Hard
-  /nemo/hard/v1beta1/total-borrowed:
+  /fury/hard/v1beta1/total-borrowed:
     get:
       summary: TotalBorrowed queries total coins borrowed from hard liquidity pools.
       operationId: HardTotalBorrowed
@@ -9757,7 +9757,7 @@ paths:
           type: string
       tags:
         - Hard
-  /nemo/hard/v1beta1/total-deposited:
+  /fury/hard/v1beta1/total-deposited:
     get:
       summary: TotalDeposited queries total coins deposited to hard liquidity pools.
       operationId: HardTotalDeposited
@@ -9985,7 +9985,7 @@ paths:
           type: string
       tags:
         - Hard
-  /nemo/hard/v1beta1/unsynced-borrows:
+  /fury/hard/v1beta1/unsynced-borrows:
     get:
       summary: UnsyncedBorrows queries unsynced borrows.
       operationId: HardUnsyncedBorrows
@@ -10325,7 +10325,7 @@ paths:
           type: boolean
       tags:
         - Hard
-  /nemo/hard/v1beta1/unsynced-deposits:
+  /fury/hard/v1beta1/unsynced-deposits:
     get:
       summary: UnsyncedDeposits queries unsynced deposits.
       operationId: HardUnsyncedDeposits
@@ -10665,7 +10665,7 @@ paths:
           type: boolean
       tags:
         - Hard
-  /nemo/incentive/v1beta1/apy:
+  /fury/incentive/v1beta1/apy:
     get:
       summary: Apy queries incentive reward apy for a reward.
       operationId: IncentiveApy
@@ -10716,7 +10716,7 @@ paths:
                       format: byte
       tags:
         - Incentive
-  /nemo/incentive/v1beta1/params:
+  /fury/incentive/v1beta1/params:
     get:
       summary: Params queries module params.
       operationId: IncentiveParams
@@ -11023,7 +11023,7 @@ paths:
                       format: byte
       tags:
         - Incentive
-  /nemo/incentive/v1beta1/reward_factors:
+  /fury/incentive/v1beta1/reward_factors:
     get:
       summary: Rewards queries the reward factors.
       operationId: IncentiveRewardFactors
@@ -11197,7 +11197,7 @@ paths:
                       format: byte
       tags:
         - Incentive
-  /nemo/incentive/v1beta1/rewards:
+  /fury/incentive/v1beta1/rewards:
     get:
       summary: Rewards queries reward information for a given user.
       operationId: IncentiveRewards
@@ -11611,7 +11611,7 @@ paths:
           type: boolean
       tags:
         - Incentive
-  /nemo/issuance/v1beta1/params:
+  /fury/issuance/v1beta1/params:
     get:
       summary: Params queries all parameters of the issuance module.
       operationId: IssuanceParams
@@ -11683,10 +11683,10 @@ paths:
                       format: byte
       tags:
         - Issuance
-  /nemo/nemodist/v1beta1/balance:
+  /fury/furydist/v1beta1/balance:
     get:
-      summary: Balance queries the balance of all coins of x/nemodist module.
-      operationId: NemodistBalance
+      summary: Balance queries the balance of all coins of x/furydist module.
+      operationId: FurydistBalance
       responses:
         '200':
           description: A successful response.
@@ -11712,7 +11712,7 @@ paths:
                     signatures required by gogoproto.
             description: >-
               QueryBalanceResponse defines the response type for querying
-              x/nemodist balance.
+              x/furydist balance.
         default:
           description: An unexpected error response.
           schema:
@@ -11736,11 +11736,11 @@ paths:
                       type: string
                       format: byte
       tags:
-        - Nemodist
-  /nemo/nemodist/v1beta1/parameters:
+        - Furydist
+  /fury/furydist/v1beta1/parameters:
     get:
-      summary: Params queries the parameters of x/nemodist module.
-      operationId: NemodistParams
+      summary: Params queries the parameters of x/furydist module.
+      operationId: FurydistParams
       responses:
         '200':
           description: A successful response.
@@ -11773,7 +11773,7 @@ paths:
                         Period stores the specified start and end dates, and the
                         inflation, expressed as a decimal
 
-                        representing the yearly APR of NEMO tokens that will be
+                        representing the yearly APR of FURY tokens that will be
                         minted during that period
                   infrastructure_params:
                     type: object
@@ -11799,7 +11799,7 @@ paths:
                             Period stores the specified start and end dates, and
                             the inflation, expressed as a decimal
 
-                            representing the yearly APR of NEMO tokens that will
+                            representing the yearly APR of FURY tokens that will
                             be minted during that period
                       core_rewards:
                         type: array
@@ -11844,10 +11844,10 @@ paths:
                     description: >-
                       InfrastructureParams define the parameters for
                       infrastructure rewards.
-                title: Params governance parameters for nemodist module
+                title: Params governance parameters for furydist module
             description: >-
               QueryParamsResponse defines the response type for querying
-              x/nemodist parameters.
+              x/furydist parameters.
         default:
           description: An unexpected error response.
           schema:
@@ -11871,8 +11871,8 @@ paths:
                       type: string
                       format: byte
       tags:
-        - Nemodist
-  /nemo/liquid/v1beta1/delegated_balance/{delegator}:
+        - Furydist
+  /fury/liquid/v1beta1/delegated_balance/{delegator}:
     get:
       summary: >-
         DelegatedBalance returns an account's vesting and vested coins currently
@@ -11955,7 +11955,7 @@ paths:
           type: string
       tags:
         - Liquid
-  /nemo/liquid/v1beta1/total_supply:
+  /fury/liquid/v1beta1/total_supply:
     get:
       summary: >-
         TotalSupply returns the total sum of all coins currently locked into the
@@ -12016,7 +12016,7 @@ paths:
                       format: byte
       tags:
         - Liquid
-  /nemo/pricefeed/v1beta1/markets:
+  /fury/pricefeed/v1beta1/markets:
     get:
       summary: Markets queries all markets
       operationId: PricefeedMarkets
@@ -12072,7 +12072,7 @@ paths:
                       format: byte
       tags:
         - Pricefeed
-  /nemo/pricefeed/v1beta1/oracles/{market_id}:
+  /fury/pricefeed/v1beta1/oracles/{market_id}:
     get:
       summary: Oracles queries all oracles based on a market
       operationId: PricefeedOracles
@@ -12119,7 +12119,7 @@ paths:
           type: string
       tags:
         - Pricefeed
-  /nemo/pricefeed/v1beta1/params:
+  /fury/pricefeed/v1beta1/params:
     get:
       summary: Params queries all parameters of the pricefeed module.
       operationId: PricefeedParams
@@ -12181,7 +12181,7 @@ paths:
                       format: byte
       tags:
         - Pricefeed
-  /nemo/pricefeed/v1beta1/prices:
+  /fury/pricefeed/v1beta1/prices:
     get:
       summary: Prices queries all prices
       operationId: PricefeedPrices
@@ -12232,7 +12232,7 @@ paths:
                       format: byte
       tags:
         - Pricefeed
-  /nemo/pricefeed/v1beta1/prices/{market_id}:
+  /fury/pricefeed/v1beta1/prices/{market_id}:
     get:
       summary: Price queries price details based on a market
       operationId: PricefeedPrice
@@ -12286,7 +12286,7 @@ paths:
           type: string
       tags:
         - Pricefeed
-  /nemo/pricefeed/v1beta1/rawprices/{market_id}:
+  /fury/pricefeed/v1beta1/rawprices/{market_id}:
     get:
       summary: RawPrices queries all raw prices based on a market
       operationId: PricefeedRawPrices
@@ -12347,7 +12347,7 @@ paths:
           type: string
       tags:
         - Pricefeed
-  /nemo/swap/v1beta1/deposits:
+  /fury/swap/v1beta1/deposits:
     get:
       summary: Deposits queries deposit details based on owner address and pool
       operationId: SwapDeposits
@@ -12513,7 +12513,7 @@ paths:
           type: boolean
       tags:
         - Swap
-  /nemo/swap/v1beta1/params:
+  /fury/swap/v1beta1/params:
     get:
       summary: Params queries all parameters of the swap module.
       operationId: SwapParams
@@ -12573,7 +12573,7 @@ paths:
                       format: byte
       tags:
         - Swap
-  /nemo/swap/v1beta1/pools:
+  /fury/swap/v1beta1/pools:
     get:
       summary: Pools queries pools based on pool ID
       operationId: SwapPools
@@ -12723,7 +12723,7 @@ paths:
           type: boolean
       tags:
         - Swap
-  /nemo/savings/v1beta1/deposits:
+  /fury/savings/v1beta1/deposits:
     get:
       summary: Deposits queries savings deposits.
       operationId: SavingsDeposits
@@ -12883,7 +12883,7 @@ paths:
           type: boolean
       tags:
         - Savings
-  /nemo/savings/v1beta1/params:
+  /fury/savings/v1beta1/params:
     get:
       summary: Params queries all parameters of the savings module.
       operationId: SavingsParams
@@ -12930,7 +12930,7 @@ paths:
                       format: byte
       tags:
         - Savings
-  /nemo/savings/v1beta1/total_supply:
+  /fury/savings/v1beta1/total_supply:
     get:
       summary: >-
         TotalSupply returns the total sum of all coins currently locked into the
@@ -57871,14 +57871,14 @@ paths:
   /vesting/circulatingsupply:
     get:
       deprecated: true
-      summary: Get the current circulating supply of NEMO
+      summary: Get the current circulating supply of FURY
       tags:
         - Vesting
       produces:
         - application/json
       responses:
         '200':
-          description: NEMO circulating supply
+          description: FURY circulating supply
           schema:
             properties:
               height:
@@ -57892,14 +57892,14 @@ paths:
   /vesting/totalsupply:
     get:
       deprecated: true
-      summary: Get the total supply of NEMO
+      summary: Get the total supply of FURY
       tags:
         - Vesting
       produces:
         - application/json
       responses:
         '200':
-          description: NEMO total supply
+          description: FURY total supply
           schema:
             properties:
               height:
@@ -58428,7 +58428,7 @@ definitions:
                   "@type": "type.googleapis.com/google.protobuf.Duration",
                   "value": "1.212s"
                 }
-  nemo.auction.v1beta1.Params:
+  fury.auction.v1beta1.Params:
     type: object
     properties:
       max_auction_duration:
@@ -58447,7 +58447,7 @@ definitions:
         type: string
         format: byte
     description: Params defines the parameters for the issuance module.
-  nemo.auction.v1beta1.QueryAuctionResponse:
+  fury.auction.v1beta1.QueryAuctionResponse:
     type: object
     properties:
       auction:
@@ -58614,7 +58614,7 @@ definitions:
     description: >-
       QueryAuctionResponse is the response type for the Query/Auction RPC
       method.
-  nemo.auction.v1beta1.QueryAuctionsResponse:
+  fury.auction.v1beta1.QueryAuctionsResponse:
     type: object
     properties:
       auctions:
@@ -58805,7 +58805,7 @@ definitions:
     description: >-
       QueryAuctionsResponse is the response type for the Query/Auctions RPC
       method.
-  nemo.auction.v1beta1.QueryNextAuctionIDResponse:
+  fury.auction.v1beta1.QueryNextAuctionIDResponse:
     type: object
     properties:
       id:
@@ -58814,7 +58814,7 @@ definitions:
     description: >-
       QueryNextAuctionIDResponse defines the response type for querying
       x/auction next auction ID.
-  nemo.auction.v1beta1.QueryParamsResponse:
+  fury.auction.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -58851,7 +58851,7 @@ definitions:
 
       NOTE: The amount field is an Int which implements the custom method
       signatures required by gogoproto.
-  nemo.bep3.v1beta1.AssetParam:
+  fury.bep3.v1beta1.AssetParam:
     type: object
     properties:
       denom:
@@ -58894,7 +58894,7 @@ definitions:
       deputy_address:
         type: string
         format: byte
-        title: deputy_address the nemo address of the deputy
+        title: deputy_address the fury address of the deputy
       fixed_fee:
         type: string
         title: fixed_fee defines the fee for incoming swaps
@@ -58917,7 +58917,7 @@ definitions:
         format: uint64
         title: min_block_lock defined the maximum blocks to lock
     description: AssetParam defines parameters for each bep3 asset.
-  nemo.bep3.v1beta1.AssetSupplyResponse:
+  fury.bep3.v1beta1.AssetSupplyResponse:
     type: object
     properties:
       incoming_supply:
@@ -58978,7 +58978,7 @@ definitions:
         type: string
         title: time_elapsed represents the time elapsed
     description: AssetSupplyResponse defines information about an asset's supply.
-  nemo.bep3.v1beta1.AtomicSwapResponse:
+  fury.bep3.v1beta1.AtomicSwapResponse:
     type: object
     properties:
       id:
@@ -59012,10 +59012,10 @@ definitions:
         title: timestamp represents the timestamp of the swap
       sender:
         type: string
-        title: sender is the nemo chain sender of the swap
+        title: sender is the fury chain sender of the swap
       recipient:
         type: string
-        title: recipient is the nemo chain recipient of the swap
+        title: recipient is the fury chain recipient of the swap
       sender_other_chain:
         type: string
         title: sender_other_chain is the sender on the other chain
@@ -59055,10 +59055,10 @@ definitions:
         description: >-
           - SWAP_DIRECTION_UNSPECIFIED: SWAP_DIRECTION_UNSPECIFIED represents
           unspecified or invalid swap direcation
-           - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain)
-           - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain)
+           - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain)
+           - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain)
     title: AtomicSwapResponse represents the returned atomic swap properties
-  nemo.bep3.v1beta1.Params:
+  fury.bep3.v1beta1.Params:
     type: object
     properties:
       asset_params:
@@ -59106,7 +59106,7 @@ definitions:
             deputy_address:
               type: string
               format: byte
-              title: deputy_address the nemo address of the deputy
+              title: deputy_address the fury address of the deputy
             fixed_fee:
               type: string
               title: fixed_fee defines the fee for incoming swaps
@@ -59131,7 +59131,7 @@ definitions:
           description: AssetParam defines parameters for each bep3 asset.
         title: asset_params define the parameters for each bep3 asset
     description: Params defines the parameters for the bep3 module.
-  nemo.bep3.v1beta1.QueryAssetSuppliesResponse:
+  fury.bep3.v1beta1.QueryAssetSuppliesResponse:
     type: object
     properties:
       asset_supplies:
@@ -59215,7 +59215,7 @@ definitions:
     description: >-
       QueryAssetSuppliesResponse is the response type for the
       Query/AssetSupplies RPC method.
-  nemo.bep3.v1beta1.QueryAssetSupplyResponse:
+  fury.bep3.v1beta1.QueryAssetSupplyResponse:
     type: object
     properties:
       asset_supply:
@@ -59295,7 +59295,7 @@ definitions:
     description: >-
       QueryAssetSupplyResponse is the response type for the Query/AssetSupply
       RPC method.
-  nemo.bep3.v1beta1.QueryAtomicSwapResponse:
+  fury.bep3.v1beta1.QueryAtomicSwapResponse:
     type: object
     properties:
       atomic_swap:
@@ -59335,10 +59335,10 @@ definitions:
             title: timestamp represents the timestamp of the swap
           sender:
             type: string
-            title: sender is the nemo chain sender of the swap
+            title: sender is the fury chain sender of the swap
           recipient:
             type: string
-            title: recipient is the nemo chain recipient of the swap
+            title: recipient is the fury chain recipient of the swap
           sender_other_chain:
             type: string
             title: sender_other_chain is the sender on the other chain
@@ -59378,13 +59378,13 @@ definitions:
             description: >-
               - SWAP_DIRECTION_UNSPECIFIED: SWAP_DIRECTION_UNSPECIFIED
               represents unspecified or invalid swap direcation
-               - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain)
-               - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain)
+               - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain)
+               - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain)
         title: AtomicSwapResponse represents the returned atomic swap properties
     description: >-
       QueryAtomicSwapResponse is the response type for the Query/AtomicSwap RPC
       method.
-  nemo.bep3.v1beta1.QueryAtomicSwapsResponse:
+  fury.bep3.v1beta1.QueryAtomicSwapsResponse:
     type: object
     properties:
       atomic_swaps:
@@ -59426,10 +59426,10 @@ definitions:
               title: timestamp represents the timestamp of the swap
             sender:
               type: string
-              title: sender is the nemo chain sender of the swap
+              title: sender is the fury chain sender of the swap
             recipient:
               type: string
-              title: recipient is the nemo chain recipient of the swap
+              title: recipient is the fury chain recipient of the swap
             sender_other_chain:
               type: string
               title: sender_other_chain is the sender on the other chain
@@ -59469,8 +59469,8 @@ definitions:
               description: >-
                 - SWAP_DIRECTION_UNSPECIFIED: SWAP_DIRECTION_UNSPECIFIED
                 represents unspecified or invalid swap direcation
-                 - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain)
-                 - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain)
+                 - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain)
+                 - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain)
           title: AtomicSwapResponse represents the returned atomic swap properties
         title: atomic_swap represents the returned atomic swaps for the request
       pagination:
@@ -59502,7 +59502,7 @@ definitions:
     description: >-
       QueryAtomicSwapsResponse is the response type for the Query/AtomicSwaps
       RPC method.
-  nemo.bep3.v1beta1.QueryParamsResponse:
+  fury.bep3.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -59556,7 +59556,7 @@ definitions:
                 deputy_address:
                   type: string
                   format: byte
-                  title: deputy_address the nemo address of the deputy
+                  title: deputy_address the fury address of the deputy
                 fixed_fee:
                   type: string
                   title: fixed_fee defines the fee for incoming swaps
@@ -59584,7 +59584,7 @@ definitions:
     description: >-
       QueryParamsResponse defines the response type for querying x/bep3
       parameters.
-  nemo.bep3.v1beta1.SupplyLimit:
+  fury.bep3.v1beta1.SupplyLimit:
     type: object
     properties:
       limit:
@@ -59604,7 +59604,7 @@ definitions:
     description: >-
       SupplyLimit define the absolute and time-based limits for an assets's
       supply.
-  nemo.bep3.v1beta1.SwapDirection:
+  fury.bep3.v1beta1.SwapDirection:
     type: string
     enum:
       - SWAP_DIRECTION_UNSPECIFIED
@@ -59614,10 +59614,10 @@ definitions:
     description: >-
       - SWAP_DIRECTION_UNSPECIFIED: SWAP_DIRECTION_UNSPECIFIED represents
       unspecified or invalid swap direcation
-       - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the nemo chain)
-       - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the nemo chain)
+       - SWAP_DIRECTION_INCOMING: SWAP_DIRECTION_INCOMING represents is incoming swap (to the fury chain)
+       - SWAP_DIRECTION_OUTGOING: SWAP_DIRECTION_OUTGOING represents an outgoing swap (from the fury chain)
     title: SwapDirection is the direction of an AtomicSwap
-  nemo.bep3.v1beta1.SwapStatus:
+  fury.bep3.v1beta1.SwapStatus:
     type: string
     enum:
       - SWAP_STATUS_UNSPECIFIED
@@ -60008,7 +60008,7 @@ definitions:
         items:
           type: string
     description: ModuleAccount defines an account for modules that holds coins on a pool.
-  nemo.cdp.v1beta1.CDPResponse:
+  fury.cdp.v1beta1.CDPResponse:
     type: object
     properties:
       id:
@@ -60074,7 +60074,7 @@ definitions:
       collateralization_ratio:
         type: string
     description: CDPResponse defines the state of a single collateralized debt position.
-  nemo.cdp.v1beta1.CollateralParam:
+  fury.cdp.v1beta1.CollateralParam:
     type: object
     properties:
       denom:
@@ -60114,7 +60114,7 @@ definitions:
     title: >-
       CollateralParam defines governance parameters for each collateral type
       within the cdp module
-  nemo.cdp.v1beta1.DebtParam:
+  fury.cdp.v1beta1.DebtParam:
     type: object
     properties:
       denom:
@@ -60126,7 +60126,7 @@ definitions:
       debt_floor:
         type: string
     title: DebtParam defines governance params for debt assets
-  nemo.cdp.v1beta1.Deposit:
+  fury.cdp.v1beta1.Deposit:
     type: object
     properties:
       cdp_id:
@@ -60147,7 +60147,7 @@ definitions:
           NOTE: The amount field is an Int which implements the custom method
           signatures required by gogoproto.
     title: Deposit defines an amount of coins deposited by an account to a cdp
-  nemo.cdp.v1beta1.Params:
+  fury.cdp.v1beta1.Params:
     type: object
     properties:
       collateral_params:
@@ -60230,7 +60230,7 @@ definitions:
       circuit_breaker:
         type: boolean
     description: Params defines the parameters for the cdp module.
-  nemo.cdp.v1beta1.QueryAccountsResponse:
+  fury.cdp.v1beta1.QueryAccountsResponse:
     type: object
     properties:
       accounts:
@@ -60446,7 +60446,7 @@ definitions:
     description: >-
       QueryAccountsResponse defines the response type for the Query/Accounts RPC
       method.
-  nemo.cdp.v1beta1.QueryCdpResponse:
+  fury.cdp.v1beta1.QueryCdpResponse:
     type: object
     properties:
       cdp:
@@ -60530,7 +60530,7 @@ definitions:
           CDPResponse defines the state of a single collateralized debt
           position.
     description: QueryCdpResponse defines the response type for the Query/Cdp RPC method.
-  nemo.cdp.v1beta1.QueryCdpsResponse:
+  fury.cdp.v1beta1.QueryCdpsResponse:
     type: object
     properties:
       cdps:
@@ -60642,7 +60642,7 @@ definitions:
                    PageResponse page = 2;
            }
     description: QueryCdpsResponse defines the response type for the Query/Cdps RPC method.
-  nemo.cdp.v1beta1.QueryDepositsResponse:
+  fury.cdp.v1beta1.QueryDepositsResponse:
     type: object
     properties:
       deposits:
@@ -60674,7 +60674,7 @@ definitions:
     description: >-
       QueryDepositsResponse defines the response type for the Query/Deposits RPC
       method.
-  nemo.cdp.v1beta1.QueryParamsResponse:
+  fury.cdp.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -60766,7 +60766,7 @@ definitions:
     description: >-
       QueryParamsResponse defines the response type for the Query/Params RPC
       method.
-  nemo.cdp.v1beta1.QueryTotalCollateralResponse:
+  fury.cdp.v1beta1.QueryTotalCollateralResponse:
     type: object
     properties:
       total_collateral:
@@ -60797,7 +60797,7 @@ definitions:
     description: >-
       QueryTotalCollateralResponse defines the response type for the
       Query/TotalCollateral RPC method.
-  nemo.cdp.v1beta1.QueryTotalPrincipalResponse:
+  fury.cdp.v1beta1.QueryTotalPrincipalResponse:
     type: object
     properties:
       total_principal:
@@ -60828,7 +60828,7 @@ definitions:
     description: >-
       QueryTotalPrincipalResponse defines the response type for the
       Query/TotalPrincipal RPC method.
-  nemo.cdp.v1beta1.TotalCollateral:
+  fury.cdp.v1beta1.TotalCollateral:
     type: object
     properties:
       collateral_type:
@@ -60846,7 +60846,7 @@ definitions:
           NOTE: The amount field is an Int which implements the custom method
           signatures required by gogoproto.
     title: TotalCollateral defines the total collateral of a given collateral type
-  nemo.cdp.v1beta1.TotalPrincipal:
+  fury.cdp.v1beta1.TotalPrincipal:
     type: object
     properties:
       collateral_type:
@@ -60864,7 +60864,7 @@ definitions:
           NOTE: The amount field is an Int which implements the custom method
           signatures required by gogoproto.
     title: TotalPrincipal defines the total principal of a given collateral type
-  nemo.committee.v1beta1.QueryCommitteeResponse:
+  fury.committee.v1beta1.QueryCommitteeResponse:
     type: object
     properties:
       committee:
@@ -61031,7 +61031,7 @@ definitions:
     description: >-
       QueryCommitteeResponse defines the response type for querying x/committee
       committee.
-  nemo.committee.v1beta1.QueryCommitteesResponse:
+  fury.committee.v1beta1.QueryCommitteesResponse:
     type: object
     properties:
       committees:
@@ -61203,7 +61203,7 @@ definitions:
     description: >-
       QueryCommitteesResponse defines the response type for querying x/committee
       committees.
-  nemo.committee.v1beta1.QueryNextProposalIDResponse:
+  fury.committee.v1beta1.QueryNextProposalIDResponse:
     type: object
     properties:
       next_proposal_id:
@@ -61212,7 +61212,7 @@ definitions:
     description: >-
       QueryNextProposalIDRequest defines the response type for querying
       x/committee NextProposalID.
-  nemo.committee.v1beta1.QueryProposalResponse:
+  fury.committee.v1beta1.QueryProposalResponse:
     type: object
     properties:
       pub_proposal:
@@ -61388,7 +61388,7 @@ definitions:
     description: >-
       QueryProposalResponse defines the response type for querying x/committee
       proposal.
-  nemo.committee.v1beta1.QueryProposalsResponse:
+  fury.committee.v1beta1.QueryProposalsResponse:
     type: object
     properties:
       proposals:
@@ -61582,7 +61582,7 @@ definitions:
     description: >-
       QueryProposalsResponse defines the response type for querying x/committee
       proposals.
-  nemo.committee.v1beta1.QueryRawParamsResponse:
+  fury.committee.v1beta1.QueryRawParamsResponse:
     type: object
     properties:
       raw_data:
@@ -61590,7 +61590,7 @@ definitions:
     description: >-
       QueryRawParamsResponse defines the response type for querying x/committee
       raw params.
-  nemo.committee.v1beta1.QueryTallyResponse:
+  fury.committee.v1beta1.QueryTallyResponse:
     type: object
     properties:
       proposal_id:
@@ -61611,7 +61611,7 @@ definitions:
     description: >-
       QueryTallyResponse defines the response type for querying x/committee
       tally.
-  nemo.committee.v1beta1.QueryVoteResponse:
+  fury.committee.v1beta1.QueryVoteResponse:
     type: object
     properties:
       proposal_id:
@@ -61635,7 +61635,7 @@ definitions:
            - VOTE_TYPE_NO: VOTE_TYPE_NO defines a no vote option.
            - VOTE_TYPE_ABSTAIN: VOTE_TYPE_ABSTAIN defines an abstain vote option.
     description: QueryVoteResponse defines the response type for querying x/committee vote.
-  nemo.committee.v1beta1.QueryVotesResponse:
+  fury.committee.v1beta1.QueryVotesResponse:
     type: object
     properties:
       votes:
@@ -61689,7 +61689,7 @@ definitions:
     description: >-
       QueryVotesResponse defines the response type for querying x/committee
       votes.
-  nemo.committee.v1beta1.VoteType:
+  fury.committee.v1beta1.VoteType:
     type: string
     enum:
       - VOTE_TYPE_UNSPECIFIED
@@ -61704,7 +61704,7 @@ definitions:
        - VOTE_TYPE_YES: VOTE_TYPE_YES defines a yes vote option.
        - VOTE_TYPE_NO: VOTE_TYPE_NO defines a no vote option.
        - VOTE_TYPE_ABSTAIN: VOTE_TYPE_ABSTAIN defines an abstain vote option.
-  nemo.earn.v1beta1.AllowedVault:
+  fury.earn.v1beta1.AllowedVault:
     type: object
     properties:
       denom:
@@ -61757,7 +61757,7 @@ definitions:
     description: |-
       AllowedVault is a vault that is allowed to be created. These can be
       modified via parameter governance.
-  nemo.earn.v1beta1.DepositResponse:
+  fury.earn.v1beta1.DepositResponse:
     type: object
     properties:
       depositor:
@@ -61797,7 +61797,7 @@ definitions:
 
           the strategy.
     description: DepositResponse defines a deposit query response type.
-  nemo.earn.v1beta1.Params:
+  fury.earn.v1beta1.Params:
     type: object
     properties:
       allowed_vaults:
@@ -61856,7 +61856,7 @@ definitions:
             AllowedVault is a vault that is allowed to be created. These can be
             modified via parameter governance.
     description: Params defines the parameters of the earn module.
-  nemo.earn.v1beta1.QueryDepositsResponse:
+  fury.earn.v1beta1.QueryDepositsResponse:
     type: object
     properties:
       deposits:
@@ -61929,7 +61929,7 @@ definitions:
     description: >-
       QueryDepositsResponse is the response type for the Query/Deposits RPC
       method.
-  nemo.earn.v1beta1.QueryParamsResponse:
+  fury.earn.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -61997,7 +61997,7 @@ definitions:
     description: >-
       QueryParamsResponse defines the response type for querying x/earn
       parameters.
-  nemo.earn.v1beta1.QueryTotalSupplyResponse:
+  fury.earn.v1beta1.QueryTotalSupplyResponse:
     type: object
     properties:
       height:
@@ -62022,7 +62022,7 @@ definitions:
     description: >-
       TotalSupplyResponse defines the response type for the Query/TotalSupply
       method.
-  nemo.earn.v1beta1.QueryVaultResponse:
+  fury.earn.v1beta1.QueryVaultResponse:
     type: object
     properties:
       vault:
@@ -62085,7 +62085,7 @@ definitions:
         description: VaultResponse is the response type for a vault.
         title: vault represents the queried earn module vault
     description: QueryVaultResponse is the response type for the Query/Vault RPC method.
-  nemo.earn.v1beta1.QueryVaultsResponse:
+  fury.earn.v1beta1.QueryVaultsResponse:
     type: object
     properties:
       vaults:
@@ -62150,7 +62150,7 @@ definitions:
           description: VaultResponse is the response type for a vault.
         title: vaults represents the earn module vaults
     description: QueryVaultsResponse is the response type for the Query/Vaults RPC method.
-  nemo.earn.v1beta1.StrategyType:
+  fury.earn.v1beta1.StrategyType:
     type: string
     enum:
       - STRATEGY_TYPE_UNSPECIFIED
@@ -62165,7 +62165,7 @@ definitions:
       module.
        - STRATEGY_TYPE_SAVINGS: STRATEGY_TYPE_SAVINGS represents the strategy that deposits assets in the
       Savings module.
-  nemo.earn.v1beta1.VaultResponse:
+  fury.earn.v1beta1.VaultResponse:
     type: object
     properties:
       denom:
@@ -62223,7 +62223,7 @@ definitions:
 
           vault were to be liquidated.
     description: VaultResponse is the response type for a vault.
-  nemo.earn.v1beta1.VaultShare:
+  fury.earn.v1beta1.VaultShare:
     type: object
     properties:
       denom:
@@ -62231,7 +62231,7 @@ definitions:
       amount:
         type: string
     description: VaultShare defines shares of a vault owned by a depositor.
-  nemo.hard.v1beta1.BorrowInterestFactorResponse:
+  fury.hard.v1beta1.BorrowInterestFactorResponse:
     type: object
     properties:
       denom:
@@ -62240,7 +62240,7 @@ definitions:
         type: string
         title: sdk.Dec as string
     description: BorrowInterestFactorResponse defines an individual borrow interest factor.
-  nemo.hard.v1beta1.BorrowLimit:
+  fury.hard.v1beta1.BorrowLimit:
     type: object
     properties:
       has_max_limit:
@@ -62250,7 +62250,7 @@ definitions:
       loan_to_value:
         type: string
     description: BorrowLimit enforces restrictions on a money market.
-  nemo.hard.v1beta1.BorrowResponse:
+  fury.hard.v1beta1.BorrowResponse:
     type: object
     properties:
       borrower:
@@ -62285,7 +62285,7 @@ definitions:
     description: >-
       BorrowResponse defines an amount of coins borrowed from a hard module
       account.
-  nemo.hard.v1beta1.DepositResponse:
+  fury.hard.v1beta1.DepositResponse:
     type: object
     properties:
       depositor:
@@ -62320,7 +62320,7 @@ definitions:
     description: >-
       DepositResponse defines an amount of coins deposited into a hard module
       account.
-  nemo.hard.v1beta1.InterestFactor:
+  fury.hard.v1beta1.InterestFactor:
     type: object
     properties:
       denom:
@@ -62332,7 +62332,7 @@ definitions:
         type: string
         title: sdk.Dec as String
     title: InterestFactor is a unique type returned by interest factor queries
-  nemo.hard.v1beta1.InterestRateModel:
+  fury.hard.v1beta1.InterestRateModel:
     type: object
     properties:
       base_rate_apy:
@@ -62344,7 +62344,7 @@ definitions:
       jump_multiplier:
         type: string
     description: InterestRateModel contains information about an asset's interest rate.
-  nemo.hard.v1beta1.MoneyMarket:
+  fury.hard.v1beta1.MoneyMarket:
     type: object
     properties:
       denom:
@@ -62380,7 +62380,7 @@ definitions:
       keeper_reward_percentage:
         type: string
     description: MoneyMarket is a money market for an individual asset.
-  nemo.hard.v1beta1.MoneyMarketInterestRate:
+  fury.hard.v1beta1.MoneyMarketInterestRate:
     type: object
     properties:
       denom:
@@ -62392,7 +62392,7 @@ definitions:
         type: string
         title: sdk.Dec as String
     title: MoneyMarketInterestRate is a unique type returned by interest rate queries
-  nemo.hard.v1beta1.Params:
+  fury.hard.v1beta1.Params:
     type: object
     properties:
       money_markets:
@@ -62438,7 +62438,7 @@ definitions:
       minimum_borrow_usd_value:
         type: string
     description: Params defines the parameters for the hard module.
-  nemo.hard.v1beta1.QueryAccountsResponse:
+  fury.hard.v1beta1.QueryAccountsResponse:
     type: object
     properties:
       accounts:
@@ -62654,7 +62654,7 @@ definitions:
     description: >-
       QueryAccountsResponse is the response type for the Query/Accounts RPC
       method.
-  nemo.hard.v1beta1.QueryBorrowsResponse:
+  fury.hard.v1beta1.QueryBorrowsResponse:
     type: object
     properties:
       borrows:
@@ -62726,7 +62726,7 @@ definitions:
     description: >-
       QueryBorrowsResponse is the response type for the Query/Borrows RPC
       method.
-  nemo.hard.v1beta1.QueryDepositsResponse:
+  fury.hard.v1beta1.QueryDepositsResponse:
     type: object
     properties:
       deposits:
@@ -62798,7 +62798,7 @@ definitions:
     description: >-
       QueryDepositsResponse is the response type for the Query/Deposits RPC
       method.
-  nemo.hard.v1beta1.QueryInterestFactorsResponse:
+  fury.hard.v1beta1.QueryInterestFactorsResponse:
     type: object
     properties:
       interest_factors:
@@ -62818,7 +62818,7 @@ definitions:
     description: >-
       QueryInterestFactorsResponse is the response type for the
       Query/InterestFactors RPC method.
-  nemo.hard.v1beta1.QueryInterestRateResponse:
+  fury.hard.v1beta1.QueryInterestRateResponse:
     type: object
     properties:
       interest_rates:
@@ -62840,7 +62840,7 @@ definitions:
     description: >-
       QueryInterestRateResponse is the response type for the Query/InterestRate
       RPC method.
-  nemo.hard.v1beta1.QueryParamsResponse:
+  fury.hard.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -62890,7 +62890,7 @@ definitions:
             type: string
         description: Params defines the parameters for the hard module.
     description: QueryParamsResponse is the response type for the Query/Params RPC method.
-  nemo.hard.v1beta1.QueryReservesResponse:
+  fury.hard.v1beta1.QueryReservesResponse:
     type: object
     properties:
       amount:
@@ -62910,7 +62910,7 @@ definitions:
     description: >-
       QueryReservesResponse is the response type for the Query/Reserves RPC
       method.
-  nemo.hard.v1beta1.QueryTotalBorrowedResponse:
+  fury.hard.v1beta1.QueryTotalBorrowedResponse:
     type: object
     properties:
       borrowed_coins:
@@ -62930,7 +62930,7 @@ definitions:
     description: >-
       QueryTotalBorrowedResponse is the response type for the
       Query/TotalBorrowed RPC method.
-  nemo.hard.v1beta1.QueryTotalDepositedResponse:
+  fury.hard.v1beta1.QueryTotalDepositedResponse:
     type: object
     properties:
       supplied_coins:
@@ -62950,7 +62950,7 @@ definitions:
     description: >-
       QueryTotalDepositedResponse is the response type for the
       Query/TotalDeposited RPC method.
-  nemo.hard.v1beta1.QueryUnsyncedBorrowsResponse:
+  fury.hard.v1beta1.QueryUnsyncedBorrowsResponse:
     type: object
     properties:
       borrows:
@@ -63022,7 +63022,7 @@ definitions:
     description: >-
       QueryUnsyncedBorrowsResponse is the response type for the
       Query/UnsyncedBorrows RPC method.
-  nemo.hard.v1beta1.QueryUnsyncedDepositsResponse:
+  fury.hard.v1beta1.QueryUnsyncedDepositsResponse:
     type: object
     properties:
       deposits:
@@ -63094,7 +63094,7 @@ definitions:
     description: >-
       QueryUnsyncedDepositsResponse is the response type for the
       Query/UnsyncedDeposits RPC method.
-  nemo.hard.v1beta1.SupplyInterestFactorResponse:
+  fury.hard.v1beta1.SupplyInterestFactorResponse:
     type: object
     properties:
       denom:
@@ -63103,7 +63103,7 @@ definitions:
         type: string
         title: sdk.Dec as string
     description: SupplyInterestFactorResponse defines an individual borrow interest factor.
-  nemo.incentive.v1beta1.Apy:
+  fury.incentive.v1beta1.Apy:
     type: object
     properties:
       collateral_type:
@@ -63113,7 +63113,7 @@ definitions:
     description: |-
       Apy contains the calculated APY for a given collateral type at a specific
       instant in time.
-  nemo.incentive.v1beta1.BaseClaim:
+  fury.incentive.v1beta1.BaseClaim:
     type: object
     properties:
       owner:
@@ -63132,7 +63132,7 @@ definitions:
           NOTE: The amount field is an Int which implements the custom method
           signatures required by gogoproto.
     title: BaseClaim is a claim with a single reward coin types
-  nemo.incentive.v1beta1.BaseMultiClaim:
+  fury.incentive.v1beta1.BaseMultiClaim:
     type: object
     properties:
       owner:
@@ -63153,7 +63153,7 @@ definitions:
             NOTE: The amount field is an Int which implements the custom method
             signatures required by gogoproto.
     title: BaseMultiClaim is a claim with multiple reward coin types
-  nemo.incentive.v1beta1.DelegatorClaim:
+  fury.incentive.v1beta1.DelegatorClaim:
     type: object
     properties:
       base_claim:
@@ -63202,7 +63202,7 @@ definitions:
             MultiRewardIndex stores reward accumulation information on multiple
             reward types
     title: DelegatorClaim stores delegation rewards that can be claimed by owner
-  nemo.incentive.v1beta1.EarnClaim:
+  fury.incentive.v1beta1.EarnClaim:
     type: object
     properties:
       base_claim:
@@ -63251,7 +63251,7 @@ definitions:
             MultiRewardIndex stores reward accumulation information on multiple
             reward types
     title: EarnClaim stores the earn rewards that can be claimed by owner
-  nemo.incentive.v1beta1.HardLiquidityProviderClaim:
+  fury.incentive.v1beta1.HardLiquidityProviderClaim:
     type: object
     properties:
       base_claim:
@@ -63323,7 +63323,7 @@ definitions:
     title: >-
       HardLiquidityProviderClaim stores the hard liquidity provider rewards that
       can be claimed by owner
-  nemo.incentive.v1beta1.MultiRewardIndex:
+  fury.incentive.v1beta1.MultiRewardIndex:
     type: object
     properties:
       collateral_type:
@@ -63342,7 +63342,7 @@ definitions:
     title: >-
       MultiRewardIndex stores reward accumulation information on multiple reward
       types
-  nemo.incentive.v1beta1.MultiRewardPeriod:
+  fury.incentive.v1beta1.MultiRewardPeriod:
     type: object
     properties:
       active:
@@ -63370,7 +63370,7 @@ definitions:
             NOTE: The amount field is an Int which implements the custom method
             signatures required by gogoproto.
     title: MultiRewardPeriod supports multiple reward types
-  nemo.incentive.v1beta1.Multiplier:
+  fury.incentive.v1beta1.Multiplier:
     type: object
     properties:
       name:
@@ -63384,7 +63384,7 @@ definitions:
     title: >-
       Multiplier amount the claim rewards get increased by, along with how long
       the claim rewards are locked
-  nemo.incentive.v1beta1.MultipliersPerDenom:
+  fury.incentive.v1beta1.MultipliersPerDenom:
     type: object
     properties:
       denom:
@@ -63406,7 +63406,7 @@ definitions:
             Multiplier amount the claim rewards get increased by, along with how
             long the claim rewards are locked
     title: MultipliersPerDenom is a map of denoms to a set of multipliers
-  nemo.incentive.v1beta1.Params:
+  fury.incentive.v1beta1.Params:
     type: object
     properties:
       usdx_minting_reward_periods:
@@ -63666,7 +63666,7 @@ definitions:
                   signatures required by gogoproto.
           title: MultiRewardPeriod supports multiple reward types
     title: Params
-  nemo.incentive.v1beta1.QueryApyResponse:
+  fury.incentive.v1beta1.QueryApyResponse:
     type: object
     properties:
       earn:
@@ -63684,7 +63684,7 @@ definitions:
 
             instant in time.
     description: QueryApysResponse is the response type for the Query/Apys RPC method.
-  nemo.incentive.v1beta1.QueryParamsResponse:
+  fury.incentive.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -63948,7 +63948,7 @@ definitions:
               title: MultiRewardPeriod supports multiple reward types
         title: Params
     description: QueryParamsResponse is the response type for the Query/Params RPC method.
-  nemo.incentive.v1beta1.QueryRewardFactorsResponse:
+  fury.incentive.v1beta1.QueryRewardFactorsResponse:
     type: object
     properties:
       usdx_minting_reward_factors:
@@ -64091,7 +64091,7 @@ definitions:
     description: >-
       QueryRewardFactorsResponse is the response type for the
       Query/RewardFactors RPC method.
-  nemo.incentive.v1beta1.QueryRewardsResponse:
+  fury.incentive.v1beta1.QueryRewardsResponse:
     type: object
     properties:
       usdx_minting_claims:
@@ -64416,7 +64416,7 @@ definitions:
     description: >-
       QueryRewardsResponse is the response type for the Query/Rewards RPC
       method.
-  nemo.incentive.v1beta1.RewardIndex:
+  fury.incentive.v1beta1.RewardIndex:
     type: object
     properties:
       collateral_type:
@@ -64425,7 +64425,7 @@ definitions:
         type: string
         format: byte
     title: RewardIndex stores reward accumulation information
-  nemo.incentive.v1beta1.RewardPeriod:
+  fury.incentive.v1beta1.RewardPeriod:
     type: object
     properties:
       active:
@@ -64451,7 +64451,7 @@ definitions:
           NOTE: The amount field is an Int which implements the custom method
           signatures required by gogoproto.
     title: RewardPeriod stores the state of an ongoing reward
-  nemo.incentive.v1beta1.SavingsClaim:
+  fury.incentive.v1beta1.SavingsClaim:
     type: object
     properties:
       base_claim:
@@ -64500,7 +64500,7 @@ definitions:
             MultiRewardIndex stores reward accumulation information on multiple
             reward types
     title: SavingsClaim stores the savings rewards that can be claimed by owner
-  nemo.incentive.v1beta1.SwapClaim:
+  fury.incentive.v1beta1.SwapClaim:
     type: object
     properties:
       base_claim:
@@ -64549,7 +64549,7 @@ definitions:
             MultiRewardIndex stores reward accumulation information on multiple
             reward types
     title: SwapClaim stores the swap rewards that can be claimed by owner
-  nemo.incentive.v1beta1.USDXMintingClaim:
+  fury.incentive.v1beta1.USDXMintingClaim:
     type: object
     properties:
       base_claim:
@@ -64586,7 +64586,7 @@ definitions:
               format: byte
           title: RewardIndex stores reward accumulation information
     title: USDXMintingClaim is for USDX minting rewards
-  nemo.issuance.v1beta1.Asset:
+  fury.issuance.v1beta1.Asset:
     type: object
     properties:
       owner:
@@ -64613,7 +64613,7 @@ definitions:
             type: string
         title: RateLimit parameters for rate-limiting the supply of an issued asset
     title: Asset type for assets in the issuance module
-  nemo.issuance.v1beta1.Params:
+  fury.issuance.v1beta1.Params:
     type: object
     properties:
       assets:
@@ -64648,7 +64648,7 @@ definitions:
                 asset
           title: Asset type for assets in the issuance module
     description: Params defines the parameters for the issuance module.
-  nemo.issuance.v1beta1.QueryParamsResponse:
+  fury.issuance.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -64689,7 +64689,7 @@ definitions:
     description: >-
       QueryParamsResponse defines the response type for querying x/issuance
       parameters.
-  nemo.issuance.v1beta1.RateLimit:
+  fury.issuance.v1beta1.RateLimit:
     type: object
     properties:
       active:
@@ -64700,7 +64700,7 @@ definitions:
       time_period:
         type: string
     title: RateLimit parameters for rate-limiting the supply of an issued asset
-  nemo.nemodist.v1beta1.CoreReward:
+  fury.furydist.v1beta1.CoreReward:
     type: object
     properties:
       address:
@@ -64709,7 +64709,7 @@ definitions:
       weight:
         type: string
     description: CoreReward defines the reward weights for core infrastructure providers.
-  nemo.nemodist.v1beta1.InfrastructureParams:
+  fury.furydist.v1beta1.InfrastructureParams:
     type: object
     properties:
       infrastructure_periods:
@@ -64733,7 +64733,7 @@ definitions:
             Period stores the specified start and end dates, and the inflation,
             expressed as a decimal
 
-            representing the yearly APR of NEMO tokens that will be minted
+            representing the yearly APR of FURY tokens that will be minted
             during that period
       core_rewards:
         type: array
@@ -64775,7 +64775,7 @@ definitions:
             PartnerRewards defines the reward schedule for partner
             infrastructure providers.
     description: InfrastructureParams define the parameters for infrastructure rewards.
-  nemo.nemodist.v1beta1.Params:
+  fury.furydist.v1beta1.Params:
     type: object
     properties:
       active:
@@ -64801,7 +64801,7 @@ definitions:
             Period stores the specified start and end dates, and the inflation,
             expressed as a decimal
 
-            representing the yearly APR of NEMO tokens that will be minted
+            representing the yearly APR of FURY tokens that will be minted
             during that period
       infrastructure_params:
         type: object
@@ -64827,7 +64827,7 @@ definitions:
                 Period stores the specified start and end dates, and the
                 inflation, expressed as a decimal
 
-                representing the yearly APR of NEMO tokens that will be minted
+                representing the yearly APR of FURY tokens that will be minted
                 during that period
           core_rewards:
             type: array
@@ -64869,8 +64869,8 @@ definitions:
                 PartnerRewards defines the reward schedule for partner
                 infrastructure providers.
         description: InfrastructureParams define the parameters for infrastructure rewards.
-    title: Params governance parameters for nemodist module
-  nemo.nemodist.v1beta1.PartnerReward:
+    title: Params governance parameters for furydist module
+  fury.furydist.v1beta1.PartnerReward:
     type: object
     properties:
       address:
@@ -64891,7 +64891,7 @@ definitions:
     description: >-
       PartnerRewards defines the reward schedule for partner infrastructure
       providers.
-  nemo.nemodist.v1beta1.Period:
+  fury.furydist.v1beta1.Period:
     type: object
     properties:
       start:
@@ -64910,9 +64910,9 @@ definitions:
       Period stores the specified start and end dates, and the inflation,
       expressed as a decimal
 
-      representing the yearly APR of NEMO tokens that will be minted during that
+      representing the yearly APR of FURY tokens that will be minted during that
       period
-  nemo.nemodist.v1beta1.QueryBalanceResponse:
+  fury.furydist.v1beta1.QueryBalanceResponse:
     type: object
     properties:
       coins:
@@ -64930,9 +64930,9 @@ definitions:
             NOTE: The amount field is an Int which implements the custom method
             signatures required by gogoproto.
     description: >-
-      QueryBalanceResponse defines the response type for querying x/nemodist
+      QueryBalanceResponse defines the response type for querying x/furydist
       balance.
-  nemo.nemodist.v1beta1.QueryParamsResponse:
+  fury.furydist.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -64961,7 +64961,7 @@ definitions:
                 Period stores the specified start and end dates, and the
                 inflation, expressed as a decimal
 
-                representing the yearly APR of NEMO tokens that will be minted
+                representing the yearly APR of FURY tokens that will be minted
                 during that period
           infrastructure_params:
             type: object
@@ -64987,7 +64987,7 @@ definitions:
                     Period stores the specified start and end dates, and the
                     inflation, expressed as a decimal
 
-                    representing the yearly APR of NEMO tokens that will be
+                    representing the yearly APR of FURY tokens that will be
                     minted during that period
               core_rewards:
                 type: array
@@ -65031,11 +65031,11 @@ definitions:
             description: >-
               InfrastructureParams define the parameters for infrastructure
               rewards.
-        title: Params governance parameters for nemodist module
+        title: Params governance parameters for furydist module
     description: >-
-      QueryParamsResponse defines the response type for querying x/nemodist
+      QueryParamsResponse defines the response type for querying x/furydist
       parameters.
-  nemo.liquid.v1beta1.QueryDelegatedBalanceResponse:
+  fury.liquid.v1beta1.QueryDelegatedBalanceResponse:
     type: object
     properties:
       vested:
@@ -65071,7 +65071,7 @@ definitions:
     description: >-
       DelegatedBalanceResponse defines the response type for the
       Query/DelegatedBalance method.
-  nemo.liquid.v1beta1.QueryTotalSupplyResponse:
+  fury.liquid.v1beta1.QueryTotalSupplyResponse:
     type: object
     properties:
       height:
@@ -65096,7 +65096,7 @@ definitions:
     description: >-
       TotalSupplyResponse defines the response type for the Query/TotalSupply
       method.
-  nemo.pricefeed.v1beta1.CurrentPriceResponse:
+  fury.pricefeed.v1beta1.CurrentPriceResponse:
     type: object
     properties:
       market_id:
@@ -65108,7 +65108,7 @@ definitions:
       the pricefeed
 
       module.
-  nemo.pricefeed.v1beta1.Market:
+  fury.pricefeed.v1beta1.Market:
     type: object
     properties:
       market_id:
@@ -65125,7 +65125,7 @@ definitions:
       active:
         type: boolean
     description: Market defines an asset in the pricefeed.
-  nemo.pricefeed.v1beta1.MarketResponse:
+  fury.pricefeed.v1beta1.MarketResponse:
     type: object
     properties:
       market_id:
@@ -65141,7 +65141,7 @@ definitions:
       active:
         type: boolean
     description: MarketResponse defines an asset in the pricefeed.
-  nemo.pricefeed.v1beta1.Params:
+  fury.pricefeed.v1beta1.Params:
     type: object
     properties:
       markets:
@@ -65164,7 +65164,7 @@ definitions:
               type: boolean
           description: Market defines an asset in the pricefeed.
     description: Params defines the parameters for the pricefeed module.
-  nemo.pricefeed.v1beta1.PostedPriceResponse:
+  fury.pricefeed.v1beta1.PostedPriceResponse:
     type: object
     properties:
       market_id:
@@ -65179,7 +65179,7 @@ definitions:
     description: >-
       PostedPriceResponse defines a price for market posted by a specific
       oracle.
-  nemo.pricefeed.v1beta1.QueryMarketsResponse:
+  fury.pricefeed.v1beta1.QueryMarketsResponse:
     type: object
     properties:
       markets:
@@ -65204,7 +65204,7 @@ definitions:
     description: >-
       QueryMarketsResponse is the response type for the Query/Markets RPC
       method.
-  nemo.pricefeed.v1beta1.QueryOraclesResponse:
+  fury.pricefeed.v1beta1.QueryOraclesResponse:
     type: object
     properties:
       oracles:
@@ -65215,7 +65215,7 @@ definitions:
     description: >-
       QueryOraclesResponse is the response type for the Query/Oracles RPC
       method.
-  nemo.pricefeed.v1beta1.QueryParamsResponse:
+  fury.pricefeed.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -65244,7 +65244,7 @@ definitions:
     description: |-
       QueryParamsResponse defines the response type for querying x/pricefeed
       parameters.
-  nemo.pricefeed.v1beta1.QueryPriceResponse:
+  fury.pricefeed.v1beta1.QueryPriceResponse:
     type: object
     properties:
       price:
@@ -65260,7 +65260,7 @@ definitions:
 
           module.
     description: QueryPriceResponse is the response type for the Query/Prices RPC method.
-  nemo.pricefeed.v1beta1.QueryPricesResponse:
+  fury.pricefeed.v1beta1.QueryPricesResponse:
     type: object
     properties:
       prices:
@@ -65278,7 +65278,7 @@ definitions:
 
             module.
     description: QueryPricesResponse is the response type for the Query/Prices RPC method.
-  nemo.pricefeed.v1beta1.QueryRawPricesResponse:
+  fury.pricefeed.v1beta1.QueryRawPricesResponse:
     type: object
     properties:
       raw_prices:
@@ -65301,7 +65301,7 @@ definitions:
     description: |-
       QueryRawPricesResponse is the response type for the Query/RawPrices RPC
       method.
-  nemo.swap.v1beta1.AllowedPool:
+  fury.swap.v1beta1.AllowedPool:
     type: object
     properties:
       token_a:
@@ -65311,7 +65311,7 @@ definitions:
         type: string
         title: token_b represents the b token allowed
     title: AllowedPool defines a pool that is allowed to be created
-  nemo.swap.v1beta1.DepositResponse:
+  fury.swap.v1beta1.DepositResponse:
     type: object
     properties:
       depositor:
@@ -65339,7 +65339,7 @@ definitions:
             signatures required by gogoproto.
         title: shares_value represents the coin value of the shares_owned
     description: DepositResponse defines a single deposit query response type.
-  nemo.swap.v1beta1.Params:
+  fury.swap.v1beta1.Params:
     type: object
     properties:
       allowed_pools:
@@ -65359,7 +65359,7 @@ definitions:
         type: string
         title: swap_fee defines the swap fee for all pools
     description: Params defines the parameters for the swap module.
-  nemo.swap.v1beta1.PoolResponse:
+  fury.swap.v1beta1.PoolResponse:
     type: object
     properties:
       name:
@@ -65384,7 +65384,7 @@ definitions:
         type: string
         title: total_shares represents the total shares of the pool
     title: Pool represents the state of a single pool
-  nemo.swap.v1beta1.QueryDepositsResponse:
+  fury.swap.v1beta1.QueryDepositsResponse:
     type: object
     properties:
       deposits:
@@ -65445,7 +65445,7 @@ definitions:
     description: >-
       QueryDepositsResponse is the response type for the Query/Deposits RPC
       method.
-  nemo.swap.v1beta1.QueryParamsResponse:
+  fury.swap.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -65472,7 +65472,7 @@ definitions:
     description: >-
       QueryParamsResponse defines the response type for querying x/swap
       parameters.
-  nemo.swap.v1beta1.QueryPoolsResponse:
+  fury.swap.v1beta1.QueryPoolsResponse:
     type: object
     properties:
       pools:
@@ -65526,7 +65526,7 @@ definitions:
 
               was set, its value is undefined otherwise
     description: QueryPoolsResponse is the response type for the Query/Pools RPC method.
-  nemo.savings.v1beta1.Deposit:
+  fury.savings.v1beta1.Deposit:
     type: object
     properties:
       depositor:
@@ -65548,7 +65548,7 @@ definitions:
     description: >-
       Deposit defines an amount of coins deposited into a savings module
       account.
-  nemo.savings.v1beta1.Params:
+  fury.savings.v1beta1.Params:
     type: object
     properties:
       supported_denoms:
@@ -65556,7 +65556,7 @@ definitions:
         items:
           type: string
     description: Params defines the parameters for the savings module.
-  nemo.savings.v1beta1.QueryDepositsResponse:
+  fury.savings.v1beta1.QueryDepositsResponse:
     type: object
     properties:
       deposits:
@@ -65615,7 +65615,7 @@ definitions:
     description: |-
       QueryDepositsResponse defines the response type for querying x/savings
       deposits.
-  nemo.savings.v1beta1.QueryParamsResponse:
+  fury.savings.v1beta1.QueryParamsResponse:
     type: object
     properties:
       params:
@@ -65629,7 +65629,7 @@ definitions:
     description: |-
       QueryParamsResponse defines the response type for querying x/savings
       parameters.
-  nemo.savings.v1beta1.QueryTotalSupplyResponse:
+  fury.savings.v1beta1.QueryTotalSupplyResponse:
     type: object
     properties:
       height:

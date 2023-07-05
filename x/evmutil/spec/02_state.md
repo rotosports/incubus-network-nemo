@@ -6,13 +6,13 @@ order: 2
 
 ## Parameters and Genesis State
 
-`Parameters` define the list of conversion pairs allowed to be converted between Nemo ERC20 tokens & sdk.Coins, and the list of native cosmos sdk.Coins that are allowed to be converted to ERC20s.
+`Parameters` define the list of conversion pairs allowed to be converted between Fury ERC20 tokens & sdk.Coins, and the list of native cosmos sdk.Coins that are allowed to be converted to ERC20s.
 
 ```protobuf
 // Params defines the evmutil module params
 message Params {
   // enabled_conversion_pairs defines the list of conversion pairs allowed to be
-  // converted between Nemo ERC20 and sdk.Coin
+  // converted between Fury ERC20 and sdk.Coin
   repeated ConversionPair enabled_conversion_pairs = 4;
 
   // allowed_cosmos_denoms is a list of denom & erc20 token metadata pairs.
@@ -20,11 +20,11 @@ message Params {
   repeated AllowedCosmosCoinERC20Token allowed_cosmos_denoms = 1;
 }
 
-// ConversionPair defines a Nemo ERC20 address and corresponding denom that is
+// ConversionPair defines a Fury ERC20 address and corresponding denom that is
 // allowed to be converted between ERC20 and sdk.Coin
 message ConversionPair {
-  // ERC20 address of the token on the Nemo EVM
-  bytes nemo_erc20_address = 1;
+  // ERC20 address of the token on the Fury EVM
+  bytes fury_erc20_address = 1;
   // Denom of the corresponding sdk.Coin
   string denom = 2;
 }

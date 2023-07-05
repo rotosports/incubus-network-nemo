@@ -11,9 +11,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	app "github.com/incubus-network/nemo/app"
-	v015hard "github.com/incubus-network/nemo/x/hard/legacy/v0_15"
-	v016hard "github.com/incubus-network/nemo/x/hard/types"
+	app "github.com/incubus-network/fury/app"
+	v015hard "github.com/incubus-network/fury/x/hard/legacy/v0_15"
+	v016hard "github.com/incubus-network/fury/x/hard/types"
 )
 
 type migrateTestSuite struct {
@@ -57,7 +57,7 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		Params: v015hard.Params{
 			MoneyMarkets: v015hard.MoneyMarkets{
 				{
-					Denom: "nemo",
+					Denom: "fury",
 					BorrowLimit: v015hard.BorrowLimit{
 						HasMaxLimit:  true,
 						MaximumLimit: sdk.MustNewDecFromStr("0.1"),
@@ -78,7 +78,7 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		},
 		PreviousAccumulationTimes: v015hard.GenesisAccumulationTimes{
 			{
-				CollateralType:           "nemo",
+				CollateralType:           "fury",
 				PreviousAccumulationTime: time.Date(1998, time.January, 1, 12, 0, 0, 1, time.UTC),
 				SupplyInterestFactor:     sdk.MustNewDecFromStr("0.1"),
 				BorrowInterestFactor:     sdk.MustNewDecFromStr("0.2"),
@@ -87,10 +87,10 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		Deposits: v015hard.Deposits{
 			{
 				Depositor: s.addresses[0],
-				Amount:    sdk.NewCoins(sdk.NewCoin("nemo", sdkmath.NewInt(100))),
+				Amount:    sdk.NewCoins(sdk.NewCoin("fury", sdkmath.NewInt(100))),
 				Index: v015hard.SupplyInterestFactors{
 					{
-						Denom: "nemo",
+						Denom: "fury",
 						Value: sdk.MustNewDecFromStr("1.12"),
 					},
 				},
@@ -99,16 +99,16 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		Borrows: v015hard.Borrows{
 			{
 				Borrower: s.addresses[1],
-				Amount:   sdk.NewCoins(sdk.NewCoin("nemo", sdkmath.NewInt(100))),
+				Amount:   sdk.NewCoins(sdk.NewCoin("fury", sdkmath.NewInt(100))),
 				Index: v015hard.BorrowInterestFactors{
 					{
-						Denom: "nemo",
+						Denom: "fury",
 						Value: sdk.MustNewDecFromStr("1.12"),
 					},
 				},
 			},
 		},
-		TotalSupplied: sdk.NewCoins(sdk.NewCoin("nemo", sdkmath.NewInt(100))),
+		TotalSupplied: sdk.NewCoins(sdk.NewCoin("fury", sdkmath.NewInt(100))),
 		TotalBorrowed: sdk.NewCoins(sdk.NewCoin("bnb", sdkmath.NewInt(200))),
 		TotalReserves: sdk.NewCoins(sdk.NewCoin("xrp", sdkmath.NewInt(300))),
 	}
@@ -116,7 +116,7 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		Params: v016hard.Params{
 			MoneyMarkets: v016hard.MoneyMarkets{
 				{
-					Denom: "nemo",
+					Denom: "fury",
 					BorrowLimit: v016hard.BorrowLimit{
 						HasMaxLimit:  true,
 						MaximumLimit: sdk.MustNewDecFromStr("0.1"),
@@ -155,7 +155,7 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		},
 		PreviousAccumulationTimes: v016hard.GenesisAccumulationTimes{
 			{
-				CollateralType:           "nemo",
+				CollateralType:           "fury",
 				PreviousAccumulationTime: time.Date(1998, time.January, 1, 12, 0, 0, 1, time.UTC),
 				SupplyInterestFactor:     sdk.MustNewDecFromStr("0.1"),
 				BorrowInterestFactor:     sdk.MustNewDecFromStr("0.2"),
@@ -164,10 +164,10 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		Deposits: v016hard.Deposits{
 			{
 				Depositor: s.addresses[0],
-				Amount:    sdk.NewCoins(sdk.NewCoin("nemo", sdkmath.NewInt(100))),
+				Amount:    sdk.NewCoins(sdk.NewCoin("fury", sdkmath.NewInt(100))),
 				Index: v016hard.SupplyInterestFactors{
 					{
-						Denom: "nemo",
+						Denom: "fury",
 						Value: sdk.MustNewDecFromStr("1.12"),
 					},
 				},
@@ -176,16 +176,16 @@ func (s *migrateTestSuite) TestMigrate_GenState() {
 		Borrows: v016hard.Borrows{
 			{
 				Borrower: s.addresses[1],
-				Amount:   sdk.NewCoins(sdk.NewCoin("nemo", sdkmath.NewInt(100))),
+				Amount:   sdk.NewCoins(sdk.NewCoin("fury", sdkmath.NewInt(100))),
 				Index: v016hard.BorrowInterestFactors{
 					{
-						Denom: "nemo",
+						Denom: "fury",
 						Value: sdk.MustNewDecFromStr("1.12"),
 					},
 				},
 			},
 		},
-		TotalSupplied: sdk.NewCoins(sdk.NewCoin("nemo", sdkmath.NewInt(100))),
+		TotalSupplied: sdk.NewCoins(sdk.NewCoin("fury", sdkmath.NewInt(100))),
 		TotalBorrowed: sdk.NewCoins(sdk.NewCoin("bnb", sdkmath.NewInt(200))),
 		TotalReserves: sdk.NewCoins(sdk.NewCoin("xrp", sdkmath.NewInt(300))),
 	}
