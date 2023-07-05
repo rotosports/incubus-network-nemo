@@ -192,7 +192,7 @@ func (a *SigningAccount) SignRawEvmData(msg []byte) ([]byte, types.PubKey, error
 func (chain *Chain) NewFundedAccount(name string, funds sdk.Coins) *SigningAccount {
 	entropy, err := bip39.NewEntropy(128)
 	require.NoErrorf(chain.t, err, "failed to generate entropy for account %s: %s", name, err)
-	mfurynic, err := bip39.NewMfurynic(entropy)
+	mfurynic, err := bip39.NewMnemonic(entropy)
 	require.NoErrorf(chain.t, err, "failed to create new mfurynic for account %s: %s", name, err)
 
 	acc := chain.AddNewSigningAccount(

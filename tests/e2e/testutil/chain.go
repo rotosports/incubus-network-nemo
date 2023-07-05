@@ -59,9 +59,9 @@ type Chain struct {
 }
 
 // NewChain creates the query clients & signing account management for a chain run on a set of ports.
-// A signing client for the fundedAccountMfurynic is initialized. This account is referred to in the
+// A signing client for the fundedAccountMnemonic is initialized. This account is referred to in the
 // code as "whale" and it is used to supply funds to all new accounts.
-func NewChain(t *testing.T, details *runner.ChainDetails, fundedAccountMfurynic string) (*Chain, error) {
+func NewChain(t *testing.T, details *runner.ChainDetails, fundedAccountMnemonic string) (*Chain, error) {
 	chain := &Chain{
 		t:             t,
 		StakingDenom:  details.StakingDenom,
@@ -99,7 +99,7 @@ func NewChain(t *testing.T, details *runner.ChainDetails, fundedAccountMfurynic 
 		FundedAccountName,
 		hd.CreateHDPath(Bip44CoinType, 0, 0),
 		chain.ChainId,
-		fundedAccountMfurynic,
+		fundedAccountMnemonic,
 	)
 
 	// check that funded account is actually funded.

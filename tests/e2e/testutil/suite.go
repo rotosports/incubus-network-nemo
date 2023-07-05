@@ -104,7 +104,7 @@ func (suite *E2eTestSuite) SetupSuite() {
 
 	chains := suite.runner.StartChains()
 	furychain := chains.MustGetChain("fury")
-	suite.Fury, err = NewChain(suite.T(), furychain, suiteConfig.FundedAccountMfurynic)
+	suite.Fury, err = NewChain(suite.T(), furychain, suiteConfig.FundedAccountMnemonic)
 	if err != nil {
 		suite.runner.Shutdown()
 		suite.T().Fatalf("failed to create fury chain querier: %s", err)
@@ -112,7 +112,7 @@ func (suite *E2eTestSuite) SetupSuite() {
 
 	if suiteConfig.IncludeIbcTests {
 		ibcchain := chains.MustGetChain("ibc")
-		suite.Ibc, err = NewChain(suite.T(), ibcchain, suiteConfig.FundedAccountMfurynic)
+		suite.Ibc, err = NewChain(suite.T(), ibcchain, suiteConfig.FundedAccountMnemonic)
 		if err != nil {
 			suite.runner.Shutdown()
 			suite.T().Fatalf("failed to create ibc chain querier: %s", err)

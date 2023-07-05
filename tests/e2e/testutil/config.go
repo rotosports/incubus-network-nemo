@@ -16,7 +16,7 @@ func init() {
 // SuiteConfig wraps configuration details for running the end-to-end test suite.
 type SuiteConfig struct {
 	// A funded account used to fnd all other accounts.
-	FundedAccountMfurynic string
+	FundedAccountMnemonic string
 
 	// A config for using futool local networks for the test run
 	Futool *FutoolConfig
@@ -63,7 +63,7 @@ func ParseSuiteConfig() SuiteConfig {
 	config := SuiteConfig{
 		// this mfurynic is expected to be a funded account that can seed the funds for all
 		// new accounts created during tests. it will be available under Accounts["whale"]
-		FundedAccountMfurynic: nonemptyStringEnv("E2E_FURY_FUNDED_ACCOUNT_MFURYNIC"),
+		FundedAccountMnemonic: nonemptyStringEnv("E2E_FURY_FUNDED_ACCOUNT_MFURYNIC"),
 		FuryErc20Address:      nonemptyStringEnv("E2E_FURY_ERC20_ADDRESS"),
 		IncludeIbcTests:       mustParseBool("E2E_INCLUDE_IBC_TESTS"),
 	}

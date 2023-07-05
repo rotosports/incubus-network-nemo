@@ -1,22 +1,22 @@
 #! /bin/bash
 set -e
 
-validatorMfurynic="equip town gesture square tomorrow volume nephew minute witness beef rich gadget actress egg sing secret pole winter alarm law today check violin uncover"
+validatorMnemonic="equip town gesture square tomorrow volume nephew minute witness beef rich gadget actress egg sing secret pole winter alarm law today check violin uncover"
 #        fury1ffv7nhd3z6sych2qpqkk03ec6hzkmufyrahzss
 # furyvaloper1ffv7nhd3z6sych2qpqkk03ec6hzkmufy0h4h9p
 
-faucetMfurynic="crash sort dwarf disease change advice attract clump avoid mobile clump right junior axis book fresh mask tube front require until face effort vault"
+faucetMnemonic="crash sort dwarf disease change advice attract clump avoid mobile clump right junior axis book fresh mask tube front require until face effort vault"
 # fury1adkm6svtzjsxxvg7g6rshg6kj9qwej8gz7ql99
 
-evmFaucetMfurynic="hundred flash cattle inquiry gorilla quick enact lazy galaxy apple bitter liberty print sun hurdle oak town cash because round chalk marriage response success"
+evmFaucetMnemonic="hundred flash cattle inquiry gorilla quick enact lazy galaxy apple bitter liberty print sun hurdle oak town cash because round chalk marriage response success"
 # 0x3C854F92F726A7897C8B23F55B2D6E2C482EF3E0
 # fury18jz5lyhhy6ncjlyty064kttw93yzaulqjaznw5
 
-userMfurynic="news tornado sponsor drastic dolphin awful plastic select true lizard width idle ability pigeon runway lift oppose isolate maple aspect safe jungle author hole"
+userMnemonic="news tornado sponsor drastic dolphin awful plastic select true lizard width idle ability pigeon runway lift oppose isolate maple aspect safe jungle author hole"
 # 0x7Bbf300890857b8c241b219C6a489431669b3aFA
 # fury10wlnqzyss4accfqmyxwx5jy5x9nfkwh6v9rpsr
 
-relayerMfurynic="never reject sniff east arctic funny twin feed upper series stay shoot vivid adapt defense economy pledge fetch invite approve ceiling admit gloom exit"
+relayerMnemonic="never reject sniff east arctic funny twin feed upper series stay shoot vivid adapt defense economy pledge fetch invite approve ceiling admit gloom exit"
 # 0xa2F728F997f62F47D4262a70947F6c36885dF9fa
 # fury15tmj37vh7ch504px9fcfglmvx6y9m706eyy7zr
 
@@ -48,24 +48,24 @@ $BINARY config keyring-backend test
 
 # Create validator keys and add account to genesis
 validatorKeyName="validator"
-printf "$validatorMfurynic\n" | $BINARY keys add $validatorKeyName --recover
+printf "$validatorMnemonic\n" | $BINARY keys add $validatorKeyName --recover
 $BINARY add-genesis-account $validatorKeyName 2000000000ufury,100000000000bnb
 
 # Create faucet keys and add account to genesis
 faucetKeyName="faucet"
-printf "$faucetMfurynic\n" | $BINARY keys add $faucetKeyName --recover
+printf "$faucetMnemonic\n" | $BINARY keys add $faucetKeyName --recover
 $BINARY add-genesis-account $faucetKeyName 1000000000ufury,100000000000bnb
 
 evmFaucetKeyName="evm-faucet"
-printf "$evmFaucetMfurynic\n" | $BINARY keys add $evmFaucetKeyName --eth --recover
+printf "$evmFaucetMnemonic\n" | $BINARY keys add $evmFaucetKeyName --eth --recover
 $BINARY add-genesis-account $evmFaucetKeyName 1000000000ufury
 
 userKeyName="user"
-printf "$userMfurynic\n" | $BINARY keys add $userKeyName --eth --recover
+printf "$userMnemonic\n" | $BINARY keys add $userKeyName --eth --recover
 $BINARY add-genesis-account $userKeyName 1000000000ufury,1000000000usdx
 
 relayerKeyName="relayer"
-printf "$relayerMfurynic\n" | $BINARY keys add $relayerKeyName --eth --recover
+printf "$relayerMnemonic\n" | $BINARY keys add $relayerKeyName --eth --recover
 $BINARY add-genesis-account $relayerKeyName 1000000000ufury
 
 # Create a delegation tx for the validator and add to genesis
