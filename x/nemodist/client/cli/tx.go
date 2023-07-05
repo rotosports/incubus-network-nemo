@@ -37,7 +37,7 @@ Where proposal.json contains:
 			"address": "nemo1mz2003lathm95n5vnlthmtfvrzrjkrr53j4464",
 			"amount": [
 				{
-					"denom": "unemo",
+					"denom": "ufury",
 					"amount": "1000000"
 				}
 			]
@@ -46,7 +46,7 @@ Where proposal.json contains:
 			"address": "nemo1zqezafa0luyetvtj8j67g336vaqtuudnsjq7vm",
 			"amount": [
 				{
-					"denom": "unemo",
+					"denom": "ufury",
 					"amount": "1000000"
 				}
 			]
@@ -54,7 +54,7 @@ Where proposal.json contains:
 	],
 	"deposit": [
 		{
-			"denom": "unemo",
+			"denom": "ufury",
 			"amount": "1000000000"
 		}
 	]

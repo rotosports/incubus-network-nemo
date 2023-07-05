@@ -119,7 +119,7 @@ func (th TallyHandler) Tally(
 				currValidators[valAddrStr] = val
 			}
 
-			// votingPower = amount of unemo coin
+			// votingPower = amount of ufury coin
 			stakedCoins, err := th.lk.GetStakedTokensForDerivatives(ctx, sdk.NewCoins(coin))
 			if err != nil {
 				// error is returned only if the bnemo denom is incorrect, which should never happen here.

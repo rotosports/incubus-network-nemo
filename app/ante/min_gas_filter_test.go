@@ -44,29 +44,29 @@ func TestEvmMinGasFilter(t *testing.T) {
 			mustParseDecCoins(""),
 		},
 		{
-			"zero unemo gas price",
-			mustParseDecCoins("0unemo"),
-			mustParseDecCoins("0unemo"),
+			"zero ufury gas price",
+			mustParseDecCoins("0ufury"),
+			mustParseDecCoins("0ufury"),
 		},
 		{
-			"non-zero unemo gas price",
-			mustParseDecCoins("0.001unemo"),
-			mustParseDecCoins("0.001unemo"),
+			"non-zero ufury gas price",
+			mustParseDecCoins("0.001ufury"),
+			mustParseDecCoins("0.001ufury"),
 		},
 		{
-			"zero unemo gas price, min atfury price",
-			mustParseDecCoins("0unemo;100000atfury"),
-			mustParseDecCoins("0unemo"), // atfury is removed
+			"zero ufury gas price, min atfury price",
+			mustParseDecCoins("0ufury;100000atfury"),
+			mustParseDecCoins("0ufury"), // atfury is removed
 		},
 		{
-			"zero unemo gas price, min atfury price, other token",
-			mustParseDecCoins("0unemo;100000atfury;0.001other"),
-			mustParseDecCoins("0unemo;0.001other"), // atfury is removed
+			"zero ufury gas price, min atfury price, other token",
+			mustParseDecCoins("0ufury;100000atfury;0.001other"),
+			mustParseDecCoins("0ufury;0.001other"), // atfury is removed
 		},
 		{
-			"non-zero unemo gas price, min atfury price",
-			mustParseDecCoins("0.25unemo;100000atfury;0.001other"),
-			mustParseDecCoins("0.25unemo;0.001other"), // atfury is removed
+			"non-zero ufury gas price, min atfury price",
+			mustParseDecCoins("0.25ufury;100000atfury;0.001other"),
+			mustParseDecCoins("0.25ufury;0.001other"), // atfury is removed
 		},
 	}
 

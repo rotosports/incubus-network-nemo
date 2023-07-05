@@ -75,7 +75,7 @@ var (
 		EvmRpcUrl: "http://localhost:8545",
 
 		ChainId:      "nemolocalnet_4200-1",
-		StakingDenom: "unemo",
+		StakingDenom: "ufury",
 	}
 	nmtoolIbcChain = ChainDetails{
 		RpcUrl:    "http://localhost:26658",

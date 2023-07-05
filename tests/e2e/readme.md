@@ -54,7 +54,7 @@ the sdk and evm chains, respectively.
 ### Creating a new account
 ```go
 // create an account on the Nemo network, initially funded with 10 NEMO
-acc := suite.Nemo.NewFundedAccount("account-name", sdk.NewCoins(sdk.NewCoin("unemo", 10e6)))
+acc := suite.Nemo.NewFundedAccount("account-name", sdk.NewCoins(sdk.NewCoin("ufury", 10e6)))
 
 // you can also access accounts by the name with which they were registered to the suite
 acc := suite.Nemo.GetAccount("account-name")

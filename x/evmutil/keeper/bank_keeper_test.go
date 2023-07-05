@@ -27,7 +27,7 @@ func (suite *evmBankKeeperTestSuite) SetupTest() {
 }
 
 func (suite *evmBankKeeperTestSuite) TestGetBalance_ReturnsSpendable() {
-	startingCoins := sdk.NewCoins(sdk.NewInt64Coin("unemo", 10))
+	startingCoins := sdk.NewCoins(sdk.NewInt64Coin("ufury", 10))
 	startingAtfury := sdkmath.NewInt(100)
 
 	now := tmtime.Now()
@@ -51,7 +51,7 @@ func (suite *evmBankKeeperTestSuite) TestGetBalance_ReturnsSpendable() {
 
 func (suite *evmBankKeeperTestSuite) TestGetBalance_NotEvmDenom() {
 	suite.Require().Panics(func() {
-		suite.EvmBankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "unemo")
+		suite.EvmBankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "ufury")
 	})
 	suite.Require().Panics(func() {
 		suite.EvmBankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "busd")
@@ -65,10 +65,10 @@ func (suite *evmBankKeeperTestSuite) TestGetBalance() {
 		expAmount      sdkmath.Int
 	}{
 		{
-			"unemo with atfury",
+			"ufury with atfury",
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 100),
-				sdk.NewInt64Coin("unemo", 10),
+				sdk.NewInt64Coin("ufury", 10),
 			),
 			sdkmath.NewInt(10_000_000_000_100),
 		},
@@ -81,23 +81,23 @@ func (suite *evmBankKeeperTestSuite) TestGetBalance() {
 			sdkmath.NewInt(100),
 		},
 		{
-			"just unemo",
+			"just ufury",
 			sdk.NewCoins(
-				sdk.NewInt64Coin("unemo", 10),
+				sdk.NewInt64Coin("ufury", 10),
 				sdk.NewInt64Coin("busd", 100),
 			),
 			sdkmath.NewInt(10_000_000_000_000),
 		},
 		{
-			"no unemo or atfury",
+			"no ufury or atfury",
 			sdk.NewCoins(),
 			sdk.ZeroInt(),
 		},
 		{
-			"with avaka that is more than 1 unemo",
+			"with avaka that is more than 1 ufury",
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 20_000_000_000_220),
-				sdk.NewInt64Coin("unemo", 11),
+				sdk.NewInt64Coin("ufury", 11),
 			),
 			sdkmath.NewInt(31_000_000_000_220),
 		},
@@ -117,7 +117,7 @@ func (suite *evmBankKeeperTestSuite) TestGetBalance() {
 func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 	startingModuleCoins := sdk.NewCoins(
 		sdk.NewInt64Coin("atfury", 200),
-		sdk.NewInt64Coin("unemo", 100),
+		sdk.NewInt64Coin("ufury", 100),
 	)
 	tests := []struct {
 		name           string
@@ -127,32 +127,32 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 		hasErr         bool
 	}{
 		{
-			"send more than 1 unemo",
+			"send more than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 12_000_000_000_010)),
 			sdk.Coins{},
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 10),
-				sdk.NewInt64Coin("unemo", 12),
+				sdk.NewInt64Coin("ufury", 12),
 			),
 			false,
 		},
 		{
-			"send less than 1 unemo",
+			"send less than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 122)),
 			sdk.Coins{},
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 122),
-				sdk.NewInt64Coin("unemo", 0),
+				sdk.NewInt64Coin("ufury", 0),
 			),
 			false,
 		},
 		{
-			"send an exact amount of unemo",
+			"send an exact amount of ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 98_000_000_000_000)),
 			sdk.Coins{},
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 0o0),
-				sdk.NewInt64Coin("unemo", 98),
+				sdk.NewInt64Coin("ufury", 98),
 			),
 			false,
 		},
@@ -162,7 +162,7 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 			sdk.Coins{},
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 0),
-				sdk.NewInt64Coin("unemo", 0),
+				sdk.NewInt64Coin("ufury", 0),
 			),
 			false,
 		},
@@ -181,48 +181,48 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 			true,
 		},
 		{
-			"errors if not enough unemo to cover",
+			"errors if not enough ufury to cover",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200_000_000_000_000)),
 			sdk.Coins{},
 			sdk.Coins{},
 			true,
 		},
 		{
-			"converts receiver's atfury to unemo if there's enough atfury after the transfer",
+			"converts receiver's atfury to ufury if there's enough atfury after the transfer",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 99_000_000_000_200)),
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 999_999_999_900),
-				sdk.NewInt64Coin("unemo", 1),
+				sdk.NewInt64Coin("ufury", 1),
 			),
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 100),
-				sdk.NewInt64Coin("unemo", 101),
+				sdk.NewInt64Coin("ufury", 101),
 			),
 			false,
 		},
 		{
-			"converts all of receiver's atfury to unemo even if somehow receiver has more than 1unemo of atfury",
+			"converts all of receiver's atfury to ufury even if somehow receiver has more than 1ufury of atfury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 12_000_000_000_100)),
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 5_999_999_999_990),
-				sdk.NewInt64Coin("unemo", 1),
+				sdk.NewInt64Coin("ufury", 1),
 			),
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 90),
-				sdk.NewInt64Coin("unemo", 19),
+				sdk.NewInt64Coin("ufury", 19),
 			),
 			false,
 		},
 		{
-			"swap 1 unemo for atfury if module account doesn't have enough atfury",
+			"swap 1 ufury for atfury if module account doesn't have enough atfury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 99_000_000_001_000)),
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 200),
-				sdk.NewInt64Coin("unemo", 1),
+				sdk.NewInt64Coin("ufury", 1),
 			),
 			sdk.NewCoins(
 				sdk.NewInt64Coin("atfury", 1200),
-				sdk.NewInt64Coin("unemo", 100),
+				sdk.NewInt64Coin("ufury", 100),
 			),
 			false,
 		},
@@ -235,8 +235,8 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 			suite.FundAccountWithNemo(suite.Addrs[0], tt.startingAccBal)
 			suite.FundModuleAccountWithNemo(evmtypes.ModuleName, startingModuleCoins)
 
-			// fund our module with some unemo to account for converting extra atfury back to unemo
-			suite.FundModuleAccountWithNemo(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("unemo", 10)))
+			// fund our module with some ufury to account for converting extra atfury back to ufury
+			suite.FundModuleAccountWithNemo(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
 
 			err := suite.EvmBankKeeper.SendCoinsFromModuleToAccount(suite.Ctx, evmtypes.ModuleName, suite.Addrs[0], tt.sendCoins)
 			if tt.hasErr {
@@ -246,9 +246,9 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 				suite.Require().NoError(err)
 			}
 
-			// check unemo
-			unemoSender := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "unemo")
-			suite.Require().Equal(tt.expAccBal.AmountOf("unemo").Int64(), unemoSender.Amount.Int64())
+			// check ufury
+			ufurySender := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "ufury")
+			suite.Require().Equal(tt.expAccBal.AmountOf("ufury").Int64(), ufurySender.Amount.Int64())
 
 			// check atfury
 			actualAtfury := suite.Keeper.GetBalance(suite.Ctx, suite.Addrs[0])
@@ -260,7 +260,7 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromModuleToAccount() {
 func (suite *evmBankKeeperTestSuite) TestSendCoinsFromAccountToModule() {
 	startingAccCoins := sdk.NewCoins(
 		sdk.NewInt64Coin("atfury", 200),
-		sdk.NewInt64Coin("unemo", 100),
+		sdk.NewInt64Coin("ufury", 100),
 	)
 	startingModuleCoins := sdk.NewCoins(
 		sdk.NewInt64Coin("atfury", 100_000_000_000),
@@ -273,31 +273,31 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromAccountToModule() {
 		hasErr         bool
 	}{
 		{
-			"send more than 1 unemo",
+			"send more than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 12_000_000_000_010)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 190), sdk.NewInt64Coin("unemo", 88)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_010), sdk.NewInt64Coin("unemo", 12)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 190), sdk.NewInt64Coin("ufury", 88)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_010), sdk.NewInt64Coin("ufury", 12)),
 			false,
 		},
 		{
-			"send less than 1 unemo",
+			"send less than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 122)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 78), sdk.NewInt64Coin("unemo", 100)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_122), sdk.NewInt64Coin("unemo", 0)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 78), sdk.NewInt64Coin("ufury", 100)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_122), sdk.NewInt64Coin("ufury", 0)),
 			false,
 		},
 		{
-			"send an exact amount of unemo",
+			"send an exact amount of ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 98_000_000_000_000)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200), sdk.NewInt64Coin("unemo", 2)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_000), sdk.NewInt64Coin("unemo", 98)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200), sdk.NewInt64Coin("ufury", 2)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_000), sdk.NewInt64Coin("ufury", 98)),
 			false,
 		},
 		{
 			"send no atfury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 0)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200), sdk.NewInt64Coin("unemo", 100)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_000), sdk.NewInt64Coin("unemo", 0)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200), sdk.NewInt64Coin("ufury", 100)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_000), sdk.NewInt64Coin("ufury", 0)),
 			false,
 		},
 		{
@@ -325,24 +325,24 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromAccountToModule() {
 			true,
 		},
 		{
-			"errors if not enough unemo to cover",
+			"errors if not enough ufury to cover",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200_000_000_000_000)),
 			sdk.Coins{},
 			sdk.Coins{},
 			true,
 		},
 		{
-			"converts 1 unemo to atfury if not enough atfury to cover",
+			"converts 1 ufury to atfury if not enough atfury to cover",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 99_001_000_000_000)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 999_000_000_200), sdk.NewInt64Coin("unemo", 0)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 101_000_000_000), sdk.NewInt64Coin("unemo", 99)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 999_000_000_200), sdk.NewInt64Coin("ufury", 0)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 101_000_000_000), sdk.NewInt64Coin("ufury", 99)),
 			false,
 		},
 		{
-			"converts receiver's atfury to unemo if there's enough atfury after the transfer",
+			"converts receiver's atfury to ufury if there's enough atfury after the transfer",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 5_900_000_000_200)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_000), sdk.NewInt64Coin("unemo", 94)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200), sdk.NewInt64Coin("unemo", 6)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100_000_000_000), sdk.NewInt64Coin("ufury", 94)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200), sdk.NewInt64Coin("ufury", 6)),
 			false,
 		},
 	}
@@ -362,15 +362,15 @@ func (suite *evmBankKeeperTestSuite) TestSendCoinsFromAccountToModule() {
 			}
 
 			// check sender balance
-			unemoSender := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "unemo")
-			suite.Require().Equal(tt.expSenderCoins.AmountOf("unemo").Int64(), unemoSender.Amount.Int64())
+			ufurySender := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "ufury")
+			suite.Require().Equal(tt.expSenderCoins.AmountOf("ufury").Int64(), ufurySender.Amount.Int64())
 			actualAtfury := suite.Keeper.GetBalance(suite.Ctx, suite.Addrs[0])
 			suite.Require().Equal(tt.expSenderCoins.AmountOf("atfury").Int64(), actualAtfury.Int64())
 
 			// check module balance
 			moduleAddr := suite.AccountKeeper.GetModuleAddress(evmtypes.ModuleName)
-			unemoSender = suite.BankKeeper.GetBalance(suite.Ctx, moduleAddr, "unemo")
-			suite.Require().Equal(tt.expModuleCoins.AmountOf("unemo").Int64(), unemoSender.Amount.Int64())
+			ufurySender = suite.BankKeeper.GetBalance(suite.Ctx, moduleAddr, "ufury")
+			suite.Require().Equal(tt.expModuleCoins.AmountOf("ufury").Int64(), ufurySender.Amount.Int64())
 			actualAtfury = suite.Keeper.GetBalance(suite.Ctx, moduleAddr)
 			suite.Require().Equal(tt.expModuleCoins.AmountOf("atfury").Int64(), actualAtfury.Int64())
 		})
@@ -388,7 +388,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 		atfuryStart sdkmath.Int
 	}{
 		{
-			"burn more than 1 unemo",
+			"burn more than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 12_021_000_000_002)),
 			sdkmath.NewInt(88),
 			sdkmath.NewInt(100_000_000_000),
@@ -396,7 +396,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 			sdkmath.NewInt(121_000_000_002),
 		},
 		{
-			"burn less than 1 unemo",
+			"burn less than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 122)),
 			sdkmath.NewInt(100),
 			sdkmath.NewInt(878),
@@ -404,7 +404,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 			sdkmath.NewInt(1000),
 		},
 		{
-			"burn an exact amount of unemo",
+			"burn an exact amount of ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 98_000_000_000_000)),
 			sdkmath.NewInt(2),
 			sdkmath.NewInt(10),
@@ -455,7 +455,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 			sdkmath.NewInt(99_000_000_000),
 		},
 		{
-			"errors if not enough unemo to cover burn",
+			"errors if not enough ufury to cover burn",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 200_000_000_000_000)),
 			sdkmath.NewInt(100),
 			sdk.ZeroInt(),
@@ -463,7 +463,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 			sdk.ZeroInt(),
 		},
 		{
-			"converts 1 unemo to atfury if not enough atfury to cover",
+			"converts 1 ufury to atfury if not enough atfury to cover",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 12_021_000_000_002)),
 			sdkmath.NewInt(87),
 			sdkmath.NewInt(980_000_000_000),
@@ -476,7 +476,7 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
 			startingCoins := sdk.NewCoins(
-				sdk.NewCoin("unemo", startingUnemo),
+				sdk.NewCoin("ufury", startingUnemo),
 				sdk.NewCoin("atfury", tt.atfuryStart),
 			)
 			suite.FundModuleAccountWithNemo(evmtypes.ModuleName, startingCoins)
@@ -489,9 +489,9 @@ func (suite *evmBankKeeperTestSuite) TestBurnCoins() {
 				suite.Require().NoError(err)
 			}
 
-			// check unemo
-			unemoActual := suite.BankKeeper.GetBalance(suite.Ctx, suite.EvmModuleAddr, "unemo")
-			suite.Require().Equal(tt.expUnemo, unemoActual.Amount)
+			// check ufury
+			ufuryActual := suite.BankKeeper.GetBalance(suite.Ctx, suite.EvmModuleAddr, "ufury")
+			suite.Require().Equal(tt.expUnemo, ufuryActual.Amount)
 
 			// check atfury
 			atfuryActual := suite.Keeper.GetBalance(suite.Ctx, suite.EvmModuleAddr)
@@ -504,13 +504,13 @@ func (suite *evmBankKeeperTestSuite) TestMintCoins() {
 	tests := []struct {
 		name       string
 		mintCoins  sdk.Coins
-		unemo      sdkmath.Int
+		ufury      sdkmath.Int
 		atfury      sdkmath.Int
 		hasErr     bool
 		atfuryStart sdkmath.Int
 	}{
 		{
-			"mint more than 1 unemo",
+			"mint more than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 12_021_000_000_002)),
 			sdkmath.NewInt(12),
 			sdkmath.NewInt(21_000_000_002),
@@ -518,7 +518,7 @@ func (suite *evmBankKeeperTestSuite) TestMintCoins() {
 			sdk.ZeroInt(),
 		},
 		{
-			"mint less than 1 unemo",
+			"mint less than 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 901_000_000_001)),
 			sdk.ZeroInt(),
 			sdkmath.NewInt(901_000_000_001),
@@ -526,7 +526,7 @@ func (suite *evmBankKeeperTestSuite) TestMintCoins() {
 			sdk.ZeroInt(),
 		},
 		{
-			"mint an exact amount of unemo",
+			"mint an exact amount of ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 123_000_000_000_000_000)),
 			sdkmath.NewInt(123_000),
 			sdk.ZeroInt(),
@@ -577,7 +577,7 @@ func (suite *evmBankKeeperTestSuite) TestMintCoins() {
 			sdkmath.NewInt(100),
 		},
 		{
-			"convert atfury balance to unemo if it exceeds 1 unemo",
+			"convert atfury balance to ufury if it exceeds 1 ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 10_999_000_000_000)),
 			sdkmath.NewInt(12),
 			sdkmath.NewInt(1_200_000_001),
@@ -589,7 +589,7 @@ func (suite *evmBankKeeperTestSuite) TestMintCoins() {
 	for _, tt := range tests {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
-			suite.FundModuleAccountWithNemo(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("unemo", 10)))
+			suite.FundModuleAccountWithNemo(types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
 			suite.FundModuleAccountWithNemo(evmtypes.ModuleName, sdk.NewCoins(sdk.NewCoin("atfury", tt.atfuryStart)))
 
 			err := suite.EvmBankKeeper.MintCoins(suite.Ctx, evmtypes.ModuleName, tt.mintCoins)
@@ -600,9 +600,9 @@ func (suite *evmBankKeeperTestSuite) TestMintCoins() {
 				suite.Require().NoError(err)
 			}
 
-			// check unemo
-			unemoActual := suite.BankKeeper.GetBalance(suite.Ctx, suite.EvmModuleAddr, "unemo")
-			suite.Require().Equal(tt.unemo, unemoActual.Amount)
+			// check ufury
+			ufuryActual := suite.BankKeeper.GetBalance(suite.Ctx, suite.EvmModuleAddr, "ufury")
+			suite.Require().Equal(tt.ufury, ufuryActual.Amount)
 
 			// check atfury
 			atfuryActual := suite.Keeper.GetBalance(suite.Ctx, suite.EvmModuleAddr)
@@ -629,7 +629,7 @@ func (suite *evmBankKeeperTestSuite) TestValidateEvmCoins() {
 		},
 		{
 			"not evm coins",
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 500)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 500)),
 			true,
 		},
 		{
@@ -659,21 +659,21 @@ func (suite *evmBankKeeperTestSuite) TestConvertOneUnemoToAtfuryIfNeeded() {
 		success       bool
 	}{
 		{
-			"not enough unemo for conversion",
+			"not enough ufury for conversion",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100)),
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100)),
 			false,
 		},
 		{
-			"converts 1 unemo to atfury",
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 10), sdk.NewInt64Coin("atfury", 100)),
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 9), sdk.NewInt64Coin("atfury", 1_000_000_000_100)),
+			"converts 1 ufury to atfury",
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 10), sdk.NewInt64Coin("atfury", 100)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 9), sdk.NewInt64Coin("atfury", 1_000_000_000_100)),
 			true,
 		},
 		{
 			"conversion not needed",
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 10), sdk.NewInt64Coin("atfury", 200)),
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 10), sdk.NewInt64Coin("atfury", 200)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 10), sdk.NewInt64Coin("atfury", 200)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 10), sdk.NewInt64Coin("atfury", 200)),
 			true,
 		},
 	}
@@ -683,7 +683,7 @@ func (suite *evmBankKeeperTestSuite) TestConvertOneUnemoToAtfuryIfNeeded() {
 
 			suite.FundAccountWithNemo(suite.Addrs[0], tt.startingCoins)
 			err := suite.EvmBankKeeper.ConvertOneUnemoToAtfuryIfNeeded(suite.Ctx, suite.Addrs[0], atfuryNeeded)
-			moduleNemo := suite.BankKeeper.GetBalance(suite.Ctx, suite.AccountKeeper.GetModuleAddress(types.ModuleName), "unemo")
+			moduleNemo := suite.BankKeeper.GetBalance(suite.Ctx, suite.AccountKeeper.GetModuleAddress(types.ModuleName), "ufury")
 			if tt.success {
 				suite.Require().NoError(err)
 				if tt.startingCoins.AmountOf("atfury").LT(atfuryNeeded) {
@@ -696,8 +696,8 @@ func (suite *evmBankKeeperTestSuite) TestConvertOneUnemoToAtfuryIfNeeded() {
 
 			atfury := suite.Keeper.GetBalance(suite.Ctx, suite.Addrs[0])
 			suite.Require().Equal(tt.expectedCoins.AmountOf("atfury"), atfury)
-			unemo := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "unemo")
-			suite.Require().Equal(tt.expectedCoins.AmountOf("unemo"), unemo.Amount)
+			ufury := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "ufury")
+			suite.Require().Equal(tt.expectedCoins.AmountOf("ufury"), ufury.Amount)
 		})
 	}
 }
@@ -709,34 +709,34 @@ func (suite *evmBankKeeperTestSuite) TestConvertAtfuryToUnemo() {
 		expectedCoins sdk.Coins
 	}{
 		{
-			"not enough unemo",
+			"not enough ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100)),
-			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100), sdk.NewInt64Coin("unemo", 0)),
+			sdk.NewCoins(sdk.NewInt64Coin("atfury", 100), sdk.NewInt64Coin("ufury", 0)),
 		},
 		{
-			"converts atfury for 1 unemo",
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 10), sdk.NewInt64Coin("atfury", 1_000_000_000_003)),
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 11), sdk.NewInt64Coin("atfury", 3)),
+			"converts atfury for 1 ufury",
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 10), sdk.NewInt64Coin("atfury", 1_000_000_000_003)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 11), sdk.NewInt64Coin("atfury", 3)),
 		},
 		{
-			"converts more than 1 unemo of atfury",
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 10), sdk.NewInt64Coin("atfury", 8_000_000_000_123)),
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 18), sdk.NewInt64Coin("atfury", 123)),
+			"converts more than 1 ufury of atfury",
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 10), sdk.NewInt64Coin("atfury", 8_000_000_000_123)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 18), sdk.NewInt64Coin("atfury", 123)),
 		},
 	}
 	for _, tt := range tests {
 		suite.Run(tt.name, func() {
 			suite.SetupTest()
 
-			err := suite.App.FundModuleAccount(suite.Ctx, types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("unemo", 10)))
+			err := suite.App.FundModuleAccount(suite.Ctx, types.ModuleName, sdk.NewCoins(sdk.NewInt64Coin("ufury", 10)))
 			suite.Require().NoError(err)
 			suite.FundAccountWithNemo(suite.Addrs[0], tt.startingCoins)
 			err = suite.EvmBankKeeper.ConvertAtfuryToUnemo(suite.Ctx, suite.Addrs[0])
 			suite.Require().NoError(err)
 			atfury := suite.Keeper.GetBalance(suite.Ctx, suite.Addrs[0])
 			suite.Require().Equal(tt.expectedCoins.AmountOf("atfury"), atfury)
-			unemo := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "unemo")
-			suite.Require().Equal(tt.expectedCoins.AmountOf("unemo"), unemo.Amount)
+			ufury := suite.BankKeeper.GetBalance(suite.Ctx, suite.Addrs[0], "ufury")
+			suite.Require().Equal(tt.expectedCoins.AmountOf("ufury"), ufury.Amount)
 		})
 	}
 }
@@ -750,7 +750,7 @@ func (suite *evmBankKeeperTestSuite) TestSplitAtfuryCoins() {
 	}{
 		{
 			"invalid coins",
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 500)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 500)),
 			nil,
 			true,
 		},
@@ -761,9 +761,9 @@ func (suite *evmBankKeeperTestSuite) TestSplitAtfuryCoins() {
 			false,
 		},
 		{
-			"unemo & atfury coins",
+			"ufury & atfury coins",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 8_000_000_000_123)),
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 8), sdk.NewInt64Coin("atfury", 123)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 8), sdk.NewInt64Coin("atfury", 123)),
 			false,
 		},
 		{
@@ -773,20 +773,20 @@ func (suite *evmBankKeeperTestSuite) TestSplitAtfuryCoins() {
 			false,
 		},
 		{
-			"only unemo",
+			"only ufury",
 			sdk.NewCoins(sdk.NewInt64Coin("atfury", 5_000_000_000_000)),
-			sdk.NewCoins(sdk.NewInt64Coin("unemo", 5)),
+			sdk.NewCoins(sdk.NewInt64Coin("ufury", 5)),
 			false,
 		},
 	}
 	for _, tt := range tests {
 		suite.Run(tt.name, func() {
-			unemo, atfury, err := keeper.SplitAtfuryCoins(tt.coins)
+			ufury, atfury, err := keeper.SplitAtfuryCoins(tt.coins)
 			if tt.shouldErr {
 				suite.Require().Error(err)
 			} else {
 				suite.Require().NoError(err)
-				suite.Require().Equal(tt.expectedCoins.AmountOf("unemo"), unemo.Amount)
+				suite.Require().Equal(tt.expectedCoins.AmountOf("ufury"), ufury.Amount)
 				suite.Require().Equal(tt.expectedCoins.AmountOf("atfury"), atfury)
 			}
 		})

@@ -27,7 +27,7 @@
   ],
   "deposit": [
     {
-      "denom": "unemo",
+      "denom": "ufury",
       "amount": "1000000"
     }
   ]

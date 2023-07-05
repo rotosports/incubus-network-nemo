@@ -22,7 +22,7 @@ func (suite *IntegrationTestSuite) TestEthCallToGreeterContract() {
 	// this test manipulates state of the Greeter contract which means other tests shouldn't use it.
 
 	// setup funded account to interact with contract
-	user := suite.Nemo.NewFundedAccount("greeter-contract-user", sdk.NewCoins(unemo(1e6)))
+	user := suite.Nemo.NewFundedAccount("greeter-contract-user", sdk.NewCoins(ufury(1e6)))
 
 	greeterAddr := suite.Nemo.ContractAddrs["greeter"]
 	contract, err := greeter.NewGreeter(greeterAddr, suite.Nemo.EvmClient)
@@ -65,12 +65,12 @@ func (suite *IntegrationTestSuite) TestEthCallToErc20() {
 
 func (suite *IntegrationTestSuite) TestEip712BasicMessageAuthorization() {
 	// create new funded account
-	sender := suite.Nemo.NewFundedAccount("eip712-msgSend", sdk.NewCoins(unemo(2e4)))
+	sender := suite.Nemo.NewFundedAccount("eip712-msgSend", sdk.NewCoins(ufury(2e4)))
 	receiver := app.RandomAddress()
 
 	// setup message for sending some nemo to random receiver
 	msgs := []sdk.Msg{
-		banktypes.NewMsgSend(sender.SdkAddress, receiver, sdk.NewCoins(unemo(1e3))),
+		banktypes.NewMsgSend(sender.SdkAddress, receiver, sdk.NewCoins(ufury(1e3))),
 	}
 
 	// create tx
@@ -78,7 +78,7 @@ func (suite *IntegrationTestSuite) TestEip712BasicMessageAuthorization() {
 		sender,
 		suite.Nemo,
 		1e6,
-		sdk.NewCoins(unemo(1e4)),
+		sdk.NewCoins(ufury(1e4)),
 		msgs,
 		"this is a memo",
 	).GetTx()
@@ -100,7 +100,7 @@ func (suite *IntegrationTestSuite) TestEip712BasicMessageAuthorization() {
 	// check that the message was processed & the nemo is transferred.
 	balRes, err := suite.Nemo.Bank.Balance(context.Background(), &banktypes.QueryBalanceRequest{
 		Address: receiver.String(),
-		Denom:   "unemo",
+		Denom:   "ufury",
 	})
 	suite.NoError(err)
 	suite.Equal(sdk.NewInt(1e3), balRes.Balance.Amount)
@@ -112,7 +112,7 @@ func (suite *IntegrationTestSuite) TestEip712ConvertToCoinAndDepositToEarn() {
 	sdkDenom := suite.DeployedErc20.CosmosDenom
 
 	// create new funded account
-	depositor := suite.Nemo.NewFundedAccount("eip712-earn-depositor", sdk.NewCoins(unemo(1e5)))
+	depositor := suite.Nemo.NewFundedAccount("eip712-earn-depositor", sdk.NewCoins(ufury(1e5)))
 	// give them erc20 balance to deposit
 	fundRes := suite.FundNemoErc20Balance(depositor.EvmAddress, amount.BigInt())
 	suite.NoError(fundRes.Err)
@@ -141,7 +141,7 @@ func (suite *IntegrationTestSuite) TestEip712ConvertToCoinAndDepositToEarn() {
 		depositor,
 		suite.Nemo,
 		1e6,
-		sdk.NewCoins(unemo(1e4)),
+		sdk.NewCoins(ufury(1e4)),
 		msgs,
 		"depositing my USDC into Earn!",
 	).GetTx()
@@ -187,7 +187,7 @@ func (suite *IntegrationTestSuite) TestEip712ConvertToCoinAndDepositToEarn() {
 	withdrawAndConvertBack := util.NemoMsgRequest{
 		Msgs:      []sdk.Msg{withdraw, &convertBack},
 		GasLimit:  3e5,
-		FeeAmount: sdk.NewCoins(unemo(300)),
+		FeeAmount: sdk.NewCoins(ufury(300)),
 		Data:      "withdrawing from earn & converting back to erc20",
 	}
 	lastRes := depositor.SignAndBroadcastNemoTx(withdrawAndConvertBack)

@@ -233,7 +233,7 @@ func (suite *grpcQueryTestSuite) TestDeposits() {
 
 	initialUnemoBalance := sdkmath.NewInt(1e9)
 	startBalance := sdk.NewCoins(
-		sdk.NewCoin("unemo", initialUnemoBalance),
+		sdk.NewCoin("ufury", initialUnemoBalance),
 		sdk.NewInt64Coin(vault1Denom, 1000),
 		sdk.NewInt64Coin(vault2Denom, 1000),
 		// Bnemo isn't actually minted via x/liquid
@@ -354,7 +354,7 @@ func (suite *grpcQueryTestSuite) TestDeposits() {
 				),
 				// Only the specified vault denom value
 				Value: sdk.NewCoins(
-					sdk.NewCoin("unemo", deposit3Amount.Amount),
+					sdk.NewCoin("ufury", deposit3Amount.Amount),
 				),
 			},
 			res.Deposits[0],
@@ -411,8 +411,8 @@ func (suite *grpcQueryTestSuite) TestDeposits() {
 				},
 				Value: sdk.Coins{
 					// Does not include non-bnemo vaults
-					sdk.NewCoin("unemo", deposit4Amount.Amount),
-					sdk.NewCoin("unemo", deposit3Amount.Amount),
+					sdk.NewCoin("ufury", deposit4Amount.Amount),
+					sdk.NewCoin("ufury", deposit3Amount.Amount),
 				},
 			},
 			res.Deposits[0],
@@ -508,7 +508,7 @@ func (suite *grpcQueryTestSuite) TestDeposits_bNemo() {
 	)
 
 	suite.CreateVault(
-		"unemo",
+		"ufury",
 		types.StrategyTypes{types.STRATEGY_TYPE_SAVINGS},
 		false,
 		[]sdk.AccAddress{},
@@ -517,7 +517,7 @@ func (suite *grpcQueryTestSuite) TestDeposits_bNemo() {
 	address1, derivatives1, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[0], sdkmath.NewInt(1e9))
 	address2, derivatives2, _ := suite.createAccountWithDerivatives(testutil.TestBnemoDenoms[1], sdkmath.NewInt(1e9))
 
-	err := suite.App.FundAccount(suite.Ctx, address1, sdk.NewCoins(sdk.NewCoin("unemo", sdkmath.NewInt(1e9))))
+	err := suite.App.FundAccount(suite.Ctx, address1, sdk.NewCoins(sdk.NewCoin("ufury", sdkmath.NewInt(1e9))))
 	suite.Require().NoError(err)
 
 	// Slash the last validator to reduce the value of it's derivatives to test bnemo to underlying token conversion.
@@ -558,7 +558,7 @@ func (suite *grpcQueryTestSuite) TestDeposits_bNemo() {
 	err = suite.Keeper.Deposit(suite.Ctx, address1, derivatives2, types.STRATEGY_TYPE_SAVINGS)
 	suite.Require().NoError(err)
 
-	err = suite.Keeper.Deposit(suite.Ctx, address1, sdk.NewInt64Coin("unemo", 1e6), types.STRATEGY_TYPE_SAVINGS)
+	err = suite.Keeper.Deposit(suite.Ctx, address1, sdk.NewInt64Coin("ufury", 1e6), types.STRATEGY_TYPE_SAVINGS)
 	suite.Require().NoError(err)
 
 	suite.Run("multiple deposits", func() {
@@ -755,7 +755,7 @@ func (suite *grpcQueryTestSuite) TestTotalSupply() {
 		{
 			name: "calculates supply of savings vaults, even when private",
 			setup: func() {
-				vault1Denom := "unemo"
+				vault1Denom := "ufury"
 				vault2Denom := "busd"
 
 				acc1 := suite.CreateAccount(sdk.NewCoins(
@@ -784,7 +784,7 @@ func (suite *grpcQueryTestSuite) TestTotalSupply() {
 				deposit(acc2.GetAddress(), vault2Denom, 2e5)
 			},
 			expectedSupply: sdk.NewCoins(
-				sdk.NewInt64Coin("unemo", 1e5),
+				sdk.NewInt64Coin("ufury", 1e5),
 				sdk.NewInt64Coin("busd", 3e5),
 			),
 		},

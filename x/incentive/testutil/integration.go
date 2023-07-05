@@ -174,7 +174,7 @@ func (suite *IntegrationTester) MintLiquidAnyValAddr(
 	_, found := suite.App.GetStakingKeeper().GetValidator(suite.Ctx, validator)
 	if !found {
 		// Create validator
-		if err := suite.DeliverMsgCreateValidator(validator, sdk.NewCoin("unemo", sdkmath.NewInt(1e9))); err != nil {
+		if err := suite.DeliverMsgCreateValidator(validator, sdk.NewCoin("ufury", sdkmath.NewInt(1e9))); err != nil {
 			return sdk.Coin{}, err
 		}
 
@@ -563,7 +563,7 @@ func (suite *IntegrationTester) GetBeginBlockClaimedStakingRewards(
 		// - amount:
 		// - validator: nemovaloper1em2mlkrkx0qsa6327tgvl3g0fh8a95hjnqvrwh
 		// Event: withdraw_rewards
-		// - amount: 523909unemo
+		// - amount: 523909ufury
 		// - validator: nemovaloper1nmgpgr8l4t8pw9zqx9cltuymvz85wmw9sy8kjy
 		attrsMap := attrsToMap(event.Attributes)
 

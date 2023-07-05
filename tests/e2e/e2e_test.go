@@ -27,8 +27,8 @@ var (
 	minEvmGasPrice = big.NewInt(1e10) // atfury
 )
 
-func unemo(amt int64) sdk.Coin {
-	return sdk.NewCoin("unemo", sdkmath.NewInt(amt))
+func ufury(amt int64) sdk.Coin {
+	return sdk.NewCoin("ufury", sdkmath.NewInt(amt))
 }
 
 type IntegrationTestSuite struct {
@@ -57,7 +57,7 @@ func (suite *IntegrationTestSuite) TestChainID() {
 
 // example test that funds a new account & queries its balance
 func (suite *IntegrationTestSuite) TestFundedAccount() {
-	funds := unemo(1e3)
+	funds := ufury(1e3)
 	acc := suite.Nemo.NewFundedAccount("example-acc", sdk.NewCoins(funds))
 
 	// check that the sdk & evm signers are for the same account
@@ -66,7 +66,7 @@ func (suite *IntegrationTestSuite) TestFundedAccount() {
 
 	// check balance via SDK query
 	res, err := suite.Nemo.Bank.Balance(context.Background(), banktypes.NewQueryBalanceRequest(
-		acc.SdkAddress, "unemo",
+		acc.SdkAddress, "ufury",
 	))
 	suite.NoError(err)
 	suite.Equal(funds, *res.Balance)
@@ -80,7 +80,7 @@ func (suite *IntegrationTestSuite) TestFundedAccount() {
 // example test that signs & broadcasts an EVM tx
 func (suite *IntegrationTestSuite) TestTransferOverEVM() {
 	// fund an account that can perform the transfer
-	initialFunds := unemo(1e6) // 1 NEMO
+	initialFunds := ufury(1e6) // 1 NEMO
 	acc := suite.Nemo.NewFundedAccount("evm-test-transfer", sdk.NewCoins(initialFunds))
 
 	// get a rando account to send nemo to
@@ -103,13 +103,13 @@ func (suite *IntegrationTestSuite) TestTransferOverEVM() {
 	suite.Equal(ethtypes.ReceiptStatusSuccessful, res.Receipt.Status)
 
 	// evm txs refund unused gas. so to know the expected balance we need to know how much gas was used.
-	unemoUsedForGas := sdkmath.NewIntFromBigInt(minEvmGasPrice).
+	ufuryUsedForGas := sdkmath.NewIntFromBigInt(minEvmGasPrice).
 		Mul(sdkmath.NewIntFromUint64(res.Receipt.GasUsed)).
-		QuoRaw(1e12) // convert atfury to unemo
+		QuoRaw(1e12) // convert atfury to ufury
 
 	// expect (9 - gas used) NEMO remaining in account.
 	balance := suite.Nemo.QuerySdkForBalances(acc.SdkAddress)
-	suite.Equal(sdkmath.NewInt(9e5).Sub(unemoUsedForGas), balance.AmountOf("unemo"))
+	suite.Equal(sdkmath.NewInt(9e5).Sub(ufuryUsedForGas), balance.AmountOf("ufury"))
 }
 
 // TestIbcTransfer transfers NEMO from the primary nemo chain (suite.Nemo) to the ibc chain (suite.Ibc).
@@ -119,15 +119,15 @@ func (suite *IntegrationTestSuite) TestIbcTransfer() {
 
 	// ARRANGE
 	// setup nemo account
-	funds := unemo(1e5) // .1 NEMO
+	funds := ufury(1e5) // .1 NEMO
 	nemoAcc := suite.Nemo.NewFundedAccount("ibc-transfer-nemo-side", sdk.NewCoins(funds))
 	// setup ibc account
 	ibcAcc := suite.Ibc.NewFundedAccount("ibc-transfer-ibc-side", sdk.NewCoins())
 
 	gasLimit := int64(2e5)
-	fee := unemo(200)
+	fee := ufury(200)
 
-	fundsToSend := unemo(5e4) // .005 NEMO
+	fundsToSend := ufury(5e4) // .005 NEMO
 	transferMsg := ibctypes.NewMsgTransfer(
 		testutil.IbcPort,
 		testutil.IbcChannel,
@@ -157,7 +157,7 @@ func (suite *IntegrationTestSuite) TestIbcTransfer() {
 	// the balance should be deducted from nemo account
 	suite.Eventually(func() bool {
 		balance := suite.Nemo.QuerySdkForBalances(nemoAcc.SdkAddress)
-		return balance.AmountOf("unemo").Equal(expectedSrcBalance.Amount)
+		return balance.AmountOf("ufury").Equal(expectedSrcBalance.Amount)
 	}, 10*time.Second, 1*time.Second)
 
 	// expect the balance to be transferred to the ibc chain!

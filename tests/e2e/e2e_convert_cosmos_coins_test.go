@@ -63,7 +63,7 @@ func (suite *IntegrationTestSuite) setupAccountWithCosmosCoinERC20Balance(
 	tx := util.NemoMsgRequest{
 		Msgs:      []sdk.Msg{&msg},
 		GasLimit:  4e5,
-		FeeAmount: sdk.NewCoins(unemo(400)),
+		FeeAmount: sdk.NewCoins(ufury(400)),
 		Data:      "converting sdk coin to erc20",
 	}
 	res := user.SignAndBroadcastNemoTx(tx)
@@ -102,7 +102,7 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoinsToFromERC20() {
 	tx := util.NemoMsgRequest{
 		Msgs:      []sdk.Msg{&convertToErc20Msg},
 		GasLimit:  2e6,
-		FeeAmount: sdk.NewCoins(unemo(2000)),
+		FeeAmount: sdk.NewCoins(ufury(2000)),
 		Data:      "converting sdk coin to erc20",
 	}
 	res := user.SignAndBroadcastNemoTx(tx)
@@ -144,7 +144,7 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoinsToFromERC20() {
 	tx = util.NemoMsgRequest{
 		Msgs:      []sdk.Msg{&convertFromErc20Msg},
 		GasLimit:  2e5,
-		FeeAmount: sdk.NewCoins(unemo(200)),
+		FeeAmount: sdk.NewCoins(ufury(200)),
 		Data:      "converting erc20 to cosmos coin",
 	}
 	res = user.SignAndBroadcastNemoTx(tx)
@@ -183,7 +183,7 @@ func (suite *IntegrationTestSuite) TestEIP712ConvertCosmosCoinsToFromERC20() {
 		user,
 		suite.Nemo,
 		2e6,
-		sdk.NewCoins(unemo(1e4)),
+		sdk.NewCoins(ufury(1e4)),
 		[]sdk.Msg{&convertToErc20Msg},
 		"this is a memo",
 	).GetTx()
@@ -237,7 +237,7 @@ func (suite *IntegrationTestSuite) TestEIP712ConvertCosmosCoinsToFromERC20() {
 		user,
 		suite.Nemo,
 		2e5,
-		sdk.NewCoins(unemo(200)),
+		sdk.NewCoins(ufury(200)),
 		[]sdk.Msg{&convertFromErc20Msg},
 		"",
 	).GetTx()
@@ -331,7 +331,7 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoins_ERC20Magic() {
 		"cosmo-coin-converter-complex-alice", initialAliceAmount,
 	)
 
-	gasMoney := sdk.NewCoins(unemo(1e5))
+	gasMoney := sdk.NewCoins(ufury(1e5))
 	bob := suite.Nemo.NewFundedAccount("cosmo-coin-converter-complex-bob", gasMoney)
 	amount := big.NewInt(1e3) // test assumes this is half of alice's balance.
 
@@ -412,7 +412,7 @@ func (suite *IntegrationTestSuite) TestConvertCosmosCoins_ERC20Magic() {
 	convertTx := util.NemoMsgRequest{
 		Msgs:      []sdk.Msg{&convertMsg},
 		GasLimit:  2e5,
-		FeeAmount: sdk.NewCoins(unemo(200)),
+		FeeAmount: sdk.NewCoins(ufury(200)),
 		Data:      "bob converts his new erc20 to an sdk.Coin",
 	}
 	convertRes := bob.SignAndBroadcastNemoTx(convertTx)

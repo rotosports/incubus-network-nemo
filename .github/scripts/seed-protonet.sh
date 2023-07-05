@@ -21,10 +21,10 @@ WEBAPP_E2E_WHALE_ADDRESS="0x0252284098b19036F81bd22851f8699042fafac2"
 echo "sweet ocean blush coil mobile ten floor sample nuclear power legend where place swamp young marble grit observe enforce lake blossom lesson upon plug" | nemo keys add --recover --eth dev-erc20-deployer-wallet
 
 # fund evm-contract-deployer account (using issuance)
-nemo tx issuance issue 200000000unemo nemo1van3znl6597xgwwh46jgquutnqkwvwszjg04fz --from dev-wallet --gas-prices 0.5unemo -y
+nemo tx issuance issue 200000000ufury nemo1van3znl6597xgwwh46jgquutnqkwvwszjg04fz --from dev-wallet --gas-prices 0.5ufury -y
 
 # fund 5k nemo to x/community account
-nemo tx community fund-community-pool 5000000000unemo --from dev-wallet --gas-prices 0.5unemo -y
+nemo tx community fund-community-pool 5000000000ufury --from dev-wallet --gas-prices 0.5ufury -y
 
 # deploy and fund USDC ERC20 contract
 MULTICHAIN_USDC_CONTRACT_DEPLOY=$(npx hardhat --network "${ERC20_DEPLOYER_NETWORK_NAME}" deploy-erc20 "USD Coin" USDC 6)
@@ -86,8 +86,8 @@ npx hardhat --network "${ERC20_DEPLOYER_NETWORK_NAME}" mint-erc20 "$AXL_USDC_CON
 # give dev-wallet enough delegation power to pass proposals by itself
 
 # issue nemo to dev wallet for delegating to each validator
-nemo tx issuance issue 6000000000unemo nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq \
-  --from dev-wallet --gas-prices 0.5unemo -y
+nemo tx issuance issue 6000000000ufury nemo1vlpsrmdyuywvaqrv7rx6xga224sqfwz3fyfhwq \
+  --from dev-wallet --gas-prices 0.5ufury -y
 
 # parse space seperated list of validators
 # into bash array
@@ -96,11 +96,11 @@ read -r -a GENESIS_VALIDATOR_ADDRESS_ARRAY <<< "$GENESIS_VALIDATOR_ADDRESSES"
 # delegate 300NEMO to each validator
 for validator in "${GENESIS_VALIDATOR_ADDRESS_ARRAY[@]}"
 do
-  nemo tx staking delegate "${validator}" 300000000unemo --from dev-wallet --gas-prices 0.5unemo -y
+  nemo tx staking delegate "${validator}" 300000000ufury --from dev-wallet --gas-prices 0.5ufury -y
 done
 
 # create a text proposal
-nemo tx gov submit-legacy-proposal --deposit 1000000000unemo --type "Text" --title "Example Proposal" --description "This is an example proposal" --gas auto --gas-adjustment 1.2 --from dev-wallet --gas-prices 0.01unemo -y
+nemo tx gov submit-legacy-proposal --deposit 1000000000ufury --type "Text" --title "Example Proposal" --description "This is an example proposal" --gas auto --gas-adjustment 1.2 --from dev-wallet --gas-prices 0.01ufury -y
 
 # setup god's wallet
 echo "${NEMO_TESTNET_GOD_MNEMONIC}" | nemo keys add --recover god
@@ -148,10 +148,10 @@ printf "original evm util module params\n %s" , "$originalEvmUtilParams"
 # make sure to update god committee member permissions for the module
 # and params being updated (see below for example)
 # https://github.com/Incubus-Network/nemo/pull/1556/files#diff-0bd6043650c708661f37bbe6fa5b29b52149e0ec0069103c3954168fc9f12612R900-R903
-nemo tx committee submit-proposal 1 "$proposalFileName" --gas 2000000 --gas-prices 0.01unemo --from god -y
+nemo tx committee submit-proposal 1 "$proposalFileName" --gas 2000000 --gas-prices 0.01ufury --from god -y
 
 # vote on the proposal. this assumes no other committee proposal has ever been submitted (id=1)
-nemo tx committee vote 1 yes --gas 2000000 --gas-prices 0.01unemo --from god -y
+nemo tx committee vote 1 yes --gas 2000000 --gas-prices 0.01ufury --from god -y
 
 # fetch current module params
 updatedEvmUtilParams=$(curl https://api.app.internal.testnet.us-east.production.nemo.io/nemo/evmutil/v1beta1/params)

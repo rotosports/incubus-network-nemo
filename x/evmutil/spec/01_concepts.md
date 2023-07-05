@@ -6,9 +6,9 @@ order: 1
 
 ## EVM Gas Denom
 
-In order to use the EVM and be compatible with existing clients, the gas denom used by the EVM must be in 18 decimals. Since `unemo` has 6 decimals of precision, it cannot be used as the EVM gas denom directly.
+In order to use the EVM and be compatible with existing clients, the gas denom used by the EVM must be in 18 decimals. Since `ufury` has 6 decimals of precision, it cannot be used as the EVM gas denom directly.
 
-To use the Nemo token on the EVM, the evmutil module provides an `EvmBankKeeper` that is responsible for the conversion of `unemo` and `atfury`. A user's excess `atfury` balance is stored in the `x/evmutil` store, while its `unemo` balance remains in the cosmos-sdk `x/bank` module.
+To use the Nemo token on the EVM, the evmutil module provides an `EvmBankKeeper` that is responsible for the conversion of `ufury` and `atfury`. A user's excess `atfury` balance is stored in the `x/evmutil` store, while its `ufury` balance remains in the cosmos-sdk `x/bank` module.
 
 ## `EvmBankKeeper` Overview
 
@@ -22,15 +22,15 @@ Since the EVM denom `atfury` is required to use the `EvmBankKeeper`, it is neces
 
 ### Balance Calculation of `atfury`
 
-The `atfury` balance of an account is derived from an account's **spendable** `unemo` balance times 10^12 (to derive its `atfury` equivalent), plus the account's excess `atfury` balance that can be accessed via the module `Keeper`.
+The `atfury` balance of an account is derived from an account's **spendable** `ufury` balance times 10^12 (to derive its `atfury` equivalent), plus the account's excess `atfury` balance that can be accessed via the module `Keeper`.
 
-### `atfury` <> `unemo` Conversion
+### `atfury` <> `ufury` Conversion
 
-When an account does not have sufficient `atfury` to cover a transfer or burn, the `EvmBankKeeper` will try to swap 1 `unemo` to its equivalent `atfury` amount. It does this by transferring 1 `unemo` from the sender to the `x/evmutil` module account, then adding the equivalent `atfury` amount to the sender's balance in the module state.
+When an account does not have sufficient `atfury` to cover a transfer or burn, the `EvmBankKeeper` will try to swap 1 `ufury` to its equivalent `atfury` amount. It does this by transferring 1 `ufury` from the sender to the `x/evmutil` module account, then adding the equivalent `atfury` amount to the sender's balance in the module state.
 
-In reverse, if an account has enough `atfury` balance for one or more `unemo`, the excess `atfury` balance will be converted to `unemo`. This is done by removing the excess `atfury` balance in the module store, then transferring the equivalent `unemo` coins from the `x/evmutil` module account to the target account.
+In reverse, if an account has enough `atfury` balance for one or more `ufury`, the excess `atfury` balance will be converted to `ufury`. This is done by removing the excess `atfury` balance in the module store, then transferring the equivalent `ufury` coins from the `x/evmutil` module account to the target account.
 
-The swap logic ensures that all `atfury` is backed by the equivalent `unemo` balance stored in the module account.
+The swap logic ensures that all `atfury` is backed by the equivalent `ufury` balance stored in the module account.
 
 ## ERC20 token <> sdk.Coin Conversion
 

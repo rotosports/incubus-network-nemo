@@ -15,5 +15,5 @@ Example parameters for `AllowedPool`:
 
 | Key    | Type   | Example | Description         |
 | ------ | ------ | ------- | ------------------- |
-| TokenA | string | "unemo" | First coin's denom  |
+| TokenA | string | "ufury" | First coin's denom  |
 | TokenB | string | "usdx"  | Second coin's denom |

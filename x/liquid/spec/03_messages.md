@@ -33,10 +33,10 @@ type MsgMintDerivative struct {
   "sender": "nemo10wlnqzyss4accfqmyxwx5jy5x9nfkwh6qm7n4t",
   // validator the user has delegated to
   "validator": "nemovaloper1ypjp0m04pyp73hwgtc0dgkx0e9rrydeckewa42",
-  // amount of staked unemo to be converted into bnemo
+  // amount of staked ufury to be converted into bnemo
   "amount": {
     "amount": "1000000000",
-    "denom": "unemo"
+    "denom": "ufury"
   }
 }
 ```

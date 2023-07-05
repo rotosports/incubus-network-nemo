@@ -11,7 +11,7 @@ import (
 )
 
 var (
-	testDenom1 = "unemo"
+	testDenom1 = "ufury"
 	testDenom2 = "usdx"
 )
 

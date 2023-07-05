@@ -10,9 +10,9 @@ import (
 )
 
 func TestKeys(t *testing.T) {
-	key := types.PoolKey(types.PoolID("unemo", "usdx"))
-	assert.Equal(t, types.PoolID("unemo", "usdx"), string(key))
+	key := types.PoolKey(types.PoolID("ufury", "usdx"))
+	assert.Equal(t, types.PoolID("ufury", "usdx"), string(key))
 
-	key = types.DepositorPoolSharesKey(sdk.AccAddress("testaddress1"), types.PoolID("unemo", "usdx"))
-	assert.Equal(t, string(sdk.AccAddress("testaddress1"))+"|"+types.PoolID("unemo", "usdx"), string(key))
+	key = types.DepositorPoolSharesKey(sdk.AccAddress("testaddress1"), types.PoolID("ufury", "usdx"))
+	assert.Equal(t, string(sdk.AccAddress("testaddress1"))+"|"+types.PoolID("ufury", "usdx"), string(key))
 }

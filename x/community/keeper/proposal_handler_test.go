@@ -24,8 +24,8 @@ import (
 const chainID = "nemotest_2221-1"
 
 func c(denom string, amount int64) sdk.Coin { return sdk.NewInt64Coin(denom, amount) }
-func unemo(amt int64) sdk.Coins {
-	return sdk.NewCoins(c("unemo", amt))
+func ufury(amt int64) sdk.Coins {
+	return sdk.NewCoins(c("ufury", amt))
 }
 func usdx(amt int64) sdk.Coins {
 	return sdk.NewCoins(c("usdx", amt))
@@ -56,7 +56,7 @@ func (suite *proposalTestSuite) SetupTest() {
 	genTime := tmtime.Now()
 
 	hardGS, pricefeedGS := testutil.NewLendGenesisBuilder().
-		WithMarket("unemo", "nemo:usd", sdk.OneDec()).
+		WithMarket("ufury", "nemo:usd", sdk.OneDec()).
 		WithMarket("usdx", "usdx:usd", sdk.OneDec()).
 		Build()
 
@@ -71,7 +71,7 @@ func (suite *proposalTestSuite) SetupTest() {
 		genTime, chainID,
 		app.GenesisState{hardtypes.ModuleName: tApp.AppCodec().MustMarshalJSON(&hardGS)},
 		app.GenesisState{pricefeedtypes.ModuleName: tApp.AppCodec().MustMarshalJSON(&pricefeedGS)},
-		testutil.NewCDPGenState(tApp.AppCodec(), "unemo", "nemo", sdk.NewDec(2)),
+		testutil.NewCDPGenState(tApp.AppCodec(), "ufury", "nemo", sdk.NewDec(2)),
 	)
 
 	suite.App = tApp
@@ -82,8 +82,8 @@ func (suite *proposalTestSuite) SetupTest() {
 	suite.hardKeeper = suite.App.GetHardKeeper()
 
 	// give the community pool some funds
-	// unemo
-	suite.FundCommunityPool(unemo(2e10))
+	// ufury
+	suite.FundCommunityPool(ufury(2e10))
 	// usdx
 	suite.FundCommunityPool(usdx(2e10))
 	// other-denom
@@ -130,43 +130,43 @@ func (suite *proposalTestSuite) TestCommunityLendDepositProposal() {
 		{
 			name: "valid - one proposal, one denom",
 			proposals: []*types.CommunityPoolLendDepositProposal{
-				{Amount: unemo(1e8)},
+				{Amount: ufury(1e8)},
 			},
 			expectedErr:      "",
-			expectedDeposits: []sdk.Coins{unemo(1e8)},
+			expectedDeposits: []sdk.Coins{ufury(1e8)},
 		},
 		{
 			name: "valid - one proposal, multiple denoms",
 			proposals: []*types.CommunityPoolLendDepositProposal{
-				{Amount: unemo(1e8).Add(usdx(1e8)...)},
+				{Amount: ufury(1e8).Add(usdx(1e8)...)},
 			},
 			expectedErr:      "",
-			expectedDeposits: []sdk.Coins{unemo(1e8).Add(usdx(1e8)...)},
+			expectedDeposits: []sdk.Coins{ufury(1e8).Add(usdx(1e8)...)},
 		},
 		{
 			name: "valid - multiple proposals, same denom",
 			proposals: []*types.CommunityPoolLendDepositProposal{
-				{Amount: unemo(1e8)},
-				{Amount: unemo(1e9)},
+				{Amount: ufury(1e8)},
+				{Amount: ufury(1e9)},
 			},
 			expectedErr:      "",
-			expectedDeposits: []sdk.Coins{unemo(1e8 + 1e9)},
+			expectedDeposits: []sdk.Coins{ufury(1e8 + 1e9)},
 		},
 		{
 			name: "valid - multiple proposals, different denoms",
 			proposals: []*types.CommunityPoolLendDepositProposal{
-				{Amount: unemo(1e8)},
+				{Amount: ufury(1e8)},
 				{Amount: usdx(1e8)},
 			},
 			expectedErr:      "",
-			expectedDeposits: []sdk.Coins{unemo(1e8).Add(usdx(1e8)...)},
+			expectedDeposits: []sdk.Coins{ufury(1e8).Add(usdx(1e8)...)},
 		},
 		{
 			name: "invalid - insufficient balance",
 			proposals: []*types.CommunityPoolLendDepositProposal{
 				{
 					Description: "more coins than i have!",
-					Amount:      unemo(1e11),
+					Amount:      ufury(1e11),
 				},
 			},
 			expectedErr:      "community pool does not have sufficient coins to distribute",
@@ -216,72 +216,72 @@ func (suite *proposalTestSuite) TestCommunityLendWithdrawProposal() {
 			// in the week it would take a proposal to pass, the position would have grown
 			// to withdraw the entire position, it'd be safest to set a very high withdraw
 			name:           "valid - requesting withdrawal of more than total will withdraw all",
-			initialDeposit: unemo(1e9),
+			initialDeposit: ufury(1e9),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
-				{Amount: unemo(1e12)},
+				{Amount: ufury(1e12)},
 			},
 			expectedErr:        "",
-			expectedWithdrawal: unemo(1e9),
+			expectedWithdrawal: ufury(1e9),
 		},
 		{
 			name:           "valid - single proposal, single denom, full withdrawal",
-			initialDeposit: unemo(1e9),
+			initialDeposit: ufury(1e9),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
-				{Amount: unemo(1e9)},
+				{Amount: ufury(1e9)},
 			},
 			expectedErr:        "",
-			expectedWithdrawal: unemo(1e9),
+			expectedWithdrawal: ufury(1e9),
 		},
 		{
 			name:           "valid - single proposal, multiple denoms, full withdrawal",
-			initialDeposit: unemo(1e9).Add(usdx(1e9)...),
+			initialDeposit: ufury(1e9).Add(usdx(1e9)...),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
-				{Amount: unemo(1e9).Add(usdx(1e9)...)},
+				{Amount: ufury(1e9).Add(usdx(1e9)...)},
 			},
 			expectedErr:        "",
-			expectedWithdrawal: unemo(1e9).Add(usdx(1e9)...),
+			expectedWithdrawal: ufury(1e9).Add(usdx(1e9)...),
 		},
 		{
 			name:           "valid - single proposal, partial withdrawal",
-			initialDeposit: unemo(1e9).Add(usdx(1e9)...),
+			initialDeposit: ufury(1e9).Add(usdx(1e9)...),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
-				{Amount: unemo(1e8).Add(usdx(1e9)...)},
+				{Amount: ufury(1e8).Add(usdx(1e9)...)},
 			},
 			expectedErr:        "",
-			expectedWithdrawal: unemo(1e8).Add(usdx(1e9)...),
+			expectedWithdrawal: ufury(1e8).Add(usdx(1e9)...),
 		},
 		{
 			name:           "valid - multiple proposals, full withdrawal",
-			initialDeposit: unemo(1e9).Add(usdx(1e9)...),
+			initialDeposit: ufury(1e9).Add(usdx(1e9)...),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
-				{Amount: unemo(1e9)},
+				{Amount: ufury(1e9)},
 				{Amount: usdx(1e9)},
 			},
 			expectedErr:        "",
-			expectedWithdrawal: unemo(1e9).Add(usdx(1e9)...),
+			expectedWithdrawal: ufury(1e9).Add(usdx(1e9)...),
 		},
 		{
 			name:           "valid - multiple proposals, partial withdrawal",
-			initialDeposit: unemo(1e9).Add(usdx(1e9)...),
+			initialDeposit: ufury(1e9).Add(usdx(1e9)...),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
-				{Amount: unemo(1e8)},
+				{Amount: ufury(1e8)},
 				{Amount: usdx(1e8)},
 			},
 			expectedErr:        "",
-			expectedWithdrawal: unemo(1e8).Add(usdx(1e8)...),
+			expectedWithdrawal: ufury(1e8).Add(usdx(1e8)...),
 		},
 		{
 			name:           "invalid - nonexistent position, has no deposits",
 			initialDeposit: sdk.NewCoins(),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
-				{Amount: unemo(1e8)},
+				{Amount: ufury(1e8)},
 			},
 			expectedErr:        "deposit not found",
 			expectedWithdrawal: sdk.NewCoins(),
 		},
 		{
 			name:           "invalid - nonexistent position, has deposits of different denom",
-			initialDeposit: unemo(1e8),
+			initialDeposit: ufury(1e8),
 			proposals: []*types.CommunityPoolLendWithdrawProposal{
 				{Amount: usdx(1e8)},
 			},
@@ -295,7 +295,7 @@ func (suite *proposalTestSuite) TestCommunityLendWithdrawProposal() {
 			suite.SetupTest()
 
 			// Disable minting, so that the community pool balance doesn't change
-			// during the test - this is because staking denom is "unemo" and no
+			// during the test - this is because staking denom is "ufury" and no
 			// longer "stake" which has an initial and changing balance instead
 			// of just 0
 			suite.App.SetInflation(suite.Ctx, sdk.ZeroDec())
@@ -341,7 +341,7 @@ func (suite *proposalTestSuite) TestCommunityLendWithdrawProposal() {
 // expectation: funds in the community module will be used to repay cdps.
 // if collateral is returned, it stays in the community module.
 func (suite *proposalTestSuite) TestCommunityCDPRepayDebtProposal() {
-	initialModuleFunds := unemo(2e10).Add(otherdenom(1e9)...)
+	initialModuleFunds := ufury(2e10).Add(otherdenom(1e9)...)
 	collateralType := "nemo-a"
 	type debt struct {
 		collateral sdk.Coin
@@ -356,7 +356,7 @@ func (suite *proposalTestSuite) TestCommunityCDPRepayDebtProposal() {
 	}{
 		{
 			name:        "valid - paid in full",
-			initialDebt: &debt{c("unemo", 1e10), c("usdx", 1e9)},
+			initialDebt: &debt{c("ufury", 1e10), c("usdx", 1e9)},
 			proposal: types.NewCommunityCDPRepayDebtProposal(
 				"repaying my debts in full",
 				"title says it all",
@@ -368,7 +368,7 @@ func (suite *proposalTestSuite) TestCommunityCDPRepayDebtProposal() {
 		},
 		{
 			name:        "valid - partial payment",
-			initialDebt: &debt{c("unemo", 1e10), c("usdx", 1e9)},
+			initialDebt: &debt{c("ufury", 1e10), c("usdx", 1e9)},
 			proposal: types.NewCommunityCDPRepayDebtProposal(
 				"title goes here",
 				"description goes here",
@@ -380,7 +380,7 @@ func (suite *proposalTestSuite) TestCommunityCDPRepayDebtProposal() {
 		},
 		{
 			name:        "invalid - insufficient funds",
-			initialDebt: &debt{c("unemo", 1e10), c("usdx", 1e9)},
+			initialDebt: &debt{c("ufury", 1e10), c("usdx", 1e9)},
 			proposal: types.NewCommunityCDPRepayDebtProposal(
 				"title goes here",
 				"description goes here",
@@ -444,7 +444,7 @@ func (suite *proposalTestSuite) TestCommunityCDPRepayDebtProposal() {
 // expectation: funds in the community module used as cdp collateral will be
 // withdrawn and stays in the community module.
 func (suite *proposalTestSuite) TestCommunityCDPWithdrawCollateralProposal() {
-	initialModuleFunds := unemo(2e10).Add(otherdenom(1e9)...)
+	initialModuleFunds := ufury(2e10).Add(otherdenom(1e9)...)
 	collateralType := "nemo-a"
 	type debt struct {
 		collateral sdk.Coin
@@ -460,47 +460,47 @@ func (suite *proposalTestSuite) TestCommunityCDPWithdrawCollateralProposal() {
 		{
 			name: "valid - withdrawing max collateral",
 			initialDebt: &debt{
-				c("unemo", 1e10),
+				c("ufury", 1e10),
 				c("usdx", 1e9),
 			},
 			proposal: types.NewCommunityCDPWithdrawCollateralProposal(
 				"withdrawing max collateral",
 				"i might get liquidated",
 				collateralType,
-				c("unemo", 8e9-1), // Withdraw all collateral except 2*principal-1 amount
+				c("ufury", 8e9-1), // Withdraw all collateral except 2*principal-1 amount
 			),
 			expectedErr:       "",
-			expectedWithdrawn: c("unemo", 8e9-1),
+			expectedWithdrawn: c("ufury", 8e9-1),
 		},
 		{
 			name: "valid - withdrawing partial collateral",
 			initialDebt: &debt{
-				c("unemo", 1e10),
+				c("ufury", 1e10),
 				c("usdx", 1e9),
 			},
 			proposal: types.NewCommunityCDPWithdrawCollateralProposal(
 				"title goes here",
 				"description goes here",
 				collateralType,
-				c("unemo", 1e9),
+				c("ufury", 1e9),
 			),
 			expectedErr:       "",
-			expectedWithdrawn: c("unemo", 1e9),
+			expectedWithdrawn: c("ufury", 1e9),
 		},
 		{
 			name: "invalid - withdrawing too much collateral",
 			initialDebt: &debt{
-				c("unemo", 1e10),
+				c("ufury", 1e10),
 				c("usdx", 1e9),
 			},
 			proposal: types.NewCommunityCDPWithdrawCollateralProposal(
 				"title goes here",
 				"description goes here",
 				collateralType,
-				c("unemo", 9e9), // <-- would be under collateralized
+				c("ufury", 9e9), // <-- would be under collateralized
 			),
 			expectedErr:       "proposed collateral ratio is below liquidation ratio",
-			expectedWithdrawn: c("unemo", 0),
+			expectedWithdrawn: c("ufury", 0),
 		},
 	}
 

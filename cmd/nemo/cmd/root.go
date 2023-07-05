@@ -67,7 +67,7 @@ func NewRootCmd() *cobra.Command {
 				return err
 			}
 
-			customAppTemplate, customAppConfig := servercfg.AppConfig("unemo")
+			customAppTemplate, customAppConfig := servercfg.AppConfig("ufury")
 
 			return server.InterceptConfigsPreRunHandler(
 				cmd,
