@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	bech32MainPrefix = "nemo"
+	bech32MainPrefix = "fury"
 )
 
 // Parameter keys
