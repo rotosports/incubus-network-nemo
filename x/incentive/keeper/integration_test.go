@@ -7,12 +7,12 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	"github.com/incubus-network/fury/app"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	committeetypes "github.com/incubus-network/fury/x/committee/types"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
-	swaptypes "github.com/incubus-network/fury/x/swap/types"
+	"github.com/rotosports/fury/app"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	committeetypes "github.com/rotosports/fury/x/committee/types"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
+	swaptypes "github.com/rotosports/fury/x/swap/types"
 )
 
 // Avoid cluttering test cases with long function names

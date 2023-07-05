@@ -36,9 +36,9 @@ import (
 	tmtime "github.com/tendermint/tendermint/types/time"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/evmutil/keeper"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/evmutil/keeper"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 type Suite struct {

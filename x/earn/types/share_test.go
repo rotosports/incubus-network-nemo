@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/x/earn/types"
 	"github.com/stretchr/testify/suite"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"

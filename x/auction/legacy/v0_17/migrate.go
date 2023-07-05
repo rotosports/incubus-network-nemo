@@ -1,8 +1,8 @@
 package v0_17
 
 import (
-	v016auction "github.com/incubus-network/fury/x/auction/legacy/v0_16"
-	v017auction "github.com/incubus-network/fury/x/auction/types"
+	v016auction "github.com/rotosports/fury/x/auction/legacy/v0_16"
+	v017auction "github.com/rotosports/fury/x/auction/types"
 )
 
 func Migrate(oldState v016auction.GenesisState) *v017auction.GenesisState {

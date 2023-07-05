@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/issuance/keeper"
-	"github.com/incubus-network/fury/x/issuance/types"
+	"github.com/rotosports/fury/x/issuance/keeper"
+	"github.com/rotosports/fury/x/issuance/types"
 )
 
 // InitGenesis initializes the store state from a genesis state.

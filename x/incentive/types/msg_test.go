@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/incubus-network/fury/x/incentive/types"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 func TestMsgClaim_Validate(t *testing.T) {

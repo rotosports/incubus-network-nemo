@@ -8,7 +8,7 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/x/furydist/types"
 )
 
 // NewQuerier is the module level router for state queries

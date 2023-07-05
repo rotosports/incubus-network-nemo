@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/fury/x/incentive/types"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 type AccumulateUSDXRewardsTests struct {

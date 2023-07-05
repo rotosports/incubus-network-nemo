@@ -4,8 +4,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	v015hard "github.com/incubus-network/fury/x/hard/legacy/v0_15"
-	v016hard "github.com/incubus-network/fury/x/hard/types"
+	v015hard "github.com/rotosports/fury/x/hard/legacy/v0_15"
+	v016hard "github.com/rotosports/fury/x/hard/types"
 )
 
 // Denom generated via: echo -n transfer/channel-0/uatom | shasum -a 256 | awk '{printf "ibc/%s",toupper($1)}'

@@ -13,7 +13,7 @@ import (
 	"github.com/tendermint/tendermint/crypto/secp256k1"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/x/cdp/types"
 )
 
 type CdpValidationSuite struct {

@@ -10,8 +10,8 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/app/ante"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/app/ante"
 )
 
 var _ sdk.AnteHandler = (&MockAnteHandler{}).AnteHandle

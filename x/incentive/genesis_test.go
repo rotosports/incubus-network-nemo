@@ -11,12 +11,12 @@ import (
 
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	hardtypes "github.com/incubus-network/fury/x/hard/types"
-	"github.com/incubus-network/fury/x/incentive"
-	"github.com/incubus-network/fury/x/incentive/keeper"
-	"github.com/incubus-network/fury/x/incentive/types"
-	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/app"
+	hardtypes "github.com/rotosports/fury/x/hard/types"
+	"github.com/rotosports/fury/x/incentive"
+	"github.com/rotosports/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/types"
+	furydisttypes "github.com/rotosports/fury/x/furydist/types"
 )
 
 const (

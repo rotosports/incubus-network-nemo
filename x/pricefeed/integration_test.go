@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/pricefeed/types"
 )
 
 func NewPricefeedGen() types.GenesisState {

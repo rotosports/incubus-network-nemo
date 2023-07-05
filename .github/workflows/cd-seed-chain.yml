@@ -63,7 +63,7 @@ jobs:
       - name: checkout fury bridge repo for deploying evm contracts
         uses: actions/checkout@v3
         with:
-          repository: Incubus-Network/fury-bridge
+          repository: Rotosports/fury-bridge
           path: fury-bridge
           ref: main
       - name: install nodeJS
@@ -79,7 +79,7 @@ jobs:
         run: make compile-contracts
         working-directory: fury-bridge
       - name: download seed script from master
-        run: wget https://raw.githubusercontent.com/Incubus-Network/fury/master/.github/scripts/${SEED_SCRIPT_FILENAME} && chmod +x ${SEED_SCRIPT_FILENAME}
+        run: wget https://raw.githubusercontent.com/Rotosports/fury/master/.github/scripts/${SEED_SCRIPT_FILENAME} && chmod +x ${SEED_SCRIPT_FILENAME}
         working-directory: fury-bridge/contract
         env:
             SEED_SCRIPT_FILENAME: ${{ inputs.seed-script-filename }}

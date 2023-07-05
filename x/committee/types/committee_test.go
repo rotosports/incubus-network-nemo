@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/crypto"
 
-	"github.com/incubus-network/fury/x/committee/testutil"
-	"github.com/incubus-network/fury/x/committee/types"
+	"github.com/rotosports/fury/x/committee/testutil"
+	"github.com/rotosports/fury/x/committee/types"
 )
 
 func TestBaseCommittee(t *testing.T) {

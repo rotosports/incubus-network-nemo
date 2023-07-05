@@ -10,9 +10,9 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/evmutil/testutil"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/evmutil/testutil"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 type convertCosmosCoinToERC20Suite struct {

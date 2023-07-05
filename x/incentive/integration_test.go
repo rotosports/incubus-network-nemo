@@ -8,10 +8,10 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/incubus-network/fury/app"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 // Avoid cluttering test cases with long function names

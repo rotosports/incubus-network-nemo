@@ -10,9 +10,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	app "github.com/incubus-network/fury/app"
-	v015incentive "github.com/incubus-network/fury/x/incentive/legacy/v0_15"
-	v016incentive "github.com/incubus-network/fury/x/incentive/types"
+	app "github.com/rotosports/fury/app"
+	v015incentive "github.com/rotosports/fury/x/incentive/legacy/v0_15"
+	v016incentive "github.com/rotosports/fury/x/incentive/types"
 )
 
 type migrateTestSuite struct {

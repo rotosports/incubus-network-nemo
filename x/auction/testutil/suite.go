@@ -13,9 +13,9 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/auction/keeper"
-	"github.com/incubus-network/fury/x/auction/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/auction/keeper"
+	"github.com/rotosports/fury/x/auction/types"
 )
 
 // Suite implements a test suite for the furydist module integration tests

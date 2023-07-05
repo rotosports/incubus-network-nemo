@@ -10,8 +10,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/issuance/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/issuance/types"
 )
 
 type GenesisTestSuite struct {

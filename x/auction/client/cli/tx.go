@@ -12,7 +12,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/fury/x/auction/types"
+	"github.com/rotosports/fury/x/auction/types"
 )
 
 // GetTxCmd returns the transaction cli commands for this module

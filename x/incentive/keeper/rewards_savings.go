@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/incentive/types"
-	savingstypes "github.com/incubus-network/fury/x/savings/types"
+	"github.com/rotosports/fury/x/incentive/types"
+	savingstypes "github.com/rotosports/fury/x/savings/types"
 )
 
 // AccumulateSavingsRewards calculates new rewards to distribute this block and updates the global indexes

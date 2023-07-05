@@ -10,7 +10,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/codec"
 
-	"github.com/incubus-network/fury/x/bep3/types"
+	"github.com/rotosports/fury/x/bep3/types"
 )
 
 // DecodeStore unmarshals the KVPair's Value to the module's corresponding type

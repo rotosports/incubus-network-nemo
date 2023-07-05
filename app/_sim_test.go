@@ -32,15 +32,15 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/cosmos/cosmos-sdk/x/supply"
 
-	"github.com/incubus-network/fury/x/auction"
-	"github.com/incubus-network/fury/x/bep3"
-	"github.com/incubus-network/fury/x/cdp"
-	"github.com/incubus-network/fury/x/committee"
-	"github.com/incubus-network/fury/x/incentive"
-	"github.com/incubus-network/fury/x/furydist"
-	"github.com/incubus-network/fury/x/pricefeed"
-	"github.com/incubus-network/fury/x/swap"
-	validatorvesting "github.com/incubus-network/fury/x/validator-vesting"
+	"github.com/rotosports/fury/x/auction"
+	"github.com/rotosports/fury/x/bep3"
+	"github.com/rotosports/fury/x/cdp"
+	"github.com/rotosports/fury/x/committee"
+	"github.com/rotosports/fury/x/incentive"
+	"github.com/rotosports/fury/x/furydist"
+	"github.com/rotosports/fury/x/pricefeed"
+	"github.com/rotosports/fury/x/swap"
+	validatorvesting "github.com/rotosports/fury/x/validator-vesting"
 )
 
 type StoreKeysPrefixes struct {

@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	"github.com/incubus-network/fury/x/validator-vesting/types"
+	"github.com/rotosports/fury/x/validator-vesting/types"
 )
 
 // GetQueryCmd returns the cli query commands for the furydist module

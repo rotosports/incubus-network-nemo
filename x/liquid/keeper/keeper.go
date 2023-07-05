@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/incubus-network/fury/x/liquid/types"
+	"github.com/rotosports/fury/x/liquid/types"
 )
 
 // Keeper struct for the liquid module.

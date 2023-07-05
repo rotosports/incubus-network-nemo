@@ -7,11 +7,11 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	"github.com/incubus-network/fury/x/incentive/keeper"
-	"github.com/incubus-network/fury/x/incentive/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	"github.com/rotosports/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/types"
 	"github.com/stretchr/testify/suite"
 )
 

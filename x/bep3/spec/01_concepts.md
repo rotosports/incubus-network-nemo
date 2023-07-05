@@ -15,7 +15,7 @@ Binance Chain
 - The deputy’s Binance Chain address on mainnet is **bnb1jh7uv2rm6339yue8k4mj9406k3509kr4wt5nxn**.
 - We recommend using https://testnet-dex.binance.org/ as Binance Chain’s API endpoint.
 
-Fury's [JavaScript SDK](https://github.com/Incubus-Network/javascript-sdk) and Binance Chain’s [JavaScript SDK](https://github.com/binance-chain/javascript-sdk) can be used to create, claim, and refund swaps.
+Fury's [JavaScript SDK](https://github.com/Rotosports/javascript-sdk) and Binance Chain’s [JavaScript SDK](https://github.com/binance-chain/javascript-sdk) can be used to create, claim, and refund swaps.
 
 ## Binance Chain to Fury
 

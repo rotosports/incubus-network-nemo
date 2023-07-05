@@ -6,7 +6,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	"github.com/incubus-network/fury/x/bep3/types"
+	"github.com/rotosports/fury/x/bep3/types"
 )
 
 const (

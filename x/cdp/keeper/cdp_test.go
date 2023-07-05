@@ -13,9 +13,9 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/cdp/keeper"
-	"github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/cdp/keeper"
+	"github.com/rotosports/fury/x/cdp/types"
 )
 
 type CdpTestSuite struct {

@@ -6,7 +6,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/x/cdp/types"
 )
 
 // AddPrincipal adds debt to a cdp if the additional debt does not put the cdp below the liquidation ratio

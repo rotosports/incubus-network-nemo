@@ -8,9 +8,9 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/auction"
-	"github.com/incubus-network/fury/x/auction/testutil"
-	types "github.com/incubus-network/fury/x/auction/types"
+	"github.com/rotosports/fury/x/auction"
+	"github.com/rotosports/fury/x/auction/testutil"
+	types "github.com/rotosports/fury/x/auction/types"
 )
 
 type abciTestSuite struct {

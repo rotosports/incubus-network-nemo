@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/incubus-network/fury/x/incentive/types"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 type msgServer struct {

@@ -7,7 +7,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"google.golang.org/grpc"
 
-	"github.com/incubus-network/fury/tests/util"
+	"github.com/rotosports/fury/tests/util"
 )
 
 var (

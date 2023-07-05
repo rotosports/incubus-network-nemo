@@ -12,10 +12,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/app"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	types "github.com/incubus-network/fury/x/committee/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	types "github.com/rotosports/fury/x/committee/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 type ParamsChangeTestSuite struct {

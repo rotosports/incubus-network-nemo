@@ -12,11 +12,11 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/hard"
-	"github.com/incubus-network/fury/x/hard/keeper"
-	"github.com/incubus-network/fury/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/hard"
+	"github.com/rotosports/fury/x/hard/keeper"
+	"github.com/rotosports/fury/x/hard/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 type InterestTestSuite struct {

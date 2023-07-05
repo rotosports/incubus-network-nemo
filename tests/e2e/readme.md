@@ -1,6 +1,6 @@
 # end-2-end tests for fury
 
-These tests use [`futool`](https://github.com/incubus-network/futool) to spin up a fury node configuration
+These tests use [`futool`](https://github.com/rotosports/futool) to spin up a fury node configuration
 and then runs tests against the running network. It is a git sub-repository in this directory. If not
 present, you must initialize the subrepo: `git submodule update --init`.
 
@@ -93,5 +93,5 @@ height. The chain runs until that height and then is shutdown due to needing the
 is restarted with the local repo's Fury code and the upgrade is run. Once completed, the whole test
 suite is run.
 
-For a full example of how this looks, see [this commit](https://github.com/Incubus-Network/fury/commit/5da48c892f0a5837141fc7de88632c7c68fff4ae)
-on the [example/e2e-test-upgrade-handler](https://github.com/Incubus-Network/fury/tree/example/e2e-test-upgrade-handler) branch.
+For a full example of how this looks, see [this commit](https://github.com/Rotosports/fury/commit/5da48c892f0a5837141fc7de88632c7c68fff4ae)
+on the [example/e2e-test-upgrade-handler](https://github.com/Rotosports/fury/tree/example/e2e-test-upgrade-handler) branch.

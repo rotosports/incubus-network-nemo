@@ -9,7 +9,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	"github.com/incubus-network/fury/x/hard/types"
+	"github.com/rotosports/fury/x/hard/types"
 )
 
 // Keeper keeper for the hard module

@@ -13,7 +13,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 const (

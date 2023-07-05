@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/x/earn/types"
 )
 
 // ConvertToShares converts a given amount of tokens to shares.

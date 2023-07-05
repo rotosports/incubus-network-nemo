@@ -12,14 +12,14 @@ import (
 	vestingtypes "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
 	tmprototypes "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	cdpkeeper "github.com/incubus-network/fury/x/cdp/keeper"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
-	"github.com/incubus-network/fury/x/incentive/keeper"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	"github.com/incubus-network/fury/x/incentive/types"
-	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/app"
+	cdpkeeper "github.com/rotosports/fury/x/cdp/keeper"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	hardkeeper "github.com/rotosports/fury/x/hard/keeper"
+	"github.com/rotosports/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	"github.com/rotosports/fury/x/incentive/types"
+	furydisttypes "github.com/rotosports/fury/x/furydist/types"
 )
 
 // Test suite used for all keeper tests

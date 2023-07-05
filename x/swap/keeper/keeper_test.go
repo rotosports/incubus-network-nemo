@@ -4,10 +4,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/swap/testutil"
-	"github.com/incubus-network/fury/x/swap/types"
-	"github.com/incubus-network/fury/x/swap/types/mocks"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/swap/testutil"
+	"github.com/rotosports/fury/x/swap/types"
+	"github.com/rotosports/fury/x/swap/types/mocks"
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"

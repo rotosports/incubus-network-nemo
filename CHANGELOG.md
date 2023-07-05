@@ -114,7 +114,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 ## [v0.13.0]
 
 - Hard Protocol - Introduces borrowing functionality to HARD protocol. See full
-  [spec](https://github.com/Incubus-Network/fury/tree/master/x/hard/spec)
+  [spec](https://github.com/Rotosports/fury/tree/master/x/hard/spec)
 
 ### Breaking changes
 
@@ -211,9 +211,9 @@ non-breaking manner and that nodes will be able to update seamlessly after the
 launch of fury-3.
 
 The steps for upgrading to fury-3 can be found
-[here](https://github.com/Incubus-Network/fury/blob/v0.10.0/contrib/fury-3/migration.md).
+[here](https://github.com/Rotosports/fury/blob/v0.10.0/contrib/fury-3/migration.md).
 Please note the additional section on
-[pruning](https://github.com/Incubus-Network/fury/blob/v0.10.0/contrib/fury-3/migration.md#Pruning).
+[pruning](https://github.com/Rotosports/fury/blob/v0.10.0/contrib/fury-3/migration.md#Pruning).
 
 ## [v0.8.0] fury-3 Release
 
@@ -225,7 +225,7 @@ state-machine faults that require a new version to launch successfully.
 ### Migration
 
 The steps for upgrading to fury-3 can be found
-[here](https://github.com/Incubus-Network/fury/blob/v0.10.0/contrib/fury-3/migration.md)
+[here](https://github.com/Rotosports/fury/blob/v0.10.0/contrib/fury-3/migration.md)
 
 ### Features
 
@@ -265,60 +265,60 @@ the [changelog](https://github.com/cosmos/cosmos-sdk/blob/v0.38.4/CHANGELOG.md).
 
 ### Improvements
 
-- [#257](https://github.com/Incubus-Network/fury/pulls/257) Include scripts to run
+- [#257](https://github.com/Rotosports/fury/pulls/257) Include scripts to run
   large-scale simulations remotely using aws-batch
 
-[#1624]: https://github.com/Incubus-Network/fury/pull/1624
-[#1622]: https://github.com/Incubus-Network/fury/pull/1622
-[#1614]: https://github.com/Incubus-Network/fury/pull/1614
-[#1610]: https://github.com/Incubus-Network/fury/pull/1610
-[#1609]: https://github.com/Incubus-Network/fury/pull/1609
-[#1605]: https://github.com/Incubus-Network/fury/pull/1605
-[#1604]: https://github.com/Incubus-Network/fury/pull/1604
-[#1603]: https://github.com/Incubus-Network/fury/pull/1603
-[#1598]: https://github.com/Incubus-Network/fury/pull/1598
-[#1596]: https://github.com/Incubus-Network/fury/pull/1596
-[#1591]: https://github.com/Incubus-Network/fury/pull/1591
-[#1590]: https://github.com/Incubus-Network/fury/pull/1590
-[#1568]: https://github.com/Incubus-Network/fury/pull/1568
-[#1567]: https://github.com/Incubus-Network/fury/pull/1567
-[#1566]: https://github.com/Incubus-Network/fury/pull/1566
-[#1565]: https://github.com/Incubus-Network/fury/pull/1565
-[#1563]: https://github.com/Incubus-Network/fury/pull/1563
-[#1562]: https://github.com/Incubus-Network/fury/pull/1562
-[#1550]: https://github.com/Incubus-Network/fury/pull/1550
-[#1544]: https://github.com/Incubus-Network/fury/pull/1544
-[#1477]: https://github.com/Incubus-Network/fury/pull/1477
-[#1512]: https://github.com/Incubus-Network/fury/pull/1512
-[#1519]: https://github.com/Incubus-Network/fury/pull/1519
-[#1106]: https://github.com/Incubus-Network/fury/pull/1106
-[#1152]: https://github.com/Incubus-Network/fury/pull/1152
-[#1542]: https://github.com/Incubus-Network/fury/pull/1542
-[#253]: https://github.com/Incubus-Network/fury/pull/253
-[#260]: https://github.com/Incubus-Network/fury/pull/260
-[#266]: https://github.com/Incubus-Network/fury/pull/266
-[#364]: https://github.com/Incubus-Network/fury/pull/364
-[#590]: https://github.com/Incubus-Network/fury/pull/590
-[#591]: https://github.com/Incubus-Network/fury/pull/591
-[#596]: https://github.com/Incubus-Network/fury/pull/596
-[#598]: https://github.com/Incubus-Network/fury/pull/598
-[#625]: https://github.com/Incubus-Network/fury/pull/625
-[#701]: https://github.com/Incubus-Network/fury/pull/701
-[#750]: https://github.com/Incubus-Network/fury/pull/750
-[#751]: https://github.com/Incubus-Network/fury/pull/751
-[#780]: https://github.com/Incubus-Network/fury/pull/780
-[unreleased]: https://github.com/Incubus-Network/fury/compare/v0.23.2...HEAD
-[v0.23.2]: https://github.com/Incubus-Network/fury/compare/v0.23.1...v0.23.2
-[v0.23.1]: https://github.com/Incubus-Network/fury/compare/v0.23.0...v0.23.1
-[v0.23.0]: https://github.com/Incubus-Network/fury/compare/v0.21.1...v0.23.0
-[v0.16.1]: https://github.com/Incubus-Network/fury/compare/v0.16.0...v0.16.1
-[v0.16.0]: https://github.com/Incubus-Network/fury/compare/v0.15.2...v0.16.0
-[v0.13.0]: https://github.com/Incubus-Network/fury/compare/v0.12.4...v0.13.0
-[v0.12.0]: https://github.com/Incubus-Network/fury/compare/v0.11.1...v0.12.0
-[v0.11.0]: https://github.com/Incubus-Network/fury/compare/v0.10.0...v0.11.0
-[v0.8.1]: https://github.com/Incubus-Network/fury/compare/v0.8.0...v0.8.1
-[v0.8.0]: https://github.com/Incubus-Network/fury/compare/v0.7.0...v0.8.0
-[v0.3.5]: https://github.com/Incubus-Network/fury/compare/v0.3.4...v0.3.5
-[v0.3.2]: https://github.com/Incubus-Network/fury/compare/v0.3.1...v0.3.2
-[v0.3.1]: https://github.com/Incubus-Network/fury/compare/v0.3.0...v0.3.1
-[v0.3.0]: https://github.com/Incubus-Network/fury/compare/v0.2.0...v0.3.0
+[#1624]: https://github.com/Rotosports/fury/pull/1624
+[#1622]: https://github.com/Rotosports/fury/pull/1622
+[#1614]: https://github.com/Rotosports/fury/pull/1614
+[#1610]: https://github.com/Rotosports/fury/pull/1610
+[#1609]: https://github.com/Rotosports/fury/pull/1609
+[#1605]: https://github.com/Rotosports/fury/pull/1605
+[#1604]: https://github.com/Rotosports/fury/pull/1604
+[#1603]: https://github.com/Rotosports/fury/pull/1603
+[#1598]: https://github.com/Rotosports/fury/pull/1598
+[#1596]: https://github.com/Rotosports/fury/pull/1596
+[#1591]: https://github.com/Rotosports/fury/pull/1591
+[#1590]: https://github.com/Rotosports/fury/pull/1590
+[#1568]: https://github.com/Rotosports/fury/pull/1568
+[#1567]: https://github.com/Rotosports/fury/pull/1567
+[#1566]: https://github.com/Rotosports/fury/pull/1566
+[#1565]: https://github.com/Rotosports/fury/pull/1565
+[#1563]: https://github.com/Rotosports/fury/pull/1563
+[#1562]: https://github.com/Rotosports/fury/pull/1562
+[#1550]: https://github.com/Rotosports/fury/pull/1550
+[#1544]: https://github.com/Rotosports/fury/pull/1544
+[#1477]: https://github.com/Rotosports/fury/pull/1477
+[#1512]: https://github.com/Rotosports/fury/pull/1512
+[#1519]: https://github.com/Rotosports/fury/pull/1519
+[#1106]: https://github.com/Rotosports/fury/pull/1106
+[#1152]: https://github.com/Rotosports/fury/pull/1152
+[#1542]: https://github.com/Rotosports/fury/pull/1542
+[#253]: https://github.com/Rotosports/fury/pull/253
+[#260]: https://github.com/Rotosports/fury/pull/260
+[#266]: https://github.com/Rotosports/fury/pull/266
+[#364]: https://github.com/Rotosports/fury/pull/364
+[#590]: https://github.com/Rotosports/fury/pull/590
+[#591]: https://github.com/Rotosports/fury/pull/591
+[#596]: https://github.com/Rotosports/fury/pull/596
+[#598]: https://github.com/Rotosports/fury/pull/598
+[#625]: https://github.com/Rotosports/fury/pull/625
+[#701]: https://github.com/Rotosports/fury/pull/701
+[#750]: https://github.com/Rotosports/fury/pull/750
+[#751]: https://github.com/Rotosports/fury/pull/751
+[#780]: https://github.com/Rotosports/fury/pull/780
+[unreleased]: https://github.com/Rotosports/fury/compare/v0.23.2...HEAD
+[v0.23.2]: https://github.com/Rotosports/fury/compare/v0.23.1...v0.23.2
+[v0.23.1]: https://github.com/Rotosports/fury/compare/v0.23.0...v0.23.1
+[v0.23.0]: https://github.com/Rotosports/fury/compare/v0.21.1...v0.23.0
+[v0.16.1]: https://github.com/Rotosports/fury/compare/v0.16.0...v0.16.1
+[v0.16.0]: https://github.com/Rotosports/fury/compare/v0.15.2...v0.16.0
+[v0.13.0]: https://github.com/Rotosports/fury/compare/v0.12.4...v0.13.0
+[v0.12.0]: https://github.com/Rotosports/fury/compare/v0.11.1...v0.12.0
+[v0.11.0]: https://github.com/Rotosports/fury/compare/v0.10.0...v0.11.0
+[v0.8.1]: https://github.com/Rotosports/fury/compare/v0.8.0...v0.8.1
+[v0.8.0]: https://github.com/Rotosports/fury/compare/v0.7.0...v0.8.0
+[v0.3.5]: https://github.com/Rotosports/fury/compare/v0.3.4...v0.3.5
+[v0.3.2]: https://github.com/Rotosports/fury/compare/v0.3.1...v0.3.2
+[v0.3.1]: https://github.com/Rotosports/fury/compare/v0.3.0...v0.3.1
+[v0.3.0]: https://github.com/Rotosports/fury/compare/v0.2.0...v0.3.0

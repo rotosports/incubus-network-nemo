@@ -6,7 +6,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/incentive/types"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 // AccumulateSwapRewards calculates new rewards to distribute this block and updates the global indexes to reflect this.

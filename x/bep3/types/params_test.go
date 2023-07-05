@@ -9,8 +9,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/bep3/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/bep3/types"
 )
 
 type ParamsTestSuite struct {

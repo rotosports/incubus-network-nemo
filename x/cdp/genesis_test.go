@@ -15,10 +15,10 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/cdp"
-	"github.com/incubus-network/fury/x/cdp/keeper"
-	"github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/cdp"
+	"github.com/rotosports/fury/x/cdp/keeper"
+	"github.com/rotosports/fury/x/cdp/types"
 )
 
 type GenesisTestSuite struct {

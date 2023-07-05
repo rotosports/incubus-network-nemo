@@ -10,9 +10,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/furydist"
-	testutil "github.com/incubus-network/fury/x/furydist/testutil"
-	"github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/x/furydist"
+	testutil "github.com/rotosports/fury/x/furydist/testutil"
+	"github.com/rotosports/fury/x/furydist/types"
 )
 
 type genesisTestSuite struct {

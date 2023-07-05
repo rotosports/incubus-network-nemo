@@ -13,8 +13,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 	"github.com/cosmos/cosmos-sdk/x/supply"
 
-	"github.com/incubus-network/fury/x/auction/types"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/x/auction/types"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
 )
 
 const (

@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/community/types"
+	"github.com/rotosports/fury/x/community/types"
 )
 
 // HandleCommunityPoolLendDepositProposal is a handler for executing a passed community pool lend deposit proposal.

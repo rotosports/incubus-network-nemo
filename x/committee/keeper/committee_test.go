@@ -10,8 +10,8 @@ package keeper_test
 // 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 // 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-// 	"github.com/incubus-network/fury/app"
-// 	"github.com/incubus-network/fury/x/committee/types"
+// 	"github.com/rotosports/fury/app"
+// 	"github.com/rotosports/fury/x/committee/types"
 // )
 
 // type TypesTestSuite struct {

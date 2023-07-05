@@ -7,7 +7,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/types/kv"
 
-	"github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/x/furydist/types"
 )
 
 // DecodeStore unmarshals the KVPair's Value to the corresponding cdp type

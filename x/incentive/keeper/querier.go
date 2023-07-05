@@ -11,9 +11,9 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	"github.com/incubus-network/fury/x/incentive/types"
-	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	"github.com/rotosports/fury/x/incentive/types"
+	liquidtypes "github.com/rotosports/fury/x/liquid/types"
 )
 
 const (

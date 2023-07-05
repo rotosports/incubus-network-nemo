@@ -13,9 +13,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/fury/x/auction/keeper"
-	"github.com/incubus-network/fury/x/auction/testutil"
-	"github.com/incubus-network/fury/x/auction/types"
+	"github.com/rotosports/fury/x/auction/keeper"
+	"github.com/rotosports/fury/x/auction/testutil"
+	"github.com/rotosports/fury/x/auction/types"
 )
 
 const (

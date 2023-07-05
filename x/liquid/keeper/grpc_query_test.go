@@ -10,9 +10,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/liquid/keeper"
-	"github.com/incubus-network/fury/x/liquid/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/liquid/keeper"
+	"github.com/rotosports/fury/x/liquid/types"
 )
 
 type grpcQueryTestSuite struct {

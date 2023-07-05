@@ -13,8 +13,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/version"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 
-	"github.com/incubus-network/fury/x/community/client/utils"
-	"github.com/incubus-network/fury/x/community/types"
+	"github.com/rotosports/fury/x/community/client/utils"
+	"github.com/rotosports/fury/x/community/types"
 )
 
 const (

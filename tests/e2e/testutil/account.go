@@ -24,8 +24,8 @@ import (
 	emtypes "github.com/evmos/ethermint/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/tests/util"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/tests/util"
 )
 
 // SigningAccount wraps details about an account and its private keys.

@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/x/earn/types"
 )
 
 // Deposit adds the provided amount from a depositor to a vault. The vault is

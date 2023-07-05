@@ -9,8 +9,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/fury/x/community/keeper"
-	"github.com/incubus-network/fury/x/community/types"
+	"github.com/rotosports/fury/x/community/keeper"
+	"github.com/rotosports/fury/x/community/types"
 )
 
 type grpcQueryTestSuite struct {

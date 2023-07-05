@@ -15,7 +15,7 @@ import (
 
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/x/pricefeed/types"
 )
 
 // GetTxCmd returns the transaction commands for this module

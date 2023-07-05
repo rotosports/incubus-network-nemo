@@ -6,8 +6,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/community/keeper"
-	"github.com/incubus-network/fury/x/community/types"
+	"github.com/rotosports/fury/x/community/keeper"
+	"github.com/rotosports/fury/x/community/types"
 )
 
 // InitGenesis initializes the community module account

@@ -12,7 +12,7 @@ package simulation
 // 	"github.com/cosmos/cosmos-sdk/x/supply"
 // 	supplyexported "github.com/cosmos/cosmos-sdk/x/supply/exported"
 
-// 	"github.com/incubus-network/fury/x/cdp/types"
+// 	"github.com/rotosports/fury/x/cdp/types"
 // )
 
 // // RandomizedGenState generates a random GenesisState for cdp

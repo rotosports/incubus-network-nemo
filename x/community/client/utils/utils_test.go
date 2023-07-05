@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/testutil"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/community/client/utils"
+	"github.com/rotosports/fury/x/community/client/utils"
 )
 
 func TestParseDepositProposal(t *testing.T) {

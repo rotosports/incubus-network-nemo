@@ -12,8 +12,8 @@ import (
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	proposaltypes "github.com/cosmos/cosmos-sdk/x/params/types/proposal"
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
-	communitytypes "github.com/incubus-network/fury/x/community/types"
-	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
+	communitytypes "github.com/rotosports/fury/x/community/types"
+	furydisttypes "github.com/rotosports/fury/x/furydist/types"
 )
 
 var (

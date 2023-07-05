@@ -5,7 +5,7 @@ import "cosmos/base/v1beta1/coin.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/incubus-network/fury/x/community/types";
+option go_package = "github.com/rotosports/fury/x/community/types";
 option (gogoproto.equal_all) = true;
 
 // Msg defines the community Msg service.

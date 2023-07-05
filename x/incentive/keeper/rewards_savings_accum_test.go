@@ -8,13 +8,13 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	savingskeeper "github.com/incubus-network/fury/x/savings/keeper"
-	savingstypes "github.com/incubus-network/fury/x/savings/types"
+	savingskeeper "github.com/rotosports/fury/x/savings/keeper"
+	savingstypes "github.com/rotosports/fury/x/savings/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/incentive/keeper"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	"github.com/incubus-network/fury/x/incentive/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 // Test suite used for all keeper tests

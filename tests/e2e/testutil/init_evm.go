@@ -7,9 +7,9 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/incubus-network/fury/tests/e2e/contracts/greeter"
-	"github.com/incubus-network/fury/x/earn/types"
-	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/tests/e2e/contracts/greeter"
+	"github.com/rotosports/fury/x/earn/types"
+	evmutiltypes "github.com/rotosports/fury/x/evmutil/types"
 )
 
 // InitFuryEvmData is run after the chain is running, but before the tests are run.

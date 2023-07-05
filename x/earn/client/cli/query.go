@@ -10,7 +10,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/x/earn/types"
 )
 
 // flags for cli queries

@@ -14,7 +14,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 // GetTxCmd returns the transaction commands for this module

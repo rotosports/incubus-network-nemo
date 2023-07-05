@@ -9,7 +9,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/incubus-network/fury/x/validator-vesting/types"
+	"github.com/rotosports/fury/x/validator-vesting/types"
 
 	abci "github.com/tendermint/tendermint/abci/types"
 )

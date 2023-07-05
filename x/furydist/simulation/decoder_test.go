@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/x/furydist/types"
 
 	"github.com/cosmos/cosmos-sdk/types/kv"
 )

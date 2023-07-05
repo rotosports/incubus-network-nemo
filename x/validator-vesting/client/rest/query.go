@@ -8,9 +8,9 @@ import (
 	"github.com/gorilla/mux"
 
 	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/incubus-network/fury/client/rest"
+	"github.com/rotosports/fury/client/rest"
 
-	"github.com/incubus-network/fury/x/validator-vesting/types"
+	"github.com/rotosports/fury/x/validator-vesting/types"
 )
 
 func registerQueryRoutes(cliCtx client.Context, r *mux.Router) {

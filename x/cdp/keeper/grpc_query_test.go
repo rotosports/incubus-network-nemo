@@ -7,9 +7,9 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/cdp/keeper"
-	"github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/cdp/keeper"
+	"github.com/rotosports/fury/x/cdp/types"
 	"github.com/stretchr/testify/suite"
 	tmprototypes "github.com/tendermint/tendermint/proto/tendermint/types"
 )

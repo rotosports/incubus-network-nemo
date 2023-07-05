@@ -5,7 +5,7 @@ import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 import "fury/earn/v1beta1/strategy.proto";
 
-option go_package = "github.com/incubus-network/fury/x/earn/types";
+option go_package = "github.com/rotosports/fury/x/earn/types";
 
 // AllowedVault is a vault that is allowed to be created. These can be
 // modified via parameter governance.

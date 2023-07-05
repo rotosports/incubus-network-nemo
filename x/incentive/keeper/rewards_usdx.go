@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	"github.com/incubus-network/fury/x/incentive/types"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 // AccumulateUSDXMintingRewards calculates new rewards to distribute this block and updates the global indexes to reflect this.

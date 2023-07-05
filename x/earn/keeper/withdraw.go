@@ -6,7 +6,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/x/earn/types"
 )
 
 // Withdraw removes the amount of supplied tokens from a vault and transfers it

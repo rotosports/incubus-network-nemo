@@ -4,8 +4,8 @@ package keeper_test
 // 	sdk "github.com/cosmos/cosmos-sdk/types"
 // 	abci "github.com/tendermint/tendermint/abci/types"
 
-// 	"github.com/incubus-network/fury/x/furydist/keeper"
-// 	"github.com/incubus-network/fury/x/furydist/types"
+// 	"github.com/rotosports/fury/x/furydist/keeper"
+// 	"github.com/rotosports/fury/x/furydist/types"
 // )
 
 // func (suite *KeeperTestSuite) TestQuerierGetParams() {

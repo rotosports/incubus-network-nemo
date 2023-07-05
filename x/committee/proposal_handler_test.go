@@ -12,11 +12,11 @@ import (
 
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/committee"
-	"github.com/incubus-network/fury/x/committee/keeper"
-	"github.com/incubus-network/fury/x/committee/testutil"
-	"github.com/incubus-network/fury/x/committee/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/committee"
+	"github.com/rotosports/fury/x/committee/keeper"
+	"github.com/rotosports/fury/x/committee/testutil"
+	"github.com/rotosports/fury/x/committee/types"
 )
 
 var testTime time.Time = time.Date(1998, time.January, 1, 0, 0, 0, 0, time.UTC)

@@ -7,8 +7,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	"github.com/incubus-network/fury/x/incentive/types"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 // usdxRewardsUnitTester contains common methods for running unit tests for keeper methods related to the USDX minting rewards

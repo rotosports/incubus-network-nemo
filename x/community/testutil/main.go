@@ -7,9 +7,9 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/community/keeper"
-	"github.com/incubus-network/fury/x/community/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/community/keeper"
+	"github.com/rotosports/fury/x/community/types"
 )
 
 // Test suite used for all community tests

@@ -5,9 +5,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/incubus-network/fury/x/swap/keeper"
-	"github.com/incubus-network/fury/x/swap/testutil"
-	"github.com/incubus-network/fury/x/swap/types"
+	"github.com/rotosports/fury/x/swap/keeper"
+	"github.com/rotosports/fury/x/swap/testutil"
+	"github.com/rotosports/fury/x/swap/types"
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"

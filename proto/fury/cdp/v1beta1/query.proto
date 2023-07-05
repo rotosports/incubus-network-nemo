@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "fury/cdp/v1beta1/cdp.proto";
 import "fury/cdp/v1beta1/genesis.proto";
 
-option go_package = "github.com/incubus-network/fury/x/cdp/types";
+option go_package = "github.com/rotosports/fury/x/cdp/types";
 
 // Query defines the gRPC querier service for cdp module
 service Query {

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/incubus-network/fury/x/router/types"
+	"github.com/rotosports/fury/x/router/types"
 )
 
 // Keeper is the keeper for the module

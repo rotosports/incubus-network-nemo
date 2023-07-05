@@ -8,7 +8,7 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "fury/savings/v1beta1/store.proto";
 
-option go_package = "github.com/incubus-network/fury/x/savings/types";
+option go_package = "github.com/rotosports/fury/x/savings/types";
 
 // Query defines the gRPC querier service for savings module
 service Query {

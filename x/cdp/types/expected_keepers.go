@@ -8,7 +8,7 @@ import (
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-	pftypes "github.com/incubus-network/fury/x/pricefeed/types"
+	pftypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 // BankKeeper defines the expected bank keeper for module accounts

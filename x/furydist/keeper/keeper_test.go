@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/fury/x/furydist/testutil"
+	"github.com/rotosports/fury/x/furydist/testutil"
 )
 
 type keeperTestSuite struct {

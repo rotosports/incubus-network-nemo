@@ -10,7 +10,7 @@ package simulation
 // 	"github.com/cosmos/cosmos-sdk/codec"
 // 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-// 	"github.com/incubus-network/fury/x/cdp/types"
+// 	"github.com/rotosports/fury/x/cdp/types"
 // )
 
 // // DecodeStore unmarshals the KVPair's Value to the corresponding cdp type

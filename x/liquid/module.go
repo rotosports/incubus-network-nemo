@@ -15,9 +15,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/fury/x/liquid/client/cli"
-	"github.com/incubus-network/fury/x/liquid/keeper"
-	"github.com/incubus-network/fury/x/liquid/types"
+	"github.com/rotosports/fury/x/liquid/client/cli"
+	"github.com/rotosports/fury/x/liquid/keeper"
+	"github.com/rotosports/fury/x/liquid/types"
 )
 
 var (

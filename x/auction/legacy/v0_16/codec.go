@@ -2,7 +2,7 @@ package types
 
 import (
 	types "github.com/cosmos/cosmos-sdk/codec/types"
-	v017auction "github.com/incubus-network/fury/x/auction/types"
+	v017auction "github.com/rotosports/fury/x/auction/types"
 )
 
 func RegisterInterfaces(registry types.InterfaceRegistry) {

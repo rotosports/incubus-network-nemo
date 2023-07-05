@@ -7,7 +7,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/swap/types"
+	"github.com/rotosports/fury/x/swap/types"
 )
 
 // Withdraw removes liquidity from an existing pool from an owners deposit, converting the provided shares for

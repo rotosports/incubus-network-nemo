@@ -24,4 +24,4 @@ Several user interfaces support Fury BEP3 swaps:
 - [Cosmostation](https://wallet.cosmostation.io/?network=fury)
 - [Frontier Wallet](https://frontierwallet.com/)
 
-Swaps can also be created, claimed, and refunded using Fury's [Javascript SDK](https://github.com/Incubus-Network/javascript-sdk) or CLI.
+Swaps can also be created, claimed, and refunded using Fury's [Javascript SDK](https://github.com/Rotosports/javascript-sdk) or CLI.

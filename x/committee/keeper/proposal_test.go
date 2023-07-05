@@ -10,13 +10,13 @@ import (
 
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	// bep3types "github.com/incubus-network/fury/x/bep3/types"
-	// cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/app"
+	// bep3types "github.com/rotosports/fury/x/bep3/types"
+	// cdptypes "github.com/rotosports/fury/x/cdp/types"
 
-	"github.com/incubus-network/fury/x/committee/testutil"
-	"github.com/incubus-network/fury/x/committee/types"
-	// "github.com/incubus-network/fury/x/pricefeed"
+	"github.com/rotosports/fury/x/committee/testutil"
+	"github.com/rotosports/fury/x/committee/types"
+	// "github.com/rotosports/fury/x/pricefeed"
 )
 
 // func newCDPGenesisState(params cdptypes.Params) app.GenesisState {

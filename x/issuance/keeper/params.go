@@ -4,7 +4,7 @@ import (
 	errorsmod "cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/issuance/types"
+	"github.com/rotosports/fury/x/issuance/types"
 )
 
 // GetParams returns the params from the store

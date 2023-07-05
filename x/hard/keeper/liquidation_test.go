@@ -9,11 +9,11 @@ import (
 	"github.com/tendermint/tendermint/crypto"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	auctiontypes "github.com/incubus-network/fury/x/auction/types"
-	"github.com/incubus-network/fury/x/hard"
-	"github.com/incubus-network/fury/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	auctiontypes "github.com/rotosports/fury/x/auction/types"
+	"github.com/rotosports/fury/x/hard"
+	"github.com/rotosports/fury/x/hard/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 func (suite *KeeperTestSuite) TestKeeperLiquidation() {

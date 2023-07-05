@@ -3,9 +3,9 @@ package types_test
 import (
 	"testing"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/evmutil/testutil"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/evmutil/testutil"
+	"github.com/rotosports/fury/x/evmutil/types"
 	"github.com/stretchr/testify/require"
 
 	sdkmath "cosmossdk.io/math"

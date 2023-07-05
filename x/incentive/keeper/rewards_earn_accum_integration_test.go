@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/suite"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/fury/app"
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	"github.com/incubus-network/fury/x/incentive/types"
+	"github.com/rotosports/fury/app"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 type AccumulateEarnRewardsIntegrationTests struct {

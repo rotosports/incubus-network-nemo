@@ -6,8 +6,8 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/incubus-network/fury/x/community"
-	"github.com/incubus-network/fury/x/community/testutil"
+	"github.com/rotosports/fury/x/community"
+	"github.com/rotosports/fury/x/community/testutil"
 )
 
 type genesisTestSuite struct {

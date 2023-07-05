@@ -8,10 +8,10 @@ import (
 	govv1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	earnkeeper "github.com/incubus-network/fury/x/earn/keeper"
-	liquidkeeper "github.com/incubus-network/fury/x/liquid/keeper"
-	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
-	savingskeeper "github.com/incubus-network/fury/x/savings/keeper"
+	earnkeeper "github.com/rotosports/fury/x/earn/keeper"
+	liquidkeeper "github.com/rotosports/fury/x/liquid/keeper"
+	liquidtypes "github.com/rotosports/fury/x/liquid/types"
+	savingskeeper "github.com/rotosports/fury/x/savings/keeper"
 )
 
 var _ govv1.TallyHandler = TallyHandler{}

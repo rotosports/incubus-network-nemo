@@ -5,7 +5,7 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/fury/x/committee/keeper"
+	"github.com/rotosports/fury/x/committee/keeper"
 )
 
 // BeginBlocker runs at the start of every block.

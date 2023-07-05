@@ -8,7 +8,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/x/pricefeed/types"
 )
 
 // NewQuerier is the module level router for state queries

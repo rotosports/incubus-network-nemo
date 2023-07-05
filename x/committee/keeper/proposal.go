@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/incubus-network/fury/x/committee/types"
+	"github.com/rotosports/fury/x/committee/types"
 )
 
 // SubmitProposal adds a proposal to a committee so that it can be voted on.

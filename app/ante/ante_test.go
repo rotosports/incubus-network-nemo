@@ -21,9 +21,9 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	tmdb "github.com/tendermint/tm-db"
 
-	"github.com/incubus-network/fury/app"
-	bep3types "github.com/incubus-network/fury/x/bep3/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	bep3types "github.com/rotosports/fury/x/bep3/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 func TestMain(m *testing.M) {

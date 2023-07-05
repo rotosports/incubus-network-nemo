@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/keeper"
 )
 
 // BeginBlocker runs at the start of every block

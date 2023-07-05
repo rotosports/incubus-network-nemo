@@ -10,12 +10,12 @@ import (
 	txtypes "github.com/cosmos/cosmos-sdk/types/tx"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/incubus-network/fury/app"
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/app"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	evmutiltypes "github.com/rotosports/fury/x/evmutil/types"
 
-	"github.com/incubus-network/fury/tests/e2e/contracts/greeter"
-	"github.com/incubus-network/fury/tests/util"
+	"github.com/rotosports/fury/tests/e2e/contracts/greeter"
+	"github.com/rotosports/fury/tests/util"
 )
 
 func (suite *IntegrationTestSuite) TestEthCallToGreeterContract() {

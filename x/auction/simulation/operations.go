@@ -15,9 +15,9 @@ import (
 	authexported "github.com/cosmos/cosmos-sdk/x/auth/exported"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-	appparams "github.com/incubus-network/fury/app/params"
-	"github.com/incubus-network/fury/x/auction/keeper"
-	"github.com/incubus-network/fury/x/auction/types"
+	appparams "github.com/rotosports/fury/app/params"
+	"github.com/rotosports/fury/x/auction/keeper"
+	"github.com/rotosports/fury/x/auction/types"
 )
 
 var (

@@ -18,10 +18,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 
-	"github.com/incubus-network/fury/x/furydist/client/cli"
-	"github.com/incubus-network/fury/x/furydist/keeper"
-	"github.com/incubus-network/fury/x/furydist/simulation"
-	"github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/x/furydist/client/cli"
+	"github.com/rotosports/fury/x/furydist/keeper"
+	"github.com/rotosports/fury/x/furydist/simulation"
+	"github.com/rotosports/fury/x/furydist/types"
 )
 
 var (

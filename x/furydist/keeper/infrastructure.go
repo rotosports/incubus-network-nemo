@@ -7,7 +7,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/x/furydist/types"
 )
 
 func (k Keeper) mintInfrastructurePeriods(ctx sdk.Context, periods types.Periods, previousBlockTime time.Time) (sdk.Coin, sdkmath.Int, error) {

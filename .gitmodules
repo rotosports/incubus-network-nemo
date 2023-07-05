@@ -1,6 +1,6 @@
 [submodule "tests/e2e/futool"]
 	path = tests/e2e/futool
-	url = https://github.com/incubus-network/futool
+	url = https://github.com/rotosports/futool
 [submodule "futool"]
 	path = futool
 	url = https://github.com/fanfury-sports/futool.git

@@ -3,8 +3,8 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/earn/types"
-	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/x/earn/types"
+	furydisttypes "github.com/rotosports/fury/x/furydist/types"
 )
 
 // HandleCommunityPoolDepositProposal is a handler for executing a passed community pool deposit proposal

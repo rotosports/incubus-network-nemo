@@ -9,8 +9,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	"github.com/incubus-network/fury/x/incentive/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	"github.com/rotosports/fury/x/incentive/types"
 
 	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
 )

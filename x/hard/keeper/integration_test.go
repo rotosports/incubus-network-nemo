@@ -7,9 +7,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/hard/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 func NewHARDGenState(cdc codec.JSONCodec) app.GenesisState {

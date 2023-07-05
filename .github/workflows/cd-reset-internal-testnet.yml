@@ -47,7 +47,7 @@ jobs:
       - name: checkout infrastructure repo
         uses: actions/checkout@v3
         with:
-          repository: Incubus-Network/infrastructure
+          repository: Rotosports/infrastructure
           token: ${{ secrets.FURY_PRIVATE_GITHUB_ACCESS_TOKEN }}
           path: infrastructure
           ref: master

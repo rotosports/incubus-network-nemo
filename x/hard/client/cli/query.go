@@ -11,7 +11,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/fury/x/hard/types"
+	"github.com/rotosports/fury/x/hard/types"
 )
 
 // flags for cli queries

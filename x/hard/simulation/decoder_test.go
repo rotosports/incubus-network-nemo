@@ -11,7 +11,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/hard/types"
+	"github.com/rotosports/fury/x/hard/types"
 )
 
 func makeTestCodec() (cdc *codec.Codec) {

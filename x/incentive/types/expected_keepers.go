@@ -7,11 +7,11 @@ import (
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	hardtypes "github.com/incubus-network/fury/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
-	savingstypes "github.com/incubus-network/fury/x/savings/types"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	hardtypes "github.com/rotosports/fury/x/hard/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
+	savingstypes "github.com/rotosports/fury/x/savings/types"
 )
 
 // ParamSubspace defines the expected Subspace interfacace

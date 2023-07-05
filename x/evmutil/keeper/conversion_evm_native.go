@@ -7,7 +7,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 // MintConversionPairCoin mints the given amount of a ConversionPair denom and

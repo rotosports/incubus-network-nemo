@@ -13,7 +13,7 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/fury/x/router/types"
+	"github.com/rotosports/fury/x/router/types"
 )
 
 // GetTxCmd returns the transaction commands for this module

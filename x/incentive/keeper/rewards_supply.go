@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	hardtypes "github.com/incubus-network/fury/x/hard/types"
-	"github.com/incubus-network/fury/x/incentive/types"
+	hardtypes "github.com/rotosports/fury/x/hard/types"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 // AccumulateHardSupplyRewards calculates new rewards to distribute this block and updates the global indexes to reflect this.

@@ -14,8 +14,8 @@ import (
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 	"github.com/stretchr/testify/require"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/app/ante"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/app/ante"
 )
 
 func newMsgGrant(granter sdk.AccAddress, grantee sdk.AccAddress, a authz.Authorization, expiration time.Time) *authz.MsgGrant {

@@ -14,10 +14,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	"github.com/incubus-network/fury/app"
-	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
-	"github.com/incubus-network/fury/x/savings/keeper"
-	"github.com/incubus-network/fury/x/savings/types"
+	"github.com/rotosports/fury/app"
+	liquidtypes "github.com/rotosports/fury/x/liquid/types"
+	"github.com/rotosports/fury/x/savings/keeper"
+	"github.com/rotosports/fury/x/savings/types"
 )
 
 var dep = types.NewDeposit

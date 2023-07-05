@@ -4,11 +4,11 @@
 
 <div align="center">
 
-[![version](https://img.shields.io/github/tag/incubus-network/fury.svg)](https://github.com/incubus-network/fury/releases/latest)
-[![CircleCI](https://circleci.com/gh/Incubus-Network/fury/tree/master.svg?style=shield)](https://circleci.com/gh/Incubus-Network/fury/tree/master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/incubus-network/fury)](https://goreportcard.com/report/github.com/incubus-network/fury)
-[![API Reference](https://godoc.org/github.com/Incubus-Network/fury?status.svg)](https://godoc.org/github.com/Incubus-Network/fury)
-[![GitHub](https://img.shields.io/github/license/incubus-network/fury.svg)](https://github.com/Incubus-Network/fury/blob/master/LICENSE.md)
+[![version](https://img.shields.io/github/tag/rotosports/fury.svg)](https://github.com/rotosports/fury/releases/latest)
+[![CircleCI](https://circleci.com/gh/Rotosports/fury/tree/master.svg?style=shield)](https://circleci.com/gh/Rotosports/fury/tree/master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rotosports/fury)](https://goreportcard.com/report/github.com/rotosports/fury)
+[![API Reference](https://godoc.org/github.com/Rotosports/fury?status.svg)](https://godoc.org/github.com/Rotosports/fury)
+[![GitHub](https://img.shields.io/github/license/rotosports/fury.svg)](https://github.com/Rotosports/fury/blob/master/LICENSE.md)
 [![Twitter Follow](https://img.shields.io/twitter/follow/FURY_CHAIN.svg?label=Follow&style=social)](https://twitter.com/FURY_CHAIN)
 [![Discord Chat](https://img.shields.io/discord/704389840614981673.svg)](https://discord.com/invite/kQzh3Uv)
 
@@ -16,7 +16,7 @@
 
 <div align="center">
 
-### [Telegram](https://t.me/furylabs) | [Medium](https://medium.com/incubus-network) | [Discord](https://discord.gg/JJYnuCx)
+### [Telegram](https://t.me/furylabs) | [Medium](https://medium.com/rotosports) | [Discord](https://discord.gg/JJYnuCx)
 
 </div>
 
@@ -24,7 +24,7 @@ Reference implementation of Fury, a blockchain for cross-chain DeFi. Built using
 
 ## Mainnet
 
-The current recommended version of the software for mainnet is [v0.23.0](https://github.com/Incubus-Network/fury/releases/tag/v0.23.0). The master branch of this repository often contains considerable development work since the last mainnet release and is __not__ runnable on mainnet.
+The current recommended version of the software for mainnet is [v0.23.0](https://github.com/Rotosports/fury/releases/tag/v0.23.0). The master branch of this repository often contains considerable development work since the last mainnet release and is __not__ runnable on mainnet.
 
 ### Installation and Setup
 For detailed instructions see [the Fury docs](https://docs.fury.io/docs/participate/validator-node).
@@ -34,19 +34,19 @@ git checkout v0.23.0
 make install
 ```
 
-End-to-end tests of Fury use a tool for generating networks with different configurations: [futool](https://github.com/Incubus-Network/futool).
+End-to-end tests of Fury use a tool for generating networks with different configurations: [futool](https://github.com/Rotosports/futool).
 This is included as a git submodule at [`tests/e2e/futool`](tests/e2e/futool/).
 When first cloning the repository, if you intend to run the e2e integration tests, you must also
 clone the submodules:
 ```bash
-git clone --recurse-submodules https://github.com/Incubus-Network/fury.git
+git clone --recurse-submodules https://github.com/Rotosports/fury.git
 ```
 
 Or, if you have already cloned the repo: `git submodule update --init`
 
 ## Testnet
 
-For further information on joining the testnet, head over to the [testnet repo](https://github.com/Incubus-Network/fury-testnets).
+For further information on joining the testnet, head over to the [testnet repo](https://github.com/Rotosports/fury-testnets).
 
 ## Docs
 

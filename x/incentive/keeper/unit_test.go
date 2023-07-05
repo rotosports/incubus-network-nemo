@@ -13,19 +13,19 @@ import (
 	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 	"github.com/stretchr/testify/suite"
 	"github.com/tendermint/tendermint/libs/log"
 	db "github.com/tendermint/tm-db"
 
-	"github.com/incubus-network/fury/app"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	earntypes "github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/app"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
 	tmprototypes "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	hardtypes "github.com/incubus-network/fury/x/hard/types"
-	"github.com/incubus-network/fury/x/incentive/keeper"
-	"github.com/incubus-network/fury/x/incentive/types"
+	hardtypes "github.com/rotosports/fury/x/hard/types"
+	"github.com/rotosports/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 // NewTestContext sets up a basic context with an in-memory db

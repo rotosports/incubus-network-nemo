@@ -13,7 +13,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/version"
 
-	"github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/x/cdp/types"
 )
 
 // Query CDP flags

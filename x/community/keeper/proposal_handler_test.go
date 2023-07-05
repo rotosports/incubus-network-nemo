@@ -11,14 +11,14 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/app"
-	cdpkeeper "github.com/incubus-network/fury/x/cdp/keeper"
-	"github.com/incubus-network/fury/x/community/keeper"
-	"github.com/incubus-network/fury/x/community/testutil"
-	"github.com/incubus-network/fury/x/community/types"
-	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
-	hardtypes "github.com/incubus-network/fury/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	cdpkeeper "github.com/rotosports/fury/x/cdp/keeper"
+	"github.com/rotosports/fury/x/community/keeper"
+	"github.com/rotosports/fury/x/community/testutil"
+	"github.com/rotosports/fury/x/community/types"
+	hardkeeper "github.com/rotosports/fury/x/hard/keeper"
+	hardtypes "github.com/rotosports/fury/x/hard/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 const chainID = "furytest_2221-1"

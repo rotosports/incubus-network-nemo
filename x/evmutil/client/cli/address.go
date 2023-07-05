@@ -7,7 +7,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 // ParseAddrFromHexOrBech32 parses a string address that can be either a hex or

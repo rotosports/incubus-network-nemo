@@ -20,9 +20,9 @@ import (
 	tmcfg "github.com/tendermint/tendermint/config"
 	tmcli "github.com/tendermint/tendermint/libs/cli"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/app/params"
-	furyclient "github.com/incubus-network/fury/client"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/app/params"
+	furyclient "github.com/rotosports/fury/client"
 )
 
 // EnvPrefix is the prefix environment variables must have to configure the app.

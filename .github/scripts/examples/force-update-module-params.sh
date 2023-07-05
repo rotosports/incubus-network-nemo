@@ -39,7 +39,7 @@ fury config broadcast-mode block
 echo "${FURY_TESTNET_GOD_MFURYNIC}" | fury keys add --recover god
 
 # create template string for the proposal we want to enact
-# https://incubus-network.atlassian.net/wiki/spaces/ENG/pages/1228537857/Submitting+Governance+Proposals+WIP
+# https://rotosports.atlassian.net/wiki/spaces/ENG/pages/1228537857/Submitting+Governance+Proposals+WIP
 PARAM_CHANGE_PROP_TEMPLATE=$(cat <<'END_HEREDOC'
 {
     "@type": "/cosmos.params.v1beta1.ParameterChangeProposal",
@@ -80,7 +80,7 @@ printf "original evm util module params\n %s" , "$originalEvmUtilParams"
 # change the params of the chain like a god - make it so 🖖🏽
 # make sure to update god committee member permissions for the module
 # and params being updated (see below for example)
-# https://github.com/Incubus-Network/fury/pull/1556/files#diff-0bd6043650c708661f37bbe6fa5b29b52149e0ec0069103c3954168fc9f12612R900-R903
+# https://github.com/Rotosports/fury/pull/1556/files#diff-0bd6043650c708661f37bbe6fa5b29b52149e0ec0069103c3954168fc9f12612R900-R903
 fury tx committee submit-proposal 1 "$proposalFileName" --gas 2000000 --gas-prices 0.01ufury --from god -y
 
 # fetch current module params

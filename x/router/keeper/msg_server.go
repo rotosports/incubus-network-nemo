@@ -9,8 +9,8 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	"github.com/incubus-network/fury/x/router/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	"github.com/rotosports/fury/x/router/types"
 )
 
 type msgServer struct {

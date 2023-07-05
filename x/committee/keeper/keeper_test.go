@@ -7,8 +7,8 @@ import (
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/fury/x/committee/testutil"
-	"github.com/incubus-network/fury/x/committee/types"
+	"github.com/rotosports/fury/x/committee/testutil"
+	"github.com/rotosports/fury/x/committee/types"
 )
 
 type keeperTestSuite struct {

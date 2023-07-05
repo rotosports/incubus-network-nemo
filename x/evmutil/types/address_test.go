@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/incubus-network/fury/x/evmutil/testutil"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/x/evmutil/testutil"
+	"github.com/rotosports/fury/x/evmutil/types"
 	"github.com/stretchr/testify/require"
 )
 

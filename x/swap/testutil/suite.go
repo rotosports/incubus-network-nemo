@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/swap/keeper"
-	"github.com/incubus-network/fury/x/swap/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/swap/keeper"
+	"github.com/rotosports/fury/x/swap/types"
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"

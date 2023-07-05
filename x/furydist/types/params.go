@@ -8,7 +8,7 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
 	tmtime "github.com/tendermint/tendermint/types/time"
-	// cdptypes "github.com/incubus-network/fury/x/cdp/types"
+	// cdptypes "github.com/rotosports/fury/x/cdp/types"
 )
 
 // Parameter keys and default values

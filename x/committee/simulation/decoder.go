@@ -8,7 +8,7 @@ import (
 
 	"github.com/tendermint/tendermint/libs/kv"
 
-	"github.com/incubus-network/fury/x/committee/types"
+	"github.com/rotosports/fury/x/committee/types"
 )
 
 // DecodeStore unmarshals the KVPair's Value to the corresponding module type

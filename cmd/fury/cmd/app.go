@@ -22,8 +22,8 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 	db "github.com/tendermint/tm-db"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/app/params"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/app/params"
 )
 
 const (

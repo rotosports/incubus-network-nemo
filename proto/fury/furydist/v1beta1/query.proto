@@ -6,7 +6,7 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "fury/furydist/v1beta1/params.proto";
 
-option go_package = "github.com/incubus-network/fury/x/furydist/types";
+option go_package = "github.com/rotosports/fury/x/furydist/types";
 
 // Query defines the gRPC querier service.
 service Query {

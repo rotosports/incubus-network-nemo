@@ -33,13 +33,13 @@ import (
 	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
 	"github.com/tendermint/tendermint/version"
 
-	"github.com/incubus-network/fury/app"
-	cdptypes "github.com/incubus-network/fury/x/cdp/types"
-	evmutilkeeper "github.com/incubus-network/fury/x/evmutil/keeper"
-	evmutiltestutil "github.com/incubus-network/fury/x/evmutil/testutil"
-	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
-	hardtypes "github.com/incubus-network/fury/x/hard/types"
-	pricefeedtypes "github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/app"
+	cdptypes "github.com/rotosports/fury/x/cdp/types"
+	evmutilkeeper "github.com/rotosports/fury/x/evmutil/keeper"
+	evmutiltestutil "github.com/rotosports/fury/x/evmutil/testutil"
+	evmutiltypes "github.com/rotosports/fury/x/evmutil/types"
+	hardtypes "github.com/rotosports/fury/x/hard/types"
+	pricefeedtypes "github.com/rotosports/fury/x/pricefeed/types"
 )
 
 const (

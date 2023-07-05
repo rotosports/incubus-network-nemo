@@ -7,10 +7,10 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	hardtypes "github.com/incubus-network/fury/x/hard/types"
-	"github.com/incubus-network/fury/x/incentive/types"
-	savingstypes "github.com/incubus-network/fury/x/savings/types"
+	"github.com/rotosports/fury/app"
+	hardtypes "github.com/rotosports/fury/x/hard/types"
+	"github.com/rotosports/fury/x/incentive/types"
+	savingstypes "github.com/rotosports/fury/x/savings/types"
 )
 
 const (

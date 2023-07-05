@@ -7,7 +7,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	"github.com/incubus-network/fury/x/auction/types"
+	"github.com/rotosports/fury/x/auction/types"
 )
 
 // RegisterInvariants registers all staking invariants

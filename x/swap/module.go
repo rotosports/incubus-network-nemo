@@ -13,9 +13,9 @@ import (
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/fury/x/swap/client/cli"
-	"github.com/incubus-network/fury/x/swap/keeper"
-	"github.com/incubus-network/fury/x/swap/types"
+	"github.com/rotosports/fury/x/swap/client/cli"
+	"github.com/rotosports/fury/x/swap/keeper"
+	"github.com/rotosports/fury/x/swap/types"
 )
 
 var (

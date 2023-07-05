@@ -11,10 +11,10 @@ import (
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/evmutil/keeper"
-	"github.com/incubus-network/fury/x/evmutil/testutil"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/evmutil/keeper"
+	"github.com/rotosports/fury/x/evmutil/testutil"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 type invariantTestSuite struct {

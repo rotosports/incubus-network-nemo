@@ -10,7 +10,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/incubus-network/fury/x/bep3/types"
+	"github.com/rotosports/fury/x/bep3/types"
 )
 
 // CreateAtomicSwap creates a new atomic swap.

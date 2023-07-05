@@ -17,8 +17,8 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	liquidtypes "github.com/rotosports/fury/x/liquid/types"
 )
 
 // d is an alias for sdk.MustNewDecFromStr

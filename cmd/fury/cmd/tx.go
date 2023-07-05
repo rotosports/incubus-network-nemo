@@ -6,7 +6,7 @@ import (
 	authcmd "github.com/cosmos/cosmos-sdk/x/auth/client/cli"
 	"github.com/spf13/cobra"
 
-	"github.com/incubus-network/fury/app"
+	"github.com/rotosports/fury/app"
 )
 
 // newTxCmd creates all commands for submitting blockchain transactions.

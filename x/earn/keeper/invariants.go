@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/x/earn/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

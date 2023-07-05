@@ -8,8 +8,8 @@ import (
 
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/auction/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/auction/types"
 )
 
 func SetGetDeleteAuction(t *testing.T) {

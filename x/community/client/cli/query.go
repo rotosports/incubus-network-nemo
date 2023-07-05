@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/incubus-network/fury/x/community/types"
+	"github.com/rotosports/fury/x/community/types"
 )
 
 // GetQueryCmd returns the cli query commands for the community module.

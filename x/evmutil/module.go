@@ -15,9 +15,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 
-	"github.com/incubus-network/fury/x/evmutil/client/cli"
-	"github.com/incubus-network/fury/x/evmutil/keeper"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/x/evmutil/client/cli"
+	"github.com/rotosports/fury/x/evmutil/keeper"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 // ConsensusVersion defines the current module consensus version.

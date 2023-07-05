@@ -7,8 +7,8 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/codec"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/committee/client/cli"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/committee/client/cli"
 )
 
 type CLITestSuite struct {

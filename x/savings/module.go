@@ -16,9 +16,9 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
-	"github.com/incubus-network/fury/x/savings/client/cli"
-	"github.com/incubus-network/fury/x/savings/keeper"
-	"github.com/incubus-network/fury/x/savings/types"
+	"github.com/rotosports/fury/x/savings/client/cli"
+	"github.com/rotosports/fury/x/savings/keeper"
+	"github.com/rotosports/fury/x/savings/types"
 )
 
 var (

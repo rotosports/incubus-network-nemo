@@ -12,9 +12,9 @@ import (
 
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	"github.com/incubus-network/fury/tests/e2e/testutil"
-	"github.com/incubus-network/fury/tests/util"
-	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/tests/e2e/testutil"
+	"github.com/rotosports/fury/tests/util"
+	evmutiltypes "github.com/rotosports/fury/x/evmutil/types"
 )
 
 const initialCosmosCoinConversionDenomFunds = int64(1e4)

@@ -10,8 +10,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/version"
-	"github.com/incubus-network/fury/x/committee/client/common"
-	"github.com/incubus-network/fury/x/committee/types"
+	"github.com/rotosports/fury/x/committee/client/common"
+	"github.com/rotosports/fury/x/committee/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

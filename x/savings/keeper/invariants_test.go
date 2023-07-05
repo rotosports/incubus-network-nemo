@@ -11,9 +11,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/savings/keeper"
-	"github.com/incubus-network/fury/x/savings/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/savings/keeper"
+	"github.com/rotosports/fury/x/savings/types"
 )
 
 type invariantTestSuite struct {

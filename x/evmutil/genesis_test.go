@@ -6,9 +6,9 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	sdkmath "cosmossdk.io/math"
-	"github.com/incubus-network/fury/x/evmutil"
-	"github.com/incubus-network/fury/x/evmutil/testutil"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/x/evmutil"
+	"github.com/rotosports/fury/x/evmutil/testutil"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 type genesisTestSuite struct {

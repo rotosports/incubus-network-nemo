@@ -6,10 +6,10 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/app"
-	auctiontypes "github.com/incubus-network/fury/x/auction/types"
-	"github.com/incubus-network/fury/x/cdp/keeper"
-	"github.com/incubus-network/fury/x/cdp/types"
+	"github.com/rotosports/fury/app"
+	auctiontypes "github.com/rotosports/fury/x/auction/types"
+	"github.com/rotosports/fury/x/cdp/keeper"
+	"github.com/rotosports/fury/x/cdp/types"
 
 	"github.com/stretchr/testify/suite"
 

@@ -3,7 +3,7 @@ package v0_16
 import (
 	"fmt"
 
-	"github.com/incubus-network/fury/x/bep3/types"
+	"github.com/rotosports/fury/x/bep3/types"
 )
 
 // resetSwapForZeroHeight updates swap expiry/close heights to work when the chain height is reset to zero.

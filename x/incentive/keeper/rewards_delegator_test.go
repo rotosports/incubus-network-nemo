@@ -14,10 +14,10 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/incentive/keeper"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	"github.com/incubus-network/fury/x/incentive/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	"github.com/rotosports/fury/x/incentive/types"
 )
 
 // Test suite used for all keeper tests

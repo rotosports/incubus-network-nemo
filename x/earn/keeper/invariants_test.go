@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"testing"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/earn/keeper"
-	"github.com/incubus-network/fury/x/earn/testutil"
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/earn/keeper"
+	"github.com/rotosports/fury/x/earn/testutil"
+	"github.com/rotosports/fury/x/earn/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"

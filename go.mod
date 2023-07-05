@@ -1,4 +1,4 @@
-module github.com/incubus-network/fury
+module github.com/rotosports/fury
 
 go 1.20
 

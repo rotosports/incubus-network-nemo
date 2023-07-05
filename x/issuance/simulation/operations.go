@@ -9,10 +9,10 @@ package simulation
 // 	"github.com/cosmos/cosmos-sdk/simapp/helpers"
 // 	sdk "github.com/cosmos/cosmos-sdk/types"
 // 	"github.com/cosmos/cosmos-sdk/x/simulation"
-// 	simappparams "github.com/incubus-network/fury/app/params"
+// 	simappparams "github.com/rotosports/fury/app/params"
 
-// 	"github.com/incubus-network/fury/x/issuance/keeper"
-// 	"github.com/incubus-network/fury/x/issuance/types"
+// 	"github.com/rotosports/fury/x/issuance/keeper"
+// 	"github.com/rotosports/fury/x/issuance/types"
 // )
 
 // // Simulation operation weights constants

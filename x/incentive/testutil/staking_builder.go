@@ -2,7 +2,7 @@ package testutil
 
 import (
 	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/incubus-network/fury/app"
+	"github.com/rotosports/fury/app"
 
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 )

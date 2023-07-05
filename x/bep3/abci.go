@@ -2,7 +2,7 @@ package bep3
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/fury/x/bep3/keeper"
+	"github.com/rotosports/fury/x/bep3/keeper"
 )
 
 // BeginBlocker on every block expires outdated atomic swaps and removes closed

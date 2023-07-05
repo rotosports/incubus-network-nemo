@@ -10,8 +10,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	v2evmutil "github.com/incubus-network/fury/x/evmutil/migrations/v2"
-	"github.com/incubus-network/fury/x/evmutil/types"
+	v2evmutil "github.com/rotosports/fury/x/evmutil/migrations/v2"
+	"github.com/rotosports/fury/x/evmutil/types"
 )
 
 func TestStoreMigrationAddsKeyTableIncludingNewParam(t *testing.T) {

@@ -9,10 +9,10 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	"github.com/incubus-network/fury/x/incentive/types"
-	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	"github.com/rotosports/fury/x/incentive/types"
+	furydisttypes "github.com/rotosports/fury/x/furydist/types"
 )
 
 const secondsPerDay = 24 * 60 * 60

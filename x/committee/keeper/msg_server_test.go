@@ -12,10 +12,10 @@ import (
 	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/committee/keeper"
-	"github.com/incubus-network/fury/x/committee/types"
-	swaptypes "github.com/incubus-network/fury/x/swap/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/committee/keeper"
+	"github.com/rotosports/fury/x/committee/types"
+	swaptypes "github.com/rotosports/fury/x/swap/types"
 )
 
 //NewDistributionGenesisWithPool creates a default distribution genesis state with some coins in the community pool.

@@ -28,7 +28,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/slashing"
 	"github.com/cosmos/cosmos-sdk/x/staking"
 
-	"github.com/incubus-network/fury/app"
+	"github.com/rotosports/fury/app"
 )
 
 const (

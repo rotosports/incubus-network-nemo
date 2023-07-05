@@ -12,10 +12,10 @@ import (
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/issuance"
-	"github.com/incubus-network/fury/x/issuance/keeper"
-	"github.com/incubus-network/fury/x/issuance/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/issuance"
+	"github.com/rotosports/fury/x/issuance/keeper"
+	"github.com/rotosports/fury/x/issuance/types"
 )
 
 // Test suite used for all keeper tests

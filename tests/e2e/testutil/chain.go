@@ -22,14 +22,14 @@ import (
 
 	evmtypes "github.com/evmos/ethermint/x/evm/types"
 
-	"github.com/incubus-network/fury/app"
-	furyparams "github.com/incubus-network/fury/app/params"
-	"github.com/incubus-network/fury/tests/e2e/runner"
-	"github.com/incubus-network/fury/tests/util"
-	committeetypes "github.com/incubus-network/fury/x/committee/types"
-	communitytypes "github.com/incubus-network/fury/x/community/types"
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	evmutiltypes "github.com/incubus-network/fury/x/evmutil/types"
+	"github.com/rotosports/fury/app"
+	furyparams "github.com/rotosports/fury/app/params"
+	"github.com/rotosports/fury/tests/e2e/runner"
+	"github.com/rotosports/fury/tests/util"
+	committeetypes "github.com/rotosports/fury/x/committee/types"
+	communitytypes "github.com/rotosports/fury/x/community/types"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	evmutiltypes "github.com/rotosports/fury/x/evmutil/types"
 )
 
 // Chain wraps query clients & accounts for a network

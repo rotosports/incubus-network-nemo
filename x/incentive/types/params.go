@@ -10,7 +10,7 @@ import (
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	furydistTypes "github.com/incubus-network/fury/x/furydist/types"
+	furydistTypes "github.com/rotosports/fury/x/furydist/types"
 )
 
 // Parameter keys and default values

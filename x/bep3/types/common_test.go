@@ -8,7 +8,7 @@ import (
 
 	tmtime "github.com/tendermint/tendermint/types/time"
 
-	"github.com/incubus-network/fury/x/bep3/types"
+	"github.com/rotosports/fury/x/bep3/types"
 )
 
 func i(in int64) sdkmath.Int                { return sdkmath.NewInt(in) }

@@ -6,9 +6,9 @@ import (
 	"github.com/stretchr/testify/suite"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/committee/keeper"
-	"github.com/incubus-network/fury/x/committee/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/committee/keeper"
+	"github.com/rotosports/fury/x/committee/types"
 )
 
 // Suite implements a test suite for the module integration tests

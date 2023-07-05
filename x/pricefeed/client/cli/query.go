@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 
-	"github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/x/pricefeed/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

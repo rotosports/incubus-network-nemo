@@ -9,7 +9,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
 
-	"github.com/incubus-network/fury/x/issuance/types"
+	"github.com/rotosports/fury/x/issuance/types"
 )
 
 // Keeper keeper for the issuance module

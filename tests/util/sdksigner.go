@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/incubus-network/fury/app/params"
+	"github.com/rotosports/fury/app/params"
 	"google.golang.org/grpc/codes"
 	grpcstatus "google.golang.org/grpc/status"
 

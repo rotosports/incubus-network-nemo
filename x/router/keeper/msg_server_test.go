@@ -11,11 +11,11 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/incubus-network/fury/app"
-	earntypes "github.com/incubus-network/fury/x/earn/types"
-	"github.com/incubus-network/fury/x/router/keeper"
-	"github.com/incubus-network/fury/x/router/testutil"
-	"github.com/incubus-network/fury/x/router/types"
+	"github.com/rotosports/fury/app"
+	earntypes "github.com/rotosports/fury/x/earn/types"
+	"github.com/rotosports/fury/x/router/keeper"
+	"github.com/rotosports/fury/x/router/testutil"
+	"github.com/rotosports/fury/x/router/types"
 )
 
 type msgServerTestSuite struct {

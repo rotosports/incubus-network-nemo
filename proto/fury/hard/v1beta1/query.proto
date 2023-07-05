@@ -9,7 +9,7 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "fury/hard/v1beta1/hard.proto";
 
-option go_package = "github.com/incubus-network/fury/x/hard/types";
+option go_package = "github.com/rotosports/fury/x/hard/types";
 
 // Query defines the gRPC querier service for bep3 module.
 service Query {

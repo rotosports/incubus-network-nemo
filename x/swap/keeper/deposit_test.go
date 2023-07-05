@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/incubus-network/fury/x/swap/types"
+	"github.com/rotosports/fury/x/swap/types"
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"

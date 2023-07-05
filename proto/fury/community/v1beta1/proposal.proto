@@ -4,7 +4,7 @@ package fury.community.v1beta1;
 import "cosmos/base/v1beta1/coin.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/incubus-network/fury/x/community/types";
+option go_package = "github.com/rotosports/fury/x/community/types";
 
 // CommunityPoolLendDepositProposal deposits from the community pool into lend
 message CommunityPoolLendDepositProposal {

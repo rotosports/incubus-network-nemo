@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"testing"
 
-	types "github.com/incubus-network/fury/x/swap/types"
+	types "github.com/rotosports/fury/x/swap/types"
 
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"

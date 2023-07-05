@@ -4,8 +4,8 @@ import (
 	"errors"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/incubus-network/fury/x/pricefeed/keeper"
-	"github.com/incubus-network/fury/x/pricefeed/types"
+	"github.com/rotosports/fury/x/pricefeed/keeper"
+	"github.com/rotosports/fury/x/pricefeed/types"
 )
 
 // EndBlocker updates the current pricefeed

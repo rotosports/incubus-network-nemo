@@ -6,7 +6,7 @@ package simulation
 
 // 	"github.com/cosmos/cosmos-sdk/x/simulation"
 
-// 	"github.com/incubus-network/fury/x/swap/types"
+// 	"github.com/rotosports/fury/x/swap/types"
 // )
 
 // const (

@@ -5,7 +5,7 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/incubus-network/fury/x/savings/types"
+	"github.com/rotosports/fury/x/savings/types"
 )
 
 // Deposit deposit

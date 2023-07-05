@@ -10,8 +10,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/staking"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/liquid/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/liquid/types"
 )
 
 func (suite *KeeperTestSuite) TestBurnDerivative() {

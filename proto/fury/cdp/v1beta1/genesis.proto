@@ -7,7 +7,7 @@ import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 import "fury/cdp/v1beta1/cdp.proto";
 
-option go_package = "github.com/incubus-network/fury/x/cdp/types";
+option go_package = "github.com/rotosports/fury/x/cdp/types";
 
 // GenesisState defines the cdp module's genesis state.
 message GenesisState {

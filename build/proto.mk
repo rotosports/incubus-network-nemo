@@ -7,7 +7,7 @@ proto-lint check-proto-lint: install-build-deps
 proto-gen: install-build-deps
 	@echo "Generating go proto files"
 	@$(BUF) generate --template proto/buf.gen.gogo.yaml proto
-	@cp -r out/github.com/incubus-network/fury/* ./
+	@cp -r out/github.com/rotosports/fury/* ./
 	@rm -rf out/github.com
 
 .PHONY: check-proto-gen

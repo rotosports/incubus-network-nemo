@@ -6,9 +6,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 
-	"github.com/incubus-network/fury/x/earn/keeper"
-	"github.com/incubus-network/fury/x/earn/testutil"
-	"github.com/incubus-network/fury/x/earn/types"
+	"github.com/rotosports/fury/x/earn/keeper"
+	"github.com/rotosports/fury/x/earn/testutil"
+	"github.com/rotosports/fury/x/earn/types"
 	"github.com/stretchr/testify/suite"
 	"github.com/tendermint/tendermint/crypto"
 )

@@ -16,11 +16,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/earn/keeper"
-	"github.com/incubus-network/fury/x/earn/testutil"
-	"github.com/incubus-network/fury/x/earn/types"
-	liquidtypes "github.com/incubus-network/fury/x/liquid/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/earn/keeper"
+	"github.com/rotosports/fury/x/earn/testutil"
+	"github.com/rotosports/fury/x/earn/types"
+	liquidtypes "github.com/rotosports/fury/x/liquid/types"
 )
 
 type grpcQueryTestSuite struct {

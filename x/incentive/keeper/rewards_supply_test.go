@@ -10,16 +10,16 @@ import (
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
 
-	"github.com/incubus-network/fury/app"
-	"github.com/incubus-network/fury/x/committee"
-	committeekeeper "github.com/incubus-network/fury/x/committee/keeper"
-	committeetypes "github.com/incubus-network/fury/x/committee/types"
-	"github.com/incubus-network/fury/x/hard"
-	hardkeeper "github.com/incubus-network/fury/x/hard/keeper"
-	"github.com/incubus-network/fury/x/incentive/keeper"
-	"github.com/incubus-network/fury/x/incentive/testutil"
-	"github.com/incubus-network/fury/x/incentive/types"
-	furydisttypes "github.com/incubus-network/fury/x/furydist/types"
+	"github.com/rotosports/fury/app"
+	"github.com/rotosports/fury/x/committee"
+	committeekeeper "github.com/rotosports/fury/x/committee/keeper"
+	committeetypes "github.com/rotosports/fury/x/committee/types"
+	"github.com/rotosports/fury/x/hard"
+	hardkeeper "github.com/rotosports/fury/x/hard/keeper"
+	"github.com/rotosports/fury/x/incentive/keeper"
+	"github.com/rotosports/fury/x/incentive/testutil"
+	"github.com/rotosports/fury/x/incentive/types"
+	furydisttypes "github.com/rotosports/fury/x/furydist/types"
 )
 
 type SupplyIntegrationTests struct {

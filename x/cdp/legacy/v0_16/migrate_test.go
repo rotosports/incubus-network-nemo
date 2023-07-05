@@ -11,9 +11,9 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	app "github.com/incubus-network/fury/app"
-	v015cdp "github.com/incubus-network/fury/x/cdp/legacy/v0_15"
-	v016cdp "github.com/incubus-network/fury/x/cdp/types"
+	app "github.com/rotosports/fury/app"
+	v015cdp "github.com/rotosports/fury/x/cdp/legacy/v0_15"
+	v016cdp "github.com/rotosports/fury/x/cdp/types"
 )
 
 type migrateTestSuite struct {
